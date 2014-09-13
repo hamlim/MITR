@@ -36,6 +36,8 @@ class cbreeze {
 			try {
 				//setup the db
 				$this->conn->query("CREATE DATABASE IF NOT EXISTS " . $this->config['db_name'] . $this->config['db_version'] . " DEFAULT COLLATE utf8_unicode_ci");
+				$this->conn->query("USE " . $this->config['db_name'] . $this->config['db_version']);
+				//now we implement the tables that we will use, refer to the main documentation on draftin
 				
 			}
 		}
