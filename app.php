@@ -1,6 +1,6 @@
 <?php
-//started of with some html5boilerplate from html5boilerplate.com
-
+	//started of with some html5boilerplate from html5boilerplate.com
+	
 ?>
 
 <!DOCTYPE html>
