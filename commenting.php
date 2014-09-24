@@ -8,7 +8,7 @@
     $commentContent = mysql_real_escape_string($commentContent);
     $cardId = $_POST['cardid']; 
     $cardId = mysql_real_escape_string($cardId);
-    mysql_query("insert into comments(commentName,commentUsername,commentContent) values ('$commentName','$commentUsername','$commentContent','$cardId')");
+    mysql_query("INSERT INTO comments(commentName,commentUsername,commentContent) VALUES ('$commentName','$commentUsername','$commentContent','$cardId')");
   }
 ?>
 
