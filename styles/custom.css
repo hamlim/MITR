@@ -1,8 +1,15 @@
-#header{
-	backgorund-color: black;
-	color: white;
+#navyo{
+	background-color: black;
 }
 
-#header img{
+#navyo img{
+	padding-top:10px;
 	height: 30px;
+}
+
+#navyo a{
+	color:white;
+}
+#navyo a:visited{
+	color:white;
 }
