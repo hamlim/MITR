@@ -1,0 +1,15 @@
+#navyo{
+	background-color: black;
+}
+
+#navyo img{
+	padding-top:10px;
+	height: 30px;
+}
+
+#navyo a{
+	color:white;
+}
+#navyo a:visited{
+	color:white;
+}
