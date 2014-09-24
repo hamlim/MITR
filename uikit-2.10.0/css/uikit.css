@@ -329,13 +329,13 @@ pre {
 /* Selection pseudo-element 
  ========================================================================== */
 ::-moz-selection {
-  background: #3399ff;
+  background: #303030;
   color: #ffffff;
   text-shadow: none;
 }
 ::selection {
-  background: #3399ff;
-  color: #ffffff;
+  background: #303030;
+  color: white;
   text-shadow: none;
 }
 /* HTML5 elements
@@ -1564,7 +1564,7 @@ ul.uk-nav-sub {
 .uk-nav-offcanvas > .uk-open > a,
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:hover,
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:focus {
-  background: #404040;
+  background: #303030;
   color: #ffffff;
   /* 2 */
   outline: none;
@@ -1603,8 +1603,8 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Navbar
  ========================================================================== */
 .uk-navbar {
-  background: #eeeeee;
-  color: #444444;
+  background-color: black; /*ADDED BY HAYLEY*/
+  color: white;
 }
 /*
  * Micro clearfix
@@ -1624,6 +1624,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   padding: 0;
   list-style: none;
   float: left;
+  background: black; /*ADDED BY HAYLEY*/
 }
 /*
  * 1. Create position context for dropdowns
@@ -1665,8 +1666,8 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-nav > li:hover > a,
 .uk-navbar-nav > li > a:focus,
 .uk-navbar-nav > li.uk-open > a {
-  background-color: #f5f5f5;
-  color: #444444;
+  background-color: #303030; /*ADDED BY HAYLEY*/
+  color: white;
   /* 3 */
   outline: none;
 }
@@ -1677,7 +1678,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /* Active */
 .uk-navbar-nav > li.uk-active > a {
-  background-color: #f5f5f5;
+  background-color: red;
   color: #444444;
 }
 /* Sub-objects: `uk-navbar-nav-subtitle`
@@ -1737,7 +1738,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  ========================================================================== */
 .uk-navbar-brand {
   font-size: 18px;
-  color: #444444;
+  color: #303030;
   text-decoration: none;
 }
 /*
@@ -1755,7 +1756,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  ========================================================================== */
 .uk-navbar-toggle {
   font-size: 18px;
-  color: #444444;
+  color: #303030;
   text-decoration: none;
 }
 /*
@@ -1764,7 +1765,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  */
 .uk-navbar-toggle:hover,
 .uk-navbar-toggle:focus {
-  color: #444444;
+  color: #303030;
   text-decoration: none;
   /* 2 */
   outline: none;
@@ -6020,8 +6021,8 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 .uk-dropdown-navbar {
   margin-top: 0;
-  background: #f5f5f5;
-  color: #444444;
+  background: #303030;
+  color: white;
 }
 .uk-open > .uk-dropdown-navbar {
   -webkit-animation: uk-slide-top-fixed 0.2s ease-in-out;
@@ -6984,3 +6985,5 @@ a.uk-thumbnail:focus {
     page-break-after: avoid;
   }
 }
+
+

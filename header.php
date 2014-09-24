@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
-        <link rel="stylesheet" href="uikit-2.10.0/css/uikit.min.css" />
+        <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
         <link rel="stylesheet" href="styles/custom.css">
         <script src="uikit-2.10.0/js/uikit.min.js"></script>
 
