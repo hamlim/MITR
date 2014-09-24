@@ -16,11 +16,23 @@
 
     </head>
     <body>
-        <div id = "header">
+    <!--
+        <div id = "header" class = >
             <a href = "app.php"><img src = "styles/pics/C-Quip_header.png"></a>
             <a href = "#">Recent Activity</a>
             <a href = "#">AcctName</a>
         </div>
+    -->
+        <nav class="uk-navbar">
+            <div class="uk-navbar-flip">
+                <ul class="uk-navbar-nav">
+                    <li><a href="#">Yo!</a></li>
+                    <li><a href="#">Test</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
 
     </body>
 </html>
