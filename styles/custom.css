@@ -35,6 +35,8 @@
 
 .cardlist{
 	margin-top:0;
+	list-style-type: none;
+	margin-left: -10px;
 }
 
 .card{
