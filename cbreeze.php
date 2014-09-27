@@ -139,6 +139,11 @@
             }
         }
         
+        /** add user
+         * @param: email
+         * @return: N/A
+         */
+        
 
 
 
