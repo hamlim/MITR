@@ -46,9 +46,9 @@
                         password VARCHAR(64) NOT NULL,
                         salt VARCHAR(64) NOT NULL,
                         name VARCHAR(32),
-                        email VARCHAR(32) NOT NULL PRIMARY KEY,
+                        email VARCHAR(32) NOT NULL,
                         isAdmin TINYINT NOT NULL,
-                        userID INT NOT NULL AUTO_INCREMENT
+                        userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS cards (
                         cardID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -131,7 +131,7 @@
                     return $salt;
                 } catch(PDOException $e) {
                     if($this->config['debug'] == 'on'){
-                        cho 'ERROR: ' . $e->getmessage();
+                        echo 'ERROR: ' . $e->getmessage();
                     } else {
                         throw $e;
                     }
@@ -254,5 +254,7 @@
 				throw new Exception(DATABASE_CONNECTION_ERROR);
 			}	
 		}
+    }
+
 
 ?>

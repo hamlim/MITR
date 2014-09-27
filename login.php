@@ -1,65 +1,70 @@
 <?php
-session_start();
-
-// Connect to the database
-try {
-  $dbname = 'cbreeze';
-  $user = 'root';
-  $pass = '';
-  $dbconn = new PDO('mysql:host=?;dbname='.$dbname, $user, $pass);
-}
-catch (Exception $e) {
-  echo "Error: " . $e->getMessage();
-}
-
-
-// Check login
-if (isset($_POST['login']) && $_POST['login'] == 'Login') {
-
-// validate user, setup session variables and check to see if an admin here
-    $salt_stmt = $dbconn->prepare('SELECT salt FROM Users WHERE email=:email');
-    $salt_stmt->execute(array(':email' => $_POST['email']));
-    $res = $salt_stmt->fetch();
-    $salt = ($res) ? $res['salt'] : '';
-    $salted = hash('sha256', $salt . $_POST['pass']);
-
-
-    $login_stmt = $dbconn->prepare('SELECT email, uid, isAdmin FROM Users WHERE email=:email AND password=:password');
-    $login_stmt->execute(array(':email' => $_POST['email'], ':password' => $salted));
+  //Here is the bulk of the sign-in/sign-up page. Here we will render the the user the opportunity to 
+  //  do either action. Note that the idea as of now is to build this modularly so that we can make
+  //  a single page and simply render each php file as needed. This might change in the future.
   
-    if ($user = $login_stmt->fetch()) {
-      $_SESSION['email'] = $user['email'];
-      $_SESSION['uid'] = $user['uid'];
-      $_SESSION['isAdmin'] = $user['isAdmin'];
+	require_once 'cbreeze.php';
+	require 'config.php';
+
+	// if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+    // }
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    	header("location:./app.php");
     }
 
-    // only for admin
-//    if ($user['isAdmin']==true) {
-//      header('Location: registerNewusers.php');
-//      exit();
-//    }
-  } else {
-    if (ini_get("session.use_cookies")) {
-      $params = session_get_cookie_params();
-      setcookie(session_name(), '', time() - 72000,
-          $params["path"], $params["domain"],
-          $params["secure"], $params["httponly"]
-      );
+    $error = array();
+	try {
+		// Create connection to database
+		$db = new cbreeze($config);
+	} catch(Exception $e) {
+		if($config['debug'] == 'on') {
+			array_push($error,'ERROR: ' . $e->getmessage());
+		}
+	}
+	//now we handle the first case in that the user is signing in not signing up.
+	if (isset($_POST['login']) && $_POST['login'] == 'Login') {
+		$uname = $_POST['email'];
+		$pass = $_POST['pass'];
+		try{
+			//verify the user
+			//verifyUser(username, password) returns either true or false
+			$login = $db->verifyUser($email, $pass);
+			//getUserByName(username) returns a user object from mysql tables
+		} catch(Exception $e) {
+			if($config['debug'] == 'on') {
+				array_push($error,'ERROR: ' . $e->getmessage());
+			}
+		}
+		
+		if (isset($login) && $login == true){
+			try {
+				$user = $db->getUserByEmail($email);
+				// echo var_dump($user);
+				$_SESSION['email'] = $user['email'];
+				$_SESSION['name']     = $user['name'];
+				$_SESSION['loggedin'] = true;
+			} catch(Exception $e) {
+				if($config['debug'] == 'on') {
+					array_push($error,'ERROR: ' . $e->getmessage());
+				}
+			}
+		}
+		else {
+			// echo "Incorrect Username or Password!";
+			array_push($error,"Incorrect Username or Password!");
+		}
+	} else if ($_POST['pass'] != $_POST['verify_pass']){
+				$msg = "Passwords must match.";
     }
-  session_destroy();
-    $err = 'Incorrect username or password.';
-  }
 
-
-
-
-// Logout
-if (isset($_SESSION['email']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
-// end your session here
-  $err = 'You have been logged out.';
-}
+	if(isset($_SESSION['email'])) {
+		header('Location: app.php');
+		exit();
+	}
 
 ?>
+
 
 
 <!--HTML codes for logging in-->
