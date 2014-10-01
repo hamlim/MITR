@@ -20,6 +20,7 @@
             <a href = "app.php"><img src = "styles/pics/C-Quip_header.png"></a>
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
+                    <li><a href = "#"><i class="uk-icon-plus"></i>  Add Card</a></li>
                     <li><a href="#">Activity Feed</a></li>
                      <li class="uk-parent" data-uk-dropdown><a href>Username</a>
                         <div class="uk-dropdown uk-dropdown-navbar">
