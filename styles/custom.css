@@ -1,6 +1,13 @@
+body{
+	width: 100%;
+	overflow-x: scroll;
+}
+/*start header css*/
 #navyo{
 	background-color: black;
 	height: 40px;
+	position:fixed;
+	width: 100%;
 }
 
 #navyo img{
@@ -15,11 +22,13 @@
 #navyo a:visited{
 	color:white;
 }
-
+/*end header css*/
+/*start column css*/
 #columnslist{
 	list-style-type: none;
 	margin:0;
 	padding: 0;
+	white-space:nowrap;
 }
 
 .column{
@@ -33,6 +42,13 @@
 	border: 1px red solid;
 }
 
+.column h2{
+	text-align: center;
+	margin-top: 50px;
+}
+/*end column css*/
+
+/*start card css*/
 .cardlist{
 	margin-top:0;
 	list-style-type: none;

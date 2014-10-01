@@ -22,7 +22,8 @@
     </head>
     <body>
         <ul id = "columnslist">
-            <li class = "column"> <!--MAKE HEADERS FOR EAC COLUMS, YOYOYOYOYOOOOOOOOOOO-->
+            <li class = "column">
+                <h2>Heading</h2> <!--MAKE HEADERS FOR EAC COLUMS, YOYOYOYOYOOOOOOOOOOO-->
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
                     <li class = "card">Yo</li>
@@ -34,6 +35,7 @@
             </li>
             <!--new column-->
             <li class = "column">
+                <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
                     <li class = "card">Yo</li>
@@ -41,6 +43,7 @@
             </li>
             <!--new column-->
             <li class = "column">
+                <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
                     <li class = "card">Yo</li>
@@ -49,8 +52,18 @@
             </li>
             <!--new column-->
             <li class = "column">
+                <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
+                    <li class = "card">Yo</li>
+                    <li class = "card">Yo</li>
+                    <li class = "card">Yo</li>
+                </ul>
+            </li>
+            <!--new column-->
+            <li class = "column">
+                <h2>Heading</h2>
+                <ul class = "cardlist">
                     <li class = "card">Yo</li>
                     <li class = "card">Yo</li>
                     <li class = "card">Yo</li>
