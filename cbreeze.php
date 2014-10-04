@@ -254,6 +254,8 @@
 				throw new Exception(DATABASE_CONNECTION_ERROR);
 			}	
 		}
+        
+        
     }
 
 
