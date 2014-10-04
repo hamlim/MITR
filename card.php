@@ -28,22 +28,30 @@
          */
         
         /* 
-        Format of the selectedelems json: NOTE: this is formatted in the JS on the client side
+        Format of selectedelems json: NOTE: this is formatted in the JS on the client side
         {
             {
                 "cardname" : "name here",
             },
             {
                 "fieldname" : "title",
-                "fieldtype" : "stf"
+                "fieldtype" : "stf",
+                "fielddata" : "..."
             },
             {
                 "fieldname" : "notes",
-                "fieldtype" : "ltf"
+                "fieldtype" : "ltf",
+                "fielddata" : "..."
             },
             {
                 "fieldname" : "to do date",
-                "fieldtype" : "date"
+                "fieldtype" : "date",
+                "fielddata" : datetime obj.
+            },
+            {
+                "fieldname" : "primary contact",
+                "fieldtype" : "stf",
+                "fielddata" : "steve rich"
             }
         }
         
