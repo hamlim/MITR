@@ -11,6 +11,9 @@
 		}
 	}
     
+    // $db is the database connection
+    
+    
     class card {
         
     }
