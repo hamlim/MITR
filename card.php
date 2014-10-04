@@ -32,6 +32,8 @@
         {
             {
                 "cardname" : "name here",
+                "priority" : 0,
+                "colorcode": "red"
             },
             {
                 "fieldname" : "title",
@@ -77,6 +79,9 @@
          * @return: void
          */
         public function makeCard($data){
+            //we need to collect the data in the $data json
+            //first we decode it
+            $dataarray = json_decode($data);
             
         }
         
