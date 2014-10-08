@@ -1,9 +1,9 @@
 <?php
 	define('DATABASE_CONNECTION_ERROR', "Not connected to the database");
 	define('USER_CREATION_ERROR', "User could not be created");
-	define('USER_NOT_FOUND_ERROR' , "User could not be found");
-	define('USER_NOT_DELTED_ERROR' , "User could not be deleted");
-	define('SALT_NOT_FOUND_ERROR' , "Salt could not be found");
+	define('USER_NOT_FOUND_ERROR', "User could not be found");
+	define('USER_NOT_DELTED_ERROR', "User could not be deleted");
+	define('SALT_NOT_FOUND_ERROR', "Salt could not be found");
 	
     class cbreeze {
         private $conn = NULL;
@@ -254,6 +254,7 @@
 				throw new Exception(DATABASE_CONNECTION_ERROR);
 			}	
 		}
+        
         
         
     }
