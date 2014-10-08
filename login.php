@@ -24,8 +24,8 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
     $salted = hash('sha256', $salt . $_POST['pass']);
 
 
-    $login_stmt = $dbconn->prepare('SELECT username, uid, isAdmin FROM Users WHERE username=:username AND password=:password');
-    $login_stmt->execute(array(':username' => $_POST['username'], ':password' => $salted));
+    $login_stmt = $dbconn->prepare('SELECT email, uid, isAdmin FROM Users WHERE email=:email AND password=:password');
+    $login_stmt->execute(array(':email' => $_POST['email'], ':password' => $salted));
   
     if ($user = $login_stmt->fetch()) {
       $_SESSION['username'] = $user['username'];
@@ -47,13 +47,13 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
       );
     }
   session_destroy();
-    $err = 'Incorrect username or password.';
+    $err = 'Incorrect email or password.';
   }
 
 
 
 // Logout
-if (isset($_SESSION['username']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
+if (isset($_SESSION['email']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
 // end your session here
   $err = 'You have been logged out.';
 }
