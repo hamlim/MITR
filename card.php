@@ -30,31 +30,33 @@
         /* 
         Format of selectedelems json: NOTE: this is formatted in the JS on the client side
         {
-            {
-                "cardname" : "name here",
-                "priority" : 0,
-                "colorcode": "red"
+            "info": {
+                    "cardname" : "name here",
+                    "priority" : 0,
+                    "colorcode": "red"
             },
-            {
-                "fieldname" : "title",
-                "fieldtype" : "stf",
-                "fielddata" : "..."
-            },
-            {
-                "fieldname" : "notes",
-                "fieldtype" : "ltf",
-                "fielddata" : "..."
-            },
-            {
-                "fieldname" : "to do date",
-                "fieldtype" : "date",
-                "fielddata" : datetime obj.
-            },
-            {
-                "fieldname" : "primary contact",
-                "fieldtype" : "stf",
-                "fielddata" : "steve rich"
-            }
+            "fields": [
+                {
+                    "fieldname" : "title",
+                    "fieldtype" : "stf",
+                    "fielddata" : "..."
+                },
+                {
+                    "fieldname" : "notes",
+                    "fieldtype" : "ltf",
+                    "fielddata" : "..."
+                },
+                {
+                    "fieldname" : "to do date",
+                    "fieldtype" : "date",
+                    "fielddata" : datetime obj.
+                },
+                {
+                    "fieldname" : "primary contact",
+                    "fieldtype" : "stf",
+                    "fielddata" : "steve rich"
+                }
+            ]
         }
         
         stf = short text field = smallTextField in the db
