@@ -74,24 +74,29 @@ body{
 	position:fixed;
 	top:40px;
 	right:0px;
-	width:400px;
-	height:20px;
+	width:25%;
+	height:0px;
 	overflow:hidden;
 	background-color:black;
-	color: red;
-	transition: height 1s;
-}
-#activityfeed.click{
-	height: 130px;
+	color: white;
 	transition: height 1s;
 }
 
+#activityfeed.clicked{
+	-webkit-transition:1s;
+    height:120px;
+    padding-top:15px;
+ }
 
 #activitylist{
 
 }
 
+#acttogglebutton:hover{
+	cursor: pointer;
+	cursor: hand;
+}
+
 .activity{
 
 }
-

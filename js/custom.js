@@ -5,7 +5,7 @@
 	    });
 */
 
-//toggle show/hide for sactivity feed, yo
-$('#activityfeedlink').on('click', function() {
-    $(this).toggleClass('clicked');
+//toggle show/hide for activity feed, yo -- this code works
+$('#acttogglebutton').on('click', function() {
+    $("#activityfeed").toggleClass('clicked');
 });

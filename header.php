@@ -22,7 +22,7 @@
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
                     <li><a href = "#"><i class="uk-icon-plus"></i>Add Card</a></li>
-                    <li><a href="#"><i class="uk-icon-list-ul"></i>Activity Feed</a></li>
+                    <li id = "acttogglebutton"><a href="#"><i class="uk-icon-list-ul acttoggle"></i>Activity Feed</a></li>
                      <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-chevron-down"></i>Username</a>
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class = "uk-nav uk-nav-navbar">
