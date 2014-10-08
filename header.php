@@ -26,8 +26,8 @@
                      <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-chevron-down"></i>Username</a>
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class = "uk-nav uk-nav-navbar">
-                                <li><a href="#">Settings</a></li>
-                                <li><a href="#">Blah</a></li>
+                                <li><a href="settings.php">Settings</a></li>
+<!--                                <li><a href="#">Blah</a></li>-->
                                 <li><a href="#">Log Out</a></li>
                             </ul>
                         </div>  
