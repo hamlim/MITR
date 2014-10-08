@@ -34,7 +34,7 @@
         </div>
         <!--start columns-->
         <ul id = "columnslist">
-            <li class = "column">
+            <li class = "column" id = "col1">
                 <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
@@ -46,7 +46,7 @@
                 </ul>
             </li>
             <!--new column-->
-            <li class = "column">
+            <li class = "column" id = "col2">
                 <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
@@ -54,7 +54,7 @@
                 </ul>
             </li>
             <!--new column-->
-            <li class = "column">
+            <li class = "column" id = "col3">
                 <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
@@ -63,7 +63,7 @@
                 </ul>
             </li>
             <!--new column-->
-            <li class = "column">
+            <li class = "column" id = "col4">
                 <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
@@ -73,7 +73,7 @@
                 </ul>
             </li>
             <!--new column-->
-            <li class = "column">
+            <li class = "column" id = "col5">
                 <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
