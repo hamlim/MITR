@@ -3,10 +3,10 @@ session_start();
 
 // Connect to the database
 try {
-  $dbname = 'cbreeze';
-  $user = 'root';
-  $pass = '';
-  $dbconn = new PDO('mysql:host=?;dbname='.$dbname, $user, $pass);
+  $dbname = 'hamlim_cbreeze'; //these are examples used on matt's local server
+  $user = 'hamlim_root'; //example
+  $pass = 'rootroot'; //example
+  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
 }
 catch (Exception $e) {
   echo "Error: " . $e->getMessage();
@@ -17,8 +17,8 @@ catch (Exception $e) {
 if (isset($_POST['login']) && $_POST['login'] == 'Login') {
 
 // validate user, setup session variables and check to see if an admin here
-    $salt_stmt = $dbconn->prepare('SELECT salt FROM Users WHERE username=:username');
-    $salt_stmt->execute(array(':username' => $_POST['username']));
+    $salt_stmt = $dbconn->prepare('SELECT salt FROM Users WHERE email=:email');
+    $salt_stmt->execute(array(':email' => $_POST['email']));
     $res = $salt_stmt->fetch();
     $salt = ($res) ? $res['salt'] : '';
     $salted = hash('sha256', $salt . $_POST['pass']);
@@ -28,25 +28,25 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
     $login_stmt->execute(array(':email' => $_POST['email'], ':password' => $salted));
   
     if ($user = $login_stmt->fetch()) {
-      $_SESSION['username'] = $user['username'];
+      $_SESSION['email'] = $user['email'];
       $_SESSION['uid'] = $user['uid'];
       $_SESSION['isAdmin'] = $user['isAdmin'];
     }
 
     // only for admin
     if ($user['isAdmin']==true) {
-      header('Location: registerNewusers.php');
+      header('Location: settings.php');
       exit();
     }
   } else {
-    if (ini_get("session.use_cookies")) {
-      $params = session_get_cookie_params();
-      setcookie(session_name(), '', time() - 72000,
-          $params["path"], $params["domain"],
-          $params["secure"], $params["httponly"]
-      );
-    }
-  session_destroy();
+//    if (ini_get("session.use_cookies")) {
+//      $params = session_get_cookie_params();
+//      setcookie(session_name(), '', time() - 72000,
+//          $params["path"], $params["domain"],
+//          $params["secure"], $params["httponly"]
+//      );
+//    }
+    session_destroy();
     $err = 'Incorrect email or password.';
   }
 
@@ -68,8 +68,8 @@ if (isset($_SESSION['email']) && isset($_POST['logout']) && $_POST['logout'] == 
   <title>Login</title>
 </head>
 <body>
-  <?php if (isset($_SESSION['username'])): ?>
-  <h1>Welcome, <?php echo htmlentities($_SESSION['username']) ?></h1>
+  <?php if (isset($_SESSION['email'])): ?>
+  <h1>Welcome, <?php echo htmlentities($_SESSION['email']) ?></h1>
   <form method="post" action="login.php">
     <input name="logout" type="submit" value="Logout" />
   </form>
