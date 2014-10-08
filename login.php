@@ -49,7 +49,6 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
   session_destroy();
     $err = 'Incorrect username or password.';
   }
-}
 
 
 
