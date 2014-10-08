@@ -4,3 +4,8 @@
 	        backgroundColor: '#' + colorhex
 	    });
 */
+
+//toggle show/hide for sactivity feed, yo
+$('#activityfeedlink').on('click', function() {
+    $(this).toggleClass('clicked');
+});

@@ -18,12 +18,24 @@
         <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
         <link rel="stylesheet" href="styles/custom.css">
         <!--link to js-->
-        <script src="uikit-2.10.0/js/uikit.min.js"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
+        <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
     <body>
+        <!--activity feed, yo-->
+        <div id = "activityfeed">
+            <ul id = "activitylist">
+                <li class = "activity">Hayley made changes to <a href = "#" target = "_blank">this thing right here</a></li>
+                <li class = "activity">Jessie made changes to <a href = "#" target = "_blank">that thing by the other thing</a></li>
+                <li class = "activity">Chris made changes to <a href = "#" target = "_blank">that one weird thing over there</a></li>
+                <li class = "activity">Wow made changes to <a href = "#" target = "_blank">this thing found here</a></li>
+                <li class = "activity">Matt made changes to <a href = "#" target = "_blank">that thing waaay over there</a></li>
+            </ul>
+        </div>
+        <!--start columns-->
         <ul id = "columnslist">
             <li class = "column">
-                <h2>Heading</h2> <!--MAKE HEADERS FOR EAC COLUMS, YOYOYOYOYOOOOOOOOOOO-->
+                <h2>Heading</h2>
                 <ul class = "cardlist">
                     <li class = "card">Yo</li>
                     <li class = "card">Yo</li>

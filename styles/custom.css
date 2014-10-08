@@ -37,7 +37,7 @@ body{
 }
 
 .column{
-	top:40px;
+	top:100px;
 	display:inline-block;
 	vertical-align: top;
 	margin-left:-5px;
@@ -69,3 +69,29 @@ body{
 	margin: 20px;
 
 }
+
+#activityfeed{
+	position:fixed;
+	top:40px;
+	right:0px;
+	width:400px;
+	height:20px;
+	overflow:hidden;
+	background-color:black;
+	color: red;
+	transition: height 1s;
+}
+#activityfeed.click{
+	height: 130px;
+	transition: height 1s;
+}
+
+
+#activitylist{
+
+}
+
+.activity{
+
+}
+
