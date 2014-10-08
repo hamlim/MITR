@@ -19,8 +19,13 @@ body{
 #navyo a{
 	color:white;
 }
+
 #navyo a:visited{
 	color:white;
+}
+
+#navyo i{
+	margin-right: 7px;
 }
 /*end header css*/
 /*start column css*/
