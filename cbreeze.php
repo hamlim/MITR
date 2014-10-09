@@ -256,6 +256,74 @@
 		}
         
         
+        /* 
+        
+        Card functionality:
+        ------------------------------------------------------
+        
+        Format of selectedelems json: NOTE: this is formatted in the JS on the client side
+        {
+            "info": {
+                    "cardname" : "name here",
+                    "priority" : 0,
+                    "colorcode": "red"
+            },
+            "fields": [
+                {
+                    "fieldname" : "title",
+                    "fieldtype" : "stf",
+                    "fielddata" : "..."
+                },
+                {
+                    "fieldname" : "notes",
+                    "fieldtype" : "ltf",
+                    "fielddata" : "..."
+                },
+                {
+                    "fieldname" : "to do date",
+                    "fieldtype" : "date",
+                    "fielddata" : datetime obj.
+                },
+                {
+                    "fieldname" : "primary contact",
+                    "fieldtype" : "stf",
+                    "fielddata" : "steve rich"
+                }
+            ]
+        }
+        
+        stf = short text field = smallTextField in the db
+        ltf = long text field = largeTextField in the db
+        date = timedate = date in the db
+        
+        
+        */
+        
+        public function setFormat($selectedelems){
+            $jsonarray = json_decode($selectedelems, true);
+            $jsonarray['info']['cardname'] = "EXAMPLE";
+            $altarray = json_encode($jsonarray);
+            makeCard($altarray);
+        }
+        
+        public function makeCard($data){
+            //first we need to decode the data
+            $dataarray = json_decode($data);
+            
+        }
+        
+        public function changePriority($newpriority, $cardID){
+            //we need to simply change the priority in the db
+        }
+        
+        
+        
+        /* 
+        Managerial Functionality:
+        -----------------------------------------
+        
+        */
+        
         
     }
 
