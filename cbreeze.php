@@ -146,12 +146,11 @@
          * @return: N/A
          */
         
-        public function addUser($email){
+        public function addUser($email, $password = "seamonkey"){
             if($this->conn != NULL){
                 try {
-                    $temppassword = "cbreeze";
                     $salt = $this->createSalt();
-                    $hash = $this->hashPassword($temppassword, $salt);
+                    $hash = $this->hashPassword($password, $salt);
                     if ($this->conn->exec("INSERT INTO `users` (
 						`email`, `password`, `salt`) VALUES (
 						'$email', '$hash', '$salt');") != 0) {
