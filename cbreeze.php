@@ -315,6 +315,15 @@
             //we need to simply change the priority in the db
         }
         
+        public function changeColumn($cardID, $columnID){
+            
+        }
+        
+        public function getPriority($cardID){
+            
+        };
+        
+        
         
         
         /* 
