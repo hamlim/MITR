@@ -34,6 +34,7 @@ body{
 	margin:0;
 	padding: 0;
 	white-space:nowrap;
+	overflow-y: hidden;
 }
 
 .column{
@@ -45,6 +46,8 @@ body{
 	min-height: 70px;
 	background-color: #eee;
 	border: 1px black solid;
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
 }
 li {
     height: 100%;
