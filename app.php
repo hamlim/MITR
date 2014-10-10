@@ -21,7 +21,7 @@
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body onload="columns();">
         <!--activity feed, yo-->
         <div id = "activityfeed">
             <ul id = "activitylist">
