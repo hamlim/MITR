@@ -332,7 +332,9 @@
         
         */
         
-        
+        public function editColumnColor($columnID, $color){
+            
+        }
     }
 
 
