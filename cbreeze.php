@@ -4,6 +4,7 @@
 	define('USER_NOT_FOUND_ERROR', "User could not be found");
 	define('USER_NOT_DELTED_ERROR', "User could not be deleted");
 	define('SALT_NOT_FOUND_ERROR', "Salt could not be found");
+    define('CARD_CREATION_ERROR', "Card could not be created");
 	
     class cbreeze {
         private $conn = NULL;
@@ -55,7 +56,7 @@
                         cardName VARCHAR(32) NOT NULL,
                         smallTextField MEDIUMTEXT,
                         largeTextField MEDIUMTEXT,
-                        date MEDIUMTEXT,
+                        dateField MEDIUMTEXT,
                         colorCode VARCHAR(10),
                         priority INT,
                         columnIDFK INT NOT NULL,
@@ -400,7 +401,7 @@
          */
         public function makeCard($data){
             //first we need to decode the data
-            $dataarray = json_decode($data);
+            $dataarray = json_decode($data, true);
             //first we define the example card
             if ($this->conn != NULL){
                 /* 
@@ -412,7 +413,31 @@
                 
                 */
                 $cardname = $dataarray['info']['cardname'];
-                $
+                $priority = 0;
+                $colorcode = "null";
+                $ltf = $dataarray['ltf-fields'];
+                $ltfstring = json_encode($ltf);
+                $stf = $dataarray['stf-fields'];
+                $stfstring = json_encode($stf);
+                $date = $dataarray['date-fields'];
+                $datestring = json_encode($date);
+                
+                try {
+                    if ($this->conn->exec("INSERT INTO `cards` (
+						`cardName`, `priority`, `colorCode`, `smallTextField`, `largeTextField`, `dateField`) VALUES (
+						'$cardname', '$priority', '$colorcode', '$stfstring', '$ltfstring', '$datestring');") != 0) {
+					} else {
+						throw new Exception(CARD_CREATION_ERROR);
+					}
+                } catch(PDOException $e) {
+                    if ($this->config['debug'] == 'on') {
+						echo 'ERROR: ' . $e->getmessage();
+					} else {
+						throw $e;
+					}
+                }
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
             }
             
         }
