@@ -395,8 +395,8 @@
             
             
         /**
-         * @param: 
-         * @return:
+         * @param: $data a json of the card info from the frontend
+         * @return: null
          */
         public function makeCard($data){
             //first we need to decode the data
@@ -411,7 +411,8 @@
                 3. we initialize the colorcode to null
                 
                 */
-                
+                $cardname = $dataarray['info']['cardname'];
+                $
             }
             
         }
@@ -431,21 +432,32 @@
         public function changeColumn($cardname, $tocolumnID){
             
         }
-        
-        /**
-         * @param: $cardname - name of the card
-         * @return: int of the priority of the card
-         */
-        public function getPriority($cardname){
-            
-        }
-        
+                
         /**
          * @param: null
          * @return: JSON array of columns in order with their information
          */
         public function getColumns(){
-            
+            $returnarr = []; //initialize the return array
+            if( $this->conn != NULL){
+                //we are connected to the db
+                
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
+        }
+        
+        /**
+         * @param: $cardID - the CardID
+         * @return: json array of the card
+         */
+        public function getCard($cardID){
+            if( $this->conn != NULL){
+                //we are connected to the db
+                
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
         }
         
         /**
@@ -453,7 +465,12 @@
          * @return: JSON array of the individual cards all in the column given
          */
         public function getCards($columnID){
-            
+            if( $this->conn != NULL){
+                //we are connected to the db
+                
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
         }
         
         
