@@ -52,6 +52,7 @@
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS cards (
                         cardID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+                        cardName VARCHAR(32) NOT NULL,
                         smallTextField MEDIUMTEXT,
                         largeTextField MEDIUMTEXT,
                         date MEDIUMTEXT,
@@ -267,28 +268,32 @@
                     "priority" : 0,
                     "colorcode": "red"
             },
-            "fields": [
-                {
-                    "fieldname" : "title",
-                    "fieldtype" : "stf",
-                    "fielddata" : "..."
-                },
+            "ltf-fields": [
                 {
                     "fieldname" : "notes",
                     "fieldtype" : "ltf",
                     "fielddata" : "..."
-                },
-                {
-                    "fieldname" : "to do date",
-                    "fieldtype" : "date",
-                    "fielddata" : datetime obj.
+                }
+            ],
+            "stf-fields": [
+                {   
+                    "fieldname" : "title",
+                    "fieldtype" : "stf",
+                    "fielddata" : "..."
                 },
                 {
                     "fieldname" : "primary contact",
                     "fieldtype" : "stf",
                     "fielddata" : "steve rich"
                 }
-            ]
+            ],
+            "date-fields": [
+                {
+                    "fieldname" : "to do date",
+                    "fieldtype" : "date",
+                    "fielddata" : datetime obj.
+                }
+            ],
         }
         
         stf = short text field = smallTextField in the db
@@ -305,9 +310,90 @@
             makeCard($altarray);
         }
         
+        public function getFormat(){
+            if ($this->conn != NULL){
+                //get the example card data
+				$query = $this->conn->prepare("SELECT * FROM cards WHERE `cardName`='EXAMPLE' LIMIT 1");
+                $query->execute(); //execute the query
+
+				$s = $query->fetch(); //collect what the db returns
+                //$s['cardName'] == EXAMPLE
+                
+                $returnarr();
+                //we need to know the number of ltf's, stf's, and dates
+                $numofltf = 0;
+                $numofstf = 0;
+                $numofdate = 0;
+                //make an array of ltf field names after
+                foreach ($s['ltf-fields'] as $elems){
+                    $numofltf = $numofltf + 1;
+                }
+                if ($numofltf != 0){
+                    $ltfarr();
+                    for ($i = 0; i<$numofltf; ++$i){
+                        $ltfarr[] = $s['ltf-fields'][i]['fieldname'];
+                    }
+                    $returnarr['ltf'] = $ltfarr;
+                }
+                //make an array of stf field names after
+                foreach ($s['stf-fields'] as $elems){
+                    $numofstf = $numofstf + 1;
+                }
+                if ($numofstf != 0){
+                    $stfarr();
+                    for ($i = 0; i<$numofstf; ++$i){
+                        $stfarr[] = $s['stf-fields'][i]['fieldname'];
+                    }
+                    $returnarr['stf'] = $stfarr;
+                }
+                //make an array of date field names after
+                foreach ($s['date-fields'] as $elems){
+                    $numofdate = $numofdate + 1;
+                }
+                if ($numofdate != 0){
+                    $datearr();
+                    for ($i = 0; i<$numofdate; ++$i){
+                        $datearr[] = $s['date-fields'][i]['fieldname'];
+                    }
+                    $returnarr['date'] = $datearr;
+                }
+                
+                $jsonreturn = json_encode($returnarr);
+                return $jsonreturn;
+            } else {
+        		throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
+        }
+        
+        /*
+        JSON from php to js:
+        
+        "ltf": [
+            "onefieldname",
+            "anotherfieldname"
+        ],
+        "stf": [
+            "onefieldname",
+            "anotherfieldname",
+            "yetanotherfieldname"
+        ],
+        "date": [
+            "onedatefieldname"
+        ]
+        
+        
+        */
+        
+            
+            
+        
         public function makeCard($data){
             //first we need to decode the data
             $dataarray = json_decode($data);
+            //first we define the example card
+            if ($this->conn != NULL){
+                //now we analyze the input data and format it and then insert it into the db
+            }
             
         }
         
@@ -321,7 +407,9 @@
         
         public function getPriority($cardID){
             
-        };
+        }
+        
+        
         
         
         
