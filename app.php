@@ -1,6 +1,8 @@
 <?php
 	//started of with some html5boilerplate from html5boilerplate.com
 	include "header.php";
+	///* login page */
+	//include "login.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +24,16 @@
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
     <body onload="columns();">
+    
+    	<!--IF not logging in-->
+        <?php if (!isset($_SESSION['username'])):
+            //it should work when we have users in the database
+            //exit();
+        ?>
+
+        <!--ELSE-->
+        <?php else: ?>
+        
         <!--activity feed, yo-->
         <div id = "activityfeed">
             <ul id = "activitylist">
@@ -82,6 +94,9 @@
                 </ul>
             </li>
         </ul>
+        
+        <!--END IF-->
+        <?php endif; ?>
 
         <script src="js/main.js"></script>
     </body>
