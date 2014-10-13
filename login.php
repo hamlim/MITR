@@ -46,17 +46,17 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
 //          $params["secure"], $params["httponly"]
 //      );
 //    }
-    session_destroy();
+    //session_destroy();
     $err = 'Incorrect email or password.';
   }
 
 
 
 // Logout
-if (isset($_SESSION['email']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
+//if (isset($_SESSION['email']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
 // end your session here
-  $err = 'You have been logged out.';
-}
+//  $err = 'You have been logged out.';
+//}
 
 ?>
 
@@ -65,7 +65,19 @@ if (isset($_SESSION['email']) && isset($_POST['logout']) && $_POST['logout'] == 
 <!doctype html>
 <html>
 <head>
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Login</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  <!--links to stylesheets-->
+  <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
+  <link rel="stylesheet" href="styles/custom.css">
+  <!--link to js-->
+  <script src="js/custom.js" type="text/javascript"></script>
+  <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
 </head>
 <body>
   <?php if (isset($_SESSION['email'])): ?>
