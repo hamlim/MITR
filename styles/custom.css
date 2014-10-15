@@ -44,17 +44,11 @@ body{
 	margin-left:-5px;
 	width: 25%;
 	min-height: 70px;
-<<<<<<< HEAD
 	background-color: blue;
 	border: 1px red solid;
 	margin-bottom: 600px;
-=======
-	background-color: #eee;
-	border: 1px black solid;
-	margin-bottom: -99999px;
-	padding-bottom: 99999px;
->>>>>>> origin/dev
 }
+
 li {
     height: 100%;
 }
