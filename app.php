@@ -26,13 +26,13 @@
     <body onload="columns();">
     
     	<!--IF not logging in-->
-        <?php if (!isset($_SESSION['username'])):
+        <?php //if (!isset($_SESSION['username'])):
             //it should work when we have users in the database
             //exit();
         ?>
 
         <!--ELSE-->
-        <?php else: ?>
+        <?php //else: ?>
         
         <!--activity feed, yo-->
         <div id = "activityfeed">
@@ -96,7 +96,7 @@
         </ul>
         
         <!--END IF-->
-        <?php endif; ?>
+        <?php //endif; ?>
 
         <script src="js/main.js"></script>
     </body>
