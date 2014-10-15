@@ -3,10 +3,10 @@ session_start();
 
 // Connect to the database
 try {
-  $dbname = 'cbreeze';
-  $user = 'root';
-  $pass = '';
-  $dbconn = new PDO('mysql:host=?;dbname='.$dbname, $user, $pass);
+  $dbname = 'hamlim_cbreeze'; //these are examples used on matt's local server
+  $user = 'hamlim_root'; //example
+  $pass = 'rootroot'; //example
+  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
 }
 catch (Exception $e) {
   echo "Error: " . $e->getMessage();
@@ -17,47 +17,46 @@ catch (Exception $e) {
 if (isset($_POST['login']) && $_POST['login'] == 'Login') {
 
 // validate user, setup session variables and check to see if an admin here
-    $salt_stmt = $dbconn->prepare('SELECT salt FROM Users WHERE username=:username');
-    $salt_stmt->execute(array(':username' => $_POST['username']));
+    $salt_stmt = $dbconn->prepare('SELECT salt FROM Users WHERE email=:email');
+    $salt_stmt->execute(array(':email' => $_POST['email']));
     $res = $salt_stmt->fetch();
     $salt = ($res) ? $res['salt'] : '';
     $salted = hash('sha256', $salt . $_POST['pass']);
 
 
-    $login_stmt = $dbconn->prepare('SELECT username, uid, isAdmin FROM Users WHERE username=:username AND password=:password');
-    $login_stmt->execute(array(':username' => $_POST['username'], ':password' => $salted));
+    $login_stmt = $dbconn->prepare('SELECT email, uid, isAdmin FROM Users WHERE email=:email AND password=:password');
+    $login_stmt->execute(array(':email' => $_POST['email'], ':password' => $salted));
   
     if ($user = $login_stmt->fetch()) {
-      $_SESSION['username'] = $user['username'];
+      $_SESSION['email'] = $user['email'];
       $_SESSION['uid'] = $user['uid'];
       $_SESSION['isAdmin'] = $user['isAdmin'];
     }
 
     // only for admin
     if ($user['isAdmin']==true) {
-      header('Location: registerNewusers.php');
+      header('Location: settings.php');
       exit();
     }
   } else {
-    if (ini_get("session.use_cookies")) {
-      $params = session_get_cookie_params();
-      setcookie(session_name(), '', time() - 72000,
-          $params["path"], $params["domain"],
-          $params["secure"], $params["httponly"]
-      );
-    }
-  session_destroy();
-    $err = 'Incorrect username or password.';
+//    if (ini_get("session.use_cookies")) {
+//      $params = session_get_cookie_params();
+//      setcookie(session_name(), '', time() - 72000,
+//          $params["path"], $params["domain"],
+//          $params["secure"], $params["httponly"]
+//      );
+//    }
+    //session_destroy();
+    $err = 'Incorrect email or password.';
   }
-}
 
 
 
 // Logout
-if (isset($_SESSION['username']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
+//if (isset($_SESSION['email']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
 // end your session here
-  $err = 'You have been logged out.';
-}
+//  $err = 'You have been logged out.';
+//}
 
 ?>
 
@@ -66,11 +65,23 @@ if (isset($_SESSION['username']) && isset($_POST['logout']) && $_POST['logout'] 
 <!doctype html>
 <html>
 <head>
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Login</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  <!--links to stylesheets-->
+  <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
+  <link rel="stylesheet" href="styles/custom.css">
+  <!--link to js-->
+  <script src="js/custom.js" type="text/javascript"></script>
+  <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
 </head>
 <body>
-  <?php if (isset($_SESSION['username'])): ?>
-  <h1>Welcome, <?php echo htmlentities($_SESSION['username']) ?></h1>
+  <?php if (isset($_SESSION['email'])): ?>
+  <h1>Welcome, <?php echo htmlentities($_SESSION['email']) ?></h1>
   <form method="post" action="login.php">
     <input name="logout" type="submit" value="Logout" />
   </form>
