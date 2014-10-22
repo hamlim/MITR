@@ -448,14 +448,26 @@
          */
         public function changePriority($newpriority, $cardname){
             //we need to simply change the priority in the db
+            if ($this->conn != NULL) {
+				$query = $this->conn->prepare("UPDATE `cards` SET `priority`='$newpriority' WHERE `cardName`='$cardname'");
+				$query->execute();
+			} else {
+				throw new Exception(DATABASE_CONNECTION_ERROR);
+			}
         }
         
         /**
-         * @param:  $cardname of the card, $tocolumnID - column to where the card is moved to
+         * @param:  $cardname of the card, $newcolumnID - column to where the card is moved to
          * @return: null
          */
-        public function changeColumn($cardname, $tocolumnID){
-            
+        public function changeColumn($cardname, $newcolumnID){
+            if ($this->conn != NULL) {
+                //simply update the columnID for the card
+				$query = $this->conn->prepare("UPDATE `cards` SET `columnIDFK`='$newcolumnID' WHERE `cardName`='$cardname'");
+				$query->execute();
+			} else {
+				throw new Exception(DATABASE_CONNECTION_ERROR);
+			}
         }
                 
         /**
@@ -466,7 +478,12 @@
             $returnarr = []; //initialize the return array
             if( $this->conn != NULL){
                 //we are connected to the db
+                $query = $this->conn->prepare("SELECT * FROM `columns`");
                 
+                $query->execute();
+                
+                $data = $query->fetch();
+                // $data is an array
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
