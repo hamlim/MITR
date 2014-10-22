@@ -156,6 +156,7 @@
                     if ($this->conn->exec("INSERT INTO `users` (
 						`email`, `password`, `salt`) VALUES (
 						'$email', '$hash', '$salt');") != 0) {
+                        return true;
 					} else {
 						throw new Exception(USER_CREATION_ERROR);
 					}
@@ -535,6 +536,19 @@
             }
         }
         
+        
+        /**
+         * @param: $cardID - Id of the card to change the color, $colorname
+         * @return: 
+         */
+        public function updateCardColor($cardID, $colorname){
+            if ( $this->conn != NULL){
+                //we are connected to the db
+                
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
+        }
         
         
         

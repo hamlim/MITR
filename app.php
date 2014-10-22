@@ -1,6 +1,15 @@
 <?php
 	//started of with some html5boilerplate from html5boilerplate.com
+    require_once "config.php";
+    require_once "cbreeze.php";
 	include "header.php";
+
+    try {
+        require "config.php";
+        $db = new cbreeze($config);
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+    }
 	///* login page */
 	//include "login.php";
 ?>
