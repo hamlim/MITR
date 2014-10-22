@@ -103,6 +103,11 @@ li {
 	font-size: 18px;
 }
 
+.cardheader i{
+	margin-left:200px;
+	padding-top:3px;
+}
+
 .cardtitle{
 	color:white;
 	padding-left: 25px;
