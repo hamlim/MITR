@@ -484,6 +484,8 @@
                 
                 $data = $query->fetch();
                 // $data is an array
+                //i need to format the array into a JSON array
+                
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
@@ -496,6 +498,11 @@
         public function getCard($cardID){
             if( $this->conn != NULL){
                 //we are connected to the db
+                $query = $this->conn->prepare("SELECT * FROM `cards` WHERE `cardID`='$cardID'");
+                $query->execute();
+                $carddat = $query->fetch();
+                
+                //carddat is an array of all the card data, now to just format it properly
                 
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
@@ -509,6 +516,8 @@
         public function getCards($columnID){
             if( $this->conn != NULL){
                 //we are connected to the db
+                //select all cards where columnidfk = $columnID
+                
                 
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
