@@ -23,7 +23,7 @@
                 $this->conn = new PDO('mysql:host='.$this->config['host'],$this->config['db_username'], $this->config['db_password']);
             } catch(PDOException $e) {
                 if ($this->config['debug'] == 'on') {
-                    echo 'ERROR: ' . $e.getmessage();
+                    echo 'ERROR: ' . $e->getmessage();
                 } else {
                     throw $e;
                 }
