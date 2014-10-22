@@ -16,6 +16,9 @@
     $useremail = "root";
     if ($db->addUser($useremail)){
         //it worked and the root user is added
+        header("location:./app.php");
+        $_SESSION['email'] = 'root';
+        $_SESSION['password'] = 'seamonkey';
     } else {
         echo "Error, user not added.";
     }
