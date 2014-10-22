@@ -6029,6 +6029,21 @@ a.uk-thumbnail:focus {
   -webkit-animation: uk-slide-top-fixed 0.2s ease-in-out;
   animation: uk-slide-top-fixed 0.2s ease-in-out;
 }
+/*START ADDED BY HAYLEY*/
+.uk-dropdown-navbar-af {
+  margin-top: 0;
+  background: #303030;
+  color: white;
+  width: 370px;
+  height: 200px;
+  right:-130px;
+}
+.uk-open > .uk-dropdown-navbar-af {
+  -webkit-animation: uk-slide-top-fixed 0.2s ease-in-out;
+  animation: uk-slide-top-fixed 0.2s ease-in-out;
+}
+/*DONE ADDED BY HAYLEY*/
+
 /* Modifier `uk-dropdown-scrollable`
  ========================================================================== */
 /*

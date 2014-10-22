@@ -95,7 +95,7 @@ li {
 }
 
 #activityfeed{
-	position:fixed;
+	/*position:fixed;
 	top:40px;
 	right:0px;
 	width:25%;
@@ -103,22 +103,11 @@ li {
 	overflow:hidden;
 	background-color:black;
 	color: white;
-	transition: height 1s;
+	transition: height 1s;*/
 }
-
-#activityfeed.clicked{
-	-webkit-transition:1s;
-    height:120px;
-    padding-top:15px;
- }
 
 #activitylist{
 
-}
-
-#acttogglebutton:hover{
-	cursor: pointer;
-	cursor: hand;
 }
 
 .activity{

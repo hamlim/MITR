@@ -22,8 +22,25 @@
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
                     <li><a href = "#"><i class="uk-icon-plus"></i>Add Card</a></li>
-                    <li id = "acttogglebutton"><a href="#"><i class="uk-icon-list-ul acttoggle"></i>Activity Feed</a></li>
-                     <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-chevron-down"></i>Username</a>
+
+                    <!--dropdown, yo-->
+                    <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-list-ul"></i>Activity Feed</a>
+                        <div class="uk-dropdown uk-dropdown-navbar-af" id = "activityfeed">
+                            <ul>
+                                <li class = "activity">Hayley made changes to <a href = "#" target = "_blank">this thing right here</a></li>
+                                <li class = "activity">Jessie made changes to <a href = "#" target = "_blank">that thing by the other thing</a></li>
+                                <li class = "activity">Chris made changes to <a href = "#" target = "_blank">that one weird thing over there</a></li>
+                                <li class = "activity">Wow made changes to <a href = "#" target = "_blank">this thing found here</a></li>
+                                <li class = "activity">Matt made changes to <a href = "#" target = "_blank">that thing waaay over there</a></li>
+                            </ul>
+                        </div>  
+                    </li>                     
+
+
+
+
+
+                    <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-chevron-down"></i>Username</a>
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class = "uk-nav uk-nav-navbar">
                                 <li><a href="settings.php">Settings</a></li>
