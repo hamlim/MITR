@@ -73,6 +73,7 @@ li {
 .column h2{
 	text-align: center;
 	margin-top: 50px;
+	color:white;
 }
 /*end column css*/
 
@@ -89,20 +90,33 @@ li {
 	width: 85%;
 	border-radius: 20px;
 	box-shadow: 6px 6px 5px black;
-	margin: 20px;
-
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 30px;
 }
 
-#activityfeed{
-	/*position:fixed;
-	top:40px;
-	right:0px;
-	width:25%;
-	height:0px;
-	overflow:hidden;
-	background-color:black;
+.cardheader{
+	height:25px;
+	background-color: black;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 	color: white;
-	transition: height 1s;*/
+	font-size: 18px;
+}
+
+.cardtitle{
+	color:white;
+	padding-left: 25px;
+}
+
+.cardpriority{
+	color:black;
+	background-color: yellow;
+	width:30px;
+	border-top-left-radius: 20px;
+	padding-left:20px;
+	height: 23px;
+	padding-top: 2px;
 }
 
 #activitylist{
