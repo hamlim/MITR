@@ -517,6 +517,12 @@
             if( $this->conn != NULL){
                 //we are connected to the db
                 //select all cards where columnidfk = $columnID
+                $query = $this->conn->prepare("SELECT `cardID` FROM `cards` WHERE `columnIDFK`='$columnID'");
+                $query->execute();
+                
+                $cards = $query->fetch();
+                
+                //$cards is an array of all card id's in the column stated
                 
                 
             } else {
