@@ -79,7 +79,7 @@
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS activities (
                         actionID INT NOT NULL, AUTO_INCREMENT,
-                        actionContent VARCHAR(32) NOT NULL,
+                        actionContent MEDIUMTEXT NOT NULL,
                         usernameFK VARCHAR(32) NOT NULL,
                         FOREIGN KEY(usernameFK) REFERENCES users(username),
                         timestamp DATETIME
@@ -451,6 +451,8 @@
             if ($this->conn != NULL) {
 				$query = $this->conn->prepare("UPDATE `cards` SET `priority`='$newpriority' WHERE `cardName`='$cardname'");
 				$query->execute();
+                //call addActivity function here
+                
 			} else {
 				throw new Exception(DATABASE_CONNECTION_ERROR);
 			}
@@ -465,6 +467,9 @@
                 //simply update the columnID for the card
 				$query = $this->conn->prepare("UPDATE `cards` SET `columnIDFK`='$newcolumnID' WHERE `cardName`='$cardname'");
 				$query->execute();
+                
+                //call addActivity function here
+                
 			} else {
 				throw new Exception(DATABASE_CONNECTION_ERROR);
 			}
