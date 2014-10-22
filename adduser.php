@@ -14,7 +14,8 @@
     
     //now we want to add a root user, so we call addUser(root);
     $useremail = "root";
-    if ($db->addUser($useremail)){
+    $pass = "seamonkey";
+    if ($db->addUser($useremail, $pass)){
         //it worked and the root user is added
         header("location:./app.php");
         $_SESSION['email'] = 'root';

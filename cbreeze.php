@@ -152,7 +152,9 @@
             if($this->conn != NULL){
                 try {
                     $salt = $this->createSalt();
+                    echo "salt: " . $salt;
                     $hash = $this->hashPassword($password, $salt);
+                    echo "hash: " . $hash;
                     if ($this->conn->exec("INSERT INTO `users` (
 						`email`, `password`, `salt`) VALUES (
 						'$email', '$hash', '$salt');") != 0) {
