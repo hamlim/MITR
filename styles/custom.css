@@ -45,7 +45,6 @@ body{
 	width: 25%;
 	min-height: 70px;
 	background-color: blue;
-	border: 1px red solid;
 }
 
 li {
@@ -72,7 +71,7 @@ li {
 
 .column h2{
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 60px;
 	color:white;
 }
 /*end column css*/
