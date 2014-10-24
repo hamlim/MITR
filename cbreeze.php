@@ -49,7 +49,8 @@
                         name VARCHAR(32),
                         email VARCHAR(32) NOT NULL,
                         isAdmin TINYINT NOT NULL,
-                        userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+                        userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                        columnColorCode VARCHAR(10)
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS cards (
                         cardID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -76,7 +77,6 @@
                         columnName VARCHAR(32) NOT NULL,
                         columnID INT NOT NULL AUTO_INCREMENT,
                         columnOrder INT NOT NULL,
-                        columnColorCode VARCHAR(10)
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS activities (
                         actionID INT NOT NULL, AUTO_INCREMENT,
