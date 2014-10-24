@@ -79,7 +79,7 @@
                         columnOrder INT NOT NULL,
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS activities (
-                        actionID INT NOT NULL, AUTO_INCREMENT,
+                        actionID INT NOT NULL AUTO_INCREMENT,
                         actionContent MEDIUMTEXT NOT NULL,
                         usernameFK VARCHAR(32) NOT NULL,
                         FOREIGN KEY(usernameFK) REFERENCES users(username),
@@ -454,7 +454,7 @@
          *
          * {
          *      action: move card/add card/comment/change priority/edit card
-         *      
+         *  }    
          *
          */
         public function addActivity($cardID, $userID, $actiondata){
@@ -465,7 +465,28 @@
                 //now we want to parse the actionarray
                 $data = json_decode($actiondata, true);
                 if ($data["action"] != NULL){
-                    
+                    if($data["action"] == "move card"){
+                        //ok so the card was moved
+                        //the next data should be to what column
+                        $tocolumn = $data["tocolumn"];
+                        $fromcolumn = $data["fromcolumn"];
+                        //now get who did it
+                        $squery = $this->conn->prepare("SELECT `name` FROM `users` WHERE `userID`='$userID'");
+                        $squery->execute();
+                        $username = $squery->fetch();
+                        //now we have all the data selected
+                        $this->conn->exec("INSERT INTO `activities` (
+						`cardName`, `priority`, `cardColorCode`, `smallTextField`, `largeTextField`, `dateField`) VALUES (
+						'$cardname', '$priority', '$colorcode', '$stfstring', '$ltfstring', '$datestring');")
+                    //} else if ($data["action"] == "add card"){
+                        
+                    } else if ($data["action"] == "comment"){
+                        
+                    } else if ($data["action"] == "change priority"){
+                        
+                    } else if ($data["action"] == "edit card"){
+                        
+                    }
                 }
                 
             } else {
