@@ -565,11 +565,12 @@
         
         */
         
-        public function editColumnColor($colorcode){
+        public function editColumnColor($colorcode, $userID){
             if ( $this->conn != NULL){
                 //we are connected to the db
                 //we want to update the sql db
-                $query = $this->conn->prepare("UPDATE columnColorCode FROM `columns` ");
+                $query = $this->conn->prepare("UPDATE `users` SET `columnColorCode`='$colorcode' WHERE `userID`='$userID' ");
+                $query->execute();
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
