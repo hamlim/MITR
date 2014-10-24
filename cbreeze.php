@@ -57,7 +57,7 @@
                         smallTextField MEDIUMTEXT,
                         largeTextField MEDIUMTEXT,
                         dateField MEDIUMTEXT,
-                        colorCode VARCHAR(10),
+                        cardColorCode VARCHAR(10),
                         priority INT,
                         columnIDFK INT NOT NULL,
                         FOREIGN KEY(columnIDFK) REFERENCES columns(columnID),
@@ -75,13 +75,16 @@
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS columns (
                         columnName VARCHAR(32) NOT NULL,
                         columnID INT NOT NULL AUTO_INCREMENT,
-                        columnOrder TINYINT NOT NULL
+                        columnOrder INT NOT NULL,
+                        columnColorCode VARCHAR(10)
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS activities (
                         actionID INT NOT NULL, AUTO_INCREMENT,
                         actionContent MEDIUMTEXT NOT NULL,
                         usernameFK VARCHAR(32) NOT NULL,
                         FOREIGN KEY(usernameFK) REFERENCES users(username),
+                        cardIDFK INT NOT NULL,
+                        FOREIGN KEY(cardIDFK) REFERENCES cards(cardID),
                         timestamp DATETIME
                         ) COLLATE utf8_unicode_ci");
                                         
@@ -427,7 +430,7 @@
                 
                 try {
                     if ($this->conn->exec("INSERT INTO `cards` (
-						`cardName`, `priority`, `colorCode`, `smallTextField`, `largeTextField`, `dateField`) VALUES (
+						`cardName`, `priority`, `cardColorCode`, `smallTextField`, `largeTextField`, `dateField`) VALUES (
 						'$cardname', '$priority', '$colorcode', '$stfstring', '$ltfstring', '$datestring');") != 0) {
 					} else {
 						throw new Exception(CARD_CREATION_ERROR);
@@ -563,7 +566,13 @@
         */
         
         public function editColumnColor($colorcode){
-            
+            if ( $this->conn != NULL){
+                //we are connected to the db
+                //we want to update the sql db
+                $query = $this->conn->prepare("UPDATE columnColorCode FROM `columns` ");
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
         }
     }
 
