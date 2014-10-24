@@ -473,7 +473,7 @@
                     //we need to make another JSON arr with all the data
                     $this->conn->exec("INSERT INTO `activities` (
                     `timestamp`, `nameFK`, `actionContent`, `cardIDFK`) VALUES (
-                    '$timestamp', '$username', '$actiondata', '$cardID');")
+                    '$timestamp', '$username', '$actiondata', '$cardID');");
                 } else {
                     //error handling time
                 }
@@ -558,6 +558,20 @@
                 //carddata is an array of all the card data, now to just format it properly
                 //todo
                 
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
+        }
+        
+        /**
+         * @param: $cardID - the CardID
+         * @return: json array of the activites associated with the card
+         */
+        public function getActivities($cardID){
+            if ($this->conn != NULL){
+                //we are connected to the db
+                
+                $query = $this->conn->prepare("SELECT * FROM `activities` WHERE `cardIDFK`='$cardID' GROUP BY timestamp DESC");
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
