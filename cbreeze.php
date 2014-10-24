@@ -553,9 +553,9 @@
                 //we are connected to the db
                 $query = $this->conn->prepare("SELECT * FROM `cards` WHERE `cardID`='$cardID'");
                 $query->execute();
-                $carddat = $query->fetch();
+                $carddata = $query->fetch();
                 
-                //carddat is an array of all the card data, now to just format it properly
+                //carddata is an array of all the card data, now to just format it properly
                 //todo
                 
             } else {
@@ -601,7 +601,19 @@
         }
         
         
-        
+        /**
+         * @param: $cardID - Id of the card to change the color, $updatedata - json arr of data that was edited
+         * @return: 
+         */
+        public function editCard($cardID, $updatedata){
+            if($this->conn != NULL){
+                //we are connected to the db
+                //todo
+                
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
+        }
         
         
         /* 
