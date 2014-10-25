@@ -535,7 +535,6 @@
          * @return: JSON array of columns in order with their information
          */
         public function getColumns(){
-            $returnarr = []; //initialize the return array
             if( $this->conn != NULL){
                 //we are connected to the db
                 $query = $this->conn->prepare("SELECT * FROM `columns` ORDER BY `columnOrder` ASC");
@@ -555,6 +554,8 @@
                 *  ["columnID"] => 1234, 
                 *},
                 */
+                $returnarr = json_encode($data);
+                return $returnarr;
                 
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
@@ -573,7 +574,7 @@
                 $carddata = $query->fetch();
                 
                 //carddata is an array of all the card data, now to just format it properly
-                //todo
+                return $carddata; //this might work??
                 
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
@@ -582,7 +583,7 @@
         
         /**
          * @param: $cardID - the CardID
-         * @return: json array of the activites associated with the card
+         * @return: php array of the activites associated with the card
          */
         public function getActivities($cardID){
             if ($this->conn != NULL){
@@ -606,9 +607,13 @@
                 $query->execute();
                 
                 $cards = $query->fetch();
-                
+                $cardsarr = array();
+                foreach($cards as $cardid){
+                    array_push($cardsarr, getCard($cardid));
+                }
+                $returnarr = json_encode($cardsarr);
+                return $returnarr;
                 //$cards is an array of all card id's in the column stated
-                //todo
                 //we will call the getCard() function each one in the array
                 
                 
@@ -641,7 +646,8 @@
         public function editCard($cardID, $updatedata){
             if($this->conn != NULL){
                 //we are connected to the db
-                //todo
+                //first we want to know what fields where changed
+                
                 
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
@@ -661,6 +667,16 @@
                 //we want to update the sql db
                 $query = $this->conn->prepare("UPDATE `users` SET `columnColorCode`='$colorcode' WHERE `userID`='$userID' ");
                 $query->execute();
+            } else {
+                throw new Exception(DATABASE_CONNECTION_ERROR);
+            }
+        }
+        
+        public function addColumn($columnname, $order){
+            if ($this->conn != NULL){
+                $this->conn->exec("INSERT INTO `columns` (
+                    `columnName`, `columnOrder`) VALUES (
+                    '$columnname', '$order');");
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
