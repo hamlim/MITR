@@ -538,15 +538,23 @@
             $returnarr = []; //initialize the return array
             if( $this->conn != NULL){
                 //we are connected to the db
-                $query = $this->conn->prepare("SELECT * FROM `columns`");
+                $query = $this->conn->prepare("SELECT * FROM `columns` ORDER BY `columnOrder` ASC");
                 
                 $query->execute();
                 
                 $data = $query->fetch();
                 // $data is an array
                 //i need to format the array into a JSON array
-                
-                //todo
+                //we want columnID, columnName, and the order
+                //luckily the results are ordered by ascending order ints
+                //so the first item is the first column
+                /*
+                *[0] {
+                *  ["columnOrder] => 0,
+                *  ["columnName"] => blah,
+                *  ["columnID"] => 1234, 
+                *},
+                */
                 
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
