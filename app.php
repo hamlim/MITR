@@ -47,7 +47,7 @@
         <ul id = "columnslist">
             <li class = "column" id = "col1">
                 <h2>Heading</h2>
-                <ul class = "cardlist">
+                <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
                             <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
@@ -73,7 +73,7 @@
             <!--new column-->
             <li class = "column" id = "col2">
                 <h2>Heading</h2>
-                <ul class = "cardlist">
+                <ul class = "cardlist connected list">
                    <li class = "card">
                         <div class = "cardheader">
                             <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
@@ -89,7 +89,7 @@
             <!--new column-->
             <li class = "column" id = "col3">
                 <h2>Heading</h2>
-                <ul class = "cardlist">
+                <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
                             <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
@@ -110,7 +110,7 @@
             <!--new column-->
             <li class = "column" id = "col4">
                 <h2>Heading</h2>
-                <ul class = "cardlist">
+                <ul class = "cardlist connected list">
                    <li class = "card">
                         <div class = "cardheader">
                             <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
@@ -136,7 +136,7 @@
             <!--new column-->
             <li class = "column" id = "col5">
                 <h2>Heading</h2>
-                <ul class = "cardlist">
+                <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
                             <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>

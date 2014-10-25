@@ -6034,7 +6034,7 @@ a.uk-thumbnail:focus {
   margin-top: 0;
   background: #303030;
   color: white;
-  width: 370px;
+  width: 372px;
   height: 200px;
   right:-130px;
 }
@@ -6042,7 +6042,7 @@ a.uk-thumbnail:focus {
   -webkit-animation: uk-slide-top-fixed 0.2s ease-in-out;
   animation: uk-slide-top-fixed 0.2s ease-in-out;
 }
-/*DONE ADDED BY HAYLEY*/
+/*END ADDED BY HAYLEY*/
 
 /* Modifier `uk-dropdown-scrollable`
  ========================================================================== */
