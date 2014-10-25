@@ -591,7 +591,9 @@
                 $cards = $query->fetch();
                 
                 //$cards is an array of all card id's in the column stated
-                //TODO
+                //todo
+                //we will call the getCard() function each one in the array
+                
                 
                 
             } else {
