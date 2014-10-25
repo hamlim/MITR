@@ -68,7 +68,7 @@
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS comments (
                         commentName VARCHAR(32) NOT NULL,
                         commentUsername VARCHAR(32) NOT NULL,
-                        commentID INT NOT NULL,
+                        commentID INT NOT NULL PRIMARY KEY,
                         commentContent VARCHAR(100) NOT NULL,
                         cardIDFK INT NOT NULL,
                         FOREIGN KEY(cardIDFK) REFERENCES cards(cardID)
@@ -454,6 +454,8 @@
          *
          * {
          *      action: move card/add card/comment/change priority/edit card
+         *      old data: value
+         *      new data: value
          *  }    
          *
          */
@@ -494,7 +496,11 @@
 				$query->execute();
                 //call addActivity function here
                 //we need to first format the array properly
-                //todo
+                $data = array(); //initialize the array
+                $data["action"] = "change priority";
+                $data["old data"] = $oldpriority;
+                $data["new data"] = $newpriority;
+                //thats it, now we call addActivity on all the vars
                 addActivity($cardID, $userID, $data);
 			} else {
 				throw new Exception(DATABASE_CONNECTION_ERROR);
@@ -513,8 +519,11 @@
                 
                 //call addActivity function here
                 //we need to first format the array properly
-                //todo
-                
+                $data = array();
+                $data["action"] = "move card";
+                $data["old data"] = $oldcolumnID;
+                $data["new data"] = $newcolumnID;
+                //now we call the addActivity function with the requisite vars
                 addActivity($cardID, $userID, $data);
 			} else {
 				throw new Exception(DATABASE_CONNECTION_ERROR);
