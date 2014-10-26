@@ -151,3 +151,96 @@ input {
 	height: 28px;
 	margin: 1.5px; 
 }
+
+
+
+
+/*settings*/
+.settingsName{
+	display: block;
+	border-style: solid;
+	border-radius: 10px;
+	border: 2px groove threedface;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	min-width: -webkit-min-content;
+	box-shadow: 0px 0px 8px #888888;
+	width: 20%;
+	padding: 50px 15px 5px 20px;
+	margin: 0px 10px 0px 10px;
+	float: left;
+	top: 50px;
+	position: relative;
+
+}
+
+.settingsName img{
+	border-radius: 10px;
+}
+.settingsName div{
+	font-size: 150%;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.settings{
+	display: block;
+	position:relative;
+	top: 50px;
+
+}
+
+.settingsContent{
+	background-color: black;
+	color: white;
+	height: 100%;
+}
+.settingsContent h1{
+	color: white;
+}
+
+.settings{
+	border-style: solid;
+	box-shadow: 0px 0px 8px #888888;
+	border-radius: 10px;
+	padding: 10px 20px 10px 10px;
+	width: 45%;
+
+}
+.settings input{
+	box-shadow: 0px 0px 8px #888888;
+	border-radius: 4px;
+}
+
+.button{
+	display: block;
+	float:right;
+	border: 1px solid;
+	border-radius: 4px;
+}
+
+#color1{
+	height: 40px;
+    background: -webkit-linear-gradient(left, #40543A , #8EB283); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #40543A, #8EB283); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #40543A, #8EB283); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #40543A , #8EB283); /* Standard syntax (must be last) */
+	/*
+	background-image: url("http://m4.i.pbase.com/u26/jackcnd/upload/43767514.GradientWhite0127720p.JPG") 0 0 no-repeat;
+	padding-left: 50px;
+   	height: 30px;
+   	background-size: 50%;
+   	*/
+}
+
+#color2{
+	height: 40px;
+    background: -webkit-linear-gradient(left, #142966 , #72c6ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #142966, #72c6ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #142966, #72c6ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #142966 , #72c6ff); /* Standard syntax (must be last) */
+}
