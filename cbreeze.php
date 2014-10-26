@@ -516,7 +516,6 @@
                 //simply update the columnID for the card
 				$query = $this->conn->prepare("UPDATE `cards` SET `columnIDFK`='$newcolumnID' WHERE `cardID`='$cardID'");
 				$query->execute();
-                
                 //call addActivity function here
                 //we need to first format the array properly
                 $data = array();
@@ -538,9 +537,7 @@
             if( $this->conn != NULL){
                 //we are connected to the db
                 $query = $this->conn->prepare("SELECT * FROM `columns` ORDER BY `columnOrder` ASC");
-                
                 $query->execute();
-                
                 $data = $query->fetch();
                 // $data is an array
                 //i need to format the array into a JSON array
@@ -556,7 +553,6 @@
                 */
                 $returnarr = json_encode($data);
                 return $returnarr;
-                
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
@@ -572,7 +568,6 @@
                 $query = $this->conn->prepare("SELECT * FROM `cards` WHERE `cardID`='$cardID'");
                 $query->execute();
                 $carddata = $query->fetch();
-                
                 //carddata is an array of all the card data, now to just format it properly
                 return $carddata; //this might work??
                 
@@ -588,8 +583,7 @@
         public function getActivities($cardID){
             if ($this->conn != NULL){
                 //we are connected to the db
-                
-                $query = $this->conn->prepare("SELECT * FROM `activities` WHERE `cardIDFK`='$cardID' GROUP BY timestamp DESC");
+                $query = $this->conn->prepare("SELECT * FROM `activities` WHERE `cardIDFK`='$cardID' GROUP BY `timestamp` DESC");
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
@@ -615,29 +609,26 @@
                 return $returnarr;
                 //$cards is an array of all card id's in the column stated
                 //we will call the getCard() function each one in the array
-                
-                
-                
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
             }
         }
         
         
-        /**
-         * @param: $cardID - Id of the card to change the color, $colorname
-         * @return: 
-         */
-        public function updateCardColor($cardID, $colorname){
-            if ( $this->conn != NULL){
-                //we are connected to the db
-                $query = $this->conn->prepare("UPDATE `cards` SET `cardColorCode`='$colorname' WHERE `cardID`='$cardID'");
-                $query->execute();
-            } else {
-                throw new Exception(DATABASE_CONNECTION_ERROR);
-            }
-        }
-        
+//        /**
+//         * @param: $cardID - Id of the card to change the color, $colorname
+//         * @return: 
+//         */
+//        public function updateCardColor($cardID, $colorname){
+//            if ( $this->conn != NULL){
+//                //we are connected to the db
+//                $query = $this->conn->prepare("UPDATE `cards` SET `cardColorCode`='$colorname' WHERE `cardID`='$cardID'");
+//                $query->execute();
+//            } else {
+//                throw new Exception(DATABASE_CONNECTION_ERROR);
+//            }
+//        }
+//        
         
         /**
          * @param: $cardID - Id of the card to change the color, $updatedata - json arr of data that was edited
