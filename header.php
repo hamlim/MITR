@@ -27,9 +27,10 @@
             <a href = "app.php"><img src = "styles/pics/C-Quip_header.png"></a>
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
-                    <li><button onclick="ajxAddCard();"><i class="uk-icon-plus"></i>Add Card</button></li>
+                    <li><a onclick="ajxAddCard();"><i class="uk-icon-plus"></i>Add Card</a></li>
 
-                    <!--dropdown, yo-->
+<!--
+                    dropdown, yo
                     <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-list-ul"></i>Activity Feed</a>
                         <div class="uk-dropdown uk-dropdown-navbar-af" id = "activityfeed">
                             <ul>
@@ -41,6 +42,7 @@
                             </ul>
                         </div>  
                     </li>                     
+-->
 
 
 
