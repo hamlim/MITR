@@ -132,8 +132,8 @@ li {
 .activity{
 
 }
-.cardlist .connected .list {
-    min-height: 200px;
+.cardlist {
+    min-height: 200px !important;
 }
 
 /* login page */
