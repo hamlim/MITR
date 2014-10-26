@@ -8,8 +8,6 @@
     try {
         require "config.php";
         $db = new cbreeze($config);
-        echo "DB connection established ";
-        echo "\n";
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }
@@ -26,6 +24,7 @@
         $_SESSION['name'] = "root";
         $_SESSION['admin'] = true;
         header("location: app.php");
+        exit();
     } else {
         echo "Error, user not added. ";
     }

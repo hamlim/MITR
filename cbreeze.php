@@ -20,7 +20,6 @@
         //handle the connection
         public function connect() {
             try {
-                echo "connect works";
                 $this->conn = new PDO('mysql:host='.$this->config['host'],$this->config['db_username'], $this->config['db_password']);
             } catch(PDOException $e) {
                 if ($this->config['debug'] == 'on') {
@@ -156,11 +155,7 @@
             if($this->conn != NULL){
                 try {
                     $salt = $this->createSalt();
-                    echo "salt: " . $salt;
-                    echo "\n";
                     $hash = $this->hashPassword($password, $salt);
-                    echo "hash: " . $hash;
-                    echo "\n";
                     if ($this->conn->exec("INSERT INTO `users` (
 						`password`, `salt`, `name`, `email`, `isAdmin`) VALUES (
 						'$hash', '$salt', '$name', '$email', '$adminstatus');") == 0) {
