@@ -645,27 +645,97 @@
          *
          * { $updatedata format
          *    { 
+         *       'field type': blah,
          *       'field name': blah,
          *       'new field data': data
          *    },
          *    {  
+         *       'field type': blah,
          *       'field name': blah,
-         *       'new field data: data
+         *       'new field data': data
          *    }
          * }
          *
          *
          *
          */
-        public function editCard($cardID, $updatedata){
+        public function editCard($cardID, $updatedata, $userID){
             if($this->conn != NULL){
                 //we are connected to the db
                 //first we want to know what fields where changed
                 $dataarr = json_decode($updatedata, true);
-                $truedata = array();
-                
                 foreach($dataarr as $arr){
-                    
+                    if($arr["field type"] == "ltf"){
+                        //first case, the data type is ltf
+                        // we want to get all the lt field data from the db
+                        $ltfq = $this->conn->prepare("SELECT `largeTextField` WHERE `cardID`='$cardID'");
+                        $ltfq->execute();
+                        $olddata = $ltfq->fetch();
+                        $olddataarr = json_decode($olddata, true);
+                        //$arr["new field data"]
+                        foreach( $olddataarr as $oldltfarr){
+                            if($oldltfarr["fieldname"] == $arr["field name"]){
+                                $oldltfarr["fielddata"] == $arr["new field data"];
+                            }
+                        }
+                        $data = array();
+                        $data["action"] = "edit card";
+                        $data["old data"] = $arr["field name"];
+                        $data["new data"] = "";
+                        //now we call the addActivity function with the requisite vars
+                        addActivity($cardID, $userID, $data);
+                        unset($data);
+                    } else if ($arr["field type"] == "stf"){
+                        $stfq = $this->conn->prepare("SELECT `smallTextField` WHERE `cardID`='$cardID'");
+                        $stfq->execute();
+                        $oldstf = $stfq->fetch();
+                        $oldstfarr = json_decode($oldstf, true);
+                        foreach ( $oldstfarr as $stf){
+                            if($stf["fieldname"] == $arr["field name"]){
+                                $stf["fielddata"] == $arr["new field data"];
+                            }
+                        }
+                        $data = array();
+                        $data["action"] = "edit card";
+                        $data["old data"] = $arr["field name"];
+                        $data["new data"] = "";
+                        addActivity($cardID, $userID, $data);
+                        unset($data);
+                    } else if ($arr["field type"] == "date"){
+                        $dateq = $this->conn->prepare("SELECT `dateField` WHERE `cardID`='$cardID'");
+                        $dateq->execute();
+                        $olddate = $dateq->fetch();
+                        $olddatearr = json_decode($olddate, true);
+                        foreach ( $olddatearr as $date){
+                            if($date["fieldname"] == $arr["field name"]){
+                                $date["fielddata"] == $arr["new field data"];
+                            }
+                        }
+                        $data = array();
+                        $data["action"] = "edit card";
+                        $data["old data"] = $arr["field name"];
+                        $data["new data"] = "";
+                        addActivity($cardID, $userID, $data);
+                        unset($data);
+                    } else if ($arr["field type"] == "color"){
+                        $color = $arr["new field data"];
+                        $this->conn->exec("UPDATE `cards` SET `cardColorCode`='$color' WHERE `cardID`='$cardID'");
+                        $data = array();
+                        $data["action"] = "edit card";
+                        $data["old data"] = $arr["field name"];
+                        $data["new data"] = "";
+                        addActivity($cardID, $userID, $data);
+                        unset($data);
+                    } else if ($arr["field type"] == "card name"){
+                        $name = $arr["new field data"];
+                        $this->conn->exec("UPDATE `cards` SET `cardName`='$name' WHERE `cardID`='$cardID'");
+                        $data = array();
+                        $data["action"] = "edit card";
+                        $data["old data"] = $arr["field name"];
+                        $data["new data"] = "";
+                        addActivity($cardID, $userID, $data);
+                        unset($data);
+                    }//more cases?
                 }
                 
             } else {
