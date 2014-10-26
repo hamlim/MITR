@@ -641,13 +641,32 @@
         
         /**
          * @param: $cardID - Id of the card to change the color, $updatedata - json arr of data that was edited
-         * @return: 
+         * @return:
+         *
+         * { $updatedata format
+         *    { 
+         *       'field name': blah,
+         *       'new field data': data
+         *    },
+         *    {  
+         *       'field name': blah,
+         *       'new field data: data
+         *    }
+         * }
+         *
+         *
+         *
          */
         public function editCard($cardID, $updatedata){
             if($this->conn != NULL){
                 //we are connected to the db
                 //first we want to know what fields where changed
+                $dataarr = json_decode($updatedata, true);
+                $truedata = array();
                 
+                foreach($dataarr as $arr){
+                    
+                }
                 
             } else {
                 throw new Exception(DATABASE_CONNECTION_ERROR);
