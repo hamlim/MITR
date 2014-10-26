@@ -21,11 +21,11 @@
     $admin = 1;
     if ($db->addUser($useremail, $pass, $admin)){
         //it worked and the root user is added
-        header("location:./app.php");
         $_SESSION['email'] = "root";
         $_SESSION['password'] = "seamonkey";
         $_SESSION['name'] = "root";
         $_SESSION['admin'] = true;
+        header("location: app.php");
     } else {
         echo "Error, user not added. ";
     }

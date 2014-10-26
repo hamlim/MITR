@@ -1,7 +1,5 @@
 <?php
 	//started of with some html5boilerplate from html5boilerplate.com
-    require_once "config.php";
-    require_once "cbreeze.php";
 	include "header.php";
 
     try {

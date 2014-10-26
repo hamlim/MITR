@@ -1,3 +1,8 @@
+<?php
+    require_once "config.php";
+    require_once "cbreeze.php";
+
+?>
 <!DOCTYPE html>
 <html class="no-js">
     <head>

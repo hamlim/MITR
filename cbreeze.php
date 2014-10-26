@@ -47,7 +47,7 @@
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS users (
                         password VARCHAR(64) NOT NULL,
                         salt VARCHAR(64) NOT NULL,
-                        name VARCHAR(32),
+                        name VARCHAR(32) NOT NULL,
                         email VARCHAR(32) NOT NULL,
                         isAdmin TINYINT NOT NULL,
                         userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -162,8 +162,9 @@
                     echo "hash: " . $hash;
                     echo "\n";
                     if ($this->conn->exec("INSERT INTO `users` (
-						`email`, `password`, `salt`, `name`, `isAdmin`) VALUES (
-						'$email', '$hash', '$salt', '$name', '$adminstatus');") != 0) {
+						`password`, `salt`, `name`, `email`, `isAdmin`) VALUES (
+						'$hash', '$salt', '$name', '$email', '$adminstatus');") == 0) {
+                        return true;
 					} else {
 						throw new Exception(USER_CREATION_ERROR);
 					}
