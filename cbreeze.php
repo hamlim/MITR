@@ -61,9 +61,7 @@
                         cardColorCode VARCHAR(10),
                         priority INT,
                         columnIDFK INT NOT NULL,
-                        FOREIGN KEY(columnIDFK) REFERENCES columns(columnID),
-                        commentIDFK INT NOT NULL,
-                        FOREIGN KEY(commentIDFK) REFERENCES comments(commentID)
+                        FOREIGN KEY(columnIDFK) REFERENCES columns(columnID)
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS comments (
                         commentName VARCHAR(32) NOT NULL,
