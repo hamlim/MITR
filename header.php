@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="styles/custom.css">
         <!--links to js-->
         <script src="js/custom.js" type="text/javascript"></script>
+        <script src="js/appjs.js" type="text/javascript"></script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
     <body>
@@ -21,7 +22,7 @@
             <a href = "app.php"><img src = "styles/pics/C-Quip_header.png"></a>
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
-                    <li><a href = "#"><i class="uk-icon-plus"></i>Add Card</a></li>
+                    <li><button onclick="ajxAddCard();"><i class="uk-icon-plus"></i>Add Card</button></li>
 
                     <!--dropdown, yo-->
                     <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-list-ul"></i>Activity Feed</a>

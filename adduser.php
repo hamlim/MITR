@@ -8,6 +8,8 @@
     try {
         require "config.php";
         $db = new cbreeze($config);
+        echo "DB connection established ";
+        echo "\n";
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }
@@ -15,15 +17,18 @@
     //now we want to add a root user, so we call addUser(root);
     $useremail = "root";
     $pass = "seamonkey";
-    if ($db->addUser($useremail, $pass)){
+    $name = "root";
+    $admin = 1;
+    if ($db->addUser($useremail, $pass, $admin)){
         //it worked and the root user is added
         header("location:./app.php");
-        $_SESSION['email'] = 'root';
-        $_SESSION['password'] = 'seamonkey';
+        $_SESSION['email'] = "root";
+        $_SESSION['password'] = "seamonkey";
+        $_SESSION['name'] = "root";
+        $_SESSION['admin'] = true;
     } else {
-        echo "Error, user not added.";
+        echo "Error, user not added. ";
     }
     
 
-    //now call $db->functionname to call it
 ?>

@@ -20,6 +20,7 @@
         //handle the connection
         public function connect() {
             try {
+                echo "connect works";
                 $this->conn = new PDO('mysql:host='.$this->config['host'],$this->config['db_username'], $this->config['db_password']);
             } catch(PDOException $e) {
                 if ($this->config['debug'] == 'on') {
@@ -151,17 +152,18 @@
          * @return: N/A
          */
         
-        public function addUser($email, $password = "seamonkey"){
+        public function addUser($email, $password="seamonkey", $name="", $adminstatus=0){
             if($this->conn != NULL){
                 try {
                     $salt = $this->createSalt();
                     echo "salt: " . $salt;
+                    echo "\n";
                     $hash = $this->hashPassword($password, $salt);
                     echo "hash: " . $hash;
+                    echo "\n";
                     if ($this->conn->exec("INSERT INTO `users` (
-						`email`, `password`, `salt`) VALUES (
-						'$email', '$hash', '$salt');") != 0) {
-                        return true;
+						`email`, `password`, `salt`, `name`, `isAdmin`) VALUES (
+						'$email', '$hash', '$salt', '$name', '$adminstatus');") != 0) {
 					} else {
 						throw new Exception(USER_CREATION_ERROR);
 					}
