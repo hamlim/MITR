@@ -55,17 +55,17 @@
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">2<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">3<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">4<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                 </ul>
@@ -76,12 +76,12 @@
                 <ul class = "cardlist connected list">
                    <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">5<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">6<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                 </ul>
@@ -92,17 +92,17 @@
                 <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">7<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">8<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">9<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                 </ul>
@@ -113,22 +113,22 @@
                 <ul class = "cardlist connected list">
                    <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">10<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">11<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">12<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">13<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                 </ul>
@@ -139,17 +139,17 @@
                 <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">14<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">15<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">16<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
                         </div>
                     </li>
                 </ul>
