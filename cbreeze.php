@@ -4,7 +4,7 @@
 	define('USER_NOT_FOUND_ERROR', "User could not be found");
 	define('USER_NOT_DELTED_ERROR', "User could not be deleted");
 	define('SALT_NOT_FOUND_ERROR', "Salt could not be found");
-    define('CARD_CREATION_ERROR', "Card could not be created");
+    	define('CARD_CREATION_ERROR', "Card could not be created");
 	
     class cbreeze {
         private $conn = NULL;
@@ -69,6 +69,14 @@
                         commentContent VARCHAR(100) NOT NULL,
                         cardIDFK INT NOT NULL,
                         FOREIGN KEY(cardIDFK) REFERENCES cards(cardID),
+                        commentIDFK INT,
+                        FOREIGN KEY(commentIDFK) REFERENCES comments(commentID)
+                        ) COLLATE utf8_unicode_ci");
+                    $this->conn->exec("CREATE TABLE IF NOT EXISTS replies (
+                        replierName VARCHAR(32) NOT NULL,
+                        replyID INT NOT NULL PRIMARY KEY,
+                        replyContent VARCHAR(100) NOT NULL,
+                        replyIDFK INT AUTO_INCREMENT NOT NULL,
                         commentIDFK INT,
                         FOREIGN KEY(commentIDFK) REFERENCES comments(commentID)
                         ) COLLATE utf8_unicode_ci");
