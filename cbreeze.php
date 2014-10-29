@@ -76,7 +76,6 @@
                         replierName VARCHAR(32) NOT NULL,
                         replyID INT NOT NULL PRIMARY KEY,
                         replyContent VARCHAR(100) NOT NULL,
-                        replyIDFK INT AUTO_INCREMENT NOT NULL,
                         commentIDFK INT,
                         FOREIGN KEY(commentIDFK) REFERENCES comments(commentID)
                         ) COLLATE utf8_unicode_ci");
