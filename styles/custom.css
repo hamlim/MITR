@@ -157,7 +157,7 @@ input {
 
 /*settings*/
 .settingsName{
-	display: block;
+	display: inline-block;
 	border-style: solid;
 	border-radius: 10px;
 	border: 2px groove threedface;
@@ -188,9 +188,10 @@ input {
 }
 
 .settings{
-	display: block;
+	display: inline-block;
 	position:relative;
 	top: 50px;
+	width: 45%; 
 
 }
 
@@ -203,12 +204,20 @@ input {
 	color: white;
 }
 
-.settings{
+.settings fieldset{
+	border: none;
 	border-style: solid;
+	border: 2px groove threedface;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	min-width: -webkit-min-content;
 	box-shadow: 0px 0px 8px #888888;
 	border-radius: 10px;
-	padding: 10px 20px 10px 10px;
-	width: 45%;
+	/*padding: 10px 20px 10px 10px;
+	width: 45%;*/
 
 }
 .settings input{
@@ -243,4 +252,8 @@ input {
     background: -o-linear-gradient(right, #142966, #72c6ff); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, #142966, #72c6ff); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, #142966 , #72c6ff); /* Standard syntax (must be last) */
+}
+
+#adminSettings{
+	display:none;
 }

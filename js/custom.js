@@ -37,6 +37,17 @@ function columns(){
 	}
 }
 
+$(document).ready(function(){
+	$("li.tab").click(function(){
+		$(".uk-tab li").removeClass('uk-active');
+		$("li.tab-content").hide();
+		$(this).addClass("uk-active");
+		var selected_tab = $(this).find("a").attr("href");
+		$(selected_tab).fadeIn(100);
+		return false;
+	});
+});
+
 /*toggle show/hide for activity feed, yo -- don't need this anymore
 $('#acttogglebutton').on('click', function() {
     $("#activityfeed").toggleClass('clicked');
