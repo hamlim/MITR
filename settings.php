@@ -42,21 +42,21 @@
                         <fieldset>
                             <h1>Account settings</h1>
                             <div class="uk-form-row">
-                                <label class="uk-form-label" for="">Username:</label>
-                                <input type="text" placeholder="Username">
+                                <label class="uk-form-label" for="">Set Name:</label>
+                                <input type="text" placeholder="John Philips">
                                 <span class="uk-form-help-inline"></span>
                             </div>
                             <div class="uk-form-row">
                                 <label class="uk-form-label" for="">Password:</label>
-                                <input type="text" placeholder="Current">
+                                <input type="password" placeholder="Current">
                             </div>
                             <div class="uk-form-row">
                                 <label class="uk-form-label" for=""></label>
-                                <input type="text" placeholder="New Password">
+                                <input type="password" placeholder="New Password">
                             </div>
                             <div class="uk-form-row">
                                 <label class="uk-form-label" for=""></label>
-                                <input type="text" placeholder="Confirm Password">
+                                <input type="password" placeholder="Confirm new Password">
                             </div>
                             <div class="uk-form-row">
                                 <label class="uk-form-label" for="">Color Scheme:</label>
@@ -82,6 +82,25 @@
                     <li id="adminSettings" class="tab-content"><form>
                         <fieldset>
                             <h1>Admin Settings</h1>
+                            <div class="uk-form-row">
+                                <label class="uk-form-label" for="">Add Users:</label>
+                                <input type="email" placeholder="employee1@gmail.com">
+                                <button type="submit" class="uk-button uk-button-large button" formmethod="post" >Add user</button>
+                            </div>
+                            <div class="uk-form-row">
+                                <label class="uk-form-label" for="">Delete User:</label>
+                                <input type="email" placeholder="oldteammember@domain.tld">
+                                <button type="submit" class="uk-button uk-button-large button" formmethod="post">Remove user</button>
+                            </div>
+                            <div class="uk-form-row">
+                                <button type="button" class="uk-button uk-button-large button" id="make-card-format" >Make Card Format</button>
+                            </div>
+                            <div class="uk-form-row">
+                                <label class="uk-form-label" for="">Add Column:</label>
+                                <input type="text" placeholder="column name">
+                                <input type="number" placeholder="Column order (small is left side of screen)" min="0">
+                                <button type="submit" class="uk-button uk-button-large button" formmethod="post">Add Column</button>
+                            </div>
                         </fieldset>
                     </form></li>
                 </ul>

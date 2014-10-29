@@ -52,24 +52,6 @@ body{
 li {
     height: 100%;
 }
-#col1 {
-    background-color: #75a99c;
-}
-
-#col2 {
-    background-color: #7592a9;
-}
-
-#col3 {
-    background-color: #8675a9;
-}
-#col4 {
-    background-color: #9f75a9;
-}
-#col5 {
-    background-color: #81a975;
-}
-
 
 .column h2{
 	text-align: center;
@@ -134,6 +116,7 @@ li {
 }
 .cardlist{
     min-height: 200px !important;
+    height: 100% !important;
 }
 
 /* login page */
