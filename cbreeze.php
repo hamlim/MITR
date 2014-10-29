@@ -64,12 +64,13 @@
                         FOREIGN KEY(columnIDFK) REFERENCES columns(columnID)
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS comments (
-                        commentName VARCHAR(32) NOT NULL,
-                        commentUsername VARCHAR(32) NOT NULL,
+                        commenterName VARCHAR(32) NOT NULL,
                         commentID INT NOT NULL PRIMARY KEY,
                         commentContent VARCHAR(100) NOT NULL,
                         cardIDFK INT NOT NULL,
-                        FOREIGN KEY(cardIDFK) REFERENCES cards(cardID)
+                        FOREIGN KEY(cardIDFK) REFERENCES cards(cardID),
+                        commentIDFK INT,
+                        FOREIGN KEY(commentIDFK) REFERENCES comments(commentID)
                         ) COLLATE utf8_unicode_ci");
                     $this->conn->exec("CREATE TABLE IF NOT EXISTS columns (
                         columnName VARCHAR(32) NOT NULL,
