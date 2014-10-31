@@ -13,20 +13,21 @@
     }
     
     //now we want to add a root user, so we call addUser(root);
-    $useremail = "root";
-    $pass = "seamonkey";
-    $name = "root";
-    $admin = 1;
+//    $useremail = "root";
+//    $pass = "seamonkey";
+//    $name = "root";
+//    $admin = 1;
     if ($db->addUser($useremail, $pass, $admin)){
-        //it worked and the root user is added
-        $_SESSION['email'] = "root";
-        $_SESSION['password'] = "seamonkey";
-        $_SESSION['name'] = "root";
-        $_SESSION['admin'] = true;
+//        //it worked and the root user is added
+//        $_SESSION['email'] = "root";
+//        $_SESSION['password'] = "seamonkey";
+//        $_SESSION['name'] = "root";
+//        $_SESSION['admin'] = true;
         header("location: app.php");
         exit();
     } else {
-        echo "Error, user not added. ";
+        header("location: login.php");
+        exit();
     }
     
 
