@@ -22,20 +22,36 @@ userrequest.onreadystatechange = function() {
             };
         
         */
-        checkuser(userrequest.responseText);
+        var res = userrequest.responseText;
+        checkuser(res);
         
     }
 }
 //make the request
 userrequest.open("GET", "./users.txt", false);
-var currentuser;
+
 //function to handle the data and check for login.php
-function checkuser(data, useremail, currentuser){
+var currentuser = function checkuser(data, useremail){
     //data is the requestText string
     var users = JSON.parse(data);
     for(i=0; i<users.length; i++){
         if( users[i]["email"] == useremail){
-            
+            return users[i];
+        } else {
+            return "ERROR";
         }
     }
+};
+
+//currentuser is either the array representing the user
+//    or  currentuser is a string representing the error
+if ( currentuser != "ERROR" ){
+    //ok the user is logged in
+    var userstring = JSON.stringify(currentuser);
+    localStorage.setItem("currentuser", userstring);
+    localStorage.setItem("loggedin", "true");
+    window.location.href = "./app.php";
+} else {
+    alert("User email not in the database!");
+    window.location.href = "./login.php";
 }
