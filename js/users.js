@@ -31,11 +31,11 @@ userrequest.onreadystatechange = function() {
 userrequest.open("GET", "./users.txt", false);
 
 //function to handle the data and check for login.php
-var currentuser = function checkuser(data, useremail){
+var currentuser = function checkuser(data, useremail, password){
     //data is the requestText string
     var users = JSON.parse(data);
     for(i=0; i<users.length; i++){
-        if( users[i]["email"] == useremail){
+        if( users[i]["email"] == useremail && users[i]["password"] == password){
             return users[i];
         } else {
             return "ERROR";

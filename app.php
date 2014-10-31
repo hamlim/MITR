@@ -29,6 +29,23 @@
         <!--link to js-->
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
+        <script>
+            var logstat = localStorage.getItem("loggedin");
+            if (logstat) {
+                var user = localStorage.getItem("currentuser");
+                var userobj = JSON.parse(user);
+                var name = userobj["name"];
+                var colorcode = userobj["columncolor"];
+                var isadmin = userobj["admin"];
+                if (isadmin == 1){
+                    var admin = true;
+                } else {
+                    var admin = false;
+                }
+            } else {
+                window.location.href = "./login.php";
+            }
+        </script>
     </head>
     <body onload="columns();">
     
