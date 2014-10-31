@@ -4,7 +4,7 @@
 	define('USER_NOT_FOUND_ERROR', "User could not be found");
 	define('USER_NOT_DELTED_ERROR', "User could not be deleted");
 	define('SALT_NOT_FOUND_ERROR', "Salt could not be found");
-    	define('CARD_CREATION_ERROR', "Card could not be created");
+    define('CARD_CREATION_ERROR', "Card could not be created");
 	
     class cbreeze {
         private $conn = NULL;
