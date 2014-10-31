@@ -29,6 +29,7 @@
         <!--link to js-->
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
+        <!-- ALT code begin -->
         <script>
             var logstat = localStorage.getItem("loggedin");
             if (logstat) {
@@ -46,6 +47,7 @@
                 window.location.href = "./login.php";
             }
         </script>
+        <!-- ALT code end -->
     </head>
     <body onload="columns();">
     
