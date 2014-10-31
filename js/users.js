@@ -8,7 +8,6 @@ var userrequest = new XMLHttpRequest;
 userrequest.onreadystatechange = function() {
     if (userrequest.readyState == 4) {
         console.log(userrequest.responseText);
-        var users = JSON.parse(userrequest.responseText);
         //now we have all the cards in the system
         /*
         obj = {
@@ -29,7 +28,14 @@ userrequest.onreadystatechange = function() {
 }
 //make the request
 userrequest.open("GET", "./users.txt", false);
-
-function checkuser(data){
-    
+var currentuser;
+//function to handle the data and check for login.php
+function checkuser(data, useremail, currentuser){
+    //data is the requestText string
+    var users = JSON.parse(data);
+    for(i=0; i<users.length; i++){
+        if( users[i]["email"] == useremail){
+            
+        }
+    }
 }
