@@ -46,26 +46,6 @@
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
                     <li><a onclick="ajxAddCard();"><i class="uk-icon-plus"></i>Add Card</a></li>
-
-<!--
-                    dropdown, yo
-                    <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-list-ul"></i>Activity Feed</a>
-                        <div class="uk-dropdown uk-dropdown-navbar-af" id = "activityfeed">
-                            <ul>
-                                <li class = "activity">Hayley made changes to <a href = "#" target = "_blank">this thing right here</a></li>
-                                <li class = "activity">Jessie made changes to <a href = "#" target = "_blank">that thing by the other thing</a></li>
-                                <li class = "activity">Chris made changes to <a href = "#" target = "_blank">that one weird thing over there</a></li>
-                                <li class = "activity">Wow made changes to <a href = "#" target = "_blank">this thing found here</a></li>
-                                <li class = "activity">Matt made changes to <a href = "#" target = "_blank">that thing waaay over there</a></li>
-                            </ul>
-                        </div>  
-                    </li>                     
--->
-
-
-
-
-
                     <li class="uk-parent" data-uk-dropdown><a id="username" href><i class="uk-icon-chevron-down"></i>Username</a>
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class = "uk-nav uk-nav-navbar">
@@ -73,60 +53,65 @@
                                     <div id="settingsModal" class="uk-modal">
                                     <div class="settings uk-modal-dialog">
                                         <a class="uk-modal-close uk-close"></a>
-                                        <ul class="uk-tab" data-uk-tab>
+                                        <ul class="uk-tab" data-uk-tab id="setting-tabs-heads">
                                             <li class="tab uk-active"><a href="#accountSettings">Account</a></li>
-                                            <li class="tab"><a href="#adminSettings">Admin</a></li>
+                                            <script type="text/javascript">
+                                                if(admin){
+                                                    $("#setting-tabs-heads").append("<li class='tab'><a href='#adminSettings'>Admin</a></li>");
+                                                }
+                                            </script>
                                         </ul>
 
                                         <ul id="settings-tabs" class="uk-switcher">
-                                            <li id="accountSettings" class="tab-content uk-active"><form class="uk-form-horizontal" >
-                                                <fieldset>
-                                                    <h1>Account settings</h1>
-                                                    <div class="uk-form-row">
-                                                        <label class="uk-form-label" for="">Set Name:</label>
-                                                        <input type="text" placeholder="John Philips">
-                                                        <span class="uk-form-help-inline"></span>
-                                                    </div>
-                                                    <div class="uk-form-row">
-                                                        <label class="uk-form-label" for="">Password:</label>
-                                                        <input type="password" placeholder="Current">
-                                                    </div>
-                                                    <div class="uk-form-row">
-                                                        <label class="uk-form-label" for=""></label>
-                                                        <input type="password" placeholder="New Password">
-                                                    </div>
-                                                    <div class="uk-form-row">
-                                                        <label class="uk-form-label" for=""></label>
-                                                        <input type="password" placeholder="Confirm new Password">
-                                                    </div>
-                                                    <div class="uk-form-row">
-                                                        <label class="uk-form-label" for="">Color Scheme:</label>
-                                                        <select>
-                                                            <option><div><a href id="color1"></a></div></option>
-                                                            <option><div><a href id="color2"></a></div></option>
-                                                        </select>
-                                                        <div id="colorBox"></div>
-                                                        <!--
-                                                        <div class="uk-button-dropdown" data-uk-dropdown>
-
-                                                            <button class="uk-button">...</button>
-
-                                                            <!-- This is the dropdown -->
+                                            <li id="accountSettings" class="tab-content uk-active">
+                                                <form class="uk-form-horizontal" >
+                                                    <fieldset>
+                                                        <h1>Account settings</h1>
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label" for="">Set Name:</label>
+                                                            <input type="text" placeholder="John Philips">
+                                                            <span class="uk-form-help-inline"></span>
+                                                        </div>
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label" for="">Password:</label>
+                                                            <input type="password" placeholder="Current">
+                                                        </div>
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label" for=""></label>
+                                                            <input type="password" placeholder="New Password">
+                                                        </div>
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label" for=""></label>
+                                                            <input type="password" placeholder="Confirm new Password">
+                                                        </div>
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label" for="">Color Scheme:</label>
+                                                            <select>
+                                                                <option><div><a href id="color1"></a></div></option>
+                                                                <option><div><a href id="color2"></a></div></option>
+                                                            </select>
+                                                            <div id="colorBox"></div>
                                                             <!--
-                                                            <div class="uk-dropdown uk-dropdown-small">
-                                                                <ul class="uk-nav uk-nav-dropdown">
-                                                                    <li><a href id="color1"></a></li>
-                                                                    <li><a href id="color2"></a></li>
-                                                                </ul>
-                                                            </div>-->
-                                                        <!--</div>-->
-                                                    </div>
-                                                    <div>
-                                                        <button class="uk-button uk-button-large button">Save Changes</button>
-                                                    </div>
-                                                </fieldset>
-                                            </form></li>
+                                                            <div class="uk-button-dropdown" data-uk-dropdown>
 
+                                                                <button class="uk-button">...</button>
+
+                                                                <!-- This is the dropdown -->
+                                                                <!--
+                                                                <div class="uk-dropdown uk-dropdown-small">
+                                                                    <ul class="uk-nav uk-nav-dropdown">
+                                                                        <li><a href id="color1"></a></li>
+                                                                        <li><a href id="color2"></a></li>
+                                                                    </ul>
+                                                                </div>-->
+                                                            <!--</div>-->
+                                                        </div>
+                                                        <div>
+                                                            <button class="uk-button uk-button-large button">Save Changes</button>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </li>
                                             <li id="adminSettings" class="tab-content"><form>
                                                 <fieldset>
                                                     <h1>Admin Settings</h1>
