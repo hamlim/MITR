@@ -1,6 +1,9 @@
+html{
+	height:100%;
+}
 body{
 	width: 100%;
-	overflow-x: scroll;
+	height: 100%;
 }
 /*start header css*/
 #navyo{
@@ -35,6 +38,7 @@ body{
 	padding: 0;
 	white-space:nowrap;
 	overflow-y: hidden;
+	min-height: 100%;
 }
 
 .column{
