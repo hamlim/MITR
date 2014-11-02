@@ -46,7 +46,7 @@
             {
                 "fieldname" : "project start",
                 "fieldtype" : "date",
-                "fielddata" : 011114-03:14
+                "fielddata" : 1414880770
             }
         ],
         "activities" : {
