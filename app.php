@@ -44,7 +44,7 @@
                     var admin = false;
                 }
             } else {
-                window.location.href = "./login.php";
+//                window.location.href = "./login.php";
             }
         </script>
         <!-- ALT code end -->
