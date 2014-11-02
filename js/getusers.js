@@ -1,7 +1,10 @@
 //The first thing to do is to get from the server the list of cards
 
 submitbtn.click(function() {
-
+    var currentuser;
+    alert("submit clicked");
+    alert(password);
+    alert(useremail);
     //initialize the card request
     var userrequest = new XMLHttpRequest;
     //handle the request for the card data
@@ -9,22 +12,10 @@ submitbtn.click(function() {
         if (userrequest.readyState == 4) {
             console.log(userrequest.responseText);
             alert("hi");
-            //now we have all the cards in the system
-            /*
-            obj = {
-                {
-                    "name": "matt hamlin",
-                    "ID" : 1,
-                    "email" : "hamlim@outlook.com",
-                    "columncolor" : "red",
-                    "Admin" : 0
-                },
-                { ... }, { ... } ...
-                };
-
-            */
+            //now we have all the users in the system
+            //refer to formatting.js for formats of JSON docs
             var res = userrequest.responseText;
-            checkuser(res, username, password);
+            checkuser(currentuser, res, useremail, password);
 
         }
     }
@@ -32,32 +23,34 @@ submitbtn.click(function() {
     userrequest.open("GET", "./data/users.txt", false);
 
     //function to handle the data and check for login.php
-    var currentuser = function checkuser(data, useremail, password){
+    function checkuser(currentuser, data, email, pass){
         //data is the requestText string
         alert(data);
         console.log("Data: ");
         console.log(data);
         var users = JSON.parse(data);
         for(i=0; i<users.length; i++){
-            if( users[i]["email"] == useremail && users[i]["password"] == password){
-                return users[i];
+            if( users[i]["email"] == email && users[i]["password"] == pass){
+                currentuser = users[i];
             } else {
-                return "ERROR";
+                currentuser = "ERROR";
             }
         }
     };
+    
 
     //currentuser is either the array representing the user
     //    or  currentuser is a string representing the error
     if ( currentuser != "ERROR" ){
         //ok the user is logged in
         var userstring = JSON.stringify(currentuser);
+        alert(userstring);
         localStorage.setItem("currentuser", userstring);
         alert("yes");
         localStorage.setItem("loggedin", "true");
         window.location.href = "./app.php";
     } else {
         alert("User email not in the database!");
-        window.location.href = "./login.php";
+//        window.location.href = "./login.php";
     }
 });

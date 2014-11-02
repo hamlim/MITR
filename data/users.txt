@@ -1,1 +1,18 @@
-"{"name":"matt hamlin","ID":1,"email":"hamlim@outlook.com","columncolor":"red","isadmin":1,"password":"test"}"
+[
+  {
+    "username": "matt hamlin",
+    "userID" : 1,
+    "useremail" : "hamlim@outlook.com",
+    "columncolor" : "red",
+    "isAdmin" : 1,
+    "password" : "test"
+  },
+  {
+    "username" : "Bob the Builder",
+    "userID" : 2,
+    "useremail" : "btb@bob.bob",
+    "columncolor" : "yellow",
+    "isAdmin" : 0,
+    "password" : "bob"
+  }
+]
