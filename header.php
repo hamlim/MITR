@@ -22,6 +22,23 @@
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="js/appjs.js" type="text/javascript"></script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
+        <script>
+            var logstat = localStorage.getItem("loggedin");
+            if (logstat) {
+                var user = localStorage.getItem("currentuser");
+                var userobj = JSON.parse(user);
+                var name = userobj["username"];
+                var colorcode = userobj["columncolor"];
+                var isadmin = userobj["isAdmin"];
+                if (isadmin == 1){
+                    var admin = true;
+                } else {
+                    var admin = false;
+                }
+            } else {
+                window.location.href = "./login.php";
+            }
+        </script>
     </head>
     <body>
         <nav class="uk-navbar" id = "navyo">
@@ -49,7 +66,7 @@
 
 
 
-                    <li class="uk-parent" data-uk-dropdown><a href><i class="uk-icon-chevron-down"></i>Username</a>
+                    <li class="uk-parent" data-uk-dropdown><a id="username" href><i class="uk-icon-chevron-down"></i>Username</a>
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class = "uk-nav uk-nav-navbar">
                                 <li><a href="#settingsModal" data-uk-modal>Settings</a></li>
@@ -147,7 +164,10 @@
             </div>
         </nav>
 
-
+    <script type="text/javascript">
+        var unelem = document.getElementById("username");
+        unelem.innerHTML = name;
+    </script>
 
     </body>
 </html>
