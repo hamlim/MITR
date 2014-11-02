@@ -35,16 +35,16 @@
             if (logstat) {
                 var user = localStorage.getItem("currentuser");
                 var userobj = JSON.parse(user);
-                var name = userobj["name"];
+                var name = userobj["username"];
                 var colorcode = userobj["columncolor"];
-                var isadmin = userobj["admin"];
+                var isadmin = userobj["isAdmin"];
                 if (isadmin == 1){
                     var admin = true;
                 } else {
                     var admin = false;
                 }
             } else {
-//                window.location.href = "./login.php";
+                window.location.href = "./login.php";
             }
         </script>
         <!-- ALT code end -->
