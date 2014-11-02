@@ -171,16 +171,22 @@ input {
 }
 
 .settings{
-	display: inline-block;
+	background-color: black;
+	color: white;
+	display: block;
+	right: 0;
+	left: 0;
+	margin-right: auto;
+	margin-left: auto;
 	position:relative;
 	top: 50px;
 	width: 45%; 
-
+	transition: opacity .3s linear,transform .3s ease-out;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #888888;
 }
 
 .settingsContent{
-	background-color: black;
-	color: white;
 	height: 100%;
 }
 .settingsContent h1{
@@ -189,7 +195,7 @@ input {
 
 .settings fieldset{
 	border: none;
-	border-style: solid;
+	/*border-style: solid;
 	border: 2px groove threedface;
 	border-image-source: initial;
 	border-image-slice: initial;
@@ -199,7 +205,7 @@ input {
 	min-width: -webkit-min-content;
 	box-shadow: 0px 0px 8px #888888;
 	border-radius: 10px;
-	/*padding: 10px 20px 10px 10px;
+	padding: 10px 20px 10px 10px;
 	width: 45%;*/
 
 }
@@ -237,6 +243,23 @@ input {
     background: linear-gradient(to right, #142966 , #72c6ff); /* Standard syntax (must be last) */
 }
 
+#colorBox{
+	min-height: 40px;
+	min-width: 200px;
+	display: block;
+	background: -webkit-linear-gradient(left, #40543A , #8EB283); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #40543A, #8EB283); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #40543A, #8EB283); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #40543A , #8EB283); /* Standard syntax (must be last) */
+    background-color: white;
+
+}
+
 #adminSettings{
 	display:none;
+}
+
+#settingsModal{
+	display:none;
+	color:white;
 }
