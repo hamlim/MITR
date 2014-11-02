@@ -36,7 +36,7 @@
             //initialize the card request
             var userrequest = new XMLHttpRequest;
 //            console.log("Making requst");
-            userrequest.open("GET", "./data/users.json", false);
+            userrequest.open("GET", "./data/users.txt", false);
             userrequest.send();
             //handle the request for the card data
             console.log(userrequest.responseText);
@@ -49,7 +49,7 @@
 //                console.log(data);
                 var users = JSON.parse(data);
 //                console.log("List of users");
-//                console.log(users);
+                console.log(users);
                 for(i=0; i<users.length; i++){
                     if( users[i]["useremail"] == email && users[i]["password"] == pass){
                         return users[i];
@@ -72,8 +72,8 @@
                 localStorage.setItem("loggedin", "true");
                 window.location.href = "./app.php";
             } else {
-                console.log("User email not in the database!");
-                window.location.href = "./login.php";
+                alert("User email not in the database!");
+                window.location.href = "./login.html";
             }
         });
   </script>
