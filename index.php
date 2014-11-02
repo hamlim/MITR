@@ -1,3 +1,3 @@
 <?php
-    header("location:./adduser.php");
+    header("location:./login.html");
 ?>
