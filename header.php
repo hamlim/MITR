@@ -24,7 +24,7 @@
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
         <script>
             var logstat = localStorage.getItem("loggedin");
-            if (logstat) {
+            if (logstat != null) {
                 var user = localStorage.getItem("currentuser");
                 var userobj = JSON.parse(user);
                 var name = userobj["username"];
@@ -36,7 +36,7 @@
                     var admin = false;
                 }
             } else {
-                window.location.href = "./login.php";
+                window.location.href = "./login.html";
             }
         </script>
     </head>
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                             <!--<li><a href="#">Blah</a></li>-->
-                                <li><a href="#">Log Out</a></li>
+                                <li><a href="#" onclick="logout();">Log Out</a></li>
                             </ul>
                         </div>  
                     </li>  
@@ -167,6 +167,12 @@
     <script type="text/javascript">
         var unelem = document.getElementById("username");
         unelem.innerHTML = name;
+        
+        function logout(){
+            localStorage.removeItem("currentuser");
+            localStorage.removeItem("loggedin");
+            window.location.href = "./login.html";
+        }
     </script>
 
     </body>
