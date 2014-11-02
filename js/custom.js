@@ -12,13 +12,13 @@ function ColorLuminance(hex, lum) {
 	if (hex.length < 6) {
 		hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
 	}
-	lum = lum || 0;
+	//lum = lum || 0;
 
 	// convert to decimal and change luminosity
 	var rgb = "#", c, i;
 	for (i = 0; i < 3; i++) {
 		c = parseInt(hex.substr(i*2,2), 16);
-		c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+		c = Math.round(Math.min(Math.max(0, c + lum[i]), 255)).toString(16);
 		rgb += ("00"+c).substr(c.length);
 	}
 
@@ -28,12 +28,22 @@ function ColorLuminance(hex, lum) {
 
 
 function columns(){
+	var color1 = "#40543A";
+	var color2 = "#8EB283";
+	var red = parseInt(color2.substr(1,2), 16) - parseInt(color1.substr(1,2), 16);
+	var green = parseInt(color2.substr(3,2), 16) - parseInt(color1.substr(3,2), 16);
+	var blue = parseInt(color2.substr(5,2), 16) - parseInt(color1.substr(5,2), 16);
+	var colnum = 5;
+	red = Math.round(red/colnum);
+	blue = Math.round(blue/colnum);
+	green = Math.round(green/colnum);
+	var diff = [red,green,blue];
 
 
-	for(x = 1; x <= 5; x++){
-
+	for(x = 1; x <= colnum; x++){
+		diff = [red*x, green*x, blue*x ];
 		var hold = "col" + x;
-		document.getElementById(hold).style.backgroundColor = ColorLuminance(0x142966,(x));
+		document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
 	}
 }
 
@@ -45,6 +55,12 @@ $(document).ready(function(){
 		var selected_tab = $(this).find("a").attr("href");
 		$(selected_tab).fadeIn(100);
 		return false;
+	});
+
+	$("div.settingsModal").click(function(){
+		$(this).addClass('uk-open');
+		//$("html").css("margin-left", "-17px");
+		//document.getElementById('settingsModal').style.display = block;
 	});
 });
 
