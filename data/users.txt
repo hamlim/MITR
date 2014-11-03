@@ -11,7 +11,7 @@
     "username": "Matt Hamlin",
     "userID" : 1,
     "useremail" : "hamlim@outlook.com",
-    "columncolor" : "red",
+    "columncolor" : "purple",
     "isAdmin" : 1,
     "password" : "test"
   },
@@ -19,7 +19,7 @@
     "username" : "Bob the Builder",
     "userID" : 2,
     "useremail" : "btb@bob.bob",
-    "columncolor" : "yellow",
+    "columncolor" : "teal",
     "isAdmin" : 0,
     "password" : "bob"
   },

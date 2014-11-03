@@ -128,7 +128,7 @@
                                                         <button type="submit" class="uk-button button" formmethod="post">Remove user</button>
                                                     </div>
                                                     <div class="uk-form-row">
-                                                        <button type="button" class="uk-button button" id="make-card-format" >Make Card Format</button>
+                                                        <button type="button" class="uk-button button" id="make-card-btn" >Make Card Format</button>
                                                     </div>
                                                     <div class="uk-form-row">
                                                         <label class="uk-form-label" for="">Add Column:</label>
