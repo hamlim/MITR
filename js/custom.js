@@ -5,6 +5,49 @@
 	        backgroundColor: '#' + colorhex
 	    });
 */
+var purple = new Object();
+purple.first = ("#3D2D43");
+purple.last = ("#E0D4E5");
+purple.name = "Purple";
+
+var blue = new Object();
+blue.first = "#25303C";
+blue.last = "#C9CFD6";
+blue.name = "Blue";
+
+var teal = new Object();
+teal.first = "#1F524E";
+teal.last = "#CAF0ED";
+teal.name = "Teal";
+
+var green = new Object();
+green.first = "#4A5C22";
+green.last = "#CEEE89";
+green.name = "Green";
+
+var yellow = new Object();
+yellow.first = "#7A7832";
+yellow.last = "#F8F5A2";
+yellow.name = "Yellow";
+
+var red = new Object();
+red.first = "#B24B4B";
+red.last = "#FFD3D3";
+red.name = "Red";
+
+var maroon = new Object();
+maroon.first = "#762E35";
+maroon.last = "#E7B8BC";
+maroon.name = "Maroon";
+
+var grey = new Object();
+grey.first = "#262626";
+grey.last = "#CFCFCF";
+grey.name = "Grey";
+
+var colors = [purple, blue, teal, green, yellow, red, maroon, grey];
+
+
 function ColorLuminance(hex, lum) {
 
 	// validate hex string
@@ -28,8 +71,8 @@ function ColorLuminance(hex, lum) {
 
 
 function columns(){
-	var color1 = "#40543A";
-	var color2 = "#8EB283";
+	var color1 = "#4C3854";
+	var color2 = "#D6C6DC";
 	var red = parseInt(color2.substr(1,2), 16) - parseInt(color1.substr(1,2), 16);
 	var green = parseInt(color2.substr(3,2), 16) - parseInt(color1.substr(3,2), 16);
 	var blue = parseInt(color2.substr(5,2), 16) - parseInt(color1.substr(5,2), 16);
