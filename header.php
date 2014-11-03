@@ -86,9 +86,11 @@
                                                         </div>
                                                         <div class="uk-form-row">
                                                             <label class="uk-form-label" for="">Color Scheme:</label>
-                                                            <select>
-                                                                <option><div><a href id="color1"></a></div></option>
-                                                                <option><div><a href id="color2"></a></div></option>
+                                                            <select id="colorSelect">
+                                                                <option><div><a href></a></div>Green</option>
+                                                                <option><div><a href></a></div>Blue</option>
+                                                                <option><div><a href></a></div>Purple</option>
+                                                                <option><div><a href></a></div>Teal</option>
                                                             </select>
                                                             <div id="colorBox"></div>
                                                             <!--

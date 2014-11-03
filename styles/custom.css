@@ -225,7 +225,7 @@ input {
 	border-radius: 4px;
 }
 
-#color1{
+#Green{
 	height: 40px;
     background: -webkit-linear-gradient(left, #40543A , #8EB283); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right, #40543A, #8EB283); /* For Opera 11.1 to 12.0 */
@@ -239,7 +239,7 @@ input {
    	*/
 }
 
-#color2{
+#Blue{
 	height: 40px;
     background: -webkit-linear-gradient(left, #142966 , #72c6ff); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right, #142966, #72c6ff); /* For Opera 11.1 to 12.0 */
@@ -247,14 +247,27 @@ input {
     background: linear-gradient(to right, #142966 , #72c6ff); /* Standard syntax (must be last) */
 }
 
-#colorBox{
+#Purple{
+	height: 40px;
+    background: -webkit-linear-gradient(left, #402F44 , #BC9EC3); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #402F44, #BC9EC3); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #402F44, #BC9EC3); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #402F44 , #BC9EC3); /* Standard syntax (must be last) */
+}
+
+#Teal{
+	height: 40px;
+    background: -webkit-linear-gradient(left, #517574 , #9ECECD); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #517574, #9ECECD); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #517574, #9ECECD); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #517574 , #9ECECD); /* Standard syntax (must be last) */
+}
+
+
+.colorBox{
 	min-height: 40px;
 	min-width: 200px;
 	display: block;
-	background: -webkit-linear-gradient(left, #40543A , #8EB283); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #40543A, #8EB283); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #40543A, #8EB283); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #40543A , #8EB283); /* Standard syntax (must be last) */
     background-color: white;
 
 }

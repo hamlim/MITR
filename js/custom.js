@@ -55,13 +55,20 @@ $(document).ready(function(){
 		var selected_tab = $(this).find("a").attr("href");
 		$(selected_tab).fadeIn(100);
 		return false;
-	});
+	}),
 
 	$("div.settingsModal").click(function(){
 		$(this).addClass('uk-open');
-		//$("html").css("margin-left", "-17px");
+		$("html").css("margin-left", "0");
 		//document.getElementById('settingsModal').style.display = block;
+	}),
+
+	$(".colorBox").attr('id', $("#colorSelect :selected").text()),
+	
+	$("#colorSelect").change(function(){
+		$(".colorBox").attr('id', $("#colorSelect :selected").text());
 	});
+	
 });
 
 /*toggle show/hide for activity feed, yo -- don't need this anymore
