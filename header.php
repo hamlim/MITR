@@ -92,7 +92,7 @@
                                                                 <option><div><a href></a></div>Purple</option>
                                                                 <option><div><a href></a></div>Teal</option>
                                                             </select>
-                                                            <div id="colorBox"></div>
+                                                            <div class="colorBox"></div>
                                                             <!--
                                                             <div class="uk-button-dropdown" data-uk-dropdown>
 
