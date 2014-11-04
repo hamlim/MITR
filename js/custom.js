@@ -71,9 +71,9 @@ function ColorLuminance(hex, lum) {
 
 
 //Set color gradient and background color for all the columns
-function columns(){
-	var color1 = "#262626";
-	var color2 = "#CFCFCF";
+function columns(c1, c2){
+	var color1 = c1;
+	var color2 = c2;
 	var red = parseInt(color2.substr(1,2), 16) - parseInt(color1.substr(1,2), 16);
 	var green = parseInt(color2.substr(3,2), 16) - parseInt(color1.substr(3,2), 16);
 	var blue = parseInt(color2.substr(5,2), 16) - parseInt(color1.substr(5,2), 16);
