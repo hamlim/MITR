@@ -1,13 +1,9 @@
 	   
 	   
-/* How to change the background color of a div ith an id 
-	    $("#idname" + number).css({
-	        backgroundColor: '#' + colorhex
-	    });
-*/
+
 var purple = new Object();
-purple.first = ("#3D2D43");
-purple.last = ("#E0D4E5");
+purple.first = "#3D2D43";
+purple.last = "#E0D4E5";
 purple.name = "Purple";
 
 var blue = new Object();
@@ -45,9 +41,14 @@ grey.first = "#262626";
 grey.last = "#CFCFCF";
 grey.name = "Grey";
 
+//array of all background colors
 var colors = [purple, blue, teal, green, yellow, red, maroon, grey];
 
 
+
+
+
+//helper function to create the shades for column backgrounf
 function ColorLuminance(hex, lum) {
 
 	// validate hex string
@@ -69,10 +70,10 @@ function ColorLuminance(hex, lum) {
 }
 
 
-
+//Set color gradient and background color for all the columns
 function columns(){
-	var color1 = "#4C3854";
-	var color2 = "#D6C6DC";
+	var color1 = "#262626";
+	var color2 = "#CFCFCF";
 	var red = parseInt(color2.substr(1,2), 16) - parseInt(color1.substr(1,2), 16);
 	var green = parseInt(color2.substr(3,2), 16) - parseInt(color1.substr(3,2), 16);
 	var blue = parseInt(color2.substr(5,2), 16) - parseInt(color1.substr(5,2), 16);
@@ -84,36 +85,61 @@ function columns(){
 
 
 	for(x = 1; x <= colnum; x++){
-		diff = [red*x, green*x, blue*x ];
+		diff = [red*(x-1), green*(x-1), blue*(x-1) ];
 		var hold = "col" + x;
 		document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
 	}
 }
 
+
+
+
 $(document).ready(function(){
-	$("li.tab").click(function(){
+	$("li.tab").click(function(){ //switch between admin and account setting content
 		$(".uk-tab li").removeClass('uk-active');
 		$("li.tab-content").hide();
 		$(this).addClass("uk-active");
 		var selected_tab = $(this).find("a").attr("href");
 		$(selected_tab).fadeIn(100);
 		return false;
-	}),
+	});
+	$(function(){ //create all of the colors options. 
+		var list = '';
+		$.each(colors, function(index){
+			list+='<option value="' + colors[index] + '"><div><a href></a></div>'+ colors[index].name +'</option>';
+		});
+		$('#colorSelect').html(list);
+	});
+	$(function(){ //set the box to the current selected color
+		$.each(colors,function(i){
+			if($("#colorSelect :selected").text() == colors[i].name){
+				$(".colorBox").css("background", "-webkit-linear-gradient(left, "+colors[i].first+" , "+colors[i].last+")");
+				$(".colorBox").css("background", "-o-linear-gradient(right, "+colors[i].first+" , "+colors[i].last+")");
+				$(".colorBox").css("background", "-moz-linear-gradient(right, "+colors[i].first+" , "+colors[i].last+")");
+				$(".colorBox").css("background", "linear-gradient(to right, "+colors[i].first+" , "+colors[i].last+")");
+			}
+		});
+	});
 
+	//open the settings modal
 	$("div.settingsModal").click(function(){
 		$(this).addClass('uk-open');
 		$("html").css("margin-left", "0");
-		//document.getElementById('settingsModal').style.display = block;
-	}),
-
-	$(".colorBox").attr('id', $("#colorSelect :selected").text()),
-	
-	$("#colorSelect").change(function(){
-		$(".colorBox").attr('id', $("#colorSelect :selected").text());
 	});
-	
 });
-
+//change the color of the colorbox div upon change
+$("#colorSelect").change(function(){
+	$(function(){
+		$.each(colors,function(i){
+			if($("#colorSelect :selected").text() == colors[i].name){
+				$(".colorBox").css("background", "-webkit-linear-gradient(left, "+colors[i].first+" , "+colors[i].last+")");
+				$(".colorBox").css("background", "-o-linear-gradient(right, "+colors[i].first+" , "+colors[i].last+")");
+				$(".colorBox").css("background", "-moz-linear-gradient(right, "+colors[i].first+" , "+colors[i].last+")");
+				$(".colorBox").css("background", "linear-gradient(to right, "+colors[i].first+" , "+colors[i].last+")");
+			}
+		});
+	});
+});
 /*toggle show/hide for activity feed, yo -- don't need this anymore
 $('#acttogglebutton').on('click', function() {
     $("#activityfeed").toggleClass('clicked');
