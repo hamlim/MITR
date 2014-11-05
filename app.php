@@ -30,7 +30,7 @@
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
-    <body onload="columns('#262626', '#CFCFCF');">
+    <body onload="columns('#262626', '#CFCFCF', 5);">
     
     	<!--IF not logging in-->
         <?php //if (!isset($_SESSION['username'])):
