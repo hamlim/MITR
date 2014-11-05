@@ -8,8 +8,7 @@
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }
-	///* login page */
-	//include "login.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -31,15 +30,6 @@
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
     <body onload="columns('#262626', '#CFCFCF', 5);">
-    
-    	<!--IF not logging in-->
-        <?php //if (!isset($_SESSION['username'])):
-            //it should work when we have users in the database
-            //exit();
-        ?>
-
-        <!--ELSE-->
-        <?php //else: ?>
     
         <!--start columns-->
         <ul id = "columnslist">
@@ -153,9 +143,6 @@
                 </ul>
             </li>
         </ul>
-        
-        <!--END IF-->
-        <?php //endif; ?>
 
         <script src="js/main.js"></script>
     </body>
