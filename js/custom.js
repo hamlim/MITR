@@ -125,6 +125,7 @@ $(document).ready(function(){
 	$("div.settingsModal").click(function(){
 		$(this).addClass('uk-open');
 		$("html").css("margin-left", "0");
+		//document.getElementById('settingsModal').style.display = block;
 	});
 });
 //change the color of the colorbox div upon change
