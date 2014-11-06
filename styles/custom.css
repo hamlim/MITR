@@ -124,21 +124,56 @@ li {
 }
 
 /* login page */
-h1 {
-	padding-top: 30px;
-	padding-left: 30px;
+.loginPage{
+	font-size: 150%;
+	height: 100%;
+	width: 100%;
+	min-width: 400px;
+	min-height: 400px;
+	color: white;
+	text-align: center;
+	background-image: -webkit-linear-gradient(black, white); /* For Safari 5.1 to 6.0 */
+ 	background-image: -o-linear-gradient(black, white); /* For Opera 11.1 to 12.0 */
+  	background-image: -moz-linear-gradient(black, white); /* For Firefox 3.6 to 15 */
+ 	background-image: linear-gradient(black, white); /* Standard syntax */
 }
 
-form {
-	padding-left: 30px;
+.loginPage form{
+	position: relative;
+	margin: auto;
+  	left:0;
+  	right: 0;
+  	top:20%;
+  	min-width: 350px;
+	width: 35%;
+
+
 }
 
-input {
-	width: 200px;
-	height: 28px;
-	margin: 1.5px; 
+.loginPage form{
+	border-radius: 10px;
+	border-width: 2px;
+	box-shadow: 0 0 10px #888888;
+	padding: 50px 20px 20px 20px;
+	background-color: black;
 }
 
+.loginPage h1{
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.loginPage input{
+	font-size: 130%;
+	box-shadow: 0px 0px 8px #888888;
+	border-radius: 4px;
+	text-align: middle;
+}
+
+.loginPage button{
+	margin-top: 10px;
+	font-weight: bold;
+}
 
 
 
