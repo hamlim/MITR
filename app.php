@@ -2,13 +2,6 @@
 	//started of with some html5boilerplate from html5boilerplate.com
 	include "header.php";
 
-    try {
-        require "config.php";
-        $db = new cbreeze($config);
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-    }
-
 ?>
 
 <!DOCTYPE html>
