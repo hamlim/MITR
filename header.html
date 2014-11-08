@@ -16,6 +16,7 @@
         <!--links to js-->
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="js/appjs.js" type="text/javascript"></script>
+        
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
         <script>
             var logstat = localStorage.getItem("loggedin");
@@ -34,6 +35,11 @@
                 window.location.href = "./login.html";
             }
             
+        </script>
+        <script src="js/colcards.js"></script>
+        <script type="text/javascript">
+            var colstring = localStorage.getItem("columns");
+            var columndata = JSON.parse(colstring);
         </script>
     </head>
     <body>

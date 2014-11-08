@@ -33,10 +33,15 @@
                 var end = "#CFCFCF";
                 var start = "#262626";
             }
+            //columndata = JSON of columns
+            var count = 0;
+            for i=0; i<columndata.length; i++){
+                count = count + 1;
+            }
         </script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
-    <body onload="columns(start, end, 5);">
+    <body onload="columns(start, end, count);">
     
         <!--start columns-->
         <ul id = "columnslist">
