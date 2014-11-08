@@ -37,7 +37,31 @@ submitbtn.click(function() {
             }
         }
     };
+    //------------------------------------------
+    //COLUMNS
+    //------------------------------------------
+    //first we need to get all the columns
+    var colrequest = new XMLHttpRequest;
+    var columns;
+    colrequest.onreadystatechange = function() {
+        if (colrequest.readyState == 4){
+            alert(colrequest.responseText);
+            var resp = colrequest.responseText;
+            alert("Res: " + resp);
+            checkcontent(columns, resp);
+        }
+    }
+    colrequest.open("GET", "./data/columns.txt", false);
+
+    function checkcontent(columns, data){
+        console.log("data: ");
+        console.log(data);
+        localStorage.setItem("columns", colstring);
+        var column = JSON.parse(data);
+        columns = column;
+    };
     
+    //------------------------------------------
 
     //currentuser is either the array representing the user
     //    or  currentuser is a string representing the error
