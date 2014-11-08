@@ -33,6 +33,7 @@
             } else {
                 window.location.href = "./login.html";
             }
+            
         </script>
     </head>
     <body>
@@ -132,6 +133,12 @@
 
                                     </div>
                                 </div>
+                                <script>
+                                    if (name == "root"){
+                                        var modal = $.UIkit.modal("#settingsModal");
+                                        modal.show(); //this doesn't work :( 
+                                    }
+                                </script>
                             <!--<li><a href="#">Blah</a></li>-->
                                 <li><a href="#" onclick="logout();">Log Out</a></li>
                             </ul>
