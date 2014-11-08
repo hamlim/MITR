@@ -1,6 +1,4 @@
-	   
-	   
-
+//color codes
 var purple = new Object();
 purple.first = "#3D2D43";
 purple.last = "#E0D4E5";

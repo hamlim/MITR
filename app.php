@@ -1,7 +1,6 @@
 <?php
 	//started of with some html5boilerplate from html5boilerplate.com
-	include "header.php";
-
+	include "header.html";
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +19,24 @@
         <link rel="stylesheet" href="styles/custom.css">
         <!--link to js-->
         <script src="js/custom.js" type="text/javascript"></script>
+        <script>
+            //colorcode is the name of the background colors
+            console.log(colors);
+            console.log(colorcode);
+            for(i=0; i<colors.length; i++){
+                if(colors[i].name == colorcode){
+                    var start = colors[i].first;
+                    var end = colors[i].last;
+                }
+            }
+            if(start == undefined){
+                var end = "#CFCFCF";
+                var start = "#262626";
+            }
+        </script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
-    <body onload="columns('#262626', '#CFCFCF', 5);">
+    <body onload="columns(start, end, 5);">
     
         <!--start columns-->
         <ul id = "columnslist">
