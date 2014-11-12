@@ -8,12 +8,13 @@ console.log(columnnames);
 
 var colbody = document.getElementById("columnslist");
 
+//parlor trick code, not actually meant to work
 var h2s = colbody.getElementsByTagName("h2");
 
 for(i=0; i<columnnames.length; i++){
     h2s[i].innerHTML = columnnames[i];
 }
-var cols = document.getElementById("")
+//end parlor trick code
 
 
 //now we make the html content from the column lists
