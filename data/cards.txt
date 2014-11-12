@@ -97,7 +97,7 @@
             {
                 "fieldname": "Client name",
                 "fieldtype": "stf",
-                "fielddata": "Acme Corp."
+                "fielddata": "Steve Corp."
             },
             {
                 "fieldname": "primary contact",
