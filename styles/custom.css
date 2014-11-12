@@ -198,6 +198,9 @@ li {
 	position: relative;
 
 }
+.tab a {
+    color: black;
+}
 
 .settingsName img{
 	border-radius: 10px;
@@ -210,8 +213,8 @@ li {
 }
 
 .settings{
-	background-color: black;
-	color: white;
+	background-color: white;
+	color: black;
 	display: block;
 	right: 0;
 	left: 0;
@@ -229,7 +232,7 @@ li {
 	height: 100%;
 }
 .settingsContent h1{
-	color: white;
+	color: black;
 }
 
 .settings fieldset{
@@ -246,6 +249,7 @@ li {
 	border-radius: 10px;
 	padding: 10px 20px 10px 10px;
 	width: 45%;*/
+    color: black;
 
 }
 .settings input{
@@ -274,5 +278,5 @@ li {
 
 #settingsModal{
 	display:none;
-	color:white;
+	color:black;
 }
