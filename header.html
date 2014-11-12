@@ -39,8 +39,10 @@
         <script src="js/colcards.js"></script>
         <script type="text/javascript">
             var colstring = localStorage.getItem("columns");
-            alert("Header columnstring: " + colstring);
+//            alert("Header columnstring: " + colstring);
             var columndata = JSON.parse(colstring);
+            var cardstring = localStorage.getItem("cards");
+            var carddata = JSON.parse(cardstring);
         </script>
     </head>
     <body>
@@ -92,20 +94,6 @@
                                                             <label class="uk-form-label" for="">Color Scheme:</label>
                                                             <select id="colorSelect"></select>
                                                             <div class="colorBox"></div>
-                                                            <!--
-                                                            <div class="uk-button-dropdown" data-uk-dropdown>
-
-                                                                <button class="uk-button">...</button>
-
-                                                                <!-- This is the dropdown -->
-                                                                <!--
-                                                                <div class="uk-dropdown uk-dropdown-small">
-                                                                    <ul class="uk-nav uk-nav-dropdown">
-                                                                        <li><a href id="color1"></a></li>
-                                                                        <li><a href id="color2"></a></li>
-                                                                    </ul>
-                                                                </div>-->
-                                                            <!--</div>-->
                                                         </div>
                                                         <div>
                                                             <button class="uk-button uk-button-large button">Save Changes</button>

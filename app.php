@@ -21,8 +21,8 @@
         <script src="js/custom.js" type="text/javascript"></script>
         <script>
             //colorcode is the name of the background colors
-            console.log(colors);
-            console.log(colorcode);
+//            console.log(colors);
+//            console.log(colorcode);
             for(i=0; i<colors.length; i++){
                 if(colors[i].name == colorcode){
                     var start = colors[i].first;
@@ -34,16 +34,15 @@
                 var start = "#262626";
             }
             //columndata = JSON of columns
-//            if (columndata == undefined){
-//                var count = 0;
-//                for( i=0; i<columndata.length; i++){
-//                    count = count + 1;
-//                }
-//            }
-//            if(count = undefined){
-//                var count = 5;
-//            }
-            var count = 5;
+            if (columndata != undefined){
+                var count = 0;
+                for( i=0; i<columndata.length; i++){
+                    count = count + 1;
+                }
+            }
+            if(count == undefined){
+                var count = 5;
+            }
         </script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
@@ -52,7 +51,7 @@
         <!--start columns-->
         <ul id = "columnslist">
             <li class = "column" id = "col1">
-                <h2>Heading</h2>
+                <h2 id="coltitle1">Heading</h2>
                 <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
@@ -79,7 +78,7 @@
             </li>
             <!--new column-->
             <li class = "column" id = "col2">
-                <h2>Heading</h2>
+                <h2 id="coltitle2">Heading</h2>
                 <ul class = "cardlist connected list">
                    <li class = "card">
                         <div class = "cardheader">
@@ -95,7 +94,7 @@
             </li>
             <!--new column-->
             <li class = "column" id = "col3">
-                <h2>Heading</h2>
+                <h2 id="coltitle3">Heading</h2>
                 <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
@@ -116,7 +115,7 @@
             </li>
             <!--new column-->
             <li class = "column" id = "col4">
-                <h2>Heading</h2>
+                <h2 id="coltitle4">Heading</h2>
                 <ul class = "cardlist connected list">
                    <li class = "card">
                         <div class = "cardheader">
@@ -142,7 +141,7 @@
             </li>
             <!--new column-->
             <li class = "column" id = "col5">
-                <h2>Heading</h2>
+                <h2 id="coltitle5">Heading</h2>
                 <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
@@ -162,7 +161,7 @@
                 </ul>
             </li>
         </ul>
-
+        <script type="text/javascript" src="js/makecols.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
