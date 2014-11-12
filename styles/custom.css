@@ -206,8 +206,12 @@ li {
 	position: relative;
 
 }
-.tab a {
-    color: black;
+.tab a{
+	color:black;
+}
+
+.tab{
+    background-color: black;
 }
 
 .settingsName img{
