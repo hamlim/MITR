@@ -138,12 +138,21 @@ $("#colorSelect").change(function(){
 		});
 	});
 });
-/*toggle show/hide for activity feed, yo -- don't need this anymore
-$('#acttogglebutton').on('click', function() {
-    $("#activityfeed").toggleClass('clicked');
-});*/
+/*edit card modal color selection-------------------------------------------*/
+$('#thumbs').delegate('img', 'click', function() {
+    var $this = $(this);
+    // Clear formatting
+    $('#thumbs img').removeClass('border-highlight');
+
+    // Highlight with coloured border
+    $this.addClass('border-highlight');
+    
+    // Changes the value of the form field "animal" to the file name shown in the image.
+    $('[name="animal"]').val( $this.attr('src').substring($this.attr('src').lastIndexOf('/')+1) );
+});
 
 
+/*-----------------------------------------------------------------*/
 /*DRAG AND DROP*/
 /*
  * HTML5 Sortable jQuery Plugin
@@ -243,3 +252,7 @@ $.fn.sortable = function(options) {
 				items: ':not(.disabled)'
 			});
 		});
+
+
+
+

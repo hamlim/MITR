@@ -297,3 +297,8 @@ li {
 	display:none;
 	color:black;
 }
+
+/*for selecting a color in edit card, yo*/
+.border-highlight {
+    border:2px dashed blue;   
+}
