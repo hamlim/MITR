@@ -5,14 +5,14 @@
         "columnorder" : 1
     },
     {
-        "columnname" : "Atticus",
-        "columnID" : 2,
-        "columnorder" : 2
-    },
-    {
         "columnname" : "Testing",
         "columnID" : 3,
         "columnorder" : 3
+    },
+    {
+        "columnname" : "Atticus",
+        "columnID" : 2,
+        "columnorder" : 2
     },
     {
         "columnname" : "hello",
