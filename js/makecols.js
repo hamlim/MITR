@@ -35,4 +35,8 @@ for(i=0; i<colu.length; i++){ //iterate through columns
             var name = carddata[j]["info"]["name"];
             var priority = carddata[j]["info"]["priority"];
             var color = carddata[j]["info"]["colorcode"];
+            //iterate though ltf fields, stf fields, date fields and add to html
             
+        }
+    }
+}
