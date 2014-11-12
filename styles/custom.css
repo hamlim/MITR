@@ -28,6 +28,14 @@ body{
 	color:white;
 }
 
+#navyo .tab.uk-active a{
+	color: black;
+}
+
+#navyo .tab a:hover{
+	color:black;
+}
+
 #navyo i{
 	margin-right: 7px;
 }
