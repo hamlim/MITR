@@ -6125,6 +6125,7 @@ a.uk-thumbnail:focus {
   -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
   transition: opacity 0.3s linear, transform 0.3s ease-out;
 }
+
 /* Phone landscape and smaller */
 @media (max-width: 767px) {
   /*

@@ -53,6 +53,7 @@
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class = "uk-nav uk-nav-navbar">
                                 <li><a href="#settingsModal" data-uk-modal>Settings</a></li>
+                                    <!--begin settings modal-->
                                     <div id="settingsModal" class="uk-modal">
                                     <div class="settings uk-modal-dialog">
                                         <a class="uk-modal-close uk-close"></a>
@@ -64,9 +65,9 @@
                                                 }
                                             </script>
                                         </ul>
-
                                         <ul id="settings-tabs" class="uk-switcher">
                                             <li id="accountSettings" class="tab-content uk-active">
+                                                
                                                 <form class="uk-form-horizontal" >
                                                     <fieldset>
                                                         <h1>Account settings</h1>
@@ -135,10 +136,11 @@
                                                         <button type="submit" class="uk-button button" formmethod="post">Add Column</button>
                                                     </div>
                                                 </fieldset>
-                                            </form></li>
+                                            </form></li>                                       
                                         </ul>
 
                                     </div>
+                                    <!--end settings modal-->
                                 </div>
                                 <script>
                                     if (name == "root"){

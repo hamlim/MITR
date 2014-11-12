@@ -56,8 +56,9 @@
                 <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
-                            <p class = "cardpriority">1<span class = "cardtitle">Title<i class = "uk-icon-pencil-square-o"></i></span></p>
+                            <p class = "cardpriority">1<span class = "cardtitle">Title<a href ="#editCardModal" data-uk-modal><i class = "uk-icon-pencil-square-o"></i></a></span></p>
                         </div>
+                        <?php include 'editcardmodal.php' ?>
                     </li>
                     <li class = "card">
                         <div class = "cardheader">
