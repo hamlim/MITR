@@ -27,12 +27,23 @@
                 <label class="uk-form-label" for="">Priority: </label>
                 <select>
                     <option>1</option>
-                    <option>21</option>
+                    <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>...up to number of cards in column</option>
                 </select>
-            </div>           
+            </div>        
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="">Color: </label>
+                <img src = "styles/pics/colorblocks/purple.jpg">
+                <img src = "styles/pics/colorblocks/darkblue.jpg">
+                <img src = "styles/pics/colorblocks/lightblue.jpg">
+                <img src = "styles/pics/colorblocks/green.jpg">
+                <img src = "styles/pics/colorblocks/yellow.jpg">
+                <img src = "styles/pics/colorblocks/pink.jpg">
+                <img src = "styles/pics/colorblocks/red.jpg">
+                <img src = "styles/pics/colorblocks/grey.jpg">
+            </div>              
             <div>
                 <button class="uk-button uk-button-large button">Save Changes</button>
             </div>
