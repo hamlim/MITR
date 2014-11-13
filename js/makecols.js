@@ -2,6 +2,7 @@
 
 //first sort the columns by their order
 var colu = columndata.sort(function(a,b){return (a.columnorder - b.columnorder);});
+//var car = carddata.sort(function(a, b){return (a["info"].cardpriority - b["info"].cardpriority);});
 //console.log for testing
 console.log(colu);
 //make an array of column names
@@ -15,11 +16,11 @@ console.log(columnnames);
 var colbody = document.getElementById("columnslist");
 
 //parlor trick code, not actually meant to work
-var h2s = colbody.getElementsByTagName("h2");
-
-for(i=0; i<columnnames.length; i++){
-    h2s[i].innerHTML = columnnames[i];
-}
+//var h2s = colbody.getElementsByTagName("h2");
+//
+//for(i=0; i<columnnames.length; i++){
+//    h2s[i].innerHTML = columnnames[i];
+//}
 //end parlor trick code
 
 //this is the format of each column in the colbody element
@@ -61,9 +62,10 @@ for(i=0; i<colu.length; i++){ //iterate through columns
         if(carddata[j]["info"]["columnID"] == colu[i]["columnID"]){
             //the card belongs in the column
             //we need to format the card properly
+            var id = carddata[j]["info"]["cardID"];
             var na = carddata[j]["info"]["cardname"];
             var pri = carddata[j]["info"]["cardpriority"];
-            var colorcode = carddata[j]["info"]["cardcolorcode"];
+            var color = carddata[j]["info"]["cardcolorcode"];
             //iterate though ltf fields, stf fields, date fields and add to html
             carddata[j]["stf-fields"].length > 0
             var field = carddata[j]["stf-fields"][0];
@@ -71,15 +73,53 @@ for(i=0; i<colu.length; i++){ //iterate through columns
             var fieldname = field["fieldname"];
             var fielddata = field["fielddata"];
             var card = {
+                id: id,
                 name: na,
                 priority: pri,
-                color: colorcode,
+                color: color,
                 pfn: fieldname,
                 pfd: fielddata
+            };
+            var darkblue = {
+                name: "Darkblue",
+                hex: "#4a5e77"
+            };
+            var green = {
+                name: "Green",
+                hex: "#bae756"
+            };
+            var grey = {
+                name: "Grey",
+                hex: "#5f5f5f"
+            };
+            var lightblue = {
+                name: "Lightblue",
+                hex: "#4ecdc4"
+            };
+            var pink = {
+                name: "Pink",
+                hex: "#ff6b6b"
+            };
+            var purple = {
+                name: "Purple",
+                hex: "#9970a8"
+            };
+            var red = {
+                name: "Red",
+                hex: "#c54d57"
+            };
+            var yellow = {
+                name: "Yellow",
+                hex: "#f5ef65"
+            };
+            var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
+            for(x=0; x<cccs.length; x++){
+                if(cccs[x].name == color){
+                    var cardtext = "<li class='card'><a href='#card"+id+"' data-cbreeze-card-ID-"+ id + "><div class='cardheader'><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na;
+                    cardtext += "<a href='#editCardModal' data-uk-modal><i class='uk-icon-pencil-square-o'></i></a></span></p></div>";
+                    cardtext += "<div class='cardprvcontent'>"+fieldname+" : " + fielddata + "</a></li>";
+                }
             }
-            var cardtext = "<li class='card'><div class='cardheader'><p class='cardpriority'>"+pri+"<span class='cardtitle'>"+na;
-            cardtext += "<a href='#editCardModal' data-uk-modal><i class='uk-icon-pencil-square-o'></i></a></span></p></div>";
-            cardtext += "<div class='cardprvcontent'>"+fieldname+" : " + fielddata + "</li>";
             cards.push(cardtext);
             //following code for getting all the contents of the card
 //            for(k=0; k<carddata[j]["ltf-fields"].length; k++){
@@ -104,3 +144,4 @@ for(i=0; i<colu.length; i++){ //iterate through columns
 }
 console.log(alldata);
 colbody.innerHTML += alldata.join();
+

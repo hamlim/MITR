@@ -18,45 +18,19 @@
         <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
         <link rel="stylesheet" href="styles/custom.css">
         <!--link to js-->
-        <script src="js/custom.js" type="text/javascript"></script>
-        <script>
-            //colorcode is the name of the background colors
-//            console.log(colors);
-//            console.log(colorcode);
-            for(i=0; i<colors.length; i++){
-                if(colors[i].name == colorcode){
-                    var start = colors[i].first;
-                    var end = colors[i].last;
-                }
-            }
-            if(start == undefined){
-                var end = "#CFCFCF";
-                var start = "#262626";
-            }
-            //columndata = JSON of columns
-            if (columndata != undefined){
-                var count = 0;
-                for( i=0; i<columndata.length; i++){
-                    count = count + 1;
-                }
-            }
-            if(count == undefined){
-                var count = 5;
-            }
-        </script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
-    <body onload="columns(start, end, count);">
+    <body>
     
-        <!--start columns-->
+        <!--start columns -->
         <ul id = "columnslist">
+            <!--
             <li class = "column" id = "col1">
                 <h2 id="coltitle1">Heading</h2>
                 <ul class = "cardlist connected list">
                     <li class = "card">
                         <div class = "cardheader">
                             <p class = "cardpriority">1<span class = "cardtitle">Title<a href ="#editCardModal" data-uk-modal><i class = "uk-icon-pencil-square-o"></i></a></span></p>
-                            <?php include "editcardmodal.html"; ?>
                         </div>
                     </li>
                     <li class = "card">
@@ -76,7 +50,7 @@
                     </li>
                 </ul>
             </li>
-            <!--new column-->
+            <!--new column
             <li class = "column" id = "col2">
                 <h2 id="coltitle2">Heading</h2>
                 <ul class = "cardlist connected list">
@@ -92,7 +66,7 @@
                     </li>
                 </ul>
             </li>
-            <!--new column-->
+            <!--new column
             <li class = "column" id = "col3">
                 <h2 id="coltitle3">Heading</h2>
                 <ul class = "cardlist connected list">
@@ -113,7 +87,7 @@
                     </li>
                 </ul>
             </li>
-            <!--new column-->
+            <!--new column
             <li class = "column" id = "col4">
                 <h2 id="coltitle4">Heading</h2>
                 <ul class = "cardlist connected list">
@@ -139,7 +113,7 @@
                     </li>
                 </ul>
             </li>
-            <!--new column-->
+            <!--new column
             <li class = "column" id = "col5">
                 <h2 id="coltitle5">Heading</h2>
                 <ul class = "cardlist connected list">
@@ -160,8 +134,37 @@
                     </li>
                 </ul>
             </li>
+            -->
+            <?php include "editcardmodal.html"; ?>
         </ul>
         <script type="text/javascript" src="js/makecols.js"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
+        <script>
+            //colorcode is the name of the background colors
+            console.log(colors);
+            console.log(colorcode);
+            for(i=0; i<colors.length; i++){
+                if(colors[i].name == colorcode){
+                    var start = colors[i].first;
+                    var end = colors[i].last;
+                }
+            }
+            if(start == undefined){
+                var end = "#CFCFCF";
+                var start = "#262626";
+            }
+            //columndata = JSON of columns
+            if (columndata != undefined){
+                var count = 0;
+                for( i=0; i<columndata.length; i++){
+                    count = count + 1;
+                }
+            }
+            if(count == undefined){
+                var count = 5;
+            }
+            columns(start, end, count);
+        </script>
         <script src="js/main.js"></script>
     </body>
 </html>

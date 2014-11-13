@@ -3,7 +3,7 @@
         "info": {
             "cardname": "card one",
             "cardpriority": 1,
-            "cardcolorcode": "red",
+            "cardcolorcode": "Red",
             "cardID": 1,
             "columnID" : 1
         },
@@ -77,7 +77,7 @@
         "info": {
             "cardname": "card two",
             "cardpriority": 2,
-            "cardcolorcode": "red",
+            "cardcolorcode": "Purple",
             "cardID": 2,
             "columnID" : 1
         },
@@ -98,6 +98,154 @@
                 "fieldname": "Client name",
                 "fieldtype": "stf",
                 "fielddata": "Steve Corp."
+            },
+            {
+                "fieldname": "primary contact",
+                "fieldtype": "stf",
+                "fielddata": "Steve"
+            }
+        ],
+        "date-fields": [
+            {
+                "fieldname": "project start",
+                "fieldtype": "date",
+                "fielddata": 1414880770
+            }
+        ],
+        "activities": [
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Made Card",
+                "timestamp": 1414880770,
+                "newdata": null,
+                "olddata": null,
+                "actionID": 1
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Edit Card",
+                "timestamp": 1414880770,
+                "newdata": null,
+                "olddata": null,
+                "actionID": 2
+            }
+        ],
+        "comments": [
+            {
+                "username": "Matt Hamlin",
+                "timestamp": 1414880780,
+                "content": "This card is cool!",
+                "commentparentID": null,
+                "commentID": 1
+            },
+            {
+                "username": "Matt Hamlin",
+                "timestamp": 1414880785,
+                "content": "This comment is cool!",
+                "commentparentID": 1,
+                "commentID": 2
+            }
+        ]
+    },
+    {
+        "info": {
+            "cardname": "card three",
+            "cardpriority": 1,
+            "cardcolorcode": "Yellow",
+            "cardID": 3,
+            "columnID" : 3
+        },
+        "ltf-fields": [
+            {
+                "fieldname": "Notes",
+                "fieldtype": "ltf",
+                "fielddata": "Here are some notes."
+            },
+            {
+                "fieldname": "another field",
+                "fieldtype": "ltf",
+                "fielddata": "Here is some more long content"
+            }
+        ],
+        "stf-fields": [
+            {
+                "fieldname": "Client name",
+                "fieldtype": "stf",
+                "fielddata": "Acme Corp."
+            },
+            {
+                "fieldname": "primary contact",
+                "fieldtype": "stf",
+                "fielddata": "Steve"
+            }
+        ],
+        "date-fields": [
+            {
+                "fieldname": "project start",
+                "fieldtype": "date",
+                "fielddata": 1414880770
+            }
+        ],
+        "activities": [
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Made Card",
+                "timestamp": 1414880770,
+                "newdata": null,
+                "olddata": null,
+                "actionID": 1
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Edit Card",
+                "timestamp": 1414880770,
+                "newdata": null,
+                "olddata": null,
+                "actionID": 2
+            }
+        ],
+        "comments": [
+            {
+                "username": "Matt Hamlin",
+                "timestamp": 1414880780,
+                "content": "This card is cool!",
+                "commentparentID": null,
+                "commentID": 1
+            },
+            {
+                "username": "Matt Hamlin",
+                "timestamp": 1414880785,
+                "content": "This comment is cool!",
+                "commentparentID": 1,
+                "commentID": 2
+            }
+        ]
+    },
+    {
+        "info": {
+            "cardname": "card four",
+            "cardpriority": 2,
+            "cardcolorcode": "Darkblue",
+            "cardID": 4,
+            "columnID" : 2
+        },
+        "ltf-fields": [
+            {
+                "fieldname": "Notes",
+                "fieldtype": "ltf",
+                "fielddata": "Here are some notes."
+            },
+            {
+                "fieldname": "another field",
+                "fieldtype": "ltf",
+                "fielddata": "Here is some more long content"
+            }
+        ],
+        "stf-fields": [
+            {
+                "fieldname": "Client name",
+                "fieldtype": "stf",
+                "fielddata": "Acme Corp."
             },
             {
                 "fieldname": "primary contact",

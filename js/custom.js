@@ -68,24 +68,25 @@ function ColorLuminance(hex, lum) {
 }
 
 
-//Set color gradient and background color for all the columns
+////Set color gradient and background color for all the columns
 function columns(c1, c2, colnum){
-	var color1 = c1;
-	var color2 = c2;
-	var red = parseInt(color2.substr(1,2), 16) - parseInt(color1.substr(1,2), 16);
-	var green = parseInt(color2.substr(3,2), 16) - parseInt(color1.substr(3,2), 16);
-	var blue = parseInt(color2.substr(5,2), 16) - parseInt(color1.substr(5,2), 16);
-	red = Math.round(red/colnum);
-	blue = Math.round(blue/colnum);
-	green = Math.round(green/colnum);
-	var diff = [red,green,blue];
+        
+    var color1 = c1;
+    var color2 = c2;
+    var red = parseInt(color2.substr(1,2), 16) - parseInt(color1.substr(1,2), 16);
+    var green = parseInt(color2.substr(3,2), 16) - parseInt(color1.substr(3,2), 16);
+    var blue = parseInt(color2.substr(5,2), 16) - parseInt(color1.substr(5,2), 16);
+    red = Math.round(red/colnum);
+    blue = Math.round(blue/colnum);
+    green = Math.round(green/colnum);
+    var diff = [red,green,blue];
 
 
-	for(x = 1; x <= colnum; x++){
-		diff = [red*(x-1), green*(x-1), blue*(x-1) ];
-		var hold = "col" + x;
-		document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
-	}
+    for(x = 1; x <= colnum; x++){
+        diff = [red*(x-1), green*(x-1), blue*(x-1) ];
+        var hold = "col" + x;
+        document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
+    }
 }
 
 
