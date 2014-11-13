@@ -115,9 +115,9 @@ for(i=0; i<colu.length; i++){ //iterate through columns
             var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
             for(x=0; x<cccs.length; x++){
                 if(cccs[x].name == color){
-                    var cardtext = "<li class='card'><a href='#card"+id+"' data-cbreeze-card-ID-"+ id + "><div class='cardheader'><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na;
+                    var cardtext = "<li class='card'><div class='cardheader'><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na;
                     cardtext += "<a href='#editCardModal' data-uk-modal><i class='uk-icon-pencil-square-o'></i></a></span></p></div>";
-                    cardtext += "<div class='cardprvcontent'>"+fieldname+" : " + fielddata + "</a></li>";
+                    cardtext += "<a href='#card"+id+"' data-cbreeze-card-ID-"+ id + "><div class='cardprvcontent'>"+fieldname+" : " + fielddata + "</a></li>";
                 }
             }
             cards.push(cardtext);
