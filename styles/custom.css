@@ -77,6 +77,10 @@ li {
 	margin-top:0;
 	list-style-type: none;
 	margin-left: -10px;
+    /* Debug code to see cardlist li's */
+    border: dashed grey 3px;
+    border-radius: 5px;
+    /* end debug code */
 }
 
 .card{
