@@ -96,9 +96,10 @@ li {
 	margin-bottom: 30px;
 }
 .cardprvcontent {
-    font-size: 1.25em;
+    font-size: 1.5em;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10%;
     width: 90%;
 }
 .cardheader{
