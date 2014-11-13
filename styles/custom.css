@@ -65,6 +65,8 @@ li {
     height: 100%;
 }
 
+
+
 .column h2{
 	text-align: center;
 	margin-top: 60px;
@@ -104,7 +106,7 @@ li {
 }
 
 .cardheader i{
-	margin-left:200px;
+	margin-left:160px;
 	padding-top:3px;
 }
 
