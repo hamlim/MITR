@@ -168,7 +168,7 @@
             function popupmodal(cardID){
                 for(i=0; i<carddata.length; i++){
                     if(cardID == carddata[i]["info"].cardID){
-                        //now we construct the card
+                        //now we construct the card content
                         var zoomcard = carddata[i];
                         var cardinfo = "<div><ul>";
                         //Card name
@@ -207,24 +207,17 @@
                         }
                         dat += "</ul></li>";
                         cardinfo += cna+cpr+cco+stf+ltf+dat+"</ul></div>";
-                        var cardactivities = "<div><ul>";
-                        //activities
-                        for(l=(zoomcard["activities"].length - 1); l>0; l--){
-                            cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype+" with: "+zoomcard["activities"][l].newdata+"</li>";
-                        }
-                        cardactivities += "</ul></div>";
-                        //now we actually build the html content of the cards
                         var zccontent = "<div class='zoom-card'>";
-                        zccontent += "<ul class='uk-tab' data-uk-tab id='card-tab-heads'><li class='tab uk-active'><a href='#cardinfo'>Card Information</a></li><li class='tab'><a href='#cardactivities'>Activities</a></li></ul>";
-                        zccontent += "<ul id='card-tabs' class='uk-switcher'>";
-                        zccontent += "<li id='cardinfo' class='tab-content uk-active'>"+cardinfo+"</li><li class='tab-content' id='cardactivities'>" + cardactivities + "</li></ul>";
+                        zccontent += "<ul class='uk-tab'><li>Card Information</li></ul>";
+                        zccontent += "<ul id='card-tabs'>";
+                        zccontent += "<li id='cardinfo'>"+cardinfo+"</li></ul>";
                         
                         
-                        
+                        //now we launch the card viewer itself
                         vex.open({
                             content: zccontent,
                             afterOpen: function($vexContent) {
-                                return $vexContent.append($el);
+//                                return $vexContent.append($el);
                             },
                             afterClose: function() {
                                 return console.log('Card Closed');
@@ -232,6 +225,36 @@
                         });
                     }
                 }
+            }
+            function popupaction(cardID){
+               for(i=0; i<carddata.length; i++){
+                    if(cardID == carddata[i]["info"].cardID){
+                        //now we construct the card content
+                        var zoomcard = carddata[i];
+                        var cardactivities = "<div><ul>";
+                        //activities
+                        for(l=(zoomcard["activities"].length - 1); l>0; l--){
+                            cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype+" with: "+zoomcard["activities"][l].newdata+"</li>";
+                        }
+                        cardactivities += "</ul></div>";
+                        
+                        var actioncontent = "<div class='zoom-card'>";
+                        actioncontent += "<ul class='uk-tab'><li>Card Activities</li></ul>";
+                        actioncontent += "<ul id='card-tabs'>";
+                        actioncontent += "<li id='cardactivities'>"+cardactivities+"</li></ul>";
+                        
+                        //now we launch the card viewer itself
+                        vex.open({
+                            content: actioncontent,
+                            afterOpen: function($vexContent) {
+//                                return $vexContent.append($el);
+                            },
+                            afterClose: function() {
+                                return console.log('Card Closed');
+                            }
+                        });
+                    }
+                } 
             }
         </script>
         <script src="js/main.js"></script>

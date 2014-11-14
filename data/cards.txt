@@ -66,7 +66,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Comment",
+                "actiontype": "Commented",
                 "timestamp": 1414880780,
                 "newdata": "This comment is cool!",
                 "actionID": 4,
@@ -116,7 +116,7 @@
         "activities": [
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Made Card",
+                "actiontype": "Made this Card",
                 "timestamp": 1414880770,
                 "newdata": null,
                 "olddata": null,
@@ -124,7 +124,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Edit Card",
+                "actiontype": "Edited this Card",
                 "timestamp": 1414880770,
                 "newdata": null,
                 "olddata": null,
@@ -132,7 +132,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Comment",
+                "actiontype": "Commented",
                 "timestamp" : 1414880770,
                 "newdata": "This card is cool!",
                 "olddata": null,
@@ -141,7 +141,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Comment",
+                "actiontype": "Commented",
                 "timestamp": 1414880780,
                 "newdata": "This comment is cool!",
                 "actionID": 4,
@@ -191,7 +191,7 @@
         "activities": [
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Made Card",
+                "actiontype": "Made this Card",
                 "timestamp": 1414880770,
                 "newdata": null,
                 "olddata": null,
@@ -199,7 +199,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Edit Card",
+                "actiontype": "Edited this Card",
                 "timestamp": 1414880770,
                 "newdata": null,
                 "olddata": null,
@@ -207,7 +207,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Comment",
+                "actiontype": "Commented",
                 "timestamp" : 1414880770,
                 "newdata": "This card is cool!",
                 "olddata": null,
@@ -216,7 +216,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Comment",
+                "actiontype": "Commented",
                 "timestamp": 1414880780,
                 "newdata": "This comment is cool!",
                 "actionID": 4,
@@ -266,7 +266,7 @@
         "activities": [
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Made Card",
+                "actiontype": "Made this Card",
                 "timestamp": 1414880770,
                 "newdata": null,
                 "olddata": null,
@@ -274,7 +274,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Edit Card",
+                "actiontype": "Edited this Card",
                 "timestamp": 1414880770,
                 "newdata": null,
                 "olddata": null,
@@ -282,7 +282,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Comment",
+                "actiontype": "Commented",
                 "timestamp" : 1414880770,
                 "newdata": "This card is cool!",
                 "olddata": null,
@@ -291,7 +291,7 @@
             },
             {
                 "username": "Matt Hamlin",
-                "actiontype": "Comment",
+                "actiontype": "Commented",
                 "timestamp": 1414880780,
                 "newdata": "This comment is cool!",
                 "actionID": 4,
