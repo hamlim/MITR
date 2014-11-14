@@ -12,77 +12,79 @@
 
 {
     {
-        "info" : {
-            "cardname" : "card name",
-            "cardpriority" : 1,
-            "cardcolorcode" : "red",
-            "cardID" : 1
+        "info": {
+            "cardname": "card one",
+            "cardpriority": 1,
+            "cardcolorcode": "Red",
+            "cardID": 1,
+            "columnID" : 1
         },
-        "ltf-fields" : [
+        "ltf-fields": [
             {
-                "fieldname" : "Notes",
-                "fieldtype" : "ltf",
-                "fielddata" : "Here are some notes."
+                "fieldname": "Notes",
+                "fieldtype": "ltf",
+                "fielddata": "Here are some notes."
             },
             {
-                "fieldname" : "another field",
-                "fieldtype" : "ltf",
-                "fielddata" : "Here is some more long content"
+                "fieldname": "another field",
+                "fieldtype": "ltf",
+                "fielddata": "Here is some more long content"
             }
         ],
-        "stf-fields" : [
+        "stf-fields": [
             {
-                "fieldname" : "Client name",
-                "fieldtype" : "stf",
-                "fielddata" : "Acme Corp."
+                "fieldname": "Description",
+                "fieldtype": "stf",
+                "fielddata": "About this project."
             },
             {
-                "fieldname" : "primary contact",
-                "fieldtype" : "stf",
-                "fielddata" : "Steve"
+                "fieldname": "primary contact",
+                "fieldtype": "stf",
+                "fielddata": "Steve"
             }
         ],
-        "date-fields" : [
+        "date-fields": [
             {
-                "fieldname" : "project start",
-                "fieldtype" : "date",
-                "fielddata" : 1414880770
+                "fieldname": "project start",
+                "fieldtype": "date",
+                "fielddata": 1414880770
             }
         ],
-        "activities" : {
+        "activities": [
             {
-                "username" : "Matt Hamlin",
-                "actiontype" : "Made Card",
+                "username": "Matt Hamlin",
+                "actiontype": "Made Card",
+                "timestamp": 1414880770,
+                "newdata": null,
+                "olddata": null,
+                "actionID": 1
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Edit Card",
+                "timestamp": 1414880770,
+                "newdata": null,
+                "olddata": null,
+                "actionID": 2
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Comment",
                 "timestamp" : 1414880770,
-                "newdata" : (JSON here),
-                "olddata" : (JSON here),
-                "actionID" : 1
+                "newdata": "This card is cool!",
+                "olddata": null,
+                "actionID": 3,
+                "parent-actionID": null
             },
             {
-                "username" : "Matt Hamlin",
-                "actiontype" : "Edit Card",
-                "timestamp" : 1414880770,
-                "newdata" : (JSON here),
-                "olddata" : (JSON here),
-                "actionID" : 2
+                "username": "Matt Hamlin",
+                "actiontype": "Comment",
+                "timestamp": 1414880780,
+                "newdata": "This comment is cool!",
+                "actionID": 4,
+                "parent-actionID": 3
             }
-        },
-        "comments" : {
-            {
-                "username" : "Matt Hamlin",
-                "timestamp" : 1414880780,
-                "content" : "This card is cool!",
-                "commentparentID" : null,
-                "commentID" : 1
-            },
-            {
-                "username" : "Matt Hamlin",
-                "timestamp" : 1414880785,
-                "content" : "This comment is cool!",
-                "commentparentID" : 1,
-                "commentID" : 2
-            }
-        }
+        ]
     }
 }
 
@@ -95,7 +97,7 @@
         "username" : "matt hamlin",
         "userID" : 1,
         "useremail" : "hamlim@outlook.com",
-        "columncolor" : "red",
+        "columncolor" : "Red",
         "isAdmin" : 1,
         "password" : "test"
     },
@@ -103,7 +105,7 @@
         "username" : "Bob The-Builder",
         "userID" : 2,
         "useremail" : "bob_thebuilder@bob.bob",
-        "columncolor" : "yellow",
+        "columncolor" : "Yellow",
         "isAdmin" : 0,
         "password" : "builder123"
     }

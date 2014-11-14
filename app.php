@@ -164,6 +164,15 @@
                 var count = 5;
             }
             columns(start, end, count);
+            //popupmodal(cardID)
+            function popupmodal(cardID){
+                for(i=0; i<carddata.length; i++){
+                    if(cardID == carddata["info"].cardID){
+                        //now we construct the card
+                        
+                    }
+                }
+            }
         </script>
         <script src="js/main.js"></script>
     </body>

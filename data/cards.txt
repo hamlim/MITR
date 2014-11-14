@@ -54,22 +54,23 @@
                 "newdata": null,
                 "olddata": null,
                 "actionID": 2
-            }
-        ],
-        "comments": [
-            {
-                "username": "Matt Hamlin",
-                "timestamp": 1414880780,
-                "content": "This card is cool!",
-                "commentparentID": null,
-                "commentID": 1
             },
             {
                 "username": "Matt Hamlin",
-                "timestamp": 1414880785,
-                "content": "This comment is cool!",
-                "commentparentID": 1,
-                "commentID": 2
+                "actiontype": "Comment",
+                "timestamp" : 1414880770,
+                "newdata": "This card is cool!",
+                "olddata": null,
+                "actionID": 3,
+                "parent-actionID": null
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Comment",
+                "timestamp": 1414880780,
+                "newdata": "This comment is cool!",
+                "actionID": 4,
+                "parent-actionID": 3
             }
         ]
     },
@@ -128,22 +129,23 @@
                 "newdata": null,
                 "olddata": null,
                 "actionID": 2
-            }
-        ],
-        "comments": [
-            {
-                "username": "Matt Hamlin",
-                "timestamp": 1414880780,
-                "content": "This card is cool!",
-                "commentparentID": null,
-                "commentID": 1
             },
             {
                 "username": "Matt Hamlin",
-                "timestamp": 1414880785,
-                "content": "This comment is cool!",
-                "commentparentID": 1,
-                "commentID": 2
+                "actiontype": "Comment",
+                "timestamp" : 1414880770,
+                "newdata": "This card is cool!",
+                "olddata": null,
+                "actionID": 3,
+                "parent-actionID": null
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Comment",
+                "timestamp": 1414880780,
+                "newdata": "This comment is cool!",
+                "actionID": 4,
+                "parent-actionID": 3
             }
         ]
     },
@@ -202,22 +204,23 @@
                 "newdata": null,
                 "olddata": null,
                 "actionID": 2
-            }
-        ],
-        "comments": [
-            {
-                "username": "Matt Hamlin",
-                "timestamp": 1414880780,
-                "content": "This card is cool!",
-                "commentparentID": null,
-                "commentID": 1
             },
             {
                 "username": "Matt Hamlin",
-                "timestamp": 1414880785,
-                "content": "This comment is cool!",
-                "commentparentID": 1,
-                "commentID": 2
+                "actiontype": "Comment",
+                "timestamp" : 1414880770,
+                "newdata": "This card is cool!",
+                "olddata": null,
+                "actionID": 3,
+                "parent-actionID": null
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Comment",
+                "timestamp": 1414880780,
+                "newdata": "This comment is cool!",
+                "actionID": 4,
+                "parent-actionID": 3
             }
         ]
     },
@@ -276,22 +279,23 @@
                 "newdata": null,
                 "olddata": null,
                 "actionID": 2
-            }
-        ],
-        "comments": [
-            {
-                "username": "Matt Hamlin",
-                "timestamp": 1414880780,
-                "content": "This card is cool!",
-                "commentparentID": null,
-                "commentID": 1
             },
             {
                 "username": "Matt Hamlin",
-                "timestamp": 1414880785,
-                "content": "This comment is cool!",
-                "commentparentID": 1,
-                "commentID": 2
+                "actiontype": "Comment",
+                "timestamp" : 1414880770,
+                "newdata": "This card is cool!",
+                "olddata": null,
+                "actionID": 3,
+                "parent-actionID": null
+            },
+            {
+                "username": "Matt Hamlin",
+                "actiontype": "Comment",
+                "timestamp": 1414880780,
+                "newdata": "This comment is cool!",
+                "actionID": 4,
+                "parent-actionID": 3
             }
         ]
     }
