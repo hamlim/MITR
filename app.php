@@ -167,9 +167,69 @@
             //popupmodal(cardID)
             function popupmodal(cardID){
                 for(i=0; i<carddata.length; i++){
-                    if(cardID == carddata["info"].cardID){
+                    if(cardID == carddata[i]["info"].cardID){
                         //now we construct the card
+                        var zoomcard = carddata[i];
+                        var cardinfo = "<div><ul>";
+                        //Card name
+                        //priority
+                        //card color code
+                        //stf fields
+                        //ltf fields
+                        //date fields
+                        var cna = "<li id='card-name'>Card name: <code>"+ zoomcard["info"].cardname + "</code></li>";
+                        var cpr = "<li id='card-priority'>Card priority: <code>"+ zoomcard["info"].cardpriority + "</code></li>";
+                        var cco = "<li id='card-colorcode'>Card color code: <code>" + zoomcard["info"].cardcolorcode + "</code></li>";
+                        var stf = "<li id='card-stf-fields'><ul>";
+                        for(j=0; j<zoomcard["stf-fields"].length; j++){
+                            stf += "<li id='card-stf-field'>" + zoomcard["stf-fields"][j].fieldname + ": <code>"+zoomcard["stf-fields"][j].fielddata + "</code></li>";
+                        }
+                        stf += "</ul></li>";
+                        var ltf = "<li id='card-ltf-fields'><ul>";
+                        for(k=0; k<zoomcard["ltf-fields"].length; k++){
+                            ltf += "<li id='card-ltf-field'>"+zoomcard["ltf-fields"][k].fieldname + ": <code>"+zoomcard["ltf-fields"][k].fielddata+"</code></li>";
+                        }
+                        ltf += "</ul></li>";
+                        var dat = "<li id='card-date-fields'><ul>";
+                        for(m=0; m<zoomcard["date-fields"].length; m++){
+                            var unix_timestamp = zoomcard["date-fields"][m].fielddata;
+                            var date = new Date(unix_timestamp*1000);
+                            // hours part from the timestamp
+                            var hours = date.getHours();
+                            // minutes part from the timestamp
+                            var minutes = "0" + date.getMinutes();
+                            // seconds part from the timestamp
+                            var seconds = "0" + date.getSeconds();
+
+                            // will display time in 10:30:23 format
+                            var datet = hours + ':' + minutes.substr(minutes.length-2) + ':' + seconds.substr(seconds.length-2);
+                            dat += "<li id='card-date-field'>"+zoomcard["date-fields"][m].fieldname + ": <code>"+datet+"</code></li>";
+                        }
+                        dat += "</ul></li>";
+                        cardinfo += cna+cpr+cco+stf+ltf+dat+"</ul></div>";
+                        var cardactivities = "<div><ul>";
+                        //activities
+                        for(l=(zoomcard["activities"].length - 1); l>0; l--){
+                            cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype+" with: "+zoomcard["activities"][l].newdata+"</li>";
+                        }
+                        cardactivities += "</ul></div>";
+                        //now we actually build the html content of the cards
+                        var zccontent = "<div class='zoom-card'>";
+                        zccontent += "<ul class='uk-tab' data-uk-tab id='card-tab-heads'><li class='tab uk-active'><a href='#cardinfo'>Card Information</a></li><li class='tab'><a href='#cardactivities'>Activities</a></li></ul>";
+                        zccontent += "<ul id='card-tabs' class='uk-switcher'>";
+                        zccontent += "<li id='cardinfo' class='tab-content uk-active'>"+cardinfo+"</li><li class='tab-content' id='cardactivities'>" + cardactivities + "</li></ul>";
                         
+                        
+                        
+                        vex.open({
+                            content: zccontent,
+                            afterOpen: function($vexContent) {
+                                return $vexContent.append($el);
+                            },
+                            afterClose: function() {
+                                return console.log('Card Closed');
+                            }
+                        });
                     }
                 }
             }
