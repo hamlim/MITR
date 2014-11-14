@@ -233,8 +233,22 @@
                         var zoomcard = carddata[i];
                         var cardactivities = "<div><ul>";
                         //activities
-                        for(l=(zoomcard["activities"].length - 1); l>0; l--){
-                            cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype+" with: "+zoomcard["activities"][l].newdata+"</li>";
+                        for(l=(zoomcard["activities"].length - 1); l>=0; l--){
+                            var unix_timestamp = zoomcard["activities"][l].timestamp;
+                            var date = new Date(unix_timestamp*1000);
+                            // hours part from the timestamp
+                            var hours = date.getHours();
+                            // minutes part from the timestamp
+                            var minutes = "0" + date.getMinutes();
+                            // seconds part from the timestamp
+                            var seconds = "0" + date.getSeconds();
+
+                            // will display time in 10:30:23 format
+                            var datet = hours + ':' + minutes.substr(minutes.length-2) + ':' + seconds.substr(seconds.length-2);
+                            cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype;
+                            if(!(zoomcard["activities"][l].actiontype == "Edited this Card") && !(zoomcard["activities"][l].actiontype == "Made this Card")){
+                                cardactivities += " with: <code>"+zoomcard["activities"][l].newdata+"</code> at "+datet+"</li>";
+                            }
                         }
                         cardactivities += "</ul></div>";
                         
