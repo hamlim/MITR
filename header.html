@@ -109,20 +109,20 @@
                                                         <h1>Account settings</h1>
                                                         <div class="uk-form-row">
                                                             <label class="uk-form-label" for="">Set Name:</label>
-                                                            <input type="text" placeholder="John Philips">
+                                                            <input type="text" id="username" placeholder="John Philips">
                                                             <span class="uk-form-help-inline"></span>
                                                         </div>
                                                         <div class="uk-form-row">
-                                                            <label class="uk-form-label" for="">Password:</label>
-                                                            <input type="password" placeholder="Current">
+                                                            <label class="uk-form-label" for="">Password reset:</label>
+                                                            <input type="password" id="oldpass" placeholder="Current">
                                                         </div>
                                                         <div class="uk-form-row">
-                                                            <label class="uk-form-label" for=""></label>
-                                                            <input type="password" placeholder="New Password">
+                                                            <label class="uk-form-label" for="">New password:</label>
+                                                            <input type="password" id="newpass" placeholder="New Password">
                                                         </div>
                                                         <div class="uk-form-row">
-                                                            <label class="uk-form-label" for=""></label>
-                                                            <input type="password" placeholder="Confirm new Password">
+                                                            <label class="uk-form-label" for="">Confirm New Password:</label>
+                                                            <input type="password" id="newpassconf" placeholder="Confirm Password">
                                                         </div>
                                                         <div class="uk-form-row">
                                                             <label class="uk-form-label" for="">Color Scheme:</label>
@@ -130,7 +130,7 @@
                                                             <div class="colorBox"></div>
                                                         </div>
                                                         <div>
-                                                            <button class="uk-button uk-button-large button">Save Changes</button>
+                                                            <button type="button" id="general-settings-btn" class="uk-button uk-button-large button">Save Changes</button>
                                                         </div>
                                                     </fieldset>
                                                 </form>
