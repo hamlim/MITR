@@ -40,6 +40,7 @@ $("#general-settings-btn").click(function(){
     localStorage.removeItem("currentuser");
     userobjstring = JSON.stringify(userobj);
     localStorage.setItem("currentuser", userobjstring);
+    user = userobj;
     //now we want to send the updated user obj string to the db
     //first we need to update all the users
     var getalluserstoup = new XMLHttpRequest;
@@ -50,7 +51,7 @@ $("#general-settings-btn").click(function(){
             updateusers(alus, res);
         }
     }
-    getalluserstoup.open("GET", "./data/users.txt", false);
+    getalluserstoup.open("GET", "./data/users1.txt", false);
     getalluserstoup.send();
     function updateusers(allusers, data){
         var resjson = JSON.parse(data);

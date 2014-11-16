@@ -1,0 +1,34 @@
+[
+  {
+    "username" : "root",
+    "userID" : 0,
+    "useremail" : "root@root.com",
+    "columncolor" : "Blue",
+    "isAdmin" : 1,
+    "password" : "root"
+  },
+  {
+    "username": "Matt Hamlin",
+    "userID" : 1,
+    "useremail" : "hamlim@outlook.com",
+    "columncolor" : "Purple",
+    "isAdmin" : 1,
+    "password" : "test"
+  },
+  {
+    "username" : "Bob the Builder",
+    "userID" : 2,
+    "useremail" : "btb@bob.bob",
+    "columncolor" : "Teal",
+    "isAdmin" : 0,
+    "password" : "bob"
+  },
+  {
+    "username" : "Neil Hamlin",
+    "userID" : 3,
+    "useremail" : "hamlinn@gmail.com",
+    "columncolor" : "Green",
+    "isAdmin" : 1,
+    "password" : "test"
+  }
+]
