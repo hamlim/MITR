@@ -33,7 +33,7 @@ $("#general-settings-btn").click(function(){
             //new color is selected
             //columncolor
             userobj["columncolor"] = colors[i].name;
-            columns(colors[i].start, colors[i].end, count);
+            columns(colors[i].first, colors[i].last, count);
         }
     }
     //now we have an updated userobj, first we want to update the currentuser in localStorage

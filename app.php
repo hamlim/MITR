@@ -28,8 +28,8 @@
         </ul>
         <script type="text/javascript" src="js/makecols.js"></script>
         <script src="js/custom.js" type="text/javascript"></script>
-        <script src="js/renderer.js" type="text/javascript">
-        </script>
+        <script src="js/renderer.js" type="text/javascript"></script>
+        <script src="js/settings.js" type="text/javascript"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
