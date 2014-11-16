@@ -11,8 +11,6 @@ colrequest.open("GET", "./data/columns.txt", false);
 colrequest.send();
 
 function checkcontent(columns, data){
-    console.log("Column Data: ");
-    console.log(data);
     localStorage.setItem("columns", data);
     var column = JSON.parse(data);
     columns = column;
@@ -30,7 +28,6 @@ cardrequest.open("GET", "./data/cards.txt", false);
 cardrequest.send();
 
 function checkcardcontent(cards, data){
-    console.log("Card data: " + data);
     localStorage.setItem("cards", data);
     var card = JSON.parse(data);
     cards = card;

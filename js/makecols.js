@@ -4,14 +4,12 @@
 var colu = columndata.sort(function(a,b){return (a.columnorder - b.columnorder);});
 //var car = carddata.sort(function(a, b){return (a["info"].cardpriority - b["info"].cardpriority);});
 //console.log for testing
-console.log(colu);
 //make an array of column names
 var columnnames = [];
 for(i=0; i<columndata.length; i++){
     columnnames.push(columndata[i]["columnname"]);
 }
 //testing
-console.log(columnnames);
 //grab the column body element (holds all columns in it)
 var colbody = document.getElementById("columnslist");
 
@@ -136,13 +134,11 @@ for(i=0; i<colu.length; i++){ //iterate through columns
     }
     var columnstart = "<li class='column' id=col"+colu[i].columnorder+"><h2>"+colu[i].columnname +"</h2><ul class='cardlist connected list'>";
     var string ="";
-    console.log("column " + i + cards);
     for(o=0; o<cards.length; o++){
         string += cards[o];
     }
     var column = columnstart + string + "</ul></li>"
     alldata.push(column);
 }
-console.log(alldata);
 colbody.innerHTML += alldata.join();
 

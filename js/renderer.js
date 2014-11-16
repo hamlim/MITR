@@ -1,6 +1,4 @@
 //colorcode is the name of the background colors
-console.log(colors);
-console.log(colorcode);
 for(i=0; i<colors.length; i++){
     if(colors[i].name == colorcode){
         var start = colors[i].first;
@@ -78,7 +76,7 @@ function popupmodal(cardID){
 //                                return $vexContent.append($el);
                 },
                 afterClose: function() {
-                    return console.log('Card Closed');
+//                    return console.log('Card Closed');
                 }
             });
         }
@@ -122,7 +120,7 @@ function popupaction(cardID){
 //                                return $vexContent.append($el);
                 },
                 afterClose: function() {
-                    return console.log('Card Closed');
+//                    return console.log('Card Closed');
                 }
             });
         }
