@@ -48,20 +48,26 @@ $("#general-settings-btn").click(function(){
     getalluserstoup.onreadystatechange = function() {
         if (getalluserstoup.readyState == 4){
             var res = getalluserstoup.responseText;
-            updateusers(alus, res);
+            alus = updateusers(res);
         }
     }
     getalluserstoup.open("GET", "./data/users1.txt", false);
     getalluserstoup.send();
-    function updateusers(allusers, data){
+    function updateusers(data){
         var resjson = JSON.parse(data);
+        console.log(user);
+        var allusers;
         for(k=0; k<resjson.length; k++){
             if(resjson[k].userID == userobj.userID){
                 resjson[k] = userobj; //overwrite old data with new
             }
         }
         allusers = resjson; //set updated users to alus var
+        return allusers;
     }
+    console.log(userobj);
+    console.log("ALUS: ");
+    console.log(alus);
     var setuserup = new XMLHttpRequest; //make a new request to update the content of users.txt
     setuserup.open("POST", "./generalsettings.php", true);
     setuserup.setRequestHeader("Content-Type", "application/json");

@@ -41,8 +41,9 @@
 //            console.log(useremail);
             //initialize the card request
             var userrequest = new XMLHttpRequest;
-//            console.log("Making requst");
-            userrequest.open("GET", "./data/users1.txt", false);
+            var file = "./data/users1.txt";
+            console.log("Making requst to users1.txt");
+            userrequest.open("GET", file, false);
             userrequest.send();
             //handle the request for the card data
             console.log(userrequest.responseText);
@@ -76,7 +77,7 @@
                 localStorage.setItem("currentuser", userstring);
 //                console.log("yes");
                 localStorage.setItem("loggedin", "true");
-                window.location.href = "./app.php";
+//                window.location.href = "./app.php";
             } else {
                 alert("User email not in the database!");
                 window.location.href = "./login.html";
