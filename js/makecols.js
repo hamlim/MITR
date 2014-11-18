@@ -143,5 +143,5 @@ var content;
 for(i=0; i<alldata.length; i++){
     content += alldata[i];
 }
-colbody.innerHTML += content;
-
+//colbody.innerHTML += content;
+colbody.innerHTML += alldata.join();

@@ -18,7 +18,7 @@ $("#general-settings-btn").click(function(){
         //username set/updated
         userobj["username"] = username;
     }
-    if(oldpass != null || oldpass != undefined || oldpass.length != 0){
+    if(oldpass != null || oldpass != undefined){
         if(newpass != null || newpass != undefined || newpass.length != 0){
             if(newpassconf != null || newpassconf != undefined || newpassconf.length != 0){
                 if(newpass == newpassconf && oldpass == userobj["password"]){
