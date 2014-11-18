@@ -42,7 +42,7 @@
             //initialize the card request
             var userrequest = new XMLHttpRequest;
             var file = "./data/users.json";
-            console.log("Making requst to users.json");
+            console.log("Making requst to "+file);
             userrequest.open("GET", file);
             //handle the request for the card data
             userrequest.onreadystatechange = function() {
