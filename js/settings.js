@@ -38,6 +38,9 @@ $("#general-settings-btn").click(function(){
     }
     //now we have an updated userobj, first we want to update the currentuser in localStorage
     localStorage.removeItem("currentuser");
+    if(localStorage["currentuser"] != null || localStorage["currentuser"] != undefined){
+        console.log("currentuser not properly deleted");
+    }
     userobjstring = JSON.stringify(userobj);
     localStorage.setItem("currentuser", userobjstring);
     user = userobj;
@@ -51,7 +54,7 @@ $("#general-settings-btn").click(function(){
             alus = updateusers(res);
         }
     }
-    getalluserstoup.open("GET", "./data/users1.txt", false);
+    getalluserstoup.open("GET", "./data/users.json", false);
     getalluserstoup.send();
     function updateusers(data){
         var resjson = JSON.parse(data);

@@ -15,7 +15,7 @@ submitbtn.click(function() {
         }
     }
     //make the request
-    userrequest.open("GET", "./data/users1.txt", false);
+    userrequest.open("GET", "./data/users.json", false);
 
     //function to handle the data and check for login.php
     function checkuser(currentuser, data, email, pass){
