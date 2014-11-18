@@ -41,13 +41,20 @@
 //            console.log(useremail);
             //initialize the card request
             var userrequest = new XMLHttpRequest;
-            var file = "./data/users1.txt";
-            console.log("Making requst to users1.txt");
-            userrequest.open("GET", file, false);
-            userrequest.send();
+            var file = "./data/users.json";
+            console.log("Making requst to users.json");
+            userrequest.open("GET", file);
             //handle the request for the card data
-            console.log(userrequest.responseText);
-            var datum = userrequest.responseText;
+            userrequest.onreadystatechange = function() {
+                if (userrequest.readyState == 4) {
+                    //now we have all the users in the system
+                    //refer to formatting.js for formats of JSON docs
+                    var res = userrequest.responseText;
+                    currentuser = checkuser(res, useremail, password);
+
+                }
+            }
+            userrequest.send();
             //make the request
             //function to handle the data and check for login.php
             function checkuser(data, email, pass){
@@ -64,7 +71,7 @@
                 }
                 return "ERROR";
             }
-            currentuser = checkuser(datum, useremail, password);
+//            currentuser = checkuser(datum, useremail, password);
 
 //            console.log("Currentuser outside the func: ");
 //            console.log(currentuser);

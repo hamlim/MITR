@@ -3,7 +3,7 @@
 	$data = json_decode($data);
 	$sdata = json_encode($data, JSON_PRETTY_PRINT); //sdata should be JSON now
 	
-	$file = fopen("./data/users1.txt", 'w');
+	$file = fopen("./data/users.json", 'w');
 	fwrite($file, $sdata);
 	fclose($file);
 	
