@@ -5,19 +5,23 @@
 
 $("#general-settings-btn").click(function(){
     //the general settings button is clicked
-    var username = document.getElementById('username').value;
-    var oldpass = document.getElementById('oldpass').value;
-    var newpass = document.getElementById('newpass').value;
-    var newpassconf = document.getElementById('newpassconf').value;
+    var usernameelem = document.getElementById('username');
+    var oldpasselem = document.getElementById('oldpass');
+    var newpasselem = document.getElementById('newpass');
+    var newpassconfelem = document.getElementById('newpassconf');
+    var username = usernameelem.value;
+    var oldpass = oldpasselem.value;
+    var newpass = newpasselem.value;
+    var newpassconf = newpassconfelem.value;
     //userobj is the current user as JSON
     if(username != null || username != undefined){
         //username set/updated
         userobj["username"] = username;
     }
-    if(oldpass != null || oldpass != undefined){
-        if(newpass != null || newpass != undefined){
-            if(newpassconf != null || newpassconf != undefined){
-                if(newpass == newpassconf){
+    if(oldpass != null || oldpass != undefined || oldpass.length != 0){
+        if(newpass != null || newpass != undefined || newpass.length != 0){
+            if(newpassconf != null || newpassconf != undefined || newpassconf.length != 0){
+                if(newpass == newpassconf && oldpass == userobj["password"]){
                     userobj["password"] = newpass;
                 } else {
                     alert("New passwords do not match!");
@@ -26,6 +30,8 @@ $("#general-settings-btn").click(function(){
                 alert("Please enter the same password in Confirm Password field!");
             }
         }
+    } else {
+        userobj.password = userobj.password;
     }
     //color change
     for(i=0; i<colors.length; i++){

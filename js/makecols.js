@@ -139,5 +139,9 @@ for(i=0; i<colu.length; i++){ //iterate through columns
     alldata.push(column);
 }
 console.log(alldata);
-colbody.innerHTML += alldata.join();
+var content;
+for(i=0; i<alldata.length; i++){
+    content += alldata[i];
+}
+colbody.innerHTML += content;
 
