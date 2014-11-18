@@ -131,12 +131,13 @@ for(i=0; i<colu.length; i++){ //iterate through columns
     }
     var columnstart = "<li class='column' id=col"+colu[i].columnorder+"><h2>"+colu[i].columnname +"</h2><ul class='cardlist connected list'>";
     var string ="";
-    console.log(cards);
     for(o=0; o<cards.length; o++){
         string += cards[o];
     }
+    console.log(string);
     var column = columnstart + string + "</ul></li>"
     alldata.push(column);
 }
+console.log(alldata);
 colbody.innerHTML += alldata.join();
 
