@@ -43,7 +43,7 @@
             var userrequest = new XMLHttpRequest;
             var file = "./data/users.json";
             console.log("Making requst to "+file);
-            userrequest.open("GET", file);
+            userrequest.open("GET", file, false);
             //handle the request for the card data
             userrequest.onreadystatechange = function() {
                 if (userrequest.readyState == 4) {
@@ -56,11 +56,8 @@
             }
             userrequest.send();
             //make the request
-            //function to handle the data and check for login.php
+            //function to handle the data and check for login.html
             function checkuser(data, email, pass){
-                //data is the requestText string
-//                console.log("Data: ");
-//                console.log(data);
                 var users = JSON.parse(data);
 //                console.log("List of users");
                 console.log(users);
@@ -73,18 +70,14 @@
             }
 //            currentuser = checkuser(datum, useremail, password);
 
-//            console.log("Currentuser outside the func: ");
-//            console.log(currentuser);
             //currentuser is either the array representing the user
             //    or  currentuser is a string representing the error
             if ( currentuser != "ERROR" && currentuser != ""){
                 //ok the user is logged in
                 var userstring = JSON.stringify(currentuser);
-//                console.log("userstring: " + userstring);
                 localStorage.setItem("currentuser", userstring);
-//                console.log("yes");
                 localStorage.setItem("loggedin", "true");
-//                window.location.href = "./app.php";
+                window.location.href = "./app.php";
             } else {
                 alert("User email not in the database!");
                 window.location.href = "./login.html";
