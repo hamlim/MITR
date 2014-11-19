@@ -160,12 +160,21 @@ $("#admin-remove-user").click(function() {
             allusers = resdata; //set updated users to alus var
             return allusers;
         }
+        var newalldata;
         //gau_data is all users
         for(i=0; i<gau_data.length; i++){
-            if(gau_data[i]["useremail"] == ruseremail){
-                
+            if(gau_data[i]["useremail"] != ruseremail){
+                newalldata.push(gau_data[i]);
             }
         }
+        //allnewdata does not have the old user
+        //now we push this to the server to make the final edit
+        //now we send gau_data to the server -> asu.php
+        var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
+        upload.open("POST", "./asu.php", true);
+        upload.setRequestHeader("Content-Type", "application/json");
+        var nad_string = JSON.stringify(newalldata); //turn the JSON into a string
+        upload.send(nad_string);
     }
 });
 //add column functionality
