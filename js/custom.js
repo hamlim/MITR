@@ -206,11 +206,13 @@ $.fn.sortable = function(options) {
 			dt.effectAllowed = 'move';
 			dt.setData('Text', 'dummy');
 			index = (dragging = $(this)).addClass('sortable-dragging').index();
+			$('.cardlist').css('border', 'solid yellow 3px');
 		}).on('dragend.h5s', function() {
 			if (!dragging) {
 				return;
 			}
 			dragging.removeClass('sortable-dragging').show();
+			$('.cardlist').css('border', 'none');
 			placeholders.detach();
 			if (index != dragging.index()) {
 				dragging.parent().trigger('sortupdate', {item: dragging});

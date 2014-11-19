@@ -59,6 +59,7 @@ body{
 	min-height: 70px;
 	margin-bottom: -99999px;
 	padding-bottom: 99999px;
+	padding-left: -10px;
 }
 
 li {
@@ -80,10 +81,11 @@ li {
 	list-style-type: none;
 	margin-left: -10px;
     /* Debug code to see cardlist li's */
-    border: dashed grey 3px;
+    /*border: dashed grey 3px;*/
     border-radius: 5px;
     /* end debug code */
 }
+
 
 .card{
 	background-color: white;
