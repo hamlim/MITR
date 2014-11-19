@@ -206,7 +206,7 @@ $.fn.sortable = function(options) {
 			dt.effectAllowed = 'move';
 			dt.setData('Text', 'dummy');
 			index = (dragging = $(this)).addClass('sortable-dragging').index();
-			$('.cardlist').css('border', 'solid yellow 3px');
+			$('.cardlist').css({'border': 'dotted #eee 3px', 'border-radius': '5px'});
 		}).on('dragend.h5s', function() {
 			if (!dragging) {
 				return;
