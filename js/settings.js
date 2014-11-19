@@ -5,18 +5,18 @@
 
 $("#general-settings-btn").click(function(){
     //the general settings button is clicked
-    var usernameelem = document.getElementById('username');
+    var usernameelem = document.getElementById('username-input');
     var oldpasselem = document.getElementById('oldpass');
     var newpasselem = document.getElementById('newpass');
     var newpassconfelem = document.getElementById('newpassconf');
-    var username = usernameelem.value;
+    var usern = usernameelem.value;
     var oldpass = oldpasselem.value;
     var newpass = newpasselem.value;
     var newpassconf = newpassconfelem.value;
     //userobj is the current user as JSON
-    if(username != null || username != undefined){
+    if(usern != null || usern != undefined){
         //username set/updated
-        userobj["username"] = username;
+        userobj["username"] = usern;
     }
     if((oldpass != null || oldpass != undefined) && oldpass.length != 0){
         if(newpass != null || newpass != undefined){
