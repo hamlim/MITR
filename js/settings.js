@@ -18,16 +18,21 @@ $("#general-settings-btn").click(function(){
         //username set/updated
         userobj["username"] = username;
     }
-    if(oldpass != null || oldpass != undefined){
-        if(newpass != null || newpass != undefined || newpass.length != 0){
-            if(newpassconf != null || newpassconf != undefined || newpassconf.length != 0){
-                if(newpass == newpassconf && oldpass == userobj["password"]){
-                    userobj["password"] = newpass;
-                } else {
-                    alert("New passwords do not match!");
+    if((oldpass != null || oldpass != undefined) && oldpass.length != 0){
+        if(newpass != null || newpass != undefined){
+            if(newpassconf != null || newpassconf != undefined){
+                if(userobj["password"] == oldpass){
+                    if(newpass.length == 0 && newpassconf.length == 0){
+                        alert("No password entered!");
+                    } else if(newpass == newpassconf && oldpass == userobj["password"]){
+                        userobj["password"] = newpass;
+                    } else {
+                        alert("New passwords do not match!");
+                    }
+                } 
+                else {
+                    alert("Please enter the same password in Confirm Password field!");
                 }
-            } else {
-                alert("Please enter the same password in Confirm Password field!");
             }
         }
     } else {
