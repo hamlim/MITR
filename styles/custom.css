@@ -313,7 +313,9 @@ li {
 #cardFormatModal a{
 	color: blue;
 }
-
+#cardFormatModal a:vsited{
+	color: blue;
+}
 .hidden-option
 {
    display:none;
