@@ -88,3 +88,9 @@ $("#general-settings-btn").click(function(){
 //----------------------------------
 //  Admin Settings
 //----------------------------------
+
+$("#admin-add-user").click(function(){
+    var useremailelem = document.getElementById("admin-add-email");
+    var useremail = useremailelem.value;
+});
+
