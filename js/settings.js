@@ -124,7 +124,7 @@ $("#admin-add-user").click(function(){
         return allusers;
     }
     //gau_data = all users
-    console.log(gau_data);
+//    console.log(gau_data);
     var previd = gau_data[gau_data.length - 1]["userID"];
     newuser["userID"] = previd + 1;
     gau_data.push(newuser);
@@ -138,11 +138,35 @@ $("#admin-add-user").click(function(){
 //remove user funtionality
 $("#admin-remove-user").click(function() {
     var ruseremeilelem = document.getElementById("admin-remove-email");
-    var ruseremeailconfelem = document.getElementById("admin-remove-email-conf");
+    var ruseremailconfelem = document.getElementById("admin-remove-email-conf");
     var ruseremail = ruseremeilelem.value;
-    var ruseremailconf = ruseremeailconfelem.value;
+    var ruseremailconf = ruseremailconfelem.value;
     //make sure the two emails are the same value
-    
+    if(ruseremail == ruseremailconf){
+        //the two emails match
+        var gau = new XMLHttpRequest;
+        var gau_data;
+        gau.onreadystatechange = function() {
+            if (gau.readyState == 4){
+                var res = gau.responseText;
+                gau_data = gauusers(res);
+            }
+        }
+        gau.open("GET", "./data/users.json", false);
+        gau.send();
+        function gauusers(data){
+            var resdata = JSON.parse(data);
+            var allusers;
+            allusers = resdata; //set updated users to alus var
+            return allusers;
+        }
+        //gau_data is all users
+        for(i=0; i<gau_data.length; i++){
+            if(gau_data[i]["useremail"] == ruseremail){
+                
+            }
+        }
+    }
 });
 //add column functionality
 $("#admin-add-column").click(function() {
