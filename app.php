@@ -11,14 +11,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>C-Breeze</title>
-        <meta name="description" content="">
+        <meta name="description" content="A web based project overviewer">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!--links to stylesheets-->
         <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
-        <link rel="stylesheet" href="styles/custom.css">
+<!--        <link rel="stylesheet" href="styles/custom.css">-->
         <!--link to js-->
-        <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
+<!--        <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>-->
     </head>
     <body>
     
