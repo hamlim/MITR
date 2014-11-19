@@ -66,8 +66,6 @@ li {
     height: 100%;
 }
 
-
-
 .column h2{
 	text-align: center;
 	margin-top: 60px;
@@ -114,32 +112,25 @@ li {
 }
 
 .cardheader i{
-	margin-left:160px;
-	padding-top:3px;
+	margin-left: 160px;
+	padding-top: 3px;
 }
 
 .cardtitle{
-	color:white;
+	color: white;
 	padding-left: 25px;
 }
 
 .cardpriority{
-	color:black;
+	color: black;
 	background-color: yellow;
-	width:30px;
+	width: 30px;
 	border-top-left-radius: 20px;
-	padding-left:20px;
+	padding-left: 20px;
 	height: 23px;
 	padding-top: 2px;
 }
 
-#activitylist{
-
-}
-
-.activity{
-
-}
 .cardlist{
     min-height: 200px !important;
     height: 100% !important;
@@ -163,9 +154,9 @@ li {
 .loginPage form{
 	position: relative;
 	margin: auto;
-  	left:0;
+  	left: 0;
   	right: 0;
-  	top:20%;
+  	top: 20%;
   	min-width: 350px;
 	width: 35%;
 
@@ -223,11 +214,9 @@ li {
 .tab a{
 	color:black;
 }
-
 .tab{
     background-color: black;
 }
-
 .settingsName img{
 	border-radius: 10px;
 }
@@ -312,7 +301,7 @@ li {
 	color:black;
 }
 
-/*for selecting a color in edit card, yo*/
+/*for selecting a color in edit card*/
 .border-highlight {
     border:2px dashed blue;   
 }
