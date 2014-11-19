@@ -98,11 +98,14 @@ $("#admin-add-user").click(function(){
     var newuser = {};
     newuser["useremail"] = useremail;
     newuser["password"] = "seamonkey";
+    newuser["username"] = "";
+    newuser["columncolor"] = "Blue";
     if(useradminstatus){
         newuser["isAdmin"] = 1;
     } else {
         newuser["isAdmin"] = 0;
     }
+    console.log(newuser);
     //get all users
     var gau = new XMLHttpRequest;
     var gau_data;
@@ -117,10 +120,13 @@ $("#admin-add-user").click(function(){
     function gauusers(data){
         var resdata = JSON.parse(data);
         var allusers;
-        allusers = resjson; //set updated users to alus var
+        allusers = resdata; //set updated users to alus var
         return allusers;
     }
     //gau_data = all users
+    console.log(gau_data);
+    var previd = gau_data[gau_data.length - 1]["userID"];
+    newuser["userID"] = previd + 1;
     gau_data.push(newuser);
     //now we send gau_data to the server -> asu.php
     var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
