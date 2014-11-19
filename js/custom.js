@@ -104,11 +104,16 @@ $(document).ready(function(){
 	$(function(){ //create all of the colors options. 
 		var list = '';
 		$.each(colors, function(index){
-			list+='<option value="' + colors[index] + '"><div><a href></a></div>'+ colors[index].name +'</option>';
+			list+='<option value="' + colors[index].name + '"><div><a href></a></div>'+ colors[index].name +'</option>';
 		});
 		$('#colorSelect').html(list);
 	});
 	$(function(){ //set the box to the current selected color
+		var box = document.getElementById('colorSelect');
+		var user = localStorage.getItem("currentuser");
+        var userobj = JSON.parse(user);
+		box.value = userobj["columncolor"];
+
 		$.each(colors,function(i){
 			if($("#colorSelect :selected").text() == colors[i].name){
 				$(".colorBox").css("background", "-webkit-linear-gradient(left, "+colors[i].first+" , "+colors[i].last+")");
@@ -118,6 +123,8 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+
 
 	//open the settings modal
 	$("div.settingsModal").click(function(){
