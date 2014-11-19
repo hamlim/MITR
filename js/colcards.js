@@ -7,7 +7,8 @@ colrequest.onreadystatechange = function() {
         checkcontent(columns, res);
     }
 }
-colrequest.open("GET", "./data/columns.txt", false);
+var colfile = "./data/columns.json";
+colrequest.open("GET", colfile, false);
 colrequest.send();
 
 function checkcontent(columns, data){
@@ -24,7 +25,8 @@ cardrequest.onreadystatechange = function(){
         checkcardcontent(cards, res);
     }
 }
-cardrequest.open("GET", "./data/cards.txt", false);
+var cardfile = "./data/cards.json";
+cardrequest.open("GET", cardfile, false);
 cardrequest.send();
 
 function checkcardcontent(cards, data){

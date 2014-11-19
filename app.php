@@ -16,9 +16,7 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!--links to stylesheets-->
         <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
-<!--        <link rel="stylesheet" href="styles/custom.css">-->
         <!--link to js-->
-<!--        <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>-->
     </head>
     <body>
     
