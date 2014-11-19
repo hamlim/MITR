@@ -134,14 +134,12 @@ for(i=0; i<colu.length; i++){ //iterate through columns
     for(o=0; o<cards.length; o++){
         string += cards[o];
     }
-    console.log(string);
     var column = columnstart + string + "</ul></li>"
     alldata.push(column);
 }
-console.log(alldata);
-var content;
-for(i=0; i<alldata.length; i++){
-    content += alldata[i];
-}
+//var content;
+//for(i=0; i<alldata.length; i++){
+//    content += alldata[i];
+//}
 //colbody.innerHTML += content;
 colbody.innerHTML += alldata.join();
