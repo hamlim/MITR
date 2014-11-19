@@ -305,3 +305,17 @@ li {
 .border-highlight {
     border:2px dashed blue;   
 }
+
+#cardFormatModal{
+	color: black;
+}
+
+#cardFormatModal a{
+	color: blue;
+}
+
+.hidden-option
+{
+   display:none;
+}
+
