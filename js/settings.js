@@ -49,9 +49,6 @@ $("#general-settings-btn").click(function(){
     }
     //now we have an updated userobj, first we want to update the currentuser in localStorage
     localStorage.removeItem("currentuser");
-    if(localStorage["currentuser"] != null || localStorage["currentuser"] != undefined){
-        console.log("currentuser not properly deleted");
-    }
     userobjstring = JSON.stringify(userobj);
     localStorage.setItem("currentuser", userobjstring);
     user = userobj;
@@ -69,7 +66,6 @@ $("#general-settings-btn").click(function(){
     getalluserstoup.send();
     function updateusers(data){
         var resjson = JSON.parse(data);
-        console.log(user);
         var allusers;
         for(k=0; k<resjson.length; k++){
             if(resjson[k].userID == userobj.userID){
@@ -79,9 +75,6 @@ $("#general-settings-btn").click(function(){
         allusers = resjson; //set updated users to alus var
         return allusers;
     }
-    console.log(userobj);
-    console.log("ALUS: ");
-    console.log(alus);
     var setuserup = new XMLHttpRequest; //make a new request to update the content of users.txt
     setuserup.open("POST", "./generalsettings.php", true);
     setuserup.setRequestHeader("Content-Type", "application/json");
