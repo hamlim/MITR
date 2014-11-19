@@ -105,30 +105,34 @@
                                                 <form class="uk-form-horizontal" >
                                                     <fieldset>
                                                         <h1>Account settings</h1>
-                                                        <div class="uk-form-row">
-                                                            <label class="uk-form-label" for="">Set Name:</label>
+                                                        <div class="uk-form-row uk-panel-box">
+                                                            <label class="uk-form-label">Set Name:</label>
                                                             <input type="text" id="username-input" placeholder="John Philips">
                                                             <span class="uk-form-help-inline"></span>
                                                         </div>
-                                                        <div class="uk-form-row">
-                                                            <label class="uk-form-label" for="">Password reset:</label>
-                                                            <input type="password" id="oldpass" placeholder="Current">
+                                                        <br/>
+                                                        <div class="uk-panel-box">
+                                                            <div class="uk-form-row">
+                                                                <label class="uk-form-label">Password reset:</label>
+                                                                <input type="password" id="oldpass" placeholder="Current">
+                                                            </div>
+                                                            <div class="uk-form-row">
+                                                                <label class="uk-form-label">New password:</label>
+                                                                <input type="password" id="newpass" placeholder="New Password">
+                                                            </div>
+                                                            <div class="uk-form-row">
+                                                                <label class="uk-form-label">Confirm New Password:</label>
+                                                                <input type="password" id="newpassconf" placeholder="Confirm Password">
+                                                            </div>
                                                         </div>
-                                                        <div class="uk-form-row">
-                                                            <label class="uk-form-label" for="">New password:</label>
-                                                            <input type="password" id="newpass" placeholder="New Password">
-                                                        </div>
-                                                        <div class="uk-form-row">
-                                                            <label class="uk-form-label" for="">Confirm New Password:</label>
-                                                            <input type="password" id="newpassconf" placeholder="Confirm Password">
-                                                        </div>
-                                                        <div class="uk-form-row">
-                                                            <label class="uk-form-label" for="">Color Scheme:</label>
+                                                        <br/>
+                                                        <div class="uk-form-row uk-panel-box">
+                                                            <label class="uk-form-label">Color Scheme:</label>
                                                             <select id="colorSelect"></select>
                                                             <div class="colorBox"></div>
                                                         </div>
                                                         <div>
-                                                            <button type="button" id="general-settings-btn" class="uk-button uk-button-large button">Save Changes</button>
+                                                            <button type="button" id="general-settings-btn" class="uk-button-primary uk-button-large button">Save Changes</button>
                                                         </div>
                                                     </fieldset>
                                                 </form>
@@ -136,26 +140,43 @@
                                             <li id="adminSettings" class="tab-content"><form>
                                                 <fieldset>
                                                     <h1>Admin Settings</h1>
-                                                    <div class="uk-form-row">
-                                                        <label class="uk-form-label" for="">Add Users:</label>
-                                                        <input type="email" id="admin-add-email" placeholder="employee1@gmail.com">
-                                                        Is this user an Administrator? <input type="checkbox" name="admin-status" id="admin-add-admin" value="admin">
-                                                        <button type="button" id="admin-add-user" class="uk-button button">Add user</button>
+                                                    <div class="uk-panel-box">
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label">Add Users:</label>
+                                                            <input type="email" id="admin-add-email" placeholder="employee1@gmail.com">
+                                                        </div>
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label">Is this user an Administrator?</label>
+                                                            <input type="checkbox" name="admin-status" id="admin-add-admin" value="admin">
+                                                            <button type="button" id="admin-add-user" class="uk-button-primary button">Add user</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="uk-form-row">
-                                                        <label class="uk-form-label">Delete User:</label>
-                                                        <input type="email" id="admin-remove-email" placeholder="oldteammember@gmail.com">
-                                                        <input type="email" id="admin-remove-email-conf" placeholder="Confirm Email">
-                                                        <button type="button" id="admin-remove-user" class="uk-button button">Remove user</button>
+                                                    <br/>
+                                                    <div class="uk-panel-box">
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label">Delete User:</label>
+                                                            <input type="email" id="admin-remove-email" placeholder="oldteammember@gmail.com">
+                                                        </div>
+                                                        <div class="uk-form-row">
+                                                            <label class="uk-form-label">Confirm Old User's Email:</label>
+                                                            <input type="email" id="admin-remove-email-conf" placeholder="Confirm Email">
+                                                            <button type="button" id="admin-remove-user" class="uk-button-primary button">Remove user</button>
+                                                        </div>
                                                     </div>
                                                     <div class="uk-form-row">
                                                         <button data-uk-modal type="button" class="uk-button button" id="make-card-btn">Edit Card Format</button>
-                                                    </div>
-                                                    <div class="uk-form-row">
+                                                    <br/>
+                                                    <!--<div class="uk-form-row uk-panel-box">
+                                                        <button data-uk-modal type="button" class="uk-button-primary button" id="make-card-btn">Edit
+                                                         Card Format</button>
+
+                                                    </div>-->
+                                                    <br/>
+                                                    <div class="uk-form-row uk-panel-box">
                                                         <label class="uk-form-label">Add Column:</label>
                                                         <input type="text" id="admin-add-column-name" placeholder="column name">
 <!--                                                        <input type="number" id="admin-add-column-order" placeholder="Column order (small is left side of screen)" min="0">-->
-                                                        <button type="button" id="admin-add-column" class="uk-button button">Add Column</button>
+                                                        <button type="button" id="admin-add-column" class="uk-button-primary button">Add Column</button>
                                                     </div>
                                                 </fieldset>
                                             </form></li>                                       
@@ -171,7 +192,9 @@
                                     }
                                 </script>
                                 <li><a href="#cardFormatModal" data-uk-modal>Edit Card Format</a>
-                                    <?php include 'cardFormatModal.php' ?>
+                                    <!--begin Card format modal-->
+                                   <?php include "cardFormatModal.html" ?>
+                                    <!--end edit card modal modal-->
                                 </li>
                                     
 
