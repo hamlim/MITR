@@ -41,7 +41,7 @@ submitbtn.click(function() {
             checkcontent(columns, resp);
         }
     }
-    colrequest.open("GET", "./data/columns.txt", false);
+    colrequest.open("GET", "./data/columns.json", false);
 
     function checkcontent(columns, data){
         localStorage.setItem("columns", colstring);
