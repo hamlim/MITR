@@ -88,9 +88,64 @@ $("#general-settings-btn").click(function(){
 //----------------------------------
 //  Admin Settings
 //----------------------------------
-
+//add user functionality
 $("#admin-add-user").click(function(){
     var useremailelem = document.getElementById("admin-add-email");
+    var useradminstatuselem = document.getElementById("admin-add-admin");
     var useremail = useremailelem.value;
+    var useradminstatus = useradminstatuselem.checked;
+    //create a user object then add it to the users
+    var newuser = {};
+    newuser["useremail"] = useremail;
+    newuser["password"] = "seamonkey";
+    if(useradminstatus){
+        newuser["isAdmin"] = 1;
+    } else {
+        newuser["isAdmin"] = 0;
+    }
+    //get all users
+    var gau = new XMLHttpRequest;
+    var gau_data;
+    gau.onreadystatechange = function() {
+        if (gau.readyState == 4){
+            var res = gau.responseText;
+            gau_data = gauusers(res);
+        }
+    }
+    gau.open("GET", "./data/users.json", false);
+    gau.send();
+    function gauusers(data){
+        var resdata = JSON.parse(data);
+        var allusers;
+        allusers = resjson; //set updated users to alus var
+        return allusers;
+    }
+    //gau_data = all users
+    gau_data.push(newuser);
+    //now we send gau_data to the server -> asu.php
+    var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
+    upload.open("POST", "./asu.php", true);
+    upload.setRequestHeader("Content-Type", "application/json");
+    var gau_string = JSON.stringify(gau_data); //turn the JSON into a string
+    upload.send(gau_string);
+});
+//remove user funtionality
+$("#admin-remove-user").click(function() {
+    var ruseremeilelem = document.getElementById("admin-remove-email");
+    var ruseremeailconfelem = document.getElementById("admin-remove-email-conf");
+    var ruseremail = ruseremeilelem.value;
+    var ruseremailconf = ruseremeailconfelem.value;
+    //make sure the two emails are the same value
+    
+});
+//add column functionality
+$("#admin-add-column").click(function() {
+    var columnnameelem = document.getElementById("admin-add-column-name");
+//    var columnorderelem = document.getElementById("admin-add-column-order");
+    var columnname = columnnameelem.value;
+//    var columnorder = columnorderelem.value;
+    //add column to list of columns based on the order
+    //note keeping column order as an extensible feature
+    
 });
 
