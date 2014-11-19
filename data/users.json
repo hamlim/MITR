@@ -1,9 +1,9 @@
 [
     {
-        "username": "",
+        "username": "root",
         "userID": 0,
         "useremail": "root@root.com",
-        "columncolor": "Green",
+        "columncolor": "Red",
         "isAdmin": 1,
         "password": "root"
     },
@@ -30,5 +30,13 @@
         "columncolor": "Green",
         "isAdmin": 1,
         "password": "test"
+    },
+    {
+        "useremail": "test@test.com",
+        "password": "testing",
+        "username": "Testing Account",
+        "columncolor": "Yellow",
+        "isAdmin": 1,
+        "userID": 4
     }
 ]
