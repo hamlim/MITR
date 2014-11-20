@@ -272,14 +272,6 @@ $.fn.sortable = function(options) {
 			$('.exclude').sortable({
 				items: ':not(.disabled)'
 			});
-            $('.sortable').sortable().bind('sortupdate', function(e, ui) {
-                //Triggered when the user stopped sorting and the DOM position has changed.
-                //HERE is where we modify column ID associated with each card
-                //ui.item = the card
-                console.log("hello?")
-                console.log(ui);
-                
-            });
 		});
 
 
