@@ -112,6 +112,7 @@ function popupaction(cardID){
             actioncontent += "<ul class='uk-tab'><li>Card Activities</li></ul>";
             actioncontent += "<ul id='card-tabs'>";
             actioncontent += "<li id='cardactivities'>"+cardactivities+"</li></ul>";
+            actioncontent += "<button onclick='commenting()' class='uk-button' type='button'>Comment</button>";
 
             //now we launch the card viewer itself
             vex.open({
@@ -125,4 +126,30 @@ function popupaction(cardID){
             });
         }
     } 
+}
+function commenting() {
+    vex.dialog.prompt({
+      message: 'Comment:',
+      callback: function(value) {
+        console.log(value);
+
+        // put "value" in json file (cards.json)
+
+        /*$.getJSON( "./data/cards.json", function( data ) {
+          var newactv = {       // new activity to be added
+            username: "Bob the Builder",
+            actiontype: "Commented",
+            timestamp: "1414880770",
+            newdata: value,
+            olddata: null,
+            actionID: 5,
+            parent-actionID: 1};
+
+          // add a new movie to the set
+          data.activities.push(newactv);      
+        });*/
+
+
+      }
+    });
 }
