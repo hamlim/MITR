@@ -24,6 +24,7 @@
         <ul id = "columnslist">
             <?php include "editcardmodal.html"; ?>
         </ul>
+        <script type="text/javascript" src="js/vendor/moment.js"></script>
         <script type="text/javascript" src="js/makecols.js"></script>
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="js/renderer.js" type="text/javascript"></script>
