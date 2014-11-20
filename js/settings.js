@@ -185,6 +185,36 @@ $("#admin-add-column").click(function() {
 //    var columnorder = columnorderelem.value;
     //add column to list of columns based on the order
     //note keeping column order as an extensible feature
-    
+    //columndata = JSON of columns
+    var colid;
+    var max = 0;
+    for(i=0; i<columndata.length; i++){
+        if(max < columndata[i]["columnID"]){
+            max = columndata[i]["columnID"];
+        }
+    }
+    colid = max + 1;
+    var colorder;
+    var counter = 0;
+    for(j=0; j<columndata.length; j++){
+        if(counter<columndata[j]["columnorder"]){
+            counter = columndata[j]["columnorder"];
+        }
+    }
+    colorder = counter + 1;
+    var newcol = {};
+    newcol["columnname"] = columnname;
+    newcol["columnID"] = colid;
+    newcol["columnorder"] = colorder;
+    localStorage.removeItem("columns");
+    columndata.push(newcol);
+    var colstring = JSON.stringify(columndata);
+    localStorage.setItem("columns", colstring);
+    //now push new data to the server
+    var upl = new XMLHttpRequest;
+    upl.open("POST", "./asc.php", true);
+    upl.setRequestHeader("Content-Type", "application/json");
+    upl.send(colstring);
+    //done
 });
 
