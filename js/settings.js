@@ -76,7 +76,7 @@ $("#general-settings-btn").click(function(){
         return allusers;
     }
     var setuserup = new XMLHttpRequest; //make a new request to update the content of users.txt
-    setuserup.open("POST", "./generalsettings.php", true);
+    setuserup.open("POST", "./asu.php", true);
     setuserup.setRequestHeader("Content-Type", "application/json");
     var aluserstring = JSON.stringify(alus); //turn the JSON into a string
     setuserup.send(aluserstring);
