@@ -138,14 +138,13 @@ function commenting(cardID) {
             //value is the comment text itself
             //get the currentuser
             var currentuser = JSON.parse(localStorage.getItem("currentuser"));
-            var cards = JSON.parse(localStorage.getItem("cards"));
             var card;
-            for(i=0; i<cards.length; i++){
-                if(cards[i]["info"].cardID == cardID){
-                    card = cards[i];
+            for(i=0; i<carddata.length; i++){
+                if(carddata[i]["info"].cardID == cardID){
+                    card = carddata[i];
                 }
             }
-            newact["username"] = currentuser.username;
+            newact["username"] = currentuser["username"];
             newact["actiontype"] = "Commented";
             newact["timestamp"] = tstamp;
             newact["newdata"] = value;
@@ -153,22 +152,23 @@ function commenting(cardID) {
             var prevaid = card["activities"][card["activities"].length - 1].actionID;
             newact["actionID"] = prevaid + 1;
             newact["parent-actionID"] = null;
-            card["activities"].push(newact);
-            for(j=0; j<cards.length; j++){
-                if(cardID == cards[j]["info"].cardID){
-                    cards[j] = card;
+            card["activities"].push(newact); //add the new comment
+            for(j=0; j<carddata.length; j++){
+                if(cardID == carddata[j]["info"].cardID){
+                    carddata[j] = card; //overwrite old card data
                 }
             }
-            console.log(cards);
-            var cardsstring = JSON.stringify(cards);
-            localStorage.setItem(cardsstring);
+            console.log(carddata);
+            var cardsstring = JSON.stringify(carddata);
+            localStorage.removeItem("cards");
+            localStorage.setItem("cards", cardsstring);
             //now we push the new card/all cards to the db
             //cards is up to date
-            var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
-            upload.open("POST", "./ascf.php", true);
-            upload.setRequestHeader("Content-Type", "application/json");
-            var cards_string = JSON.stringify(cards); //turn the JSON into a string
-            upload.send(cards);
+            var up = new XMLHttpRequest; //make a new request to update the content of users.txt
+            up.open("POST", "./ascf.php", true);
+            up.setRequestHeader("Content-Type", "application/json");
+            //turn the JSON into a string
+            up.send(cardsstring);
             
             // put "value" in json file (cards.json)
 
