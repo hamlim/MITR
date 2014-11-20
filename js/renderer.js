@@ -112,7 +112,7 @@ function popupaction(cardID){
             actioncontent += "<ul class='uk-tab'><li>Card Activities</li></ul>";
             actioncontent += "<ul id='card-tabs'>";
             actioncontent += "<li id='cardactivities'>"+cardactivities+"</li></ul>";
-            actioncontent += "<button onclick='commenting(cardID);' class='uk-button-primary' type='button'>Comment</button>";
+            actioncontent += "<button onclick='commenting(" + cardID + ");' class='uk-button-primary' type='button'>Comment</button>";
 
             //now we launch the card viewer itself
             vex.open({
@@ -137,8 +137,8 @@ function commenting(cardID) {
             var tstamp = new Date().getTime();
             //value is the comment text itself
             //get the currentuser
-            var currentuser = localStorage.getItem("currentuser");
-            var cards = localStorage.getItem("cards");
+            var currentuser = JSON.parse(localStorage.getItem("currentuser"));
+            var cards = JSON.parse(localStorage.getItem("cards"));
             var card;
             for(i=0; i<cards.length; i++){
                 if(cards[i]["info"].cardID == cardID){
@@ -150,15 +150,18 @@ function commenting(cardID) {
             newact["timestamp"] = tstamp;
             newact["newdata"] = value;
             newact["olddata"] = null;
-            var prevaid = cards["activities"][cards["activities"].length - 1].actionID;
+            var prevaid = card["activities"][card["activities"].length - 1].actionID;
             newact["actionID"] = prevaid + 1;
             newact["parent-actionID"] = null;
             card["activities"].push(newact);
             for(j=0; j<cards.length; j++){
                 if(cardID == cards[j]["info"].cardID){
-                    cards[i] = card;
+                    cards[j] = card;
                 }
             }
+            console.log(cards);
+            var cardsstring = JSON.stringify(cards);
+            localStorage.setItem(cardsstring);
             //now we push the new card/all cards to the db
             //cards is up to date
             var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
@@ -167,7 +170,6 @@ function commenting(cardID) {
             var cards_string = JSON.stringify(cards); //turn the JSON into a string
             upload.send(cards);
             
-            location.reload();
             // put "value" in json file (cards.json)
 
             /*$.getJSON( "./data/cards.json", function( data ) {
