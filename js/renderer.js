@@ -112,7 +112,7 @@ function popupaction(cardID){
             actioncontent += "<ul class='uk-tab'><li>Card Activities</li></ul>";
             actioncontent += "<ul id='card-tabs'>";
             actioncontent += "<li id='cardactivities'>"+cardactivities+"</li></ul>";
-            actioncontent += "<button onclick='commenting()' class='uk-button' type='button'>Comment</button>";
+            actioncontent += "<button onclick='commenting(cardID);' class='uk-button-primary' type='button'>Comment</button>";
 
             //now we launch the card viewer itself
             vex.open({
@@ -127,29 +127,64 @@ function popupaction(cardID){
         }
     } 
 }
-function commenting() {
+function commenting(cardID) {
     vex.dialog.prompt({
-      message: 'Comment:',
-      callback: function(value) {
-        console.log(value);
+        message: 'Add comment:',
+        callback: function(value) {
+            console.log(value);
+            var newact = {};
+            //generate the timestamp when the action was made:
+            var tstamp = new Date().getTime();
+            //value is the comment text itself
+            //get the currentuser
+            var currentuser = localStorage.getItem("currentuser");
+            var cards = localStorage.getItem("cards");
+            var card;
+            for(i=0; i<cards.length; i++){
+                if(cards[i]["info"].cardID == cardID){
+                    card = cards[i];
+                }
+            }
+            newact["username"] = currentuser.username;
+            newact["actiontype"] = "Commented";
+            newact["timestamp"] = tstamp;
+            newact["newdata"] = value;
+            newact["olddata"] = null;
+            var prevaid = cards["activities"][cards["activities"].length - 1].actionID;
+            newact["actionID"] = prevaid + 1;
+            newact["parent-actionID"] = null;
+            card["activities"].push(newact);
+            for(j=0; j<cards.length; j++){
+                if(cardID == cards[j]["info"].cardID){
+                    cards[i] = card;
+                }
+            }
+            //now we push the new card/all cards to the db
+            //cards is up to date
+            var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
+            upload.open("POST", "./ascf.php", true);
+            upload.setRequestHeader("Content-Type", "application/json");
+            var cards_string = JSON.stringify(cards); //turn the JSON into a string
+            upload.send(cards);
+            
+            location.reload();
+            // put "value" in json file (cards.json)
 
-        // put "value" in json file (cards.json)
+            /*$.getJSON( "./data/cards.json", function( data ) {
+                var newactv = {       // new activity to be added
+                    username: "Bob the Builder",
+                    actiontype: "Commented",
+                    timestamp: "1414880770",
+                    newdata: value,
+                    olddata: null,
+                    actionID: 5,
+                    parent-actionID: 1};
 
-        /*$.getJSON( "./data/cards.json", function( data ) {
-          var newactv = {       // new activity to be added
-            username: "Bob the Builder",
-            actiontype: "Commented",
-            timestamp: "1414880770",
-            newdata: value,
-            olddata: null,
-            actionID: 5,
-            parent-actionID: 1};
-
-          // add a new movie to the set
-          data.activities.push(newactv);      
-        });*/
+                // add a new movie to the set
+                data.activities.push(newactv);      
+                });*/
 
 
-      }
+        }
     });
 }
