@@ -89,6 +89,17 @@ function columns(c1, c2, colnum){
     }
 }
 
+function changeColumn(card){
+	var columnNumber = $(card).parent().parent().id;
+	columnNumber = columnNumber.substr(3);
+	var file = JSON.stringify('cards.json');
+	var obj = JSON.parse(file);
+	for(i = 0; i < obj.length; i++){
+		if(obj[i]["info"]["cardID"] == card.getAttribute('data-cbreeze-cardid')){
+			obj[i]["info"]["columnID"] = columnNumber;
+		}
+	}
+}
 
 
 
