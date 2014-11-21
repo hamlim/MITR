@@ -88,18 +88,17 @@ function columns(c1, c2, colnum){
         document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
     }
 }
-
 function changeColumn(card){
-	var columnNumber = $(card).parent().parent().id;
-	columnNumber = columnNumber.substr(3);
-	var file = JSON.stringify('cards.json');
-	var obj = JSON.parse(file);
-	for(i = 0; i < obj.length; i++){
-		if(obj[i]["info"]["cardID"] == card.getAttribute('data-cbreeze-cardid')){
-			obj[i]["info"]["columnID"] = columnNumber;
+	var columnNumber = card.parentNode.parentNode.getAttribute('data-cbreeze-columnID');
+	for(i = 0; i < carddata.length; i++){
+		if(carddata[i]["info"]["cardID"] == card.getAttribute('data-cbreeze-cardid')){
+			carddata[i]["info"]["columnID"] = columnNumber;
+			console.log(columnNumber);
+			break;
 		}
 	}
 }
+
 
 
 
@@ -171,6 +170,8 @@ $('#thumbs').delegate('img', 'click', function() {
 });
 
 
+
+
 /*-----------------------------------------------------------------*/
 /*DRAG AND DROP*/
 /*
@@ -217,6 +218,7 @@ $.fn.sortable = function(options) {
 			dt.effectAllowed = 'move';
 			dt.setData('Text', 'dummy');
 			index = (dragging = $(this)).addClass('sortable-dragging').index();
+			dragging.addClass('current');
 			$('.cardlist').css({'border': 'dotted #eee 3px', 'border-radius': '5px'});
 		}).on('dragend.h5s', function() {
 			if (!dragging) {
@@ -224,6 +226,9 @@ $.fn.sortable = function(options) {
 			}
 			dragging.removeClass('sortable-dragging').show();
 			$('.cardlist').css('border', 'none');
+			var card = $(".current")[0];
+			changeColumn(card);
+			$(card).removeClass('current');
 			placeholders.detach();
 			if (index != dragging.index()) {
 				dragging.parent().trigger('sortupdate', {item: dragging});
