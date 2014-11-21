@@ -119,14 +119,49 @@ function popupaction(cardID){
         }
     } 
 }
-function addAction(cardid, user, action){
+function addAction(cardid, user, action, extrainfo){
+    //cardid is the int itself
+    //user is the JSON of the user ie JSON.parse(localStorage.getItem("currentuser"));
+    //action is a string that is either: "Moved the card", "Edited the card", "Made the card"
+    //extrainfo is there if we need more data ie Moved card to "columnID" otherwise pass it as an empty string
     var newact = {};
-    newact["username"] = user;
+    newact["username"] = user.username;
     newact["actiontype"] = action;
     newact["olddata"] = null;
-    if(action == "moved")
-        newact["newdata"] = cardid;
-    return newact
+    if(action == "Moved the card"){
+        var obj = [];
+        obj["columnID"] = extrainfo;
+        newact["newdata"] = obj;
+    } else if(action == "Edited the card"){
+        newact["newdata"] = null;
+        //FUTURE: see edits
+    } else {
+        //made the card
+        newact["newdata"] = null; //can't set it equal to the card data because it becomes circular
+    }
+    //now we update the cards
+    for(n=0; n<carddata.length; n++){
+        if(carddata[n]["info"].cardID == cardid){
+            //we need to get the actionid and the timestamp
+            var tstamp = new Date().getTime();
+            var aid=0;
+            for(p=0; p<carddata[n]["activities"].length; p++){
+                aid += 1;
+            }
+            newact["actionID"] = aid+1;
+            newact["timestamp"] = tstamp;
+            carddata[n]["activities"].push(newact);
+        }
+    }
+    var carddatastring = JSON.stringify(carddata);
+    localStorage.removeItem("cards");
+    localStorage.setItem("cards", carddatastring);
+    
+    //now we push the updated stuff to the server
+    var uploadactions = new XMLHttpRequest;
+    uploadactions.open("POST", "./ascf.php", true);
+    uploadactions.setRequestHeader("Content-Type", "application/json");
+    uploadactions.send();
 }
 
 
@@ -134,7 +169,6 @@ function commenting(cardID) {
     vex.dialog.prompt({
         message: 'Add comment:',
         callback: function(value) {
-            console.log(value);
             //generate the timestamp when the action was made:
             var tstamp = new Date().getTime();
             //value is the comment text itself
@@ -158,7 +192,6 @@ function commenting(cardID) {
                     carddata[j] = card; //overwrite old card data
                 }
             }
-            console.log(carddata);
             var cardsstring = JSON.stringify(carddata);
             localStorage.removeItem("cards");
             localStorage.setItem("cards", cardsstring);
@@ -169,24 +202,6 @@ function commenting(cardID) {
             up.setRequestHeader("Content-Type", "application/json");
             //turn the JSON into a string
             up.send(cardsstring);
-            
-            // put "value" in json file (cards.json)
-
-            /*$.getJSON( "./data/cards.json", function( data ) {
-                var newactv = {       // new activity to be added
-                    username: "Bob the Builder",
-                    actiontype: "Commented",
-                    timestamp: "1414880770",
-                    newdata: value,
-                    olddata: null,
-                    actionID: 5,
-                    parent-actionID: 1};
-
-                // add a new movie to the set
-                data.activities.push(newactv);      
-                });*/
-
-
         }
     });
 }
