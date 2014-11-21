@@ -90,13 +90,20 @@ function columns(c1, c2, colnum){
 }
 function changeColumn(card){
 	var columnNumber = card.parentNode.parentNode.getAttribute('data-cbreeze-columnID');
+    console.log(columnNumber);
 	for(i = 0; i < carddata.length; i++){
 		if(carddata[i]["info"]["cardID"] == card.getAttribute('data-cbreeze-cardid')){
 			carddata[i]["info"]["columnID"] = columnNumber;
 			console.log(columnNumber);
-			break;
 		}
 	}
+    //now we change the cards on the server end
+    var cardsstring = JSON.stringify(carddata);
+    var uploadchanges = new XMLHttpRequest;
+    uploadchanges.open("POST", "./ascf.php", true);
+    uploadchanges.setRequestHeader("Content-Type", "application/json");
+    uploadchanges.send(cardsstring);
+    //changes uploaded to the server
 }
 
 
