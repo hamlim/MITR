@@ -182,3 +182,4 @@ function commenting(cardID) {
         }
     });
 }
+

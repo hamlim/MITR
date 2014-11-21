@@ -113,7 +113,7 @@ for(i=0; i<colu.length; i++){ //iterate through columns
             var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
             for(x=0; x<cccs.length; x++){
                 if(cccs[x].name == color){
-                    var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"<a href='#editCardModal' data-uk-modal><i class='uk-icon-pencil-square-o'></i></a></span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'>"+fieldname+" : " + fielddata + "</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
+                    var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"<a href='#editCardModal' onclick='popupeditcard("+id+")' ><i class='uk-icon-pencil-square-o'></i></a></span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'>"+fieldname+" : " + fielddata + "</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
                 }
             }
             cards.push(cardtext);
