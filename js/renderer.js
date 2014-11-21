@@ -139,6 +139,7 @@ function addAction(cardid, user, action, extrainfo){
         //made the card
         newact["newdata"] = null; //can't set it equal to the card data because it becomes circular
     }
+    newact["parent-actionID"] = null;
     //now we update the cards
     for(n=0; n<carddata.length; n++){
         if(carddata[n]["info"].cardID == cardid){
@@ -180,7 +181,8 @@ function commenting(cardID) {
                     card = carddata[i];
                 }
             }
-            var newact = addAction(card, currentuser["username"], "Commented");
+            var newact = {};
+            newact["username"] = currentuser.username;
             newact["timestamp"] = tstamp;
             newact["newdata"] = value;
             var prevaid = card["activities"][card["activities"].length - 1].actionID;
