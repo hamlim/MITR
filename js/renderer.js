@@ -119,13 +119,13 @@ function popupaction(cardID){
         }
     } 
 }
-function addAction(cardid, user, action){
+function addAction(card, user, action){
     var newact = {};
     newact["username"] = user;
     newact["actiontype"] = action;
     newact["olddata"] = null;
     if(action == "moved")
-        newact["newdata"] = cardid;
+        newact["newdata"] = card["info"]["columnID"];
     return newact
 }
 
@@ -146,7 +146,7 @@ function commenting(cardID) {
                     card = carddata[i];
                 }
             }
-            var newact = addAction(cardID, currentuser["username"], "Commented");
+            var newact = addAction(card, currentuser["username"], "Commented");
             newact["timestamp"] = tstamp;
             newact["newdata"] = value;
             var prevaid = card["activities"][card["activities"].length - 1].actionID;
