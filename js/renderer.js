@@ -119,12 +119,22 @@ function popupaction(cardID){
         }
     } 
 }
+function addAction(cardid, user, action){
+    var newact = {};
+    newact["username"] = user;
+    newact["actiontype"] = action;
+    newact["olddata"] = null;
+    if(action == "moved")
+        newact["newdata"] = cardid;
+    return newact
+}
+
+
 function commenting(cardID) {
     vex.dialog.prompt({
         message: 'Add comment:',
         callback: function(value) {
             console.log(value);
-            var newact = {};
             //generate the timestamp when the action was made:
             var tstamp = new Date().getTime();
             //value is the comment text itself
@@ -136,11 +146,9 @@ function commenting(cardID) {
                     card = carddata[i];
                 }
             }
-            newact["username"] = currentuser["username"];
-            newact["actiontype"] = "Commented";
+            var newact = addAction(cardID, currentuser["username"], "Commented");
             newact["timestamp"] = tstamp;
             newact["newdata"] = value;
-            newact["olddata"] = null;
             var prevaid = card["activities"][card["activities"].length - 1].actionID;
             newact["actionID"] = prevaid + 1;
             newact["parent-actionID"] = null;
@@ -182,4 +190,3 @@ function commenting(cardID) {
         }
     });
 }
-
