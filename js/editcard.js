@@ -1,6 +1,6 @@
 //edit card modal
 var darkblue = {
-    name: "Darkblue",
+    name: "Dark blue",
     hex: "#4a5e77"
 };
 var green = {
@@ -12,7 +12,7 @@ var grey = {
     hex: "#5f5f5f"
 };
 var lightblue = {
-    name: "Lightblue",
+    name: "Light blue",
     hex: "#4ecdc4"
 };
 var pink = {
@@ -32,21 +32,22 @@ var yellow = {
     hex: "#f5ef65"
 };
 var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
-
+var cad;
 function popupeditcard(cardID){
     //cardID
     //first construct the outside form test
     //get relevent data
-    var n, c, cid, p, card;
+    var n, c, cid, p;
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].cardID == cardID){
-            card = carddata[i];
-            n = card["info"].cardname;
-            c = card["info"].cardcolorcode;
-            p = card["info"].cardpriority;
-            cid = card["info"].columnID;
+            cad = carddata[i];
+            n = cad["info"].cardname;
+            c = cad["info"].cardcolorcode;
+            p = cad["info"].cardpriority;
+            cid = cad["info"].columnID;
         }
     }
+    console.log(cad);
     var colnames = [];
     var currentcolname;
     for(o = 0; o<columndata.length; o++){
@@ -56,6 +57,8 @@ function popupeditcard(cardID){
             currentcolname = columndata[o].columnname;
         }
     }
+    console.log("columns");
+    console.log(colnames);
     //colnames is the other columns
     //currentcolname is the current column the card is in
     //cccs is the cardcolorcodes
@@ -100,7 +103,7 @@ function popupeditcard(cardID){
     var fcolor = "<div class='uk-form-row uk-panel-primary'><label for='colorcode'>Card Colorcode:</label>";
     var optionstring = "<select id='card-color-select'><option>"+ccs.name+"</option>";
     for(j=0; j<ncccs.length; j++){
-        optionstring += "<option>"+ncccs.name+"</option>";
+        optionstring += "<option>"+ncccs[j].name+"</option>";
     }
     optionstring += "</select>";
     fcolor += optionstring + "</div><br/>";
@@ -109,28 +112,31 @@ function popupeditcard(cardID){
     var fcolid = "<div class='uk-form-row uk-panel-primary'><label for='columnid'>Card Column:</label>";
     var coloptstring = "<select id='column-name-select'><option>"+currentcolname+"</option>";
     for(q=0; q<colnames.length; q++){
-        coloptstring += "<option" + colnames[q] + "</option>";
+        coloptstring += "<option>" + colnames[q] + "</option>";
     }
     fcolid += coloptstring + "</select></div><br/>";
     //---------------------------------------------
     //all stfs
     var fstf = "<div class='stf-edit-content'>";
-    for(y=0; y<card["stf-fields"].length; y++){
-        fstf += "<div class='uk-form-row uk-panel-primary'><label for='stf'>"+card["stf-fields"][y].fieldname+":</label><input type='text' value='"+card["stf-fields"].fieldname+"'/></div><br/>";   
+    for(y=0; y<cad["stf-fields"].length; y++){
+        fstf += "<div class='uk-form-row uk-panel-primary'><label for='stf'>"+cad["stf-fields"][y].fieldname+":</label><input type='text' value='"+cad["stf-fields"][y].fielddata+"'/></div><br/>";   
     }
     fstf += "</div><br/>";
     //---------------------------------------------
     //all ltfs
     var fltf = "<div class='ltf-edit-content'>";
-    for(y=0; y<card["ltf-fields"].length; y++){
-        fltf += "<div class='uk-form-row uk-panel-primary'><label for='ltf'>"+card["ltf-fields"][y].fieldname+":</label><input type='text' value='"+card["ltf-fields"].fieldname+"'/></div><br/>";   
+    for(y=0; y<cad["ltf-fields"].length; y++){
+        fltf += "<div class='uk-form-row uk-panel-primary'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><input type='text' value='"+cad["ltf-fields"][y].fielddata+"'/></div><br/>";   
     }
     fltf += "</div><br/>";
     //---------------------------------------------
     //all dates
     var fdate = "<div class='date-edit-content'>";
-    for(y=0; y<card["date-fields"].length; y++){
-        fdate += "<div class='uk-form-row uk-panel-primary'><label for='dates'>"+card["date-fields"][y].fieldname+":</label><input type='date' value='"+card["date-fields"].fieldname+"'/></div><br/>";   
+    for(y=0; y<cad["date-fields"].length; y++){
+        var now = moment(cad["date-fields"][y].fielddata);
+        var datet = moment(now).format("YYYY MM DD");
+        //attempts at fixing the date format so jQuery understands it
+        fdate += "<div class='uk-form-row uk-panel-primary'><label for='dates'>"+cad["date-fields"][y].fieldname+":</label><input type='date' value='"+datet+"'/></div><br/>";   
     }
     fdate += "</div><br/>";
     // now compile all parts
