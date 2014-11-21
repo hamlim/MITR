@@ -180,7 +180,7 @@ function commenting(cardID) {
                     card = carddata[i];
                 }
             }
-            var newact = addAction(cardID, currentuser["username"], "Commented");
+            var newact = addAction(card, currentuser["username"], "Commented");
             newact["timestamp"] = tstamp;
             newact["newdata"] = value;
             var prevaid = card["activities"][card["activities"].length - 1].actionID;
