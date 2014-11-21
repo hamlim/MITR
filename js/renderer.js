@@ -183,8 +183,10 @@ function commenting(cardID) {
             }
             var newact = {};
             newact["username"] = currentuser.username;
+            newact["actiontype"] = "Commented";
             newact["timestamp"] = tstamp;
             newact["newdata"] = value;
+            newact["olddata"] = null;
             var prevaid = card["activities"][card["activities"].length - 1].actionID;
             newact["actionID"] = prevaid + 1;
             newact["parent-actionID"] = null;
