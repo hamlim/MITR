@@ -101,7 +101,7 @@ function popupeditcard(cardID){
     //---------------------------------------------
     //color codes
     var fcolor = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='colorcode'>Card Colorcode:</label>";
-    var optionstring = "<div class='vex-custom-input-wrapper'><select id='card-color-select'><option>"+ccs.name+"</option>";
+    var optionstring = "<div class='vex-custom-input-wrapper'><select name='colorcode' id='card-color-select'><option>"+ccs.name+"</option>";
     for(j=0; j<ncccs.length; j++){
         optionstring += "<option>"+ncccs[j].name+"</option>";
     }
@@ -110,7 +110,7 @@ function popupeditcard(cardID){
     //---------------------------------------------
     //columnID
     var fcolid = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='columnid'>Card Column:</label>";
-    var coloptstring = "<div class='vex-custom-input-wrapper'><select id='column-name-select'><option>"+currentcolname+"</option>";
+    var coloptstring = "<div class='vex-custom-input-wrapper'><select name='columnid' id='column-name-select'><option>"+currentcolname+"</option>";
     for(q=0; q<colnames.length; q++){
         coloptstring += "<option>" + colnames[q] + "</option>";
     }
