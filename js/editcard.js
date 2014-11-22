@@ -150,6 +150,16 @@ function popupeditcard(cardID){
                 return console.log('Cancelled');
             } else {
                 console.log(data);
+                //data is all the vars that were changed
+                /*
+                    date is an array -> need to check if the values changed
+                    ltf is an array -> need to check if the values changed/if the values are null ("") then don't overwrite
+                    stf is an array -> need to check is the values are changed
+                    priority is a string -> need to change it to an int
+                    column -> change to input, then check if the input is a real column, if not don't move
+                    colorcode -> change to input, then check if the color code is in cccs or not, if so change
+                    
+                */
             }
         }
     });
