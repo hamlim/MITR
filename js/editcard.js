@@ -47,7 +47,7 @@ function popupeditcard(cardID){
             cid = cad["info"].columnID;
         }
     }
-    console.log(cad);
+//    console.log(cad);
     var colnames = [];
     var currentcolname;
     for(o = 0; o<columndata.length; o++){
@@ -57,8 +57,8 @@ function popupeditcard(cardID){
             currentcolname = columndata[o].columnname;
         }
     }
-    console.log("columns");
-    console.log(colnames);
+//    console.log("columns");
+//    console.log(colnames);
     //colnames is the other columns
     //currentcolname is the current column the card is in
     //cccs is the cardcolorcodes
@@ -160,6 +160,38 @@ function popupeditcard(cardID){
                     colorcode -> change to input, then check if the color code is in cccs or not, if so change
                     
                 */
+                //data.title = title
+                for(q=0; q<carddata.length; q++){
+                    if(carddata[q]["info"].cardID == cardID){
+                        //the card is being edited
+                        if(data.title != carddata[q]["info"].cardname){
+                            //cardname has changed
+                            carddata[q]["info"].cardname = data.title;
+                        }
+                        if(data.colorcode != carddata[q]["info"].cardcolorcode){
+                            carddata[q]["info"].cardcolorcode = data.colorcode;
+                        }
+                        var sith;
+                        for(w=0; w<columndata.length; w++){
+                            if(columndata[w].columnname == data.columnid){
+                                sith = columndata[w].columnID;
+                            }
+                        }
+                        if(sith != carddata[q]["info"].columnID){
+                            carddata[q]["info"].columnID = sith;
+                        }
+                        if(parseInt(data.priority) != carddata[q]["info"].cardpriority){
+                            carddata[q]["info"].cardpriority = parseInt(data.priority);
+                        }
+                        //ltf changes
+                        for(e=0; e<data.ltf.length; e++){
+                            for(r=0; r<carddata[q]["ltf-fields"].length; r++){
+                                if(data.ltf[e])
+                            }    
+                        }
+                    }
+                }
+                
             }
         }
     });

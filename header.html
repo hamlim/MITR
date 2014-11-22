@@ -164,11 +164,11 @@
                                                             <button type="button" id="admin-remove-user" class="uk-button-primary button">Remove user</button>
                                                         </div>
                                                     </div>
-                                                    <!--<div class="uk-form-row uk-panel-box">
-                                                        <button data-uk-modal type="button" class="uk-button-primary button" id="make-card-btn">Edit
+                                                    <div class="uk-form-row uk-panel-box">
+                                                        <button data-uk-modal type="button" onclick="popupformatcard();" class="uk-button-primary button" id="make-card-btn">Edit
                                                          Card Format</button>
 
-                                                    </div>-->
+                                                    </div>
                                                     <br/>
                                                     <div class="uk-form-row uk-panel-box">
                                                         <label class="uk-form-label">Add Column:</label>
@@ -200,13 +200,14 @@
                                         //since the modal can't be shown here then we have to hope that the root user will do it.
                                     }
                                 </script>
-                                <li><a href="#cardFormatModal" data-uk-modal>Edit Card Format</a>
+<!--                                <li><a href="#cardFormatModal" data-uk-modal>Edit Card Format</a>-->
                                     <!--begin Card format modal-->
                                     <!--begin Card format modal-->
-                                    <div id="cardFormatModal" class="uk-modal">
-                                    <div class="editCard uk-modal-dialog">
-                                        <a class="uk-modal-close uk-close"></a>
+<!--                                    <div id="cardFormatModal" class="uk-modal">-->
+<!--                                    <div class="editCard uk-modal-dialog">-->
+<!--                                        <a class="uk-modal-close uk-close"></a>-->
                                                 
+<!--
                                         <form class="uk-form-horizontal" >
                                             <fieldset>
                                                 <h1>Edit Card Format</h1>
@@ -229,6 +230,8 @@
 
 
                                                 <div  id="myDiv" class="hidden-option">
+-->
+<!--
                                                      <input type="text" placeholder="Label"> <input type="text" placeholder="Content">
                                                 </div>
 
@@ -262,6 +265,8 @@
                                                     <img src = "styles/pics/colorblocks/red.jpg">
                                                     <img src = "styles/pics/colorblocks/grey.jpg">
                                                 </div> 
+-->
+<!--
                                                 <br/>             
                                                 <div>
                                                     <button class="uk-button uk-button-large button">Save Changes</button>
@@ -269,9 +274,9 @@
                                             </fieldset>
                                         </form>
                                     </div>
-<!--end edit card modal modal-->
+-->
                                     <!--end edit card modal modal-->
-                                </li>
+<!--                                </li>-->
                                     
 
                                 <li><a href="#" onclick="logout();">Log Out</a></li>
