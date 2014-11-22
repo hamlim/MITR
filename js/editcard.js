@@ -126,7 +126,7 @@ function popupeditcard(cardID){
     //all ltfs
     var fltf = "<div class='ltf-edit-content'>";
     for(y=0; y<cad["ltf-fields"].length; y++){
-        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><textarea name='ltf' rows='4' placeholder='' value='"+cad["ltf-fields"][y].fielddata+"'/></textarea></div></div></div><br/>";   
+        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><textarea name='ltf' rows='4' placeholder='"+cad["ltf-fields"][y].fielddata +"' value='"+cad["ltf-fields"][y].fielddata+"'/></textarea></div></div></div><br/>";   
     }
     fltf += "</div><br/>";
     //---------------------------------------------
@@ -149,8 +149,7 @@ function popupeditcard(cardID){
             if (data === false) {
                 return console.log('Cancelled');
             } else {
-                console.log(data.title);
-                console.log(data.columnid);
+                console.log(data);
             }
         }
     });
