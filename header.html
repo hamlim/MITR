@@ -276,7 +276,7 @@
 
     <script type="text/javascript">
         var unelem = document.getElementById("username");
-        unelem.innerHTML = name;
+        unelem.innerHTML = "<i class='uk-icon-chevron-down'></i>" + name;
         
         function logout(){
             localStorage.removeItem("currentuser");
