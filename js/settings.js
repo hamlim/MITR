@@ -160,7 +160,7 @@ $("#admin-remove-user").click(function() {
             allusers = resdata; //set updated users to alus var
             return allusers;
         }
-        var newalldata;
+        var newalldata = [];
         //gau_data is all users
         for(i=0; i<gau_data.length; i++){
             if(gau_data[i]["useremail"] != ruseremail){
