@@ -126,7 +126,7 @@ function popupeditcard(cardID){
     //all ltfs
     var fltf = "<div class='ltf-edit-content'>";
     for(y=0; y<cad["ltf-fields"].length; y++){
-        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><input type='text' value='"+cad["ltf-fields"][y].fielddata+"'/></div></div></div><br/>";   
+        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><textarea rows='4' placeholder='' value='"+cad["ltf-fields"][y].fielddata+"'/></textarea></div></div></div><br/>";   
     }
     fltf += "</div><br/>";
     //---------------------------------------------
