@@ -119,14 +119,14 @@ function popupeditcard(cardID){
     //all stfs
     var fstf = "<div class='stf-edit-content'>";
     for(y=0; y<cad["stf-fields"].length; y++){
-        fstf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='stf'>"+cad["stf-fields"][y].fieldname+":</label><div class='vex-custom-input-wrapper'><input type='text' value='"+cad["stf-fields"][y].fielddata+"'/></div></div></div><br/>";   
+        fstf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='stf'>"+cad["stf-fields"][y].fieldname+":</label><div class='vex-custom-input-wrapper'><input name='stf' type='text' value='"+cad["stf-fields"][y].fielddata+"'/></div></div></div><br/>";   
     }
     fstf += "</div><br/>";
     //---------------------------------------------
     //all ltfs
     var fltf = "<div class='ltf-edit-content'>";
     for(y=0; y<cad["ltf-fields"].length; y++){
-        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><textarea rows='4' placeholder='' value='"+cad["ltf-fields"][y].fielddata+"'/></textarea></div></div></div><br/>";   
+        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><textarea name='ltf' rows='4' placeholder='' value='"+cad["ltf-fields"][y].fielddata+"'/></textarea></div></div></div><br/>";   
     }
     fltf += "</div><br/>";
     //---------------------------------------------
@@ -136,11 +136,12 @@ function popupeditcard(cardID){
         var now = moment(cad["date-fields"][y].fielddata);
         var datet = moment(now).format("YYYY MM DD");
         //attempts at fixing the date format so jQuery understands it
-        fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='dates'>"+cad["date-fields"][y].fieldname+":</label><div class='vex-custom-input-wrapper'><input type='date' value='"+datet+"'/></div></div></div><br/>";   
+        fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary'><label for='dates'>"+cad["date-fields"][y].fieldname+":</label><div class='vex-custom-input-wrapper'><input name='date' type='date' value='"+datet+"'/></div></div></div><br/>";   
     }
     fdate += "</div><br/>";
     // now compile all parts
-    var form = fbegin + ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid + fend;
+    //var form = fbegin + ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid + fend;
+    var form = ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid;
     vex.dialog.open({
         message: content,
         input: form,
