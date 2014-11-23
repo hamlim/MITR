@@ -190,12 +190,10 @@ function popupformatcard() {
                 cardformat["activities"] = actions;
                 
                 //now we overwrite the stuff
-                console.log("cardformat");
-                console.log(cardformat);
                 carddata.push(cardformat);
                 console.log(carddata);
                 var cardstring = JSON.stringify(carddata);
-                
+                console.log(cardstring);
                 
                 //now upload the cardstring
                 var upload = new XMLHttpRequest;
