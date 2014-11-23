@@ -99,98 +99,92 @@ function popupformatcard() {
                     colorcode -> change to input, then check if the color code is in cccs or not, if so change
                     
                 */
-//                //data.title = title
-//                for(q=0; q<carddata.length; q++){
-//                    if(carddata[q]["info"].cardID == cardID){
-//                        //the card is being edited
-//                        //--------------------------------------------------
-//                        //title
-//                        //--------------------------------------------------
-//                        if(data.title != carddata[q]["info"].cardname){
-//                            //cardname has changed
-//                            carddata[q]["info"].cardname = data.title;
-//                        }
-//                        //--------------------------------------------------
-//                        //color code
-//                        //--------------------------------------------------
-//                        if(data.colorcode != carddata[q]["info"].cardcolorcode){
-//                            carddata[q]["info"].cardcolorcode = data.colorcode;
-//                        }
-//                        //--------------------------------------------------
-//                        //columnID
-//                        //--------------------------------------------------
-//                        var sith;
-//                        for(w=0; w<columndata.length; w++){
-//                            if(columndata[w].columnname == data.columnid){
-//                                sith = columndata[w].columnID;
-//                            }
-//                        }
-//                        if(sith != carddata[q]["info"].columnID){
-//                            carddata[q]["info"].columnID = sith;
-//                        }
-//                        //--------------------------------------------------
-//                        //priority
-//                        //--------------------------------------------------
-//                        if(parseInt(data.priority) != carddata[q]["info"].cardpriority){
-//                            carddata[q]["info"].cardpriority = parseInt(data.priority);
-//                        }
-//                        //--------------------------------------------------
-//                        //ltf changes
-//                        //--------------------------------------------------
-//                        for(e=0; e<data.ltf.length; e++){
-//                            if(data.ltf[e].length != 0 && data.ltf[e] != carddata[q]["ltf-fields"][e].fielddata){
-//                                var obj = {};
-//                                obj.fielddata = data.ltf[e];
-//                                obj.fieldtype = "ltf";
-//                                obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
-//                                carddata[q]["ltf-fields"][e] = obj;
-//                            }
-//                        }
-//                        //--------------------------------------------------
-//                        //stf changes
-//                        //--------------------------------------------------
-//                        for(r=0; r<data.stf.length; r++){
-//                            if(data.stf[r] != carddata[q]["stf-fields"][r].fielddata){
-//                                var obj = {};
-//                                obj.fielddata = data.stf[e];
-//                                obj.fieldtype = "stf";
-//                                obj.fieldname = carddata[q]["stf-fields"][e].fieldname;
-//                                carddata[q]["stf-fields"][r] = obj;
-//                            }
-//                        }
-//                        //--------------------------------------------------
-//                        //date changes
-//                        //--------------------------------------------------
-//                        for(t=0; t<data.date.length; t++){
-//                            //parse date format
-//                            var date = moment(data.date[t]);
-//                            var unix = moment(date).format("x");
-//                            if(unix != carddata[q]["date-fields"][t].fielddata){
-//                                var obj = {};
-//                                obj.fielddata = unix;
-//                                obj.fieldtype = "date";
-//                                obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
-//                                carddata[q]["date-fields"][t] = obj;
-//                            }   
-//                        }
-//                        
-//                    }
-//                }
-//                
-//                //now we overwrite the stuff
-//                console.log(carddata);
-//                console.log(cardID);
-//                var cardstring = JSON.stringify(carddata);
-//                localStorage.removeItem("cards");
-//                localStorage.setItem("cards", cardstring);
-//                
-//                //now upload the cardstring
-//                var upload = new XMLHttpRequest;
-//                upload.open("POST", "./ascf.php", true);
-//                upload.setRequestHeader("Content-Type", "application/json");
-//                upload.send(cardstring);
-//                //done
-//                
+                //data.title = title
+                //the card format is being made/edited
+                var cardformat = {};
+                //--------------------------------------------------
+                //title
+                //--------------------------------------------------
+                //title = EXAMPLE
+                //--------------------------------------------------
+                //color code
+                //--------------------------------------------------
+                if(data.colorcode != carddata[q]["info"].cardcolorcode){
+                    carddata[q]["info"].cardcolorcode = data.colorcode;
+                }
+                //--------------------------------------------------
+                //columnID
+                //--------------------------------------------------
+                var sith;
+                for(w=0; w<columndata.length; w++){
+                    if(columndata[w].columnname == data.columnid){
+                        sith = columndata[w].columnID;
+                    }
+                }
+                if(sith != carddata[q]["info"].columnID){
+                    carddata[q]["info"].columnID = sith;
+                }
+                //--------------------------------------------------
+                //priority
+                //--------------------------------------------------
+                if(parseInt(data.priority) != carddata[q]["info"].cardpriority){
+                    carddata[q]["info"].cardpriority = parseInt(data.priority);
+                }
+                //--------------------------------------------------
+                //ltf changes
+                //--------------------------------------------------
+                for(e=0; e<data.ltf.length; e++){
+                    if(data.ltf[e].length != 0 && data.ltf[e] != carddata[q]["ltf-fields"][e].fielddata){
+                        var obj = {};
+                        obj.fielddata = data.ltf[e];
+                        obj.fieldtype = "ltf";
+                        obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
+                        carddata[q]["ltf-fields"][e] = obj;
+                    }
+                }
+                //--------------------------------------------------
+                //stf changes
+                //--------------------------------------------------
+                for(r=0; r<data.stf.length; r++){
+                    if(data.stf[r] != carddata[q]["stf-fields"][r].fielddata){
+                        var obj = {};
+                        obj.fielddata = data.stf[e];
+                        obj.fieldtype = "stf";
+                        obj.fieldname = carddata[q]["stf-fields"][e].fieldname;
+                        carddata[q]["stf-fields"][r] = obj;
+                    }
+                }
+                //--------------------------------------------------
+                //date changes
+                //--------------------------------------------------
+                for(t=0; t<data.date.length; t++){
+                    //parse date format
+                    var date = moment(data.date[t]);
+                    var unix = moment(date).format("x");
+                    if(unix != carddata[q]["date-fields"][t].fielddata){
+                        var obj = {};
+                        obj.fielddata = unix;
+                        obj.fieldtype = "date";
+                        obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
+                        carddata[q]["date-fields"][t] = obj;
+                    }   
+                }
+                        
+                
+                //now we overwrite the stuff
+                console.log(carddata);
+                console.log(cardID);
+                var cardstring = JSON.stringify(carddata);
+                localStorage.removeItem("cards");
+                localStorage.setItem("cards", cardstring);
+                
+                //now upload the cardstring
+                var upload = new XMLHttpRequest;
+                upload.open("POST", "./ascf.php", true);
+                upload.setRequestHeader("Content-Type", "application/json");
+                upload.send(cardstring);
+                //done
+                
             }
         }
     });
