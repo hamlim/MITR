@@ -59,24 +59,24 @@ function popupformatcard() {
     //here we begin to repeat objs
     
     //stfs
-    var fstf = "<div class='stf-edit-content'>";
+    var fstf = "<div class='stf-edit-content'><h3>Short text fields</h3><p>Fill only the forms that you will need, leave the rest empty!</p>";
     for(y=0; y<10; y++){
-        fstf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizestf'><input name='stfname' for='stfname' type='text'/><div class='vex-custom-input-wrapper'><input name='stfcont' type='text' value=''/></div></div></div><br/>";   
+        fstf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizestf'><input name='stfname' for='stfname' type='text' placeholder='Field Name'/><div class='vex-custom-input-wrapper'><input name='stfcont' type='text' placeholder='Example Field Data' value=''/></div></div></div><br/>";   
     }
     fstf += "</div><br/>";
     //---------------------------------------------
     //all ltfs
-    var fltf = "<div class='ltf-edit-content'>";
+    var fltf = "<div class='ltf-edit-content'><h3>Long text fields</h3><p>Fill only the forms that you will need, leave the rest empty!</p>";
     for(y=0; y<10; y++){
-        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizeltf'><input name='ltfname' for='ltfname' type='text' /><div class='vex-custom-field-wrapper'><textarea name='ltfcont' rows='4' placeholder='' value=''/></textarea></div></div></div><br/>";   
+        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizeltf'><input name='ltfname' for='ltfname' type='text' placeholder='Field Name' /><div class='vex-custom-field-wrapper'><textarea name='ltfcont' rows='4' placeholder='Example Field Data' value=''/></textarea></div></div></div><br/>";   
     }
     fltf += "</div><br/>";
     //---------------------------------------------
     //all dates
-    var fdate = "<div class='date-edit-content'>";
+    var fdate = "<div class='date-edit-content'><h3>Date fields</h3><p>Fill only the forms that you will need, leave the rest empty!</p>";
     for(y=0; y<10; y++){
         //attempts at fixing the date format so jQuery understands it
-        fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedate'><input name='datename' for='datename' type='text'/><div class='vex-custom-input-wrapper'><input name='datedata' type='date' value=''/></div></div></div><br/>";   
+        fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedate'><input name='datename' for='datename' type='text' placeholder='Field Name'/><div class='vex-custom-input-wrapper'><input name='datedata' type='date' value=''/></div></div></div><br/>";   
     }
     fdate += "</div><br/>";
     // now compile all parts
