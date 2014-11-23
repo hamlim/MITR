@@ -47,6 +47,7 @@
             var carddata = JSON.parse(cardstring);
         </script>
         <script type="text/javascript" src="js/formatcard.js"></script>
+        <script type="text/javascript" src="js/addcard.js"></script>
     </head>
     <body>
         <nav class="uk-navbar" id = "navyo">
@@ -54,8 +55,9 @@
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
                 
-                    <li><a href="#addCardModal" data-uk-modal><i class="uk-icon-plus"></i>Add Card</a>
+                    <li><a href="#addCardModal" onlcick="popupaddcard();"><i class="uk-icon-plus"></i>Add Card</a>
                         <!--begin addCard modal-->
+<!--
                         <div id="addCardModal" class="uk-modal">
                         <div class="uk-modal-dialog">
                             <div class="uk-modal-close uk-close"></div>
@@ -81,6 +83,7 @@
                                 </fieldset>
                             </form>
                         </div>
+-->
                         <!--end addCard modal-->
                     </li>
                     
