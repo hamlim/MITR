@@ -6,6 +6,7 @@
 
 1. Copy all the requisite files into your root directory of your webserver.
     Files include: 
+    
         * Styles
         * js
         * data
@@ -23,7 +24,7 @@
 3. Login with the root credentials, these should be `root@root.com` for the email and password `root`
 4. You will be presented with a white screen, here hover on "root" in the top right and click on Settings
 5. Click on the Admin tab in the pop out modal
-6. Add youself and your other teammates through the add user section of the pop out
+6. Add yourself and your other teammates through the add user section of the pop out
     All added users' initialized passwords will be `seamonkey`, when everyone logs in make sure they change their passwords to what they want
     Make sure to only make some users admins, only those you trust with ability to remove users
 7. Go to the Add Column field and add in the columns you expect to use in order of how you would like them shown to you
