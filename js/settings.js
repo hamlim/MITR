@@ -188,17 +188,26 @@ $("#admin-add-column").click(function() {
     //columndata = JSON of columns
     var colid;
     var max = 0;
-    for(i=0; i<columndata.length; i++){
-        if(max < columndata[i]["columnID"]){
-            max = columndata[i]["columnID"];
+    if(columndata == undefined || columndata == null || columndata.length == 0){
+        max = 0;
+        var columndata = [];
+    } else {
+        for(i=0; i<columndata.length; i++){
+            if(max < columndata[i]["columnID"]){
+                max = columndata[i]["columnID"];
+            }
         }
     }
     colid = max + 1;
     var colorder;
     var counter = 0;
-    for(j=0; j<columndata.length; j++){
-        if(counter<columndata[j]["columnorder"]){
-            counter = columndata[j]["columnorder"];
+    if(columndata == undefined || columndata == null || columndata.length == 0){
+        counter = 0;
+    } else {
+        for(j=0; j<columndata.length; j++){
+            if(counter<columndata[j]["columnorder"]){
+                counter = columndata[j]["columnorder"];
+            }
         }
     }
     colorder = counter + 1;

@@ -81,11 +81,14 @@ function columns(c1, c2, colnum){
     green = Math.round(green/colnum);
     var diff = [red,green,blue];
 
-
-    for(x = 1; x <= colnum; x++){
-        diff = [red*(x-1), green*(x-1), blue*(x-1) ];
-        var hold = "col" + x;
-        document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
+    if(columndata != undefined || columndata != null || columndata.length != 0){
+        for(x = 1; x <= colnum; x++){
+            diff = [red*(x-1), green*(x-1), blue*(x-1) ];
+            var hold = "col" + x;
+            document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
+        }
+    } else {
+        //no columns yet
     }
 }
 function changeColumn(card){

@@ -17,7 +17,7 @@ if (columndata != undefined){
     }
 }
 if(count == undefined){
-    var count = 5;
+    var count = 0;
 }
 columns(start, end, count);
 //popupmodal(cardID)
@@ -49,17 +49,8 @@ function popupmodal(cardID){
             var dat = "<li id='card-date-fields'><ul>";
             for(m=0; m<zoomcard["date-fields"].length; m++){
                 var unix_timestamp = zoomcard["date-fields"][m].fielddata;
-                var date = new Date(unix_timestamp*1000);
-                // hours part from the timestamp
-                var hours = date.getHours();
-                // minutes part from the timestamp
-                var minutes = "0" + date.getMinutes();
-                // seconds part from the timestamp
-                var seconds = "0" + date.getSeconds();
-
-                // will display time in 10:30:23 format
-                var datet = hours + ':' + minutes.substr(minutes.length-2) + ':' + seconds.substr(seconds.length-2);
-                dat += "<li id='card-date-field'>"+zoomcard["date-fields"][m].fieldname + ": <code>"+datet+"</code></li>";
+                var dateinfo = moment(unix_timestamp).format("dddd, MMMM Do YYYY, h:mm:ss a");
+                dat += "<li id='card-date-field'>"+zoomcard["date-fields"][m].fieldname + ": <code>"+dateinfo+"</code></li>";
             }
             dat += "</ul></li>";
             cardinfo += cna+cpr+cco+stf+ltf+dat+"</ul></div>";

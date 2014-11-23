@@ -20,6 +20,9 @@ function popupformatcard() {
         // card description
         //
     //pre-form content
+    if(carddata == undefined || carddata == null){
+        var carddata = [];
+    }
     var content = "<h1>Edit Card Format: </h1>";
     //form content
     //
@@ -111,7 +114,7 @@ function popupformatcard() {
                 info.cardname = "EXAMPLE";
                 
                 //color code
-                info.cardcolorcode = data.colorcode
+                info.cardcolorcode = data.colorcode;
                 
                 //columnID
                 info.columnID = -1; //make sure it never gets rendered
