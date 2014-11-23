@@ -103,80 +103,99 @@ function popupformatcard() {
                 //the card format is being made/edited
                 var cardformat = {};
                 //--------------------------------------------------
+                //info
+                //--------------------------------------------------
+                var info = {};
                 //title
-                //--------------------------------------------------
                 //title = EXAMPLE
-                //--------------------------------------------------
+                info.cardname = "EXAMPLE";
+                
                 //color code
-                //--------------------------------------------------
-                if(data.colorcode != carddata[q]["info"].cardcolorcode){
-                    carddata[q]["info"].cardcolorcode = data.colorcode;
-                }
-                //--------------------------------------------------
+                info.cardcolorcode = data.colorcode
+                
                 //columnID
-                //--------------------------------------------------
-                var sith;
-                for(w=0; w<columndata.length; w++){
-                    if(columndata[w].columnname == data.columnid){
-                        sith = columndata[w].columnID;
-                    }
-                }
-                if(sith != carddata[q]["info"].columnID){
-                    carddata[q]["info"].columnID = sith;
-                }
-                //--------------------------------------------------
+                info.columnID = -1; //make sure it never gets rendered
+                
                 //priority
+                info.cardpriority = -1; //make sure it never gets rendered
+                
+                //cardID
+                info.cardID = -1; //make sure it never gets rendered
+                
+                cardformat["info"] = info;
+                
                 //--------------------------------------------------
-                if(parseInt(data.priority) != carddata[q]["info"].cardpriority){
-                    carddata[q]["info"].cardpriority = parseInt(data.priority);
-                }
+                //ltf-fields
                 //--------------------------------------------------
-                //ltf changes
-                //--------------------------------------------------
-                for(e=0; e<data.ltf.length; e++){
-                    if(data.ltf[e].length != 0 && data.ltf[e] != carddata[q]["ltf-fields"][e].fielddata){
-                        var obj = {};
-                        obj.fielddata = data.ltf[e];
-                        obj.fieldtype = "ltf";
-                        obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
-                        carddata[q]["ltf-fields"][e] = obj;
+                var ltfs = [];
+                for(e=0; e<data.ltfname.length; e++){
+                    if(data.ltfname[e] != "" || data.ltfname[e].length != 0){
+                        //ok we have an ltf field
+                        var ltf = {};
+                        ltf.fieldname = data.ltfname[e];
+                        ltf.fieldtype = "ltf";
+                        ltf.fielddata = data.ltfcont[e];
+                        ltfs.push(ltf);
                     }
                 }
+                
+                cardformat["ltf-fields"] = ltfs;
+
                 //--------------------------------------------------
-                //stf changes
+                //stf fields
                 //--------------------------------------------------
-                for(r=0; r<data.stf.length; r++){
-                    if(data.stf[r] != carddata[q]["stf-fields"][r].fielddata){
-                        var obj = {};
-                        obj.fielddata = data.stf[e];
-                        obj.fieldtype = "stf";
-                        obj.fieldname = carddata[q]["stf-fields"][e].fieldname;
-                        carddata[q]["stf-fields"][r] = obj;
+                var stfs = [];
+                for(r=0; r<data.stfname.length; r++){
+                    if(data.stfname[r] != "" || data.stfname[r].length != 0 && data.stfcont[r] != ""){
+                        var stf = {};
+                        stf.fieldname = data.stfname[r];
+                        stf.fieldtype = "stf";
+                        stf.fielddata = data.stfcont[r];
+                        stfs.push(stf);
                     }
                 }
+                
+                cardformat["stf-fields"] = stfs;
+
                 //--------------------------------------------------
-                //date changes
+                //date fields
                 //--------------------------------------------------
-                for(t=0; t<data.date.length; t++){
-                    //parse date format
-                    var date = moment(data.date[t]);
-                    var unix = moment(date).format("x");
-                    if(unix != carddata[q]["date-fields"][t].fielddata){
-                        var obj = {};
-                        obj.fielddata = unix;
-                        obj.fieldtype = "date";
-                        obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
-                        carddata[q]["date-fields"][t] = obj;
-                    }   
-                }
-                        
+                var dates = [];
+                for(t=0; t<data.datename.length; t++){
+                    if(data.datename[t] != "" || data.datename[t].length != 0){
+                        var date = {};
+                        date.fieldname = data.datename[t];
+                        date.fieldtype = "date";
+                        var dat = moment(data.datedata[t]);
+                        var unix = moment(dat).format("x");
+                        date.fielddata = unix;
+                        dates.push(date);
+                    }
+                }       
+                
+                cardformat["date-fields"] = dates;
+                
+                //initilaize activities
+                var action = {};
+                var actions = [];
+                action.username = "EXAMPLE";
+                action.actiontype = "Example";
+                action.timestamp = moment().format("x");
+                action.newdata = null;
+                action.olddata = null;
+                action.actionID = -1;
+                action.parent_actionID = null;
+                actions.push(action);
+                
+                cardformat["activities"] = actions;
                 
                 //now we overwrite the stuff
+                console.log("cardformat");
+                console.log(cardformat);
+                carddata.push(cardformat);
                 console.log(carddata);
-                console.log(cardID);
                 var cardstring = JSON.stringify(carddata);
-                localStorage.removeItem("cards");
-                localStorage.setItem("cards", cardstring);
+                
                 
                 //now upload the cardstring
                 var upload = new XMLHttpRequest;
