@@ -188,9 +188,32 @@ $("#admin-add-column").click(function() {
     //columndata = JSON of columns
     var colid;
     var max = 0;
-    if(columndata == undefined || columndata == null || columndata.length == 0){
+    if(columndata == undefined || columndata == null){
         max = 0;
         var columndata = [];
+        var colrequest = new XMLHttpRequest;
+        var columnsa;
+        colrequest.onreadystatechange = function() {
+            if (colrequest.readyState == 4){
+                var res = colrequest.responseText;
+                checkcontent(columnsa, res);
+            }
+        }
+        var colfile = "./data/columns.json";
+        colrequest.open("GET", colfile, false);
+        colrequest.send();
+
+        function checkcontent(columns, data){
+            localStorage.setItem("columns", data);
+            var column = JSON.parse(data);
+            columnsa = column;
+            console.log(columnsa);
+        }
+        if(columnsa != undefined){
+            columndata = columnsa;
+        } else {
+            columndata = [];
+        }
     } else {
         for(i=0; i<columndata.length; i++){
             if(max < columndata[i]["columnID"]){
@@ -215,8 +238,11 @@ $("#admin-add-column").click(function() {
     newcol["columnname"] = columnname;
     newcol["columnID"] = colid;
     newcol["columnorder"] = colorder;
-    localStorage.removeItem("columns");
+    
+//    localStorage.removeItem("columns");
+    console.log(columndata);
     columndata.push(newcol);
+    console.log(columndata);
     var colstring = JSON.stringify(columndata);
     localStorage.setItem("columns", colstring);
     //now push new data to the server
@@ -225,5 +251,45 @@ $("#admin-add-column").click(function() {
     upl.setRequestHeader("Content-Type", "application/json");
     upl.send(colstring);
     //done
+    columndata = columnsa;
+    alert("Added column: " + columnname);
+//    location.reload();
+});
+//remove column functionality
+$("#admin-remove-column").click(function() {
+    var columnnameelem = document.getElementById("admin-remove-column-name");
+//    var columnorderelem = document.getElementById("admin-add-column-order");
+    var columnname = columnnameelem.value;
+//    var columnorder = columnorderelem.value;
+    //add column to list of columns based on the order
+    //note keeping column order as an extensible feature
+    //columndata = JSON of columns
+    var rest = [];
+    for(i=0; i<columndata.length; i++){
+        if(columndata[i].columnname != columnname){
+            rest.push(columndata[i]);
+        }
+    }
+    for(k=0; k<rest.length; k++){
+        if(rest[k].columnID != k+1){
+            rest[k].columnID = k+1;
+        } 
+        if(rest[k].columnorder != k+1){
+            rest[k].columnorder = k+1;
+        }
+    }
+    //rest is what we save
+    localStorage.removeItem("columns");
+    var colstring = JSON.stringify(rest);
+    localStorage.setItem("columns", colstring);
+    //now push new data to the server
+    var upl = new XMLHttpRequest;
+    upl.open("POST", "./asc.php", true);
+    upl.setRequestHeader("Content-Type", "application/json");
+    upl.send(colstring);
+    //done
+    columndata = rest;
+    alert("Removed column: " + columnname);
+//    location.reload();
 });
 

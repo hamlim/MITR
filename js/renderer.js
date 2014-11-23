@@ -62,6 +62,8 @@ function popupmodal(cardID){
 
             //now we launch the card viewer itself
             vex.open({
+                escapeButtonCloses: false,
+                overlayClosesOnClick: false,
                 content: zccontent,
                 afterOpen: function($vexContent) {
 //                                return $vexContent.append($el);
@@ -99,6 +101,8 @@ function popupaction(cardID){
 
             //now we launch the card viewer itself
             vex.open({
+                escapeButtonCloses: false,
+                overlayClosesOnClick: false,
                 content: actioncontent,
                 afterOpen: function($vexContent) {
 //                                return $vexContent.append($el);
@@ -159,6 +163,8 @@ function addAction(cardid, user, action, extrainfo){
 
 function commenting(cardID) {
     vex.dialog.prompt({
+        escapeButtonCloses: false,
+        overlayClosesOnClick: false,
         message: 'Add comment:',
         callback: function(value) {
             //generate the timestamp when the action was made:

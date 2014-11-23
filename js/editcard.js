@@ -143,6 +143,8 @@ function popupeditcard(cardID){
     //var form = fbegin + ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid + fend;
     var form = ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid;
     vex.dialog.open({
+        escapeButtonCloses: false,
+        overlayClosesOnClick: false,
         message: content,
         input: form,
         callback: function(data) {

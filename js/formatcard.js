@@ -23,6 +23,9 @@ function popupformatcard() {
     if(carddata == undefined || carddata == null){
         var carddata = [];
     }
+    if(columndata == undefined || columndata == null){
+        columndata = [];
+    }
     var content = "<h1>Edit Card Format: </h1>";
     //form content
     //
