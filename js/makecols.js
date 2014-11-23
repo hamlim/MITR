@@ -64,7 +64,7 @@ if(carddata == undefined || carddata == null){
                 //the card belongs in the column
                 //we need to format the card properly
                 var id = carddata[j]["info"]["cardID"];
-                var na = carddata[j]["info"]["cardname"];
+                var na = carddata[j]["info"].cardname;
                 var pri = carddata[j]["info"]["cardpriority"];
                 var color = carddata[j]["info"]["cardcolorcode"];
                 //iterate though ltf fields, stf fields, date fields and add to html
