@@ -184,41 +184,45 @@ function commenting(cardID) {
         message: 'Add comment:',
         callback: function(value) {
             //generate the timestamp when the action was made:
-            var tstamp = new Date().getTime();
+            var currentuser = JSON.parse(localStorage.getItem("currentuser"));
+            addAction(cardID, currentuser, "Commented", value);
+            
+            //below commented code is what addAction does.
+//            var tstamp = new Date().getTime();
             //value is the comment text itself
             //get the currentuser
-            var currentuser = JSON.parse(localStorage.getItem("currentuser"));
-            var card;
-            for(i=0; i<carddata.length; i++){
-                if(carddata[i]["info"].cardID == cardID){
-                    card = carddata[i];
-                }
-            }
-            var newact = {};
-            newact["username"] = currentuser.username;
-            newact["actiontype"] = "Commented";
-            newact["timestamp"] = tstamp;
-            newact["newdata"] = value;
-            newact["olddata"] = null;
-            var prevaid = card["activities"][card["activities"].length - 1].actionID;
-            newact["actionID"] = prevaid + 1;
-            newact["parent-actionID"] = null;
-            card["activities"].push(newact); //add the new comment
-            for(j=0; j<carddata.length; j++){
-                if(cardID == carddata[j]["info"].cardID){
-                    carddata[j] = card; //overwrite old card data
-                }
-            }
-            var cardsstring = JSON.stringify(carddata);
-            localStorage.removeItem("cards");
-            localStorage.setItem("cards", cardsstring);
-            //now we push the new card/all cards to the db
-            //cards is up to date
-            var up = new XMLHttpRequest; //make a new request to update the content of users.txt
-            up.open("POST", "./ascf.php", true);
-            up.setRequestHeader("Content-Type", "application/json");
-            //turn the JSON into a string
-            up.send(cardsstring);
+//            
+//            var card;
+//            for(i=0; i<carddata.length; i++){
+//                if(carddata[i]["info"].cardID == cardID){
+//                    card = carddata[i];
+//                }
+//            }
+//            var newact = {};
+//            newact["username"] = currentuser.username;
+//            newact["actiontype"] = "Commented";
+//            newact["timestamp"] = tstamp;
+//            newact["newdata"] = value;
+//            newact["olddata"] = null;
+//            var prevaid = card["activities"][card["activities"].length - 1].actionID;
+//            newact["actionID"] = prevaid + 1;
+//            newact["parent-actionID"] = null;
+//            card["activities"].push(newact); //add the new comment
+//            for(j=0; j<carddata.length; j++){
+//                if(cardID == carddata[j]["info"].cardID){
+//                    carddata[j] = card; //overwrite old card data
+//                }
+//            }
+//            var cardsstring = JSON.stringify(carddata);
+//            localStorage.removeItem("cards");
+//            localStorage.setItem("cards", cardsstring);
+//            //now we push the new card/all cards to the db
+//            //cards is up to date
+//            var up = new XMLHttpRequest; //make a new request to update the content of users.txt
+//            up.open("POST", "./ascf.php", true);
+//            up.setRequestHeader("Content-Type", "application/json");
+//            //turn the JSON into a string
+//            up.send(cardsstring);
         }
     });
 }
