@@ -117,8 +117,18 @@ function popupaction(cardID){
 function addAction(cardid, user, action, extrainfo){
     //cardid is the int itself
     //user is the JSON of the user ie JSON.parse(localStorage.getItem("currentuser"));
-    //action is a string that is either: "Moved the card", "Edited the card", "Made the card"
+    //action is a string that is either: "Moved the card", "Edited the card", "Made the card", 
     //extrainfo is there if we need more data ie Moved card to "columnID" otherwise pass it as an empty string
+    /*
+    {
+            "username": "Matt Hamlin",
+            "actiontype": "Made this Card",
+            "timestamp": 1414880770,
+            "newdata": null,
+            "olddata": null,
+            "actionID": 1
+    },
+    */
     var newact = {};
     newact["username"] = user.username;
     newact["actiontype"] = action;
@@ -130,11 +140,16 @@ function addAction(cardid, user, action, extrainfo){
     } else if(action == "Edited the card"){
         newact["newdata"] = null;
         //FUTURE: see edits
-    } else {
+    } else if(action == "Made the card"){
         //made the card
         newact["newdata"] = null; //can't set it equal to the card data because it becomes circular
+    } else {
+        //commented on the card
+        var obj = [];
+        obj["comment"] = extrainfo;
+        newact["newdata"] = obj;
     }
-    newact["parent-actionID"] = null;
+    newact["parent_actionID"] = null; //will be changed when reply works with comments
     //now we update the cards
     for(n=0; n<carddata.length; n++){
         if(carddata[n]["info"].cardID == cardid){
@@ -149,6 +164,7 @@ function addAction(cardid, user, action, extrainfo){
             carddata[n]["activities"].push(newact);
         }
     }
+    console.log(newact);
     var carddatastring = JSON.stringify(carddata);
     localStorage.removeItem("cards");
     localStorage.setItem("cards", carddatastring);
