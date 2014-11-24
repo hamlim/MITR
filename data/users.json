@@ -1,0 +1,10 @@
+[
+    {
+        "username": "root",
+        "userID": 0,
+        "useremail": "root@root.com",
+        "columncolor": "Purple",
+        "isAdmin": 1,
+        "password": "root"
+    }
+]
