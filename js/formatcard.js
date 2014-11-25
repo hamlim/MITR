@@ -24,7 +24,7 @@ function popupformatcard() {
     loaddata();
     
     console.log(cards);
-    console.log(columns);
+    console.log(columnsa);
     if(carddata == undefined || carddata == null){
         if(cards != undefined || cards != null){
             var carddata = cards;
@@ -34,7 +34,7 @@ function popupformatcard() {
     }
     if(columndata == undefined || columndata == null){
         if(columns != null || columns != undefined){
-            columndata = columns;
+            columndata = columnsa;
         } else {
             columndata = [];
         }
@@ -212,6 +212,7 @@ function popupformatcard() {
                 //now we overwrite the stuff
                 //make sure to overwrite existing example card instead of providing two or more example cards
                 if(carddata.length != 0 || carddata.length  != undefined){
+                    console.log("Why am I here?");
                     for(i=0; i<carddata.length; i++){
                         if(carddata[i]["info"].cardID == -1){
                             carddata[i] = cardformat;

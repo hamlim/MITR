@@ -1,22 +1,24 @@
 //first we need to get all the columns
-var columns;
+var columnsa;
 var cards;
 function loaddata(){
     var colrequest = new XMLHttpRequest;
     colrequest.onreadystatechange = function() {
         if (colrequest.readyState == 4){
             var res = colrequest.responseText;
-            checkcontent(columns, res);
+            checkcontent(columnsa, res);
         }
     }
     var colfile = "./data/columns.json";
     colrequest.open("GET", colfile, false);
     colrequest.send();
 
-    function checkcontent(columns, data){
+    function checkcontent(columnsa, data){
         localStorage.setItem("columns", data);
         var column = JSON.parse(data);
-        columns = column;
+        console.log("data from columns.json file: ");
+        console.log(column);
+        columnsa = column;
     }
 
     var cardrequest = new XMLHttpRequest;
