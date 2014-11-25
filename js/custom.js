@@ -85,7 +85,9 @@ function columns(c1, c2, colnum){
         for(x = 1; x <= colnum; x++){
             diff = [red*(x-1), green*(x-1), blue*(x-1) ];
             var hold = "col" + x;
-            document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
+            if(document.getElementById(hold) != undefined || document.getElementById(hold) != null){
+                document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
+            }
         }
     } else {
         //no columns yet

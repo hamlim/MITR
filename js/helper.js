@@ -42,6 +42,7 @@ function addAction(cardid, user, action, extrainfo){
             var aid=0;
             if(carddata[n]["activities"] == undefined || carddata[n]["activities"] == null){
                 aid = 0;
+                carddata[n]["activities"] = [];
             } else {
                 for(p=0; p<carddata[n]["activities"].length; p++){
                     aid += 1;

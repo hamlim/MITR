@@ -24,7 +24,6 @@
         <ul id = "columnslist">
         
         </ul>
-        <script type="text/javascript" src="js/vendor/moment.js"></script>
         <script type="text/javascript" src="js/editcard.js"></script>
         <script type="text/javascript" src="js/formatcard.js"></script>
         <script type="text/javascript" src="js/makecols.js"></script>
