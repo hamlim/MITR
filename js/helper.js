@@ -40,11 +40,12 @@ function addAction(cardid, user, action, extrainfo){
             //we need to get the actionid and the timestamp
             var tstamp = new Date().getTime();
             var aid=0;
-            for(p=0; p<carddata[n]["activities"].length; p++){
-                aid += 1;
-            }
             if(carddata[n]["activities"] == undefined || carddata[n]["activities"] == null){
                 aid = 0;
+            } else {
+                for(p=0; p<carddata[n]["activities"].length; p++){
+                    aid += 1;
+                }
             }
             newact["actionID"] = aid+1;
             newact["timestamp"] = tstamp;
