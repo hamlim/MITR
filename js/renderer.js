@@ -75,6 +75,7 @@ function popupmodal(cardID){
         }
     }
 }
+/*
 function popupaction(cardID){
    for(i=0; i<carddata.length; i++){
         if(cardID == carddata[i]["info"].cardID){
@@ -129,6 +130,7 @@ function addAction(cardid, user, action, extrainfo){
             "actionID": 1
     },
     */
+/*
     var newact = {};
     newact["username"] = user.username;
     newact["actiontype"] = action;
@@ -176,7 +178,7 @@ function addAction(cardid, user, action, extrainfo){
     uploadactions.send();
 }
 
-
+*/
 function commenting(cardID) {
     vex.dialog.prompt({
         escapeButtonCloses: false,

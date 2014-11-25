@@ -215,20 +215,20 @@ function popupaddcard(){
                 newcard["date-fields"] = dates;
                 
                 //get the currentusername
-                var uname = JSON.parse(localStorage.getItem("currentuser")).username;
-                //initilaize activities
-                var action = {};
-                var actions = [];
-                action.username = uname;
-                action.actiontype = "Made this Card";
-                action.timestamp = moment().format("x");
-                action.newdata = null;
-                action.olddata = null;
-                action.actionID = 0;
-                action.parent_actionID = null;
-                actions.push(action);
-                
-                newcard["activities"] = actions;
+                var uname = JSON.parse(localStorage.getItem("currentuser"));
+//                //initilaize activities
+//                var action = {};
+//                var actions = [];
+//                action.username = uname;
+//                action.actiontype = "Made this Card";
+//                action.timestamp = moment().format("x");
+//                action.newdata = null;
+//                action.olddata = null;
+//                action.actionID = 0;
+//                action.parent_actionID = null;
+//                actions.push(action);
+//                
+//                newcard["activities"] = actions;
                 
                 console.log(newcard);
                 carddata.push(newcard);
@@ -241,6 +241,8 @@ function popupaddcard(){
                 up.open("POST", "./ascf.php", true);
                 up.setRequestHeader("Content-Type", "application/json");
                 up.send(newstring);
+                
+                addAction(newid, uname, "Made the card", null);
                 
             }
         }

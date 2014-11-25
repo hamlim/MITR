@@ -247,13 +247,15 @@ function popupeditcard(cardID){
                 localStorage.removeItem("cards");
                 localStorage.setItem("cards", cardstring);
                 
+                var currentuser = JSON.parse(localStorage.getItem("currentuser"));
+                
                 //now upload the cardstring
                 var upload = new XMLHttpRequest;
                 upload.open("POST", "./ascf.php", true);
                 upload.setRequestHeader("Content-Type", "application/json");
                 upload.send(cardstring);
                 //done
-                
+                addAction(cardID, currentuser, "Edited the card", null);
             }
         }
     });

@@ -94,12 +94,15 @@ function columns(c1, c2, colnum){
 function changeColumn(card){
 	var columnNumber = card.parentNode.parentNode.getAttribute('data-cbreeze-columnID');
     console.log(columnNumber);
+    var cardid = card.getAttribute('data-cbreeze-cardid');
 	for(i = 0; i < carddata.length; i++){
-		if(carddata[i]["info"]["cardID"] == card.getAttribute('data-cbreeze-cardid')){
+		if(carddata[i]["info"]["cardID"] == cardid){
 			carddata[i]["info"]["columnID"] = columnNumber;
 			console.log(columnNumber);
 		}
 	}
+    var currentuser = JSON.parse(localStorage.getItem("currentuser"));
+    addAction(cardid, currentuser, "Moved the card", columnNumber);
     //now we change the cards on the server end
     var cardsstring = JSON.stringify(carddata);
     var uploadchanges = new XMLHttpRequest;
