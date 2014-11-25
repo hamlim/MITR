@@ -20,12 +20,26 @@ function popupformatcard() {
         // card description
         //
     //pre-form content
+    
+    loaddata();
+    
+    console.log(cards);
+    console.log(columns);
     if(carddata == undefined || carddata == null){
-        var carddata = [];
+        if(cards != undefined || cards != null){
+            var carddata = cards;
+        } else {
+            var carddata = [];
+        }
     }
     if(columndata == undefined || columndata == null){
-        columndata = [];
+        if(columns != null || columns != undefined){
+            columndata = columns;
+        } else {
+            columndata = [];
+        }
     }
+    console.log(columndata);
     var content = "<h1>Edit Card Format: </h1>";
     //form content
     //
@@ -204,6 +218,8 @@ function popupformatcard() {
                         }
                     }
                 } else {
+                    console.log("else statement: ");
+                    console.log(cardformat);
                     carddata.push(cardformat);
                 }
                 console.log(carddata);
