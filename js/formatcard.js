@@ -211,7 +211,8 @@ function popupformatcard() {
                 
                 //now we overwrite the stuff
                 //make sure to overwrite existing example card instead of providing two or more example cards
-                if(carddata.length != 0 || carddata.length  != undefined){
+                console.log(carddata.length);
+                if(carddata.length != 0){
                     console.log("Why am I here?");
                     for(i=0; i<carddata.length; i++){
                         if(carddata[i]["info"].cardID == -1){
