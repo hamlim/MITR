@@ -45,3 +45,9 @@
 ### Below are some general notes on how to do things:
 To edit a card click on the small edit icon in the top right of the card which you wish to edit.
 To add a card click on the "Add Card" text in the top right area of the screen
+
+### Some Important Notes:
+
+Always make sure that there is at least one column left on the site, when changing all columns, leave at least one and then add the new columns in the order you want them and remove the left over column!
+
+
