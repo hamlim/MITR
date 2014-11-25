@@ -196,7 +196,16 @@ function popupformatcard() {
                 cardformat["activities"] = actions;
                 
                 //now we overwrite the stuff
-                carddata.push(cardformat);
+                //make sure to overwrite existing example card instead of providing two or more example cards
+                if(carddata.length != 0 || carddata.length  != undefined){
+                    for(i=0; i<carddata.length; i++){
+                        if(carddata[i]["info"].cardID == -1){
+                            carddata[i] = cardformat;
+                        }
+                    }
+                } else {
+                    carddata.push(cardformat);
+                }
                 console.log(carddata);
                 var cardstring = JSON.stringify(carddata);
                 console.log(cardstring);
