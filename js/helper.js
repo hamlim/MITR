@@ -43,6 +43,9 @@ function addAction(cardid, user, action, extrainfo){
             for(p=0; p<carddata[n]["activities"].length; p++){
                 aid += 1;
             }
+            if(carddata[n]["activities"] == undefined || carddata[n]["activities"] == null){
+                aid = 0;
+            }
             newact["actionID"] = aid+1;
             newact["timestamp"] = tstamp;
             carddata[n]["activities"].push(newact);
