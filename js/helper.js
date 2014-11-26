@@ -60,6 +60,7 @@ function addAction(cardid, user, action, extrainfo){
     var carddatastring = JSON.stringify(carddata);
     localStorage.removeItem("cards");
     localStorage.setItem("cards", carddatastring);
+    localStorage.setItem("cardsbackup", carddatastring);
     
     //now we push the updated stuff to the server
     var uploadactions = new XMLHttpRequest;
