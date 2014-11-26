@@ -245,7 +245,6 @@ function popupeditcard(cardID){
                 
                 //now we overwrite the stuff
                 console.log(carddata);
-                console.log(cardID);
                 var cardstring = JSON.stringify(carddata);
                 localStorage.removeItem("cards");
                 localStorage.setItem("cards", cardstring);
@@ -258,6 +257,8 @@ function popupeditcard(cardID){
                 upload.setRequestHeader("Content-Type", "application/json");
                 upload.send(cardstring);
                 //done
+                console.log(carddata);
+                console.log("Handing off to addAction...");
                 addAction(cardID, currentuser, "Edited the card", null);
             }
         }
