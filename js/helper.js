@@ -13,6 +13,9 @@ function addAction(cardid, user, action, extrainfo){
             "actionID": 1
     },
     */
+    console.log("In addAction function...");
+    console.log(carddata);
+    
     var newact = {};
     newact["username"] = user.username;
     newact["actiontype"] = action;

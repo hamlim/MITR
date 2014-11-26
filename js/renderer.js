@@ -75,7 +75,7 @@ function popupmodal(cardID){
         }
     }
 }
-/*
+
 function popupaction(cardID){
    for(i=0; i<carddata.length; i++){
         if(cardID == carddata[i]["info"].cardID){
@@ -88,8 +88,21 @@ function popupaction(cardID){
                 var now = moment(unix_timestamp);
                 var datet = moment(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
                 cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype;
-                if(!(zoomcard["activities"][l].actiontype == "Edited this Card") && !(zoomcard["activities"][l].actiontype == "Made this Card")){
+                if(!(zoomcard["activities"][l].actiontype == "Edited this card") && !(zoomcard["activities"][l].actiontype == "Made this card") && !(zoomcard["activities"][l].actiontype == "Moved this card")){
                     cardactivities += " with: <code>"+zoomcard["activities"][l].newdata+"</code> at "+datet+"</li>";
+                }
+                if(zoomcard["activities"][l].actiontype == "Moved this card"){
+                    var meh = zoomcard["activities"][l].newdata;
+                    var int = meh.columnID;
+                    for(j=0; j<columndata.length; j++){
+                        if(int == columndata[j].columnID){
+                            var columnname = columndata[j].columnname;
+                        }
+                    }
+                    cardactivities += " to: <code>"+columnname+"</code></li>";
+                }
+                if(zoomcard["activities"][l].actiontype == "Edited this card" || zoomcard["activities"][l].actiontype == "Made this card"){
+                    cardactivities += "</li>";
                 }
             }
             cardactivities += "</ul></div>";
@@ -115,70 +128,6 @@ function popupaction(cardID){
         }
     } 
 }
-function addAction(cardid, user, action, extrainfo){
-    //cardid is the int itself
-    //user is the JSON of the user ie JSON.parse(localStorage.getItem("currentuser"));
-    //action is a string that is either: "Moved the card", "Edited the card", "Made the card", 
-    //extrainfo is there if we need more data ie Moved card to "columnID" otherwise pass it as an empty string
-    /*
-    {
-            "username": "Matt Hamlin",
-            "actiontype": "Made this Card",
-            "timestamp": 1414880770,
-            "newdata": null,
-            "olddata": null,
-            "actionID": 1
-    },
-    */
-/*
-    var newact = {};
-    newact["username"] = user.username;
-    newact["actiontype"] = action;
-    newact["olddata"] = null;
-    if(action == "Moved the card"){
-        var obj = [];
-        obj["columnID"] = extrainfo;
-        newact["newdata"] = obj;
-    } else if(action == "Edited the card"){
-        newact["newdata"] = null;
-        //FUTURE: see edits
-    } else if(action == "Made the card"){
-        //made the card
-        newact["newdata"] = null; //can't set it equal to the card data because it becomes circular
-    } else {
-        //commented on the card
-        var obj = [];
-        obj["comment"] = extrainfo;
-        newact["newdata"] = obj;
-    }
-    newact["parent_actionID"] = null; //will be changed when reply works with comments
-    //now we update the cards
-    for(n=0; n<carddata.length; n++){
-        if(carddata[n]["info"].cardID == cardid){
-            //we need to get the actionid and the timestamp
-            var tstamp = new Date().getTime();
-            var aid=0;
-            for(p=0; p<carddata[n]["activities"].length; p++){
-                aid += 1;
-            }
-            newact["actionID"] = aid+1;
-            newact["timestamp"] = tstamp;
-            carddata[n]["activities"].push(newact);
-        }
-    }
-    console.log(newact);
-    var carddatastring = JSON.stringify(carddata);
-    localStorage.removeItem("cards");
-    localStorage.setItem("cards", carddatastring);
-    
-    //now we push the updated stuff to the server
-    var uploadactions = new XMLHttpRequest;
-    uploadactions.open("POST", "./ascf.php", true);
-    uploadactions.setRequestHeader("Content-Type", "application/json");
-    uploadactions.send();
-}
-
-*/
 function commenting(cardID) {
     vex.dialog.prompt({
         escapeButtonCloses: false,
@@ -188,43 +137,6 @@ function commenting(cardID) {
             //generate the timestamp when the action was made:
             var currentuser = JSON.parse(localStorage.getItem("currentuser"));
             addAction(cardID, currentuser, "Commented", value);
-            
-            //below commented code is what addAction does.
-//            var tstamp = new Date().getTime();
-            //value is the comment text itself
-            //get the currentuser
-//            
-//            var card;
-//            for(i=0; i<carddata.length; i++){
-//                if(carddata[i]["info"].cardID == cardID){
-//                    card = carddata[i];
-//                }
-//            }
-//            var newact = {};
-//            newact["username"] = currentuser.username;
-//            newact["actiontype"] = "Commented";
-//            newact["timestamp"] = tstamp;
-//            newact["newdata"] = value;
-//            newact["olddata"] = null;
-//            var prevaid = card["activities"][card["activities"].length - 1].actionID;
-//            newact["actionID"] = prevaid + 1;
-//            newact["parent-actionID"] = null;
-//            card["activities"].push(newact); //add the new comment
-//            for(j=0; j<carddata.length; j++){
-//                if(cardID == carddata[j]["info"].cardID){
-//                    carddata[j] = card; //overwrite old card data
-//                }
-//            }
-//            var cardsstring = JSON.stringify(carddata);
-//            localStorage.removeItem("cards");
-//            localStorage.setItem("cards", cardsstring);
-//            //now we push the new card/all cards to the db
-//            //cards is up to date
-//            var up = new XMLHttpRequest; //make a new request to update the content of users.txt
-//            up.open("POST", "./ascf.php", true);
-//            up.setRequestHeader("Content-Type", "application/json");
-//            //turn the JSON into a string
-//            up.send(cardsstring);
         }
     });
 }

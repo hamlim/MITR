@@ -16,7 +16,6 @@ function loaddata(){
     function checkcontent(columnsa, data){
         localStorage.setItem("columns", data);
         var column = JSON.parse(data);
-        console.log("data from columns.json file: ");
         console.log(column);
         columnsa = column;
     }
@@ -35,6 +34,7 @@ function loaddata(){
     function checkcardcontent(cards, data){
         localStorage.setItem("cards", data);
         var card = JSON.parse(data);
+        console.log(card);
         cards = card;
     }
 }
