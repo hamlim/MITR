@@ -63,10 +63,12 @@ function addAction(cardid, user, action, extrainfo){
     localStorage.setItem("cardsbackup", carddatastring);
     
     //now we push the updated stuff to the server
-    var uploadactions = new XMLHttpRequest;
-    uploadactions.open("POST", "./ascf.php", true);
-    uploadactions.setRequestHeader("Content-Type", "application/json");
-    uploadactions.send();
+    if(carddata != undefined || carddata != null){
+        var uploadactions = new XMLHttpRequest;
+        uploadactions.open("POST", "./ascf.php", true);
+        uploadactions.setRequestHeader("Content-Type", "application/json");
+        uploadactions.send();
+    }
     console.log(carddata);
     console.log("Done with Add Action function call.");
 }

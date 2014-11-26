@@ -252,10 +252,12 @@ function popupeditcard(cardID){
                 var currentuser = JSON.parse(localStorage.getItem("currentuser"));
                 
                 //now upload the cardstring
-                var upload = new XMLHttpRequest;
-                upload.open("POST", "./ascf.php", true);
-                upload.setRequestHeader("Content-Type", "application/json");
-                upload.send(cardstring);
+                if(carddata != undefined || carddata != null){
+                    var upload = new XMLHttpRequest;
+                    upload.open("POST", "./ascf.php", true);
+                    upload.setRequestHeader("Content-Type", "application/json");
+                    upload.send(cardstring);
+                }
                 //done
                 console.log(carddata);
                 console.log("Handing off to addAction...");

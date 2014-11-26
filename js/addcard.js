@@ -228,10 +228,12 @@ function popupaddcard(){
                     localStorage.setItem("cards", newstring);
 
                     //now upload the new cards to the server
-                    var up = new XMLHttpRequest;
-                    up.open("POST", "./ascf.php", true);
-                    up.setRequestHeader("Content-Type", "application/json");
-                    up.send(newstring);
+                    if(carddata != undefined || carddata != null){
+                        var up = new XMLHttpRequest;
+                        up.open("POST", "./ascf.php", true);
+                        up.setRequestHeader("Content-Type", "application/json");
+                        up.send(newstring);
+                    }   
                     
                     
                     

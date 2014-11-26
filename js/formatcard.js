@@ -229,10 +229,12 @@ function popupformatcard() {
                 console.log(cardstring);
                 
                 //now upload the cardstring
-                var upload = new XMLHttpRequest;
-                upload.open("POST", "./ascf.php", true);
-                upload.setRequestHeader("Content-Type", "application/json");
-                upload.send(cardstring);
+                if(carddata != undefined || carddata != null){
+                    var upload = new XMLHttpRequest;
+                    upload.open("POST", "./ascf.php", true);
+                    upload.setRequestHeader("Content-Type", "application/json");
+                    upload.send(cardstring);
+                }
                 //done
                 
             }
