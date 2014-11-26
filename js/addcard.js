@@ -9,6 +9,7 @@ function popupaddcard(){
     var newid = 0;
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].cardID == -1){
+            console.log(carddata[i]);
             example = carddata[i];
         }
         newid + 1;

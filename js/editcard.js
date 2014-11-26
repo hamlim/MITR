@@ -41,6 +41,7 @@ function popupeditcard(cardID){
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].cardID == cardID){
             cad = carddata[i];
+            console.log(cad);
             n = cad["info"].cardname;
             c = cad["info"].cardcolorcode;
             p = cad["info"].cardpriority;
@@ -215,9 +216,9 @@ function popupeditcard(cardID){
                         for(r=0; r<data.stf.length; r++){
                             if(data.stf[r] != carddata[q]["stf-fields"][r].fielddata){
                                 var obj = {};
-                                obj.fielddata = data.stf[e];
+                                obj.fielddata = data.stf[r];
                                 obj.fieldtype = "stf";
-                                obj.fieldname = carddata[q]["stf-fields"][e].fieldname;
+                                obj.fieldname = carddata[q]["stf-fields"][r].fieldname;
                                 carddata[q]["stf-fields"][r] = obj;
                             }
                         }
@@ -228,11 +229,13 @@ function popupeditcard(cardID){
                             //parse date format
                             var date = moment(data.date[t]);
                             var unix = moment(date).format("x");
+                            console.log(data.date);
+                            console.log(carddata[q]);
                             if(unix != carddata[q]["date-fields"][t].fielddata){
                                 var obj = {};
                                 obj.fielddata = unix;
                                 obj.fieldtype = "date";
-                                obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
+                                obj.fieldname = carddata[q]["date-fields"][t].fieldname;
                                 carddata[q]["date-fields"][t] = obj;
                             }   
                         }
