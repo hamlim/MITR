@@ -64,6 +64,7 @@ function popupmodal(cardID){
             vex.open({
                 escapeButtonCloses: false,
                 overlayClosesOnClick: false,
+                css: {'word-wrap' : 'break-word'},
                 content: zccontent,
                 afterOpen: function($vexContent) {
 //                                return $vexContent.append($el);

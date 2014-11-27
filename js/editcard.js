@@ -252,7 +252,7 @@ function popupeditcard(cardID){
                 var currentuser = JSON.parse(localStorage.getItem("currentuser"));
                 
                 //now upload the cardstring
-                if(carddata != undefined || carddata != null){
+                if(carddata != null || carddata != undefined){
                     var upload = new XMLHttpRequest;
                     upload.open("POST", "./ascf.php", true);
                     upload.setRequestHeader("Content-Type", "application/json");
@@ -262,7 +262,6 @@ function popupeditcard(cardID){
                 console.log(carddata);
                 console.log("Handing off to addAction...");
                 addAction(cardID, currentuser, "Edited the card", "");
-                location.reload();
             }
         }
     });
