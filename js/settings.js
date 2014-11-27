@@ -255,6 +255,7 @@ $("#admin-add-column").click(function() {
     //done
     columndata = columnsa;
     alert("Added column: " + columnname);
+    location.reload();
 //    location.reload();
 });
 //remove column functionality
@@ -292,6 +293,7 @@ $("#admin-remove-column").click(function() {
     //done
     columndata = rest;
     alert("Removed column: " + columnname);
+    location.reload();
 //    location.reload();
 });
 

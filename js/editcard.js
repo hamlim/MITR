@@ -261,7 +261,8 @@ function popupeditcard(cardID){
                 //done
                 console.log(carddata);
                 console.log("Handing off to addAction...");
-                addAction(cardID, currentuser, "Edited the card", null);
+                addAction(cardID, currentuser, "Edited the card", "");
+                location.reload();
             }
         }
     });

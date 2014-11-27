@@ -239,7 +239,8 @@ function popupaddcard(){
                     
                     console.log(carddata);
                     console.log("Going into addAction!");
-                    addAction(newid, uname, "Made the card", null);
+                    addAction(newid, uname, "Made the card", "");
+                    location.reload();
 
                 }
             }

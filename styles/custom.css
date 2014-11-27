@@ -321,3 +321,6 @@ li {
    display:none;
 }
 
+code {
+    max-width: 300px;
+}
