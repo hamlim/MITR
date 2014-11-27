@@ -14,9 +14,11 @@ $("#general-settings-btn").click(function(){
     var newpass = newpasselem.value;
     var newpassconf = newpassconfelem.value;
     //userobj is the current user as JSON
-    if(usern != null || usern != undefined){
+    if(usern != undefined || usern != null){
         //username set/updated
         userobj["username"] = usern;
+        var unam = document.getElementById('username');
+        unam.innerHTML += usern;
     }
     if((oldpass != null || oldpass != undefined) && oldpass.length != 0){
         if(newpass != null || newpass != undefined){
