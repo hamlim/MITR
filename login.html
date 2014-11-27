@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Login</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  <!--links to stylesheets-->
+  <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
+  <link rel="stylesheet" href="styles/custom.css">
+  <!--link to js-->
+  <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
+</head>
+<body class="loginPage">
+  <form class="uk-form-horizontal">
+    <h1><img src = "styles/pics/C-Quip_header.png"></h1>
+    <div class="uk-form-row">
+      <label class="uk-form-label">Email: </label><input type="email" id="email"/>
+    </div>
+    <div class="uk-form-row">
+      <label class="uk-form-label">Password: </label><input type="password" id="pass"/>
+    </div>
+    <div class="uk-form-row">
+    <button type="button" id="submit" class="uk-button button">Login</button>
+    </div>
+  </form>
+  <!-- ALT code begin -->
+  <script type="text/javascript">
+        $("#submit").click(function() {
+            var useremail = $("#email").val();
+//            console.log("Hi: ");
+//            console.log(useremail);
+            var password = $("#pass").val();
+//            console.log("Hi again!");
+            var currentuser;
+            console.log("submit clicked");
+//            console.log(password);
+//            console.log(useremail);
+            //initialize the card request
+            var userrequest = new XMLHttpRequest;
+            var file = "./data/users.json";
+            console.log("Making request to "+file);
+            userrequest.open("GET", file, false);
+            //handle the request for the card data
+            userrequest.onreadystatechange = function() {
+                if (userrequest.readyState == 4) {
+                    //now we have all the users in the system
+                    //refer to formatting.js for formats of JSON docs
+                    var res = userrequest.responseText;
+                    currentuser = checkuser(res, useremail, password);
+
+                }
+            }
+            userrequest.send();
+            //make the request
+            //function to handle the data and check for login.html
+            function checkuser(data, email, pass){
+                var users = JSON.parse(data);
+//                console.log("List of users");
+                console.log(users);
+                for(i=0; i<users.length; i++){
+                    if( users[i]["useremail"] == email && users[i]["password"] == pass){
+                        return users[i];
+                    }
+                }
+                return "ERROR";
+            }
+//            currentuser = checkuser(datum, useremail, password);
+
+            //currentuser is either the array representing the user
+            //    or  currentuser is a string representing the error
+            if ( currentuser != "ERROR" && currentuser != ""){
+                //ok the user is logged in
+                var userstring = JSON.stringify(currentuser);
+                localStorage.setItem("currentuser", userstring);
+                localStorage.setItem("loggedin", "true");
+                window.location.href = "./app.php";
+            } else {
+                alert("User email not in the database!");
+                window.location.href = "./login.html";
+            }
+        });
+  </script>
+  <!-- ALT code end -->
+</body>
+</html>

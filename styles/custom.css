@@ -1,15 +1,326 @@
+html{
+	height:100%;
+	background-color: black;
+}
+body{
+	width: 100%;
+	height: 100%;
+}
+/*start header css*/
 #navyo{
 	background-color: black;
+	height: 40px;
+	position:fixed;
+	width: 100%;
 }
 
 #navyo img{
-	padding-top:10px;
-	height: 30px;
+	padding-top: 7px;
+	padding-left: 5px;
+	height: 35px;
 }
 
 #navyo a{
 	color:white;
 }
+
 #navyo a:visited{
 	color:white;
+}
+
+#navyo .tab.uk-active a{
+	color: black;
+}
+
+#navyo .tab a:hover{
+	color:black;
+}
+
+#navyo i{
+	margin-right: 7px;
+}
+/*end header css*/
+/*start column css*/
+#columnslist{
+	list-style-type: none;
+	margin:0;
+	padding: 0;
+	white-space:nowrap;
+	overflow-y: hidden;
+	min-height: 100%;
+}
+
+.column{
+	top:100px;
+	display:inline-block;
+	vertical-align: top;
+	margin-left:-5px;
+	width: 400px;
+	min-height: 70px;
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+/*	padding-left: -10px; Invalid property value */
+}
+
+li {
+    height: 100%;
+}
+
+.column h2{
+	text-align: center;
+	margin-top: 60px;
+	color:white;
+}
+/*end column css*/
+
+/*start card css*/
+.cardlist{
+	margin-top:0;
+	list-style-type: none;
+	margin-left: -10px;
+    /* Debug code to see cardlist li's */
+    /*border: dashed grey 3px;*/
+    border-radius: 5px;
+    /* end debug code */
+}
+
+
+.card{
+	background-color: white;
+	height: 150px;
+	width: 85%;
+	border-radius: 20px;
+	box-shadow: 6px 6px 5px black;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 30px;
+}
+.cardprvcontent {
+    font-size: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 90%;
+}
+.cardheader{
+	height:25px;
+	background-color: black;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	color: black;
+	font-size: 18px;
+}
+
+.cardheader i{
+	margin-left: 35px;
+	padding-top: 3px;
+}
+
+.cardtitle{
+	color: white;
+	padding-left: 25px;
+}
+
+.cardpriority{
+	color: black;
+	background-color: yellow;
+	width: 30px;
+	border-top-left-radius: 20px;
+	padding-left: 20px;
+	height: 23px;
+	padding-top: 2px;
+}
+
+.cardlist{
+    min-height: 200px !important;
+    height: 100% !important;
+}
+
+/* login page */
+.loginPage{
+	font-size: 150%;
+	height: 100%;
+	width: 100%;
+	min-width: 400px;
+	min-height: 400px;
+	color: white;
+	text-align: center;
+	background-image: -webkit-linear-gradient(black, white); /* For Safari 5.1 to 6.0 */
+ 	background-image: -o-linear-gradient(black, white); /* For Opera 11.1 to 12.0 */
+  	background-image: -moz-linear-gradient(black, white); /* For Firefox 3.6 to 15 */
+ 	background-image: linear-gradient(black, white); /* Standard syntax */
+}
+
+.loginPage form{
+	position: relative;
+	margin: auto;
+  	left: 0;
+  	right: 0;
+  	top: 20%;
+  	min-width: 350px;
+	width: 35%;
+
+
+}
+
+.loginPage form{
+	border-radius: 10px;
+	border-width: 2px;
+	box-shadow: 0 0 10px #888888;
+	padding: 50px 20px 20px 20px;
+	background-color: black;
+}
+
+.loginPage h1{
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.loginPage input{
+	font-size: 130%;
+	box-shadow: 0px 0px 8px #888888;
+	border-radius: 4px;
+	text-align: middle;
+}
+
+.loginPage button{
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+
+
+/*settings*/
+.settingsName{
+	display: inline-block;
+	border-style: solid;
+	border-radius: 10px;
+	border: 2px groove threedface;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	min-width: -webkit-min-content;
+	box-shadow: 0px 0px 8px #888888;
+	width: 20%;
+	padding: 50px 15px 5px 20px;
+	margin: 0px 10px 0px 10px;
+	float: left;
+	top: 50px;
+	position: relative;
+
+}
+.tab a{
+	color:black;
+}
+.tab{
+    background-color: black;
+}
+.settingsName img{
+	border-radius: 10px;
+}
+.settingsName div{
+	font-size: 150%;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.settings{
+	background-color: white;
+	color: black;
+	display: block;
+	right: 0;
+	left: 0;
+	margin-right: auto;
+	margin-left: auto;
+	position:relative;
+	top: 50px;
+	width: 45%; 
+	transition: opacity .3s linear,transform .3s ease-out;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #888888;
+}
+
+.settingsContent{
+	height: 100%;
+}
+.settingsContent h1{
+	color: black;
+}
+
+.settings fieldset{
+	border: none;
+	/*border-style: solid;
+	border: 2px groove threedface;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	min-width: -webkit-min-content;
+	box-shadow: 0px 0px 8px #888888;
+	border-radius: 10px;
+	padding: 10px 20px 10px 10px;
+	width: 45%;*/
+    color: black;
+
+}
+.settings input{
+	box-shadow: 0px 0px 8px #888888;
+	border-radius: 4px;
+}
+
+.button{
+	display: block;
+	float:right;
+	border: 1px solid;
+	border-radius: 4px;
+}
+
+.colorBox{
+	min-height: 40px;
+	min-width: 200px;
+	display: block;
+    background-color: white;
+
+}
+
+#adminSettings{
+	display:none;
+}
+
+#settingsModal{
+	display:none;
+	color:black;
+}
+
+#addCardModal{
+	display:none;
+	color:black;
+}
+
+/*for selecting a color in edit card*/
+.border-highlight {
+    border:2px dashed blue;   
+}
+
+#cardFormatModal{
+	color: black;
+}
+
+#cardFormatModal a{
+	color: blue;
+}
+#cardFormatModal a:vsited{
+	color: blue;
+}
+.hidden-option
+{
+   display:none;
+}
+
+#card-ltf-fields {
+    word-wrap: break-word;
 }
