@@ -182,14 +182,17 @@ $("#admin-remove-user").click(function() {
 //add column functionality
 $("#admin-add-column").click(function() {
     var columnnameelem = document.getElementById("admin-add-column-name");
-//    var columnorderelem = document.getElementById("admin-add-column-order");
+    var columnorderelem = document.getElementById("admin-add-column-order");
     var columnname = columnnameelem.value;
-//    var columnorder = columnorderelem.value;
+    var columnorder = columnorderelem.value;
     //add column to list of columns based on the order
     //note keeping column order as an extensible feature
     //columndata = JSON of columns
+    //columnorder is where the column gets added
+    //iterate through all columns for which there is a higher order and add 1 to that
     var colid;
     var max = 0;
+    //make sure there are columns
     if(columndata == undefined || columndata == null){
         max = 0;
         var columndata = [];
@@ -218,33 +221,36 @@ $("#admin-add-column").click(function() {
         }
     } else {
         for(i=0; i<columndata.length; i++){
-            if(max < columndata[i]["columnID"]){
-                max = columndata[i]["columnID"];
+            if(columndata[i]["columnorder"] <= columnorder){
+                columndata[i]["columnorder"] += 1;
+            }
+            if(max<columndata[i]["columnID"]){
+                max += 1;
             }
         }
     }
     colid = max + 1;
-    var colorder;
-    var counter = 0;
-    if(columndata == undefined || columndata == null || columndata.length == 0){
-        counter = 0;
-    } else {
-        for(j=0; j<columndata.length; j++){
-            if(counter<columndata[j]["columnorder"]){
-                counter = columndata[j]["columnorder"];
-            }
-        }
-    }
-    colorder = counter + 1;
+//    var colorder;
+//    var counter = 0;
+//    if(columndata == undefined || columndata == null || columndata.length == 0){
+//        counter = 0;
+//    } else {
+//        for(j=0; j<columndata.length; j++){
+//            if(counter<columndata[j]["columnorder"]){
+//                counter = columndata[j]["columnorder"];
+//            }
+//        }
+//    }
+//    colorder = counter + 1;
     var newcol = {};
     newcol["columnname"] = columnname;
     newcol["columnID"] = colid;
-    newcol["columnorder"] = colorder;
+    newcol["columnorder"] = parseInt(columnorder);
     
 //    localStorage.removeItem("columns");
-    console.log(columndata);
+//    console.log(columndata);
     columndata.push(newcol);
-    console.log(columndata);
+//    console.log(columndata);
     var colstring = JSON.stringify(columndata);
     localStorage.setItem("columns", colstring);
     //now push new data to the server
@@ -255,6 +261,7 @@ $("#admin-add-column").click(function() {
     //done
     columndata = columnsa;
     alert("Added column: " + columnname);
+    columns(start, end, count+1);
     location.reload();
 //    location.reload();
 });
@@ -275,10 +282,18 @@ $("#admin-remove-column").click(function() {
         }
     }
     
+    var archiveID;
+    for(v=0; v<columndata.length; v++){
+        if(columndata[v]["columnname"] == "Archive"){
+            archiveID = columndata[v]["columnID"];
+        }
+    }
+    
     var hascolumns = false;
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].columnID == colid){
             hascolumns = true;
+            carddata[i]["info"].columnID = archiveID;
         }
     }
     if(hascolumns){
@@ -289,6 +304,8 @@ $("#admin-remove-column").click(function() {
                 yesno = value;
             }
         });
+    } else {
+        var yesno = true;
     }
     if(yesno){
         for(i=0; i<columndata.length; i++){

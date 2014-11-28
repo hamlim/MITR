@@ -57,7 +57,7 @@ console.log(carddata);
 if(carddata == undefined || carddata == null){
     var carddata = {};
 }
-console.log(carddata);
+//console.log(carddata);
 
 var alldata = [];
 for(i=0; i<colu.length; i++){ //iterate through columns
@@ -85,7 +85,7 @@ for(i=0; i<colu.length; i++){ //iterate through columns
                 pfn: fieldname,
                 pfd: fielddata
             };
-            console.log(color);
+//            console.log(color);
             var darkblue = {
                 name: "Darkblue",
                 hex: "#4a5e77"
