@@ -288,7 +288,7 @@ $("#admin-remove-column").click(function() {
             archiveID = columndata[v]["columnID"];
         }
     }
-    
+    console.log(archiveID);
     var hascolumns = false;
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].columnID == colid){
@@ -302,17 +302,44 @@ $("#admin-remove-column").click(function() {
             message: 'This column has some cards, are you sure you want to delete?',
             callback: function(value) {
                 yesno = value;
+                if(yesno){
+                    for(i=0; i<columndata.length; i++){
+                        if(columndata[i].columnname != columnname){
+                            rest.push(columndata[i]);
+                        }
+                    }
+                    console.log(rest);
+                    for(k=0; k<rest.length; k++){
+                        if(rest[k].columnID != k+1){
+                            rest[k].columnID = k+1;
+                        } 
+                        if(rest[k].columnorder != k+1){
+                            rest[k].columnorder = k+1;
+                        }
+                    }
+                    //rest is what we save
+                    localStorage.removeItem("columns");
+                    var colstring = JSON.stringify(rest);
+                    localStorage.setItem("columns", colstring);
+                    //now push new data to the server
+                    var upl = new XMLHttpRequest;
+                    upl.open("POST", "./asc.php", true);
+                    upl.setRequestHeader("Content-Type", "application/json");
+                    upl.send(colstring);
+                    //done
+                    columndata = rest;
+                    alert("Removed column: " + columnname);
+            //        location.reload();
+                }
             }
         });
     } else {
-        var yesno = true;
-    }
-    if(yesno){
         for(i=0; i<columndata.length; i++){
             if(columndata[i].columnname != columnname){
                 rest.push(columndata[i]);
             }
         }
+        console.log(rest);
         for(k=0; k<rest.length; k++){
             if(rest[k].columnID != k+1){
                 rest[k].columnID = k+1;
@@ -333,7 +360,7 @@ $("#admin-remove-column").click(function() {
         //done
         columndata = rest;
         alert("Removed column: " + columnname);
-        location.reload();
+//        location.reload();
     }
 });
 
