@@ -185,6 +185,7 @@ $("#admin-add-column").click(function() {
     var columnorderelem = document.getElementById("admin-add-column-order");
     var columnname = columnnameelem.value;
     var columnorder = columnorderelem.value;
+    //console.log(columnorder);
     //add column to list of columns based on the order
     //note keeping column order as an extensible feature
     //columndata = JSON of columns
@@ -219,17 +220,17 @@ $("#admin-add-column").click(function() {
         } else {
             columndata = [];
         }
-    } else {
-        for(i=0; i<columndata.length; i++){
-            if(columndata[i]["columnorder"] <= columnorder){
-                columndata[i]["columnorder"] += 1;
-            }
-            if(max<columndata[i]["columnID"]){
-                max += 1;
-            }
+    } 
+    for(i = 0; i<columndata.length ; i++){
+        console.log(columndata[i]["columnorder"]);
+        if(columndata[i]["columnorder"] >= columnorder){
+            columndata[i]["columnorder"] = parseInt(columndata[i]["columnorder"]) + 1;        
+        }
+        if(max<columndata[i]["columnID"]){
+            max += 1;
         }
     }
-    colid = max + 1;
+    colid = columndata.length + 1;//max + 1;
 //    var colorder;
 //    var counter = 0;
 //    if(columndata == undefined || columndata == null || columndata.length == 0){
@@ -360,7 +361,7 @@ $("#admin-remove-column").click(function() {
         //done
         columndata = rest;
         alert("Removed column: " + columnname);
-//        location.reload();
+        location.reload();
     }
 });
 
