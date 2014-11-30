@@ -64,7 +64,7 @@ for(i=0; i<colu.length; i++){ //iterate through columns
     var cards = [];
     for(j=0; j<carddata.length; j++){ //iterate through cards
         if(carddata[j]["info"]["columnID"] == colu[i]["columnID"]){
-            console.log(carddata[j]);
+//            console.log(carddata[j]);
             //the card belongs in the column
             //we need to format the card properly
             var id = carddata[j]["info"]["cardID"];
@@ -119,14 +119,14 @@ for(i=0; i<colu.length; i++){ //iterate through columns
                 hex: "#f5ef65"
             };
             var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
-            console.log(cccs);
+//            console.log(cccs);
             for(x=0; x<cccs.length; x++){
                 if(cccs[x].name == color){
-                    console.log(cccs[x]);
+//                    console.log(cccs[x]);
                     var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"<a href='#editCardModal' id='edit-card-icon' onclick='popupeditcard("+id+")' ><i class='uk-icon-pencil-square-o'></i></a></span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'>Card Information</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
                 }
             }
-            console.log(cardtext);
+//            console.log(cardtext);
             cards.push(cardtext);
         }
     }

@@ -67,8 +67,11 @@ function addAction(cardid, user, action, extrainfo){
         var uploadactions = new XMLHttpRequest;
         uploadactions.open("POST", "./ascf.php", true);
         uploadactions.setRequestHeader("Content-Type", "application/json");
-        uploadactions.send();
+        uploadactions.send(carddatastring);
     }
+    
+    
+    
     console.log(carddata);
     console.log("Done with Add Action function call.");
 }
