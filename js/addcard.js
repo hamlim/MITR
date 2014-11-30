@@ -137,17 +137,17 @@ function popupaddcard(){
                     //columnID
                     var coluid;
                     for(k=0; k<columndata.length; k++){
-                        if(columndata[k].columnname == data.columnid){
+                        if(columndata[k].columnname == parseInt(data.columnid)){
                            coluid = columndata[k].columnID;
                         }
                     }
                     info.columnID = coluid; //make sure it never gets rendered
 
                     //priority
-                    info.cardpriority = data.priority; //make sure it never gets rendered
+                    info.cardpriority = parseInt(data.priority); //make sure it never gets rendered
 
                     //cardID
-                    info.cardID = newid; //make sure it never gets rendered
+                    info.cardID = newid;
 
                     newcard["info"] = info;
 
@@ -223,16 +223,19 @@ function popupaddcard(){
 
                     console.log(newcard);
                     carddata.push(newcard);
-                    var newstring = JSON.stringify(carddata);
+                    //carddata is correct with all the right colors
+                    
+                    var carddatastringstuff = JSON.stringify(carddata);
+                    console.log(carddatastringstuff);
                     localStorage.removeItem("cards");
-                    localStorage.setItem("cards", newstring);
+                    localStorage.setItem("cards", carddatastringstuff);
 
                     //now upload the new cards to the server
                     if(carddata != undefined || carddata != null){
                         var up = new XMLHttpRequest;
                         up.open("POST", "./ascf.php", true);
                         up.setRequestHeader("Content-Type", "application/json");
-                        up.send(newstring);
+                        up.send(carddatastringstuff);
                     }   
                     
                     
@@ -240,7 +243,7 @@ function popupaddcard(){
                     console.log(carddata);
                     console.log("Going into addAction!");
                     addAction(newid, uname, "Made the card", "");
-                    location.reload();
+//                    location.reload();
 
                 }
             }
