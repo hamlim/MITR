@@ -87,7 +87,7 @@ for(i=0; i<colu.length; i++){ //iterate through columns
             };
 //            console.log(color);
             var darkblue = {
-                name: "Darkblue",
+                name: "Dark blue",
                 hex: "#4a5e77"
             };
             var green = {
@@ -99,7 +99,7 @@ for(i=0; i<colu.length; i++){ //iterate through columns
                 hex: "#5f5f5f"
             };
             var lightblue = {
-                name: "Lightblue",
+                name: "Light blue",
                 hex: "#4ecdc4"
             };
             var pink = {
