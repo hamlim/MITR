@@ -6,15 +6,15 @@ function popupaddcard(){
     //initialize the newcard obj
     var newcard = {};
     //count the newID for the new card
-    var newid = 0;
+//    var newid = 0;
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].cardID == -1){
             console.log(carddata[i]);
             example = carddata[i];
         }
-        newid + 1;
+//        newid + 1;
     }
-    newid = newid + 1;//newID is set
+//    newid = newid + 1;//newID is set
     //now for the ltf, stf, date info
     var dates = [];
     if(example == undefined){
@@ -137,7 +137,7 @@ function popupaddcard(){
                     //columnID
                     var coluid;
                     for(k=0; k<columndata.length; k++){
-                        if(columndata[k].columnname == parseInt(data.columnid)){
+                        if(columndata[k].columnname == data.columnid){
                            coluid = columndata[k].columnID;
                         }
                     }
@@ -147,7 +147,7 @@ function popupaddcard(){
                     info.cardpriority = parseInt(data.priority); //make sure it never gets rendered
 
                     //cardID
-                    info.cardID = newid;
+                    info.cardID = carddata.length - 2;
 
                     newcard["info"] = info;
 
@@ -242,7 +242,7 @@ function popupaddcard(){
                     
                     console.log(carddata);
                     console.log("Going into addAction!");
-                    addAction(newid, uname, "Made the card", "");
+                    addAction(info.cardID, uname, "Made the card", "");
 //                    location.reload();
 
                 }
