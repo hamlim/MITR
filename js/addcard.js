@@ -147,7 +147,7 @@ function popupaddcard(){
                     info.cardpriority = parseInt(data.priority); //make sure it never gets rendered
 
                     //cardID
-                    info.cardID = carddata.length - 2;
+                    info.cardID = carddata.length - 1;
 
                     newcard["info"] = info;
 
