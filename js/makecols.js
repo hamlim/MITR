@@ -123,7 +123,7 @@ for(i=0; i<colu.length; i++){ //iterate through columns
             for(x=0; x<cccs.length; x++){
                 if(cccs[x].name == color){
 //                    console.log(cccs[x]);
-                    var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"<a href='#editCardModal' id='edit-card-icon' onclick='popupeditcard("+id+")' ><i class='uk-icon-pencil-square-o'></i></a></span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'>Card Information</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
+                    var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><a href='#editCardModal' id='edit-card-icon' onclick='popupeditcard("+id+")' ><i class='uk-icon-pencil-square-o'></i></a><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"</span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'>Card Information</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
                 }
             }
 //            console.log(cardtext);

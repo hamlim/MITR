@@ -324,3 +324,9 @@ li {
 #card-ltf-fields {
     word-wrap: break-word;
 }
+
+#edit-card-icon {
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}
