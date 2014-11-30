@@ -69,6 +69,9 @@ function addAction(cardid, user, action, extrainfo){
         uploadactions.setRequestHeader("Content-Type", "application/json");
         uploadactions.send(carddatastring);
     }
+    else{
+        console.log("helper undefined");
+    }
     
     
     
