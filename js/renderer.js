@@ -43,7 +43,7 @@ function popupmodal(cardID){
             stf += "</ul></li>";
             var ltf = "<li id='card-ltf-fields'><ul>";
             for(k=0; k<zoomcard["ltf-fields"].length; k++){
-                ltf += "<li id='card-ltf-field'>"+zoomcard["ltf-fields"][k].fieldname + ": <code>"+zoomcard["ltf-fields"][k].fielddata+"</code></li>";
+                ltf += "<li id='card-ltf-field'>"+zoomcard["ltf-fields"][k].fieldname + ": <p>"+zoomcard["ltf-fields"][k].fielddata+"</p></li>";
             }
             ltf += "</ul></li>";
             var dat = "<li id='card-date-fields'><ul>";
