@@ -82,6 +82,9 @@ $("#general-settings-btn").click(function(){
     setuserup.setRequestHeader("Content-Type", "application/json");
     var aluserstring = JSON.stringify(alus); //turn the JSON into a string
     setuserup.send(aluserstring);
+    
+    //alert
+    alert("Settings changed.");
 });
 
 
