@@ -49,7 +49,7 @@ function popupmodal(cardID){
             var dat = "<li id='card-date-fields'><ul>";
             for(m=0; m<zoomcard["date-fields"].length; m++){
                 var unix_timestamp = zoomcard["date-fields"][m].fielddata;
-                var dateinfo = moment(unix_timestamp).format("dddd, MMMM Do YYYY, h:mm:ss a");
+                var dateinfo = moment(parseInt(unix_timestamp)).format("dddd, MMMM Do YYYY, h:mm:ss a");
                 dat += "<li id='card-date-field'>"+zoomcard["date-fields"][m].fieldname + ": <code>"+dateinfo+"</code></li>";
             }
             dat += "</ul></li>";
