@@ -123,7 +123,7 @@ $("#admin-add-user").click(function(){
         var resdata = JSON.parse(data);
         var allusers;
         allusers = resdata; //set updated users to alus var
-        console.log(allusers);
+//        console.log(allusers);
         return allusers;
     }
     //gau_data = all users
