@@ -123,13 +123,14 @@ $("#admin-add-user").click(function(){
         var resdata = JSON.parse(data);
         var allusers;
         allusers = resdata; //set updated users to alus var
+        console.log(allusers);
         return allusers;
     }
     //gau_data = all users
 //    console.log(gau_data);
-    var previd = gau_data[gau_data.length - 1]["userID"];
-    newuser["userID"] = previd + 1;
+    newuser["userID"] = gau_data.length;
     gau_data.push(newuser);
+    console.log(gau_data);
     //now we send gau_data to the server -> asu.php
     var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
     upload.open("POST", "./asu.php", true);
