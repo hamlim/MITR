@@ -85,6 +85,9 @@ $("#general-settings-btn").click(function(){
     
     //alert
     alert("Settings changed.");
+    oldpass = "";
+    newpass = "";
+    newpassconf = "";
 });
 
 
