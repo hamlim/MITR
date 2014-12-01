@@ -18,7 +18,7 @@ $("#general-settings-btn").click(function(){
         //username set/updated
         userobj["username"] = usern;
         var unam = document.getElementById('username');
-        unam.innerHTML += usern;
+        unam.innerHTML = "<i class='uk-icon-chevron-down'></i>"+usern;
     }
     if((oldpass != null || oldpass != undefined) && oldpass.length != 0){
         if(newpass != null || newpass != undefined){
