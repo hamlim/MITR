@@ -66,8 +66,8 @@ li {
     height: 100%;
 }
 
-.column h2{'
-	font-family: 'Roboto';
+.column h2{
+	font-family: 'Roboto', 'Courier New';
 	font-size: 25px;
 	text-align: center;
 	margin-top: 60px;
