@@ -294,10 +294,3 @@ $.fn.sortable = function(options) {
 			});
 		});
 
-//SUBMIT FORM UPON HITTING ENTER KEY
-$('#loginform').keydown(function() {
-	if (event.keyCode == 13) {
-		// As ASCII code for ENTER key is "13"
-		$('#loginform').submit(); // Submit form code
-	}
-});

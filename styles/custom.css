@@ -3,6 +3,7 @@ html{
 	background-color: black;
 }
 body{
+	font-family: 'Existence', 'Courier New';
 	width: 100%;
 	height: 100%;
 }
@@ -67,6 +68,8 @@ li {
 }
 
 .column h2{
+	font-family: 'Existence', 'Courier New';
+	font-size: 28px;
 	text-align: center;
 	margin-top: 60px;
 	color:white;
@@ -335,4 +338,29 @@ li {
 	display: inline-block;
 	float: right;
 	padding-right: 10px;
+}
+
+@font-face{
+	font-family:'Sanchez';
+	src: url('fonts/Sanchezregular.otf');
+}
+
+@font-face{
+	font-family:'Line';
+	src: url('fonts/Line.ttf');
+}
+
+@font-face{
+	font-family:'Capsuula';
+	src: url('fonts/Capsuula.ttf');
+}
+
+@font-face{
+	font-family:'Existence';
+	src: url('fonts/Existence-Light.otf');
+}
+
+@font-face{
+	font-family:'ExistenceStencil';
+	src: url('fonts/Existence-StencilLight.otf');
 }
