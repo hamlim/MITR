@@ -143,6 +143,7 @@ $("#admin-add-user").click(function(){
     upload.setRequestHeader("Content-Type", "application/json");
     var gau_string = JSON.stringify(gau_data); //turn the JSON into a string
     upload.send(gau_string);
+    alert("User added!");
 });
 //remove user funtionality
 $("#admin-remove-user").click(function() {
