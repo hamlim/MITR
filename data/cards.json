@@ -164,7 +164,7 @@
             "cardpriority": 1,
             "cardcolorcode": "Yellow",
             "cardID": 3,
-            "columnID": 3
+            "columnID": "3"
         },
         "ltf-fields": [
             {
@@ -239,7 +239,7 @@
             "cardpriority": 2,
             "cardcolorcode": "Darkblue",
             "cardID": 4,
-            "columnID": 2
+            "columnID": "3"
         },
         "ltf-fields": [
             {
