@@ -3,6 +3,7 @@ html{
 	background-color: black;
 }
 body{
+	font-family: 'RobotoLight', 'Roboto', 'Arial';
 	width: 100%;
 	height: 100%;
 }
@@ -67,7 +68,7 @@ li {
 }
 
 .column h2{
-	font-family: 'Roboto', 'Courier New';
+	font-family: 'RobotoLight', 'Roboto', 'Arial';
 	font-size: 25px;
 	text-align: center;
 	margin-top: 60px;
@@ -371,4 +372,9 @@ li {
 @font-face{
 	font-family:'Roboto';
 	src: url('fonts/Roboto-Regular.ttf');
+}
+
+@font-face{
+	font-family:'RobotoLight';
+	src: url('fonts/Roboto-Light.ttf');
 }
