@@ -67,7 +67,6 @@ li {
 }
 
 .column h2{
-	font-family: 'Sanchez', 'Courier New';
 	font-size: 25px;
 	text-align: center;
 	margin-top: 60px;
@@ -340,7 +339,6 @@ li {
 }
 
 @font-face{
-	font-family:'Sanchez';
 	src: url('fonts/Sanchezregular.otf');
 }
 
