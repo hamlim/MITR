@@ -78,27 +78,7 @@
                 ],
                 "parent_actionID": null,
                 "actionID": 4,
-<<<<<<< HEAD
-                "parent-actionID": 3
-            }
-        ]
-    },
-    {
-        "info": {
-            "cardname": "card three",
-            "cardpriority": 1,
-            "cardcolorcode": "Yellow",
-            "cardID": 3,
-            "columnID": "3"
-        },
-        "ltf-fields": [
-            {
-                "fieldname": "Notes",
-                "fieldtype": "ltf",
-                "fielddata": "Here are some notes."
-=======
                 "timestamp": 1.41696071466e+12
->>>>>>> origin/dev
             },
             {
                 "username": "Matt Hamlin",
@@ -126,53 +106,12 @@
                 "username": "Matt Hamlin",
                 "actiontype": "Moved the card",
                 "olddata": null,
-<<<<<<< HEAD
-                "actionID": 3,
-                "parent-actionID": null
-            },
-            {
-                "username": "Matt Hamlin",
-                "actiontype": "Commented",
-                "timestamp": 1414880780,
-                "newdata": "This comment is cool!",
-                "actionID": 4,
-                "parent-actionID": 3
-            }
-        ]
-    },
-    {
-        "info": {
-            "cardname": "card four",
-            "cardpriority": 2,
-            "cardcolorcode": "Darkblue",
-            "cardID": 4,
-            "columnID": "3"
-        },
-        "ltf-fields": [
-            {
-                "fieldname": "Notes",
-                "fieldtype": "ltf",
-                "fielddata": "Here are some notes."
-            },
-            {
-                "fieldname": "another field",
-                "fieldtype": "ltf",
-                "fielddata": "Here is some more long content"
-            }
-        ],
-        "stf-fields": [
-            {
-                "fieldname": "Description",
-                "fieldtype": "stf",
-                "fielddata": "About this project."
-=======
                 "newdata": [
 
                 ],
                 "parent_actionID": null,
                 "actionID": 7,
                 "timestamp": 1.41721069703e+12
->>>>>>> origin/dev
             },
             {
                 "username": "Matt Hamlin",
