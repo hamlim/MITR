@@ -77,7 +77,7 @@ li {
 .cardlist{
 	margin-top:0;
 	list-style-type: none;
-	margin-left: -10px;
+	/*margin-left: -10px;*/
     /* Debug code to see cardlist li's */
     /*border: dashed grey 3px;*/
     border-radius: 5px;
@@ -112,7 +112,7 @@ li {
 }
 
 .cardheader i{
-	margin-left: 160px;
+	margin-left: 35px;
 	padding-top: 3px;
 }
 
@@ -321,3 +321,18 @@ li {
    display:none;
 }
 
+#card-ltf-field{
+    word-wrap: break-word;
+}
+
+#card-ltf-field p{
+	font-size: 12px;
+	font-family: Consolas, monospace, serif;
+	color: #dd0055;
+}
+
+#edit-card-icon {
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}

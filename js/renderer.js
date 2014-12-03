@@ -17,7 +17,7 @@ if (columndata != undefined){
     }
 }
 if(count == undefined){
-    var count = 5;
+    var count = 0;
 }
 columns(start, end, count);
 //popupmodal(cardID)
@@ -43,23 +43,14 @@ function popupmodal(cardID){
             stf += "</ul></li>";
             var ltf = "<li id='card-ltf-fields'><ul>";
             for(k=0; k<zoomcard["ltf-fields"].length; k++){
-                ltf += "<li id='card-ltf-field'>"+zoomcard["ltf-fields"][k].fieldname + ": <code>"+zoomcard["ltf-fields"][k].fielddata+"</code></li>";
+                ltf += "<li id='card-ltf-field'>"+zoomcard["ltf-fields"][k].fieldname + ": <p>"+zoomcard["ltf-fields"][k].fielddata+"</p></li>";
             }
             ltf += "</ul></li>";
             var dat = "<li id='card-date-fields'><ul>";
             for(m=0; m<zoomcard["date-fields"].length; m++){
                 var unix_timestamp = zoomcard["date-fields"][m].fielddata;
-                var date = new Date(unix_timestamp*1000);
-                // hours part from the timestamp
-                var hours = date.getHours();
-                // minutes part from the timestamp
-                var minutes = "0" + date.getMinutes();
-                // seconds part from the timestamp
-                var seconds = "0" + date.getSeconds();
-
-                // will display time in 10:30:23 format
-                var datet = hours + ':' + minutes.substr(minutes.length-2) + ':' + seconds.substr(seconds.length-2);
-                dat += "<li id='card-date-field'>"+zoomcard["date-fields"][m].fieldname + ": <code>"+datet+"</code></li>";
+                var dateinfo = moment(parseInt(unix_timestamp)).format("dddd, MMMM Do YYYY, h:mm:ss a");
+                dat += "<li id='card-date-field'>"+zoomcard["date-fields"][m].fieldname + ": <code>"+dateinfo+"</code></li>";
             }
             dat += "</ul></li>";
             cardinfo += cna+cpr+cco+stf+ltf+dat+"</ul></div>";
@@ -71,6 +62,9 @@ function popupmodal(cardID){
 
             //now we launch the card viewer itself
             vex.open({
+                escapeButtonCloses: false,
+                overlayClosesOnClick: false,
+                css: {'word-wrap' : 'break-word'},
                 content: zccontent,
                 afterOpen: function($vexContent) {
 //                                return $vexContent.append($el);
@@ -82,6 +76,7 @@ function popupmodal(cardID){
         }
     }
 }
+
 function popupaction(cardID){
    for(i=0; i<carddata.length; i++){
         if(cardID == carddata[i]["info"].cardID){
@@ -94,8 +89,21 @@ function popupaction(cardID){
                 var now = moment(unix_timestamp);
                 var datet = moment(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
                 cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype;
-                if(!(zoomcard["activities"][l].actiontype == "Edited this Card") && !(zoomcard["activities"][l].actiontype == "Made this Card")){
+                if(!(zoomcard["activities"][l].actiontype == "Edited this card") && !(zoomcard["activities"][l].actiontype == "Made this card") && !(zoomcard["activities"][l].actiontype == "Moved this card")){
                     cardactivities += " with: <code>"+zoomcard["activities"][l].newdata+"</code> at "+datet+"</li>";
+                }
+                if(zoomcard["activities"][l].actiontype == "Moved this card"){
+                    var meh = zoomcard["activities"][l].newdata;
+                    var int = meh.columnID;
+                    for(j=0; j<columndata.length; j++){
+                        if(int == columndata[j].columnID){
+                            var columnname = columndata[j].columnname;
+                        }
+                    }
+                    cardactivities += " to: <code>"+columnname+"</code></li>";
+                }
+                if(zoomcard["activities"][l].actiontype == "Edited this card" || zoomcard["activities"][l].actiontype == "Made this card"){
+                    cardactivities += "</li>";
                 }
             }
             cardactivities += "</ul></div>";
@@ -108,6 +116,8 @@ function popupaction(cardID){
 
             //now we launch the card viewer itself
             vex.open({
+                escapeButtonCloses: false,
+                overlayClosesOnClick: false,
                 content: actioncontent,
                 afterOpen: function($vexContent) {
 //                                return $vexContent.append($el);
@@ -119,93 +129,15 @@ function popupaction(cardID){
         }
     } 
 }
-function addAction(cardid, user, action, extrainfo){
-    //cardid is the int itself
-    //user is the JSON of the user ie JSON.parse(localStorage.getItem("currentuser"));
-    //action is a string that is either: "Moved the card", "Edited the card", "Made the card"
-    //extrainfo is there if we need more data ie Moved card to "columnID" otherwise pass it as an empty string
-    var newact = {};
-    newact["username"] = user.username;
-    newact["actiontype"] = action;
-    newact["olddata"] = null;
-    if(action == "Moved the card"){
-        var obj = [];
-        obj["columnID"] = extrainfo;
-        newact["newdata"] = obj;
-    } else if(action == "Edited the card"){
-        newact["newdata"] = null;
-        //FUTURE: see edits
-    } else {
-        //made the card
-        newact["newdata"] = null; //can't set it equal to the card data because it becomes circular
-    }
-    newact["parent-actionID"] = null;
-    //now we update the cards
-    for(n=0; n<carddata.length; n++){
-        if(carddata[n]["info"].cardID == cardid){
-            //we need to get the actionid and the timestamp
-            var tstamp = new Date().getTime();
-            var aid=0;
-            for(p=0; p<carddata[n]["activities"].length; p++){
-                aid += 1;
-            }
-            newact["actionID"] = aid+1;
-            newact["timestamp"] = tstamp;
-            carddata[n]["activities"].push(newact);
-        }
-    }
-    var carddatastring = JSON.stringify(carddata);
-    localStorage.removeItem("cards");
-    localStorage.setItem("cards", carddatastring);
-    
-    //now we push the updated stuff to the server
-    var uploadactions = new XMLHttpRequest;
-    uploadactions.open("POST", "./ascf.php", true);
-    uploadactions.setRequestHeader("Content-Type", "application/json");
-    uploadactions.send();
-}
-
-
 function commenting(cardID) {
     vex.dialog.prompt({
+        escapeButtonCloses: false,
+        overlayClosesOnClick: false,
         message: 'Add comment:',
         callback: function(value) {
             //generate the timestamp when the action was made:
-            var tstamp = new Date().getTime();
-            //value is the comment text itself
-            //get the currentuser
             var currentuser = JSON.parse(localStorage.getItem("currentuser"));
-            var card;
-            for(i=0; i<carddata.length; i++){
-                if(carddata[i]["info"].cardID == cardID){
-                    card = carddata[i];
-                }
-            }
-            var newact = {};
-            newact["username"] = currentuser.username;
-            newact["actiontype"] = "Commented";
-            newact["timestamp"] = tstamp;
-            newact["newdata"] = value;
-            newact["olddata"] = null;
-            var prevaid = card["activities"][card["activities"].length - 1].actionID;
-            newact["actionID"] = prevaid + 1;
-            newact["parent-actionID"] = null;
-            card["activities"].push(newact); //add the new comment
-            for(j=0; j<carddata.length; j++){
-                if(cardID == carddata[j]["info"].cardID){
-                    carddata[j] = card; //overwrite old card data
-                }
-            }
-            var cardsstring = JSON.stringify(carddata);
-            localStorage.removeItem("cards");
-            localStorage.setItem("cards", cardsstring);
-            //now we push the new card/all cards to the db
-            //cards is up to date
-            var up = new XMLHttpRequest; //make a new request to update the content of users.txt
-            up.open("POST", "./ascf.php", true);
-            up.setRequestHeader("Content-Type", "application/json");
-            //turn the JSON into a string
-            up.send(cardsstring);
+            addAction(cardID, currentuser, "Commented", value);
         }
     });
 }

@@ -46,6 +46,10 @@
             var cardstring = localStorage.getItem("cards");
             var carddata = JSON.parse(cardstring);
         </script>
+        <script src="js/vendor/moment.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/helper.js"></script>
+        <script type="text/javascript" src="js/formatcard.js"></script>
+        <script type="text/javascript" src="js/addcard.js"></script>
     </head>
     <body>
         <nav class="uk-navbar" id = "navyo">
@@ -53,34 +57,7 @@
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
                 
-                    <li><a href="#addCardModal" data-uk-modal><i class="uk-icon-plus"></i>Add Card</a>
-                        <!--begin addCard modal-->
-                        <div id="addCardModal" class="uk-modal">
-                        <div class="uk-modal-dialog">
-                            <div class="uk-modal-close uk-close"></div>
-                            <form class="uk-form-horizontal" >
-                                <fieldset>
-                                    <h1>Add Card</h1>
-                                    <div class="uk-form-row">
-                                        <label class="uk-form-label" for="">Title:</label>
-                                        <input type="text" placeholder="Title">
-                                        <span class="uk-form-help-inline"></span>
-                                    </div>
-                                    <div class="uk-form-row">
-                                        <label class="uk-form-label" for="">Description:</label>
-                                        <textarea cols="40" rows="2" placeholder="Description"></textarea>
-                                    </div>
-                                    <div class="uk-form-row">
-                                        <label class="uk-form-label" for="">Start Date:</label>
-                                        <input type="date">
-                                    </div>            
-                                    <div>
-                                        <button class="uk-button uk-button-large button" onclick="ajxAddCard();">Add Card</button>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                        <!--end addCard modal-->
+                    <li><a href="javascript:popupaddcard();" onlcick="popupaddcard();"><i class="uk-icon-plus"></i>Add Card</a>
                     </li>
                     
                     <li class="uk-parent" data-uk-dropdown><a id="username" href><i class="uk-icon-chevron-down"></i>Username</a>
@@ -100,6 +77,7 @@
                                                 }
                                             </script>
                                         </ul>
+                                        <!-- SETTINGS -->
                                         <ul id="settings-tabs" class="uk-switcher">
                                             <li id="accountSettings" class="tab-content uk-active">
                                                 
@@ -164,21 +142,30 @@
                                                             <button type="button" id="admin-remove-user" class="uk-button-primary button">Remove user</button>
                                                         </div>
                                                     </div>
-                                                    <div class="uk-form-row uk-panel-box">
-                                                        <button data-uk-modal type="button" onclick="popupformatcard();" class="uk-button-primary button" id="make-card-btn">Edit
-                                                         Card Format</button>
-
-                                                    </div>
                                                     <br/>
                                                     <div class="uk-form-row uk-panel-box">
                                                         <label class="uk-form-label">Add Column:</label>
                                                         <input type="text" id="admin-add-column-name" placeholder="column name">
-<!--                                                        <input type="number" id="admin-add-column-order" placeholder="Column order (small is left side of screen)" min="0">-->
+                                                        <input type="number" id="admin-add-column-order" placeholder="Column order" min="1">
                                                         <button type="button" id="admin-add-column" class="uk-button-primary button">Add Column</button>
                                                     </div>
                                                     </br>
+                                                    <div class="uk-form-row uk-panel-box">
+                                                        <label class="uk-form-label">Remove Column:</label>
+                                                        <select id="admin-remove-column-name">
+                                                            <script>
+                                                                var addedstring = "";
+                                                                for(i=0; i<columndata.length; i++){
+                                                                    addedstring += "<option>"+columndata[i].columnname+"</option>";
+                                                                }
+                                                                var select = document.getElementById("admin-remove-column-name");
+                                                                select.innerHTML = addedstring;
+                                                            </script>
+                                                        </select>
+                                                        <button type="button" id="admin-remove-column" class="uk-button-primary button">Remove Column</button>
+                                                    </div>
                                                     <div class="uk-form-row">
-                                                        <button data-uk-modal type="button" class="uk-button-primary button" id="make-card-btn">Edit Card Format</button>
+                                                        <button type="button" class="uk-button-primary button" onclick="popupformatcard();" id="make-card-btn">Edit Card Format</button>
                                                     </div>
                                                 </fieldset>
                                             </form></li>  
@@ -200,85 +187,6 @@
                                         //since the modal can't be shown here then we have to hope that the root user will do it.
                                     }
                                 </script>
-<!--                                <li><a href="#cardFormatModal" data-uk-modal>Edit Card Format</a>-->
-                                    <!--begin Card format modal-->
-                                    <!--begin Card format modal-->
-<!--                                    <div id="cardFormatModal" class="uk-modal">-->
-<!--                                    <div class="editCard uk-modal-dialog">-->
-<!--                                        <a class="uk-modal-close uk-close"></a>-->
-                                                
-<!--
-                                        <form class="uk-form-horizontal" >
-                                            <fieldset>
-                                                <h1>Edit Card Format</h1>
-                                                <div class="uk-form-row">
-                                                <a onclick = "showDivContent()">Add short text field</a> <br/>
-                                                <a href = "#">Add long text field</a> <br/>
-                                                <a href = "#">Add date field</a> <br/>
-                                                </div>
-
-                                                <button onclick="createShortTF()">Try it</button>
-                                                
-                                                <script>
-                                                function showDivContent()
-                                                {
-                                                 var listItem = document.getElementById('testme');
-                                                 var myContent = document.getElementById('myDiv').innerHTML;
-                                                 listItem.innerHTML = myContent;
-                                                }
-                                                </script>
-
-
-                                                <div  id="myDiv" class="hidden-option">
--->
-<!--
-                                                     <input type="text" placeholder="Label"> <input type="text" placeholder="Content">
-                                                </div>
-
-                                                <div class="uk-form-row">
-                                                    <div id = "testme"></div>
-                                                </div>
-
-                                                <div class="uk-form-row">
-                                                    <label class="uk-form-label" for="">Title:</label>
-                                                    <input type="text" placeholder="Title">
-                                                    <span class="uk-form-help-inline"></span>
-                                                </div>
-                                                <div class="uk-form-row">
-                                                    <label class="uk-form-label" for="">Description:</label>
-                                                    <textarea cols="40" rows="5" placeholder="">description</textarea>
-                                                </div>
-                                                <div class="uk-form-row">
-                                                    <label class="uk-form-label" for="">Text Data 1:</label>
-                                                    <textarea cols="40" rows="5" placeholder="">data goes here</textarea>
-                                                </div>
-                                                <br/> 
-                                                <div class="uk-form-row" id = "thumbs">
-                                                    <input type="hidden" name="animal">
-                                                    <label class="uk-form-label" for="">Color: </label>
-                                                    <img src = "styles/pics/colorblocks/purple.jpg">
-                                                    <img src = "styles/pics/colorblocks/darkblue.jpg">
-                                                    <img src = "styles/pics/colorblocks/lightblue.jpg">
-                                                    <img src = "styles/pics/colorblocks/green.jpg">
-                                                    <img src = "styles/pics/colorblocks/yellow.jpg">
-                                                    <img src = "styles/pics/colorblocks/pink.jpg">
-                                                    <img src = "styles/pics/colorblocks/red.jpg">
-                                                    <img src = "styles/pics/colorblocks/grey.jpg">
-                                                </div> 
--->
-<!--
-                                                <br/>             
-                                                <div>
-                                                    <button class="uk-button uk-button-large button">Save Changes</button>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
--->
-                                    <!--end edit card modal modal-->
-<!--                                </li>-->
-                                    
-
                                 <li><a href="#" onclick="logout();">Log Out</a></li>
                             </ul>
                         </div>  

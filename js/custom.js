@@ -81,22 +81,30 @@ function columns(c1, c2, colnum){
     green = Math.round(green/colnum);
     var diff = [red,green,blue];
 
-
-    for(x = 1; x <= colnum; x++){
-        diff = [red*(x-1), green*(x-1), blue*(x-1) ];
-        var hold = "col" + x;
-        document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
+    if(columndata != undefined || columndata != null){
+        for(x = 1; x <= colnum; x++){
+            diff = [red*(x-1), green*(x-1), blue*(x-1) ];
+            var hold = "col" + x;
+            if(document.getElementById(hold) != undefined || document.getElementById(hold) != null){
+                document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
+            }
+        }
+    } else {
+        //no columns yet
     }
 }
 function changeColumn(card){
 	var columnNumber = card.parentNode.parentNode.getAttribute('data-cbreeze-columnID');
     console.log(columnNumber);
+    var cardid = card.getAttribute('data-cbreeze-cardid');
 	for(i = 0; i < carddata.length; i++){
-		if(carddata[i]["info"]["cardID"] == card.getAttribute('data-cbreeze-cardid')){
+		if(carddata[i]["info"]["cardID"] == cardid){
 			carddata[i]["info"]["columnID"] = columnNumber;
 			console.log(columnNumber);
 		}
 	}
+    var currentuser = JSON.parse(localStorage.getItem("currentuser"));
+    addAction(cardid, currentuser, "Moved the card", columnNumber);
     //now we change the cards on the server end
     var cardsstring = JSON.stringify(carddata);
     var uploadchanges = new XMLHttpRequest;
