@@ -90,7 +90,7 @@ function popupaction(cardID){
                 var datet = moment(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
                 cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype;
                 if(!(zoomcard["activities"][l].actiontype == "Edited this card") && !(zoomcard["activities"][l].actiontype == "Made this card") && !(zoomcard["activities"][l].actiontype == "Moved this card")){
-                    cardactivities += " with: <code>"+zoomcard["activities"][l].newdata+"</code> at "+datet+"</li>";
+                    cardactivities += " with: <code>"+zoomcard["activities"][l].newdata[0]+"</code> at "+datet+"</li>";
                 }
                 if(zoomcard["activities"][l].actiontype == "Moved this card"){
                     var meh = zoomcard["activities"][l].newdata;
@@ -137,6 +137,7 @@ function commenting(cardID) {
         callback: function(value) {
             //generate the timestamp when the action was made:
             var currentuser = JSON.parse(localStorage.getItem("currentuser"));
+            console.log(value);
             addAction(cardID, currentuser, "Commented", value);
         }
     });
