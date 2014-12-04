@@ -90,7 +90,7 @@ function popupaction(cardID){
                 var datet = moment(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
                 cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype;
                 if(!(zoomcard["activities"][l].actiontype == "Edited this card") && !(zoomcard["activities"][l].actiontype == "Made this card") && !(zoomcard["activities"][l].actiontype == "Moved this card") && zoomcard["activities"][l].newdata != null){
-                    cardactivities += " with: <code>"+zoomcard["activities"][l].newdata.data+"</code> at "+datet+"</li>";
+                    cardactivities += " with: <p>"+zoomcard["activities"][l].newdata.data+"</p> at "+datet+"</li>";
                     console.log("In Renderer.js");
                     console.log(zoomcard["activities"][l].newdata);
                 }

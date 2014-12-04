@@ -334,6 +334,12 @@ li {
 	color: #dd0055;
 }
 
+#card-activity p{
+	font-size: 12px;
+	font-family: Consolas, monospace, serif;
+	color: #dd0055;
+}
+
 #edit-card-icon {
 	display: inline-block;
 	float: right;
