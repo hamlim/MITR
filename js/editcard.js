@@ -201,8 +201,11 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         //ltf changes
                         //--------------------------------------------------
-                        for(e=0; e<data.ltf.length; e++){
-                            if(data.ltf.constructor === Array){
+                        if(typeof data.ltf === 'string' || data.ltf instanceof String){
+                            //vex is returning only one string, because only one field was edited
+                            
+                        } else {
+                            for(e=0; e<data.ltf.length; e++){
                                 if(data.ltf[e].length != 0 && data.ltf[e] != carddata[q]["ltf-fields"][e].fielddata){
                                     var obj = {};
                                     obj.fielddata = data.ltf[e];
@@ -210,17 +213,17 @@ function popupeditcard(cardID){
                                     obj.fieldname = carddata[q]["ltf-fields"][e].fieldname;
                                     carddata[q]["ltf-fields"][e] = obj;
                                 }
-                            } else {
-                                //only one string changed
-                                //find out what string.
-                                
                             }
                         }
+                        
                         //--------------------------------------------------
                         //stf changes
                         //--------------------------------------------------
-                        for(r=0; r<data.stf.length; r++){
-                            if(data.stf.constructor === Array){
+                        if(typeof data.stf === 'string' || data.stf instanceof String){
+                            //only one string was changed
+                            
+                        } else {
+                            for(r=0; r<data.stf.length; r++){
                                 if(data.stf[r] != carddata[q]["stf-fields"][r].fielddata){
                                     var obj = {};
                                     obj.fielddata = data.stf[r];
@@ -228,16 +231,16 @@ function popupeditcard(cardID){
                                     obj.fieldname = carddata[q]["stf-fields"][r].fieldname;
                                     carddata[q]["stf-fields"][r] = obj;
                                 }
-                            } else {
-                                //only one string changed
-                                
                             }
                         }
                         //--------------------------------------------------
                         //date changes
                         //--------------------------------------------------
-                        for(t=0; t<data.date.length; t++){
-                            if(data.date.constructor === Array){
+                        if(typeof data.date === 'string' || data.date instanceof String){
+                            //only one date was changed
+                            
+                        } else {
+                            for(t=0; t<data.date.length; t++){
                                 //parse date format
                                 var date = moment(data.date[t]);
                                 var unix = moment(date).format("x");
@@ -250,9 +253,6 @@ function popupeditcard(cardID){
                                     obj.fieldname = carddata[q]["date-fields"][t].fieldname;
                                     carddata[q]["date-fields"][t] = obj;
                                 }  
-                            } else {
-                                //only one date
-                                
                             }
                         }
                         
