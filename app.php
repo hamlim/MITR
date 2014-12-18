@@ -16,6 +16,7 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!--links to stylesheets-->
         <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
+        <link rel="stylesheet" type="text/css" href="styles/vendor/materialize.css" />
         <meta name="mobile-web-app-capable" content="yes"> <!--Allows for mobile app launch. -->
         <meta name="apple-mobile-web-app-cpable" content="yes">
         <!--link to js-->
@@ -26,6 +27,7 @@
         <ul id = "columnslist">
         
         </ul>
+        <script type="text/javascript" src="js/vendor/materialize.js"></script>
         <script type="text/javascript" src="js/editcard.js"></script>
         <script type="text/javascript" src="js/formatcard.js"></script>
         <script type="text/javascript" src="js/makecols.js"></script>
