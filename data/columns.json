@@ -3,5 +3,10 @@
         "columnname": "Example Column",
         "columnID": 1,
         "columnorder": 1
+    },
+    {
+        "columnname": "Archive",
+        "columnID": 2,
+        "columnorder": 1000
     }
 ]

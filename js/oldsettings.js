@@ -18,7 +18,7 @@ $("#general-settings-btn").click(function(){
         //username set/updated
         userobj["username"] = usern;
         var unam = document.getElementById('username');
-        unam.innerHTML = "<i class='uk-icon-chevron-down'></i>"+usern;
+        unam.innerHTML += usern;
     }
     if((oldpass != null || oldpass != undefined) && oldpass.length != 0){
         if(newpass != null || newpass != undefined){
@@ -82,12 +82,6 @@ $("#general-settings-btn").click(function(){
     setuserup.setRequestHeader("Content-Type", "application/json");
     var aluserstring = JSON.stringify(alus); //turn the JSON into a string
     setuserup.send(aluserstring);
-    
-    //alert
-    alert("Settings changed.");
-    oldpass = "";
-    newpass = "";
-    newpassconf = "";
 });
 
 
@@ -129,7 +123,7 @@ $("#admin-add-user").click(function(){
         var resdata = JSON.parse(data);
         var allusers;
         allusers = resdata; //set updated users to alus var
-//        console.log(allusers);
+        console.log(allusers);
         return allusers;
     }
     //gau_data = all users
@@ -143,7 +137,6 @@ $("#admin-add-user").click(function(){
     upload.setRequestHeader("Content-Type", "application/json");
     var gau_string = JSON.stringify(gau_data); //turn the JSON into a string
     upload.send(gau_string);
-    alert("User added!");
 });
 //remove user funtionality
 $("#admin-remove-user").click(function() {

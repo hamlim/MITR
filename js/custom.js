@@ -294,6 +294,3 @@ $.fn.sortable = function(options) {
 			});
 		});
 
-
-
-

@@ -43,13 +43,13 @@ function popupmodal(cardID){
             stf += "</ul></li>";
             var ltf = "<li id='card-ltf-fields'><ul>";
             for(k=0; k<zoomcard["ltf-fields"].length; k++){
-                ltf += "<li id='card-ltf-field'>"+zoomcard["ltf-fields"][k].fieldname + ": <code>"+zoomcard["ltf-fields"][k].fielddata+"</code></li>";
+                ltf += "<li id='card-ltf-field'>"+zoomcard["ltf-fields"][k].fieldname + ": <p>"+zoomcard["ltf-fields"][k].fielddata+"</p></li>";
             }
             ltf += "</ul></li>";
             var dat = "<li id='card-date-fields'><ul>";
             for(m=0; m<zoomcard["date-fields"].length; m++){
                 var unix_timestamp = zoomcard["date-fields"][m].fielddata;
-                var dateinfo = moment(unix_timestamp).format("dddd, MMMM Do YYYY, h:mm:ss a");
+                var dateinfo = moment(parseInt(unix_timestamp)).format("dddd, MMMM Do YYYY, h:mm:ss a");
                 dat += "<li id='card-date-field'>"+zoomcard["date-fields"][m].fieldname + ": <code>"+dateinfo+"</code></li>";
             }
             dat += "</ul></li>";
@@ -89,12 +89,14 @@ function popupaction(cardID){
                 var now = moment(unix_timestamp);
                 var datet = moment(now).format("dddd, MMMM Do YYYY, h:mm:ss a");
                 cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype;
-                if(!(zoomcard["activities"][l].actiontype == "Edited this card") && !(zoomcard["activities"][l].actiontype == "Made this card") && !(zoomcard["activities"][l].actiontype == "Moved this card")){
-                    cardactivities += " with: <code>"+zoomcard["activities"][l].newdata+"</code> at "+datet+"</li>";
+                if(!(zoomcard["activities"][l].actiontype == "Edited this card") && !(zoomcard["activities"][l].actiontype == "Made this card") && !(zoomcard["activities"][l].actiontype == "Moved this card") && zoomcard["activities"][l].newdata != null){
+                    cardactivities += " with: <p>"+zoomcard["activities"][l].newdata.data+"</p> at "+datet+"</li>";
+                    console.log("In Renderer.js");
+                    console.log(zoomcard["activities"][l].newdata);
                 }
                 if(zoomcard["activities"][l].actiontype == "Moved this card"){
                     var meh = zoomcard["activities"][l].newdata;
-                    var int = meh.columnID;
+                    var int = meh.data;
                     for(j=0; j<columndata.length; j++){
                         if(int == columndata[j].columnID){
                             var columnname = columndata[j].columnname;

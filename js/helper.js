@@ -21,8 +21,8 @@ function addAction(cardid, user, action, extrainfo){
     newact["actiontype"] = action;
     newact["olddata"] = null;
     if(action == "Moved the card"){
-        var obj = [];
-        obj["columnID"] = extrainfo;
+        var obj = {};
+        obj.data = extrainfo;
         newact["newdata"] = obj;
     } else if(action == "Edited the card"){
         newact["newdata"] = null;
@@ -32,8 +32,8 @@ function addAction(cardid, user, action, extrainfo){
         newact["newdata"] = null; //can't set it equal to the card data because it becomes circular
     } else {
         //commented on the card
-        var obj = [];
-        obj["comment"] = extrainfo;
+        var obj = {};
+        obj.data = extrainfo;
         newact["newdata"] = obj;
     }
     newact["parent_actionID"] = null; //will be changed when reply works with comments
@@ -67,8 +67,14 @@ function addAction(cardid, user, action, extrainfo){
         var uploadactions = new XMLHttpRequest;
         uploadactions.open("POST", "./ascf.php", true);
         uploadactions.setRequestHeader("Content-Type", "application/json");
-        uploadactions.send();
+        uploadactions.send(carddatastring);
     }
+    else{
+        console.log("helper undefined");
+    }
+    
+    
+    
     console.log(carddata);
     console.log("Done with Add Action function call.");
 }
