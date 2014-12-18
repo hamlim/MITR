@@ -21,7 +21,7 @@ if(count == undefined){
 }
 columns(start, end, count);
 //popupmodal(cardID)
-function popupmodal(cardID){
+function popupmodal(cardID){ //card info
     for(i=0; i<carddata.length; i++){
         if(cardID == carddata[i]["info"].cardID){
             //now we construct the card content
@@ -77,7 +77,7 @@ function popupmodal(cardID){
     }
 }
 
-function popupaction(cardID){
+function popupaction(cardID){ //card activities
    for(i=0; i<carddata.length; i++){
         if(cardID == carddata[i]["info"].cardID){
             //now we construct the card content
@@ -131,7 +131,7 @@ function popupaction(cardID){
         }
     } 
 }
-function commenting(cardID) {
+function commenting(cardID) { //handling comments
     vex.dialog.prompt({
         escapeButtonCloses: false,
         overlayClosesOnClick: false,
