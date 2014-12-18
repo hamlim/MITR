@@ -2,11 +2,21 @@
     {
         "columnname": "Example Column",
         "columnID": 1,
-        "columnorder": 1
+        "columnorder": 3
     },
     {
         "columnname": "Archive",
         "columnID": 2,
-        "columnorder": 1000
+        "columnorder": 4
+    },
+    {
+        "columnname": "Testing 1",
+        "columnID": 3,
+        "columnorder": 1
+    },
+    {
+        "columnname": "testing again",
+        "columnID": 4,
+        "columnorder": 2
     }
 ]
