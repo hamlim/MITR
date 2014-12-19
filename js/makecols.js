@@ -88,36 +88,41 @@ for(i=0; i<colu.length; i++){ //iterate through columns
 //            console.log(color);
             var darkblue = {
                 name: "Dark blue",
-                hex: "#4a5e77"
+                hex: "#2962ff"
             };
             var green = {
                 name: "Green",
-                hex: "#bae756"
+                hex: "#00c853"
             };
             var grey = {
                 name: "Grey",
-                hex: "#5f5f5f"
+                hex: "#607d8b"
             };
             var lightblue = {
                 name: "Light blue",
-                hex: "#4ecdc4"
+                hex: "#0091ea"
             };
             var pink = {
                 name: "Pink",
-                hex: "#ff6b6b"
+                hex: "#c51162"
             };
             var purple = {
                 name: "Purple",
-                hex: "#9970a8"
+                hex: "#aa00ff"
             };
             var red = {
                 name: "Red",
-                hex: "#c54d57"
+                hex: "#d50000"
             };
             var yellow = {
                 name: "Yellow",
-                hex: "#f5ef65"
+                hex: "#ffd600"
             };
+            //activity color
+            var activity = {
+                name: "Action",
+                hex: "#ff3d00" //Deep Orange accent-3 in material colors
+            }
             var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
 //            console.log(cccs);
             for(x=0; x<cccs.length; x++){
