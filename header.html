@@ -49,6 +49,7 @@
             var colstring = localStorage.getItem("columns");
 //            alert("Header columnstring: " + colstring);
             var columndata = JSON.parse(colstring);
+            var numcolumns = columndata.length;
             var cardstring = localStorage.getItem("cards");
             var carddata = JSON.parse(cardstring);
         </script>
@@ -173,28 +174,39 @@
                                             <input type="text" id="admin-add-column-name">
                                         </div>
                                         <div class="input-field col s4">
-                                            <label>Column Order:</label>
-                                            <input type="number" id="admin-add-column-order" min="1">
+                                            <h6>Column Order:</h6>
+                                            <p class="range-field" id="range-parent">
+                                                <script type="text/javascript">
+                                                    var rangeparent = document.getElementById("range-parent");
+                                                    var num = numcolumns+1;
+                                                    rangeparent.innerHTML = "<input type='range' id='admin-add-column-order' min='0' max='"+num+"'/>";
+                                                </script>
+                                            </p>
+<!--                                            <input type="number" id="admin-add-column-order" min="1">-->
                                         </div>
                                         <div class="input-field col s2">
                                             <button type="button" id="admin-add-column" class="waves-effect waves-light btn">Add Column</button>
                                         </div>
                                     </div>
                                     </br>
-                                    <div class="panel input-field">
+                                    <div class="row panel input-field">
                                         <h5>Remove Column:</h5>
 <!--                                        <label class="uk-form-label">Remove Column:</label>-->
-                                        <select id="admin-remove-column-name">
-                                            <script>
-                                                var addedstring = "";
-                                                for(i=0; i<columndata.length; i++){
-                                                    addedstring += "<option>"+columndata[i].columnname+"</option>";
-                                                }
-                                                var select = document.getElementById("admin-remove-column-name");
-                                                select.innerHTML = addedstring;
-                                            </script>
-                                        </select>
-                                        <button type="button" id="admin-remove-column" class="waves-effect waves-light btn">Remove Column</button>
+                                        <div class="col s6">
+                                            <select id="admin-remove-column-name">
+                                                <script>
+                                                    var addedstring = "";
+                                                    for(i=0; i<columndata.length; i++){
+                                                        addedstring += "<option>"+columndata[i].columnname+"</option>";
+                                                    }
+                                                    var select = document.getElementById("admin-remove-column-name");
+                                                    select.innerHTML = addedstring;
+                                                </script>
+                                            </select>
+                                        </div>
+                                        <div class="col s3 offset-s1">
+                                            <button type="button" id="admin-remove-column" class="waves-effect waves-light btn">Remove Column</button>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s2 offest-s5">
