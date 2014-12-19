@@ -389,3 +389,6 @@ li {
     bottom: 20px;
     right: 20px;
 }
+fieldset {
+    border: 0px !important;
+}
