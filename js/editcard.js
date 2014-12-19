@@ -137,7 +137,7 @@ function popupeditcard(cardID){
         var now = moment(cad["date-fields"][y].fielddata);
         var datet = moment(now).format("YYYY MM DD");
         //attempts at fixing the date format so jQuery understands it
-        fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedate'><label for='dates'>"+cad["date-fields"][y].fieldname+":</label><div class='vex-custom-input-wrapper'><input name='date' type='date' value='"+datet+"'/></div></div></div><br/>";   
+        fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedate'><label for='dates'>"+cad["date-fields"][y].fieldname+":</label><div class='vex-custom-input-wrapper'><input name='date' type='date' value='"+datet+"' class='datepicker'/></div></div></div><br/>";   
     }
     fdate += "</div><br/>";
     // now compile all parts

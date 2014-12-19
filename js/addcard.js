@@ -95,7 +95,7 @@ function popupaddcard(){
         //all dates
         var fdate = "<div class='date-edit-content'>";
         for(y=0; y<dates.length; y++){
-            fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedate'><label for='dates'>"+dates[y]+":</label><div class='vex-custom-input-wrapper'><input name='date' type='date' value=''/></div></div></div><br/>";   
+            fdate += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedate'><label for='dates'>"+dates[y]+":</label><div class='vex-custom-input-wrapper'><input name='date' type='date' value='' class='datepicker'/></div></div></div><br/>";   
         }
         fdate += "</div><br/>";
         // now compile all parts
