@@ -1,42 +1,42 @@
 //color codes
 var purple = new Object();
-purple.first = "#3D2D43";
-purple.last = "#E0D4E5";
+purple.first = "#4a148c";
+purple.last = "#f3e5f5";
 purple.name = "Purple";
 
 var blue = new Object();
-blue.first = "#25303C";
-blue.last = "#C9CFD6";
+blue.first = "#0d47a1";
+blue.last = "#e3f2fd";
 blue.name = "Blue";
 
 var teal = new Object();
-teal.first = "#1F524E";
-teal.last = "#CAF0ED";
+teal.first = "#004d40";
+teal.last = "#e0f2f1";
 teal.name = "Teal";
 
 var green = new Object();
-green.first = "#4A5C22";
-green.last = "#CEEE89";
+green.first = "#1b5e20";
+green.last = "#e8f5e9";
 green.name = "Green";
 
 var yellow = new Object();
-yellow.first = "#7A7832";
-yellow.last = "#F8F5A2";
+yellow.first = "#f57f17";
+yellow.last = "#fffde7";
 yellow.name = "Yellow";
 
 var red = new Object();
-red.first = "#B24B4B";
-red.last = "#FFD3D3";
+red.first = "#b71c1c";
+red.last = "#ffebee";
 red.name = "Red";
 
 var maroon = new Object();
-maroon.first = "#762E35";
-maroon.last = "#E7B8BC";
+maroon.first = "#880e4f";
+maroon.last = "#fce4ec";
 maroon.name = "Maroon";
 
 var grey = new Object();
-grey.first = "#262626";
-grey.last = "#CFCFCF";
+grey.first = "#212121";
+grey.last = "#fafafa";
 grey.name = "Grey";
 
 //array of all background colors

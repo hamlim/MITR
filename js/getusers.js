@@ -1,3 +1,6 @@
+// script to be called by login.html
+
+
 //The first thing to do is to get from the server the list of cards
 
 submitbtn.click(function() {
