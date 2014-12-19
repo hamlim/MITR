@@ -384,3 +384,8 @@ li {
 	font-family:'RobotoLight';
 	src: url('fonts/Roboto-Light.ttf');
 }
+#addcard-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

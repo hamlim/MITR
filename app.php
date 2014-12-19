@@ -27,6 +27,7 @@
         <ul id = "columnslist">
         
         </ul>
+        <a class="btn-floating waves-effect waves-light blue darken-4" id="addcard-btn" onclick="popupaddcard();"><i class="mdi-content-add"></i></a>
         <script type="text/javascript" src="js/vendor/materialize.js"></script>
         <script type="text/javascript" src="js/editcard.js"></script>
         <script type="text/javascript" src="js/formatcard.js"></script>
