@@ -89,41 +89,45 @@
                 <!-- SETTINGS -->
                 <ul id="settings-tabs" class=""><!-- Removed class: uk-switcher -->
                     <li id="accountSettings" class="tab-content">
-                        <form class="uk-form-horizontal" >
-                            <fieldset>
-                                <h1>Account settings</h1>
-                                <div class="panel input-field">
-                                    <label class="uk-form-label">Set Name:</label>
-                                    <input type="text" id="username-input">
-<!--                                    <span class="uk-form-help-inline"></span>-->
-                                </div>
-                                <br/>
-                                <div class="panel">
-                                    <h5>Password Reset:</h5>
-                                    <div class="input-field">
-                                        <label class="uk-form-label">Current Password:</label>
-                                        <input type="password" id="oldpass">
+                        <div class="row">
+                            <form class="col s12" >
+                                <fieldset>
+                                    <div class="row">
+                                        <h1>Account settings</h1>
+                                        <div class="panel input-field">
+                                            <label class="uk-form-label">Set Name:</label>
+                                            <input type="text" id="username-input">
+        <!--                                    <span class="uk-form-help-inline"></span>-->
+                                        </div>
                                     </div>
-                                    <div class="input-field">
-                                        <label class="uk-form-label">New Password:</label>
-                                        <input type="password" id="newpass">
+                                    <div class="row">
+                                        <h5>Password Reset:</h5>
+                                        <div class="input-field col s4">
+                                            <label class="uk-form-label">Current Password:</label>
+                                            <input type="password" id="oldpass">
+                                        </div>
+                                        <div class="input-field col s4">
+                                            <label class="uk-form-label">New Password:</label>
+                                            <input type="password" id="newpass">
+                                        </div>
+                                        <div class="input-field col s4">
+                                            <label class="uk-form-label">Confirm New Password:</label>
+                                            <input type="password" id="newpassconf">
+                                        </div>
                                     </div>
-                                    <div class="input-field">
-                                        <label class="uk-form-label">Confirm New Password:</label>
-                                        <input type="password" id="newpassconf">
+                                    <div class="row">
+                                        <div class="panel input-field col s8 offset-s2">
+                                            <label>Color Scheme:</label>
+                                            <select id="colorSelect" class="disabled"></select>
+                                            <div class="colorBox"></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <br/>
-                                <div class="panel input-field">
-                                    <label class="uk-form-label">Color Scheme:</label>
-                                    <select id="colorSelect" class="disabled"></select>
-                                    <div class="colorBox"></div>
-                                </div>
-                                <div>
-                                    <button type="button" id="general-settings-btn" class="uk-button-primary uk-button-large button">Save Changes</button>
-                                </div>
-                            </fieldset>
-                        </form>
+                                    <div class="row">
+                                        <button type="button" id="general-settings-btn" class="uk-button-primary uk-button-large button">Save Changes</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
                     </li>
                     <li id="adminSettings" class="tab-content panel white">
                         <div class="row">
@@ -196,9 +200,9 @@
                                         <button type="button" class="waves-effect waves-light btn" onclick="popupformatcard();" id="make-card-btn">Edit Card Format</button>
                                     </div>
                                 </fieldset>
-                        </form>
-                    </div>
-                </li>  
+                            </form>
+                        </div>
+                    </li>  
                     <li id="login-info" class="tab-content">
                         <div class="panel">
                             <ul>
