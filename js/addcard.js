@@ -63,7 +63,7 @@ function popupaddcard(){
         //---------------------------------------------
         //color codes
         var fcolor = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedropdown'><label for='colorcode'>Card Colorcode:</label>";
-        var optionstring = "<div class='vex-custom-input-wrapper'><select name='colorcode' id='card-color-select'>";
+        var optionstring = "<div class='vex-custom-input-wrapper'><select name='colorcode'  class='colorselect disabled' id='card-color-select'>";
         for(j=0; j<cccs.length; j++){
             optionstring += "<option>"+cccs[j].name+"</option>";
         }
@@ -72,7 +72,7 @@ function popupaddcard(){
         //---------------------------------------------
         //columnID
         var fcolid = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedropdown'><label for='columnid'>Card Column:</label>";
-        var coloptstring = "<div class='vex-custom-input-wrapper'><select name='columnid' id='column-name-select'>";
+        var coloptstring = "<div class='vex-custom-input-wrapper'><select name='columnid'  class='colorselect disabled' id='column-name-select'>";
         for(q=0; q<colnames.length; q++){
             coloptstring += "<option>" + colnames[q] + "</option>";
         }

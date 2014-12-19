@@ -392,3 +392,6 @@ li {
 fieldset {
     border: 0px !important;
 }
+.colorselect {
+    display:inline-block;
+}

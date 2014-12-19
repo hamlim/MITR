@@ -1,3 +1,10 @@
+/*
+makecols.js
+Functions/uses: Render columns and cards on the page
+Only to be run on page load/reload
+
+*/
+
 //columndata = JSON of columns
 
 //first sort the columns by their order
