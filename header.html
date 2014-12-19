@@ -94,7 +94,7 @@
                             <form class="col s12" >
                                 <fieldset>
                                     <div class="row">
-                                        <h1>Account settings</h1>
+                                        <h1>Account Settings</h1>
                                         <h5>Set Username:</h5>
                                         <div class="panel input-field">
                                             <label class="uk-form-label">Name:</label>
@@ -143,8 +143,11 @@
                                                 <input type="email" id="admin-add-email">
                                             </div>
                                             <div class="input-field col s2">
-                                                <label for="admin-add-admin">Is this user an Administrator?</label>
-                                                <input type="checkbox" name="admin-status" id="admin-add-admin" value="admin">
+                                                <select id="admin-add-admin" class="disabled">
+                                                    <option value="admin">Is an Admin</option>
+                                                    <option value="not-admin">Is not an Admin</option>
+                                                </select>
+<!--                                                <input type="checkbox" name="admin-status" id="admin-add-admin" value="admin">-->
                                             </div>
                                             <div class="input-field col s4">
                                                 <button type="button" id="admin-add-user" class="waves-effect waves-light btn">Add user</button>
@@ -219,7 +222,9 @@
                     </li>  
                     <li id="login-info" class="tab-content panel white">
                         <div class="panel">
-                            <h5>Initial password for new users is "seamonkey". Make sure users change password upon initial login.</h5>
+                            <p class="flow-text">
+                                Initial password for new users is "seamonkey". Make sure users change password upon initial login.
+                            </p>
                         </div>
                     </li>                                    
                 </ul>
