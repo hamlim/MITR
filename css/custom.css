@@ -396,5 +396,5 @@ fieldset {
     display:inline-block;
 }
 .edit-card-icon {
-    color: white;
+    color: white !important;
 }
