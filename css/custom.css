@@ -395,3 +395,6 @@ fieldset {
 .colorselect {
     display:inline-block;
 }
+.edit-card-icon {
+    color: white;
+}
