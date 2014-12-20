@@ -94,47 +94,57 @@ for(i=0; i<colu.length; i++){ //iterate through columns
             };
             var darkblue = {
                 name: "Dark blue",
-                hex: "#2962ff" // blue accent-4
+                hex: "#2962ff", // blue accent-4
+                materialname: "blue accent-4"
             };
             var green = {
                 name: "Green",
-                hex: "#00c853" // green accent-4
+                hex: "#00c853", // green accent-4
+                materialname: "green accent-4"
             };
             var grey = {
                 name: "Grey",
-                hex: "#607d8b" // blue-grey
+                hex: "#607d8b", // blue-grey
+                materialname: "blue-grey"
             };
             var lightblue = {
                 name: "Light blue",
-                hex: "#0091ea" // light-blue accent-4
+                hex: "#0091ea", // light-blue accent-4
+                materialname: "light-blue accent-4"
             };
             var pink = {
                 name: "Pink",
-                hex: "#c51162" // pink accent-4
+                hex: "#c51162", // pink accent-4
+                materialname: "pink accent-4"
             };
             var purple = {
                 name: "Purple",
-                hex: "#aa00ff" // purple accent-4
+                hex: "#aa00ff", // purple accent-4
+                materialname: "purple accent-4"
             };
             var red = {
                 name: "Red",
-                hex: "#d50000" // red accent-4
+                hex: "#d50000", // red accent-4
+                materialname: "red accent-4"
             };
             var yellow = {
                 name: "Yellow",
-                hex: "#ffd600" // yellow accent-4
+                hex: "#ffd600", // yellow accent-4
+                materialname: "yellow accent-4"
             };
             //activity color
             var activity = {
                 name: "Action",
-                hex: "#cddc39" // lime in material colors
+                hex: "#cddc39", // lime in material colors
+                materialname: "lime"
             }
             var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
 //            console.log(cccs);
             for(x=0; x<cccs.length; x++){
                 if(cccs[x].name == color){
 //                    console.log(cccs[x]);
-                    var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><a href='#editCardModal' id='edit-card-icon' onclick='popupeditcard("+id+")' ><i class='uk-icon-pencil-square-o'></i></a><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"</span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'>Card Information</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
+                    var cardtext = "<li class='' data-cbreeze-cardid='"+id+"'><div class='row'><div class='col s12'><div class=''><div class='card "+cccs[x].materialname+"'><div class='card-content white-text'><div class='center col s12'><span class='card-title'><div class='col s2'>"+pri+"</div><div class='col s8'>"+na+"</div><div class='col s2'><a href='#' class='btn-flat' onclick='popupeditcard("+id+")'><i class='mdi-editor-border-color'></i></a></div></span></div><p>[WHAT GOES HERE?]</p></div><div class='card-action center'><a href='#card"+id+"' onclick='popupmodal("+id+");'>Card Information</a><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></div></div></div></div></div></li>";
+                    //var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><a href='#editCardModal' id='edit-card-icon' onclick='popupeditcard("+id+")' ><i class='uk-icon-pencil-square-o'></i></a><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"</span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'></div>Card Information</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
                 }
             }
 //            console.log(cardtext);
