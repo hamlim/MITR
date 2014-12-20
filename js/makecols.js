@@ -92,43 +92,42 @@ for(i=0; i<colu.length; i++){ //iterate through columns
                 pfn: fieldname,
                 pfd: fielddata
             };
-//            console.log(color);
             var darkblue = {
                 name: "Dark blue",
-                hex: "#2962ff"
+                hex: "#2962ff" // blue accent-4
             };
             var green = {
                 name: "Green",
-                hex: "#00c853"
+                hex: "#00c853" // green accent-4
             };
             var grey = {
                 name: "Grey",
-                hex: "#607d8b"
+                hex: "#607d8b" // blue-grey
             };
             var lightblue = {
                 name: "Light blue",
-                hex: "#0091ea"
+                hex: "#0091ea" // light-blue accent-4
             };
             var pink = {
                 name: "Pink",
-                hex: "#c51162"
+                hex: "#c51162" // pink accent-4
             };
             var purple = {
                 name: "Purple",
-                hex: "#aa00ff"
+                hex: "#aa00ff" // purple accent-4
             };
             var red = {
                 name: "Red",
-                hex: "#d50000"
+                hex: "#d50000" // red accent-4
             };
             var yellow = {
                 name: "Yellow",
-                hex: "#ffd600"
+                hex: "#ffd600" // yellow accent-4
             };
             //activity color
             var activity = {
                 name: "Action",
-                hex: "#ff3d00" //Deep Orange accent-3 in material colors
+                hex: "#cddc39" // lime in material colors
             }
             var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
 //            console.log(cccs);
