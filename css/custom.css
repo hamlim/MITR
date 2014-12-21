@@ -399,3 +399,9 @@ fieldset {
     color: white !important;
     padding: 0px !important;
 }
+.fix-spacing {
+    overflow: hidden;
+}
+.card-links {
+    padding-top: 45px !important;
+}
