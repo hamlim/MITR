@@ -397,4 +397,5 @@ fieldset {
 }
 .edit-card-icon {
     color: white !important;
+    padding: 0px !important;
 }
