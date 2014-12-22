@@ -10,7 +10,7 @@
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>C-Breeze</title>
+        <title>Carpenter Point</title>
         <meta name="description" content="A web based project overviewer">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
