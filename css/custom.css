@@ -385,7 +385,7 @@ li {
 	src: url('fonts/Roboto-Light.ttf');
 }
 #addcard-btn {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
 }
