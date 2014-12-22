@@ -127,10 +127,10 @@ for(i=0; i<colu.length; i++){ //iterate through columns
                 hex: "#d50000", // red accent-4
                 materialname: "red accent-4"
             };
-            var yellow = {
-                name: "Yellow",
-                hex: "#ffd600", // yellow accent-4
-                materialname: "yellow accent-4"
+            var indigo = {
+                name: "Indigo",
+                hex: "#304ffe", // indigo accent-4
+                materialname: "indigo accent-4"
             };
             //activity color
             var activity = {
@@ -138,7 +138,7 @@ for(i=0; i<colu.length; i++){ //iterate through columns
                 hex: "#cddc39", // lime in material colors
                 materialname: "lime"
             }
-            var cccs = [darkblue, green, grey, lightblue, pink, purple, red, yellow];
+            var cccs = [darkblue, green, grey, lightblue, pink, purple, red, indigo];
 //            console.log(cccs);
             for(x=0; x<cccs.length; x++){
                 if(cccs[x].name == color){
