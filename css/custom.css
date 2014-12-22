@@ -405,3 +405,6 @@ fieldset {
 .card-links {
     padding-top: 45px !important;
 }
+.card .card-action {
+    border-top: 0px !important;
+}
