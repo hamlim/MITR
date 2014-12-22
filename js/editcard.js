@@ -203,8 +203,12 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         if(typeof data.ltf === 'string' || data.ltf instanceof String){
                             //vex is returning only one string, because only one field was edited
-                            console.log("only one field changed");
-                            
+                            console.log("only one ltf field changed");
+                            if(data.ltf.length != 0){
+                                //only one ltf was changed
+                                console.log("Only one ltf was changed");
+                                
+                            }
                         } else {
                             for(e=0; e<data.ltf.length; e++){
                                 if(data.ltf[e].length != 0 && data.ltf[e] != carddata[q]["ltf-fields"][e].fielddata){
@@ -222,8 +226,12 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         if(typeof data.stf === 'string' || data.stf instanceof String){
                             //only one string was changed
-                            console.log("only one field changed");
-                            
+                            console.log("only one stf field changed");
+                            if(data.stf.length != 0){
+                                //only one stf was changed
+                                console.log("Only one stf was changed");
+                                
+                            }
                         } else {
                             for(r=0; r<data.stf.length; r++){
                                 if(data.stf[r] != carddata[q]["stf-fields"][r].fielddata){
@@ -239,9 +247,11 @@ function popupeditcard(cardID){
                         //date changes
                         //--------------------------------------------------
                         if(typeof data.date === 'string' || data.date instanceof String){
-                            //only one date was changed
-                            console.log("only one field changed");
-                            
+                            console.log("only one date field changed");
+                            if(data.date.length != 0){
+                                //only one date was changed
+                                console.log("Only one date was changed");
+                            }
                         } else {
                             for(t=0; t<data.date.length; t++){
                                 //parse date format
