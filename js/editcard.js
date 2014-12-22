@@ -95,7 +95,7 @@ function popupeditcard(cardID){
     //---------------------------------------------
     //title
     
-    var ftitle = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizetitle'><label for='title'>Card Title:</label><div class='vex-custom-input-wrapper'><input name='title' type='text' value='" + n + "'/></div></div></div><br/>";
+    var ftitle = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizetitle'><label for='title'>Card Title:</label><div class='vex-custom-input-wrapper'><input name='title' maxlength='14' type='text' value='" + n + "'/></div></div></div><br/>";
     //---------------------------------------------
     //priority
     var fpri = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizepriority'><label for='priority'>Card Priority:</label><div class='vex-custom-input-wrapper'><input name='priority' type='number' min=1 value='"+p+"'/></div></div></div><br/>";
@@ -203,6 +203,7 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         if(typeof data.ltf === 'string' || data.ltf instanceof String){
                             //vex is returning only one string, because only one field was edited
+                            console.log("only one field changed");
                             
                         } else {
                             for(e=0; e<data.ltf.length; e++){
@@ -221,6 +222,7 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         if(typeof data.stf === 'string' || data.stf instanceof String){
                             //only one string was changed
+                            console.log("only one field changed");
                             
                         } else {
                             for(r=0; r<data.stf.length; r++){
@@ -238,6 +240,7 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         if(typeof data.date === 'string' || data.date instanceof String){
                             //only one date was changed
+                            console.log("only one field changed");
                             
                         } else {
                             for(t=0; t<data.date.length; t++){

@@ -56,7 +56,7 @@ function popupaddcard(){
         //---------------------------------------------
         //title
 
-        var ftitle = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizetitle'><label for='title'>Card Title:</label><div class='vex-custom-input-wrapper'><input name='title' type='text' value=''/></div></div></div><br/>";
+        var ftitle = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizetitle'><label for='title'>Card Title:</label><div class='vex-custom-input-wrapper'><input name='title' type='text' maxlength='14' value=''/></div></div></div><br/>";
         //---------------------------------------------
         //priority
         var fpri = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizepriority'><label for='priority'>Card Priority:</label><div class='vex-custom-input-wrapper'><input name='priority' type='number' min=1 value=''/></div></div></div><br/>";
