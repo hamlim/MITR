@@ -101,7 +101,11 @@ $("#admin-add-user").click(function(){
     var useremailelem = document.getElementById("admin-add-email");
     var useradminstatuselem = document.getElementById("admin-add-admin");
     var useremail = useremailelem.value;
-    var useradminstatus = useradminstatuselem.checked;
+    if($("#admin-add-admin").val() == "true"){
+        var useradminstatus = true;
+    } else if ($("#aadmin-add-admin").val() == "false"){
+        var useradminstatus = false;
+    }
     //create a user object then add it to the users
     var newuser = {};
     newuser["useremail"] = useremail;

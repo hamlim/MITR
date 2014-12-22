@@ -49,6 +49,7 @@ body{
 	white-space:nowrap;
 	overflow-y: hidden;
 	min-height: 100%;
+    margin-left: -50px;
 }
 
 .column{
@@ -88,6 +89,7 @@ li {
 }
 
 
+/*
 .card{
 	background-color: white;
 	height: 150px;
@@ -98,6 +100,7 @@ li {
 	margin-right: 20px;
 	margin-bottom: 30px;
 }
+*/
 .cardprvcontent {
     font-size: 1.5em;
     margin-left: auto;

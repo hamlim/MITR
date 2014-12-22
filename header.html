@@ -61,15 +61,13 @@
     </head>
     <body>
         <nav class="light-blue">
-            <div class="">
-                <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">Carpenter Point</a>
-                    <ul id="nav-mobile" class="right side-nav">
-                        <li><a href="#"></a></li>
-                        <li><a href="javascript:;" id="username">Username</i></a></li>
-                        <li><a href="javascript:;" class="tooltipped" data-position="bottom" data-tooltip="Settings" onclick="popupsettings();">Settings</a></li>
-                        <li><a href="javascript:;" class="tooltipped" data-position="bottom" data-tooltip="Logout" onclick="logout();">Logout</a></li>
-                    </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-                </div>
+            <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">Carpenter Point</a>
+                <ul id="nav-mobile" class="right side-nav">
+                    <li><a href="#"></a></li>
+                    <li><a href="javascript:;" id="username">Username</i></a></li>
+                    <li><a href="javascript:;" onclick="popupsettings();">Settings</a></li>
+                    <li><a href="javascript:;" onclick="logout();">Logout</a></li>
+                </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
         </nav>
         <!-- Settings Modal -->
@@ -136,14 +134,15 @@
                                         <h1>Admin Settings</h1>
                                         <div class="panel">
                                             <h5>Add Users:</h5>
+                                            <br/>
                                             <div class="input-field col s6">
                                                 <label>New User Email:</label>
                                                 <input type="email" id="admin-add-email">
                                             </div>
                                             <div class="input-field col s2">
                                                 <select id="admin-add-admin" class="disabled">
-                                                    <option value="admin">Is an Admin</option>
-                                                    <option value="not-admin">Is not an Admin</option>
+                                                    <option value="true">Is an Admin</option>
+                                                    <option value="false">Is not an Admin</option>
                                                 </select>
 <!--                                                <input type="checkbox" name="admin-status" id="admin-add-admin" value="admin">-->
                                             </div>
@@ -194,7 +193,7 @@
                                         <h5>Remove Column:</h5>
 <!--                                        <label class="uk-form-label">Remove Column:</label>-->
                                         <div class="col s6">
-                                            <select id="admin-remove-column-name">
+                                            <select id="admin-remove-column-name" class="disabled">
                                                 <script>
                                                     var addedstring = "";
                                                     for(i=0; i<columndata.length; i++){

@@ -7,16 +7,16 @@
 <html class="no-js">
     <head>
         <!--link to latest jquery-->
-        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<!--        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>-->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Carpenter Point</title>
         <meta name="description" content="A web based project overviewer">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<!--        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
         <!--links to stylesheets-->
-        <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />
-        <link rel="stylesheet" type="text/css" href="css/materialize.css"  media="screen,projection"/>
+<!--        <link rel="stylesheet" href="uikit-2.10.0/css/uikit.css" />-->
+<!--        <link rel="stylesheet" type="text/css" href="css/materialize.css"  media="screen,projection"/>-->
         <meta name="mobile-web-app-capable" content="yes"> <!--Allows for mobile app launch. -->
         <meta name="apple-mobile-web-app-cpable" content="yes">
         <!--link to js-->
@@ -28,13 +28,13 @@
         
         </ul>
         <a class="btn-floating waves-effect waves-light blue darken-4" id="addcard-btn" onclick="popupaddcard();"><i class="mdi-content-add"></i></a>
-        <script type="text/javascript" src="js/vendor/materialize.js"></script>
+<!--        <script type="text/javascript" src="js/vendor/materialize.js"></script>-->
         <script type="text/javascript" src="js/editcard.js"></script>
         <script type="text/javascript" src="js/formatcard.js"></script>
         <script type="text/javascript" src="js/makecols.js"></script>
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="js/renderer.js" type="text/javascript"></script>
         <script src="js/settings.js" type="text/javascript"></script>
-        <script src="js/main.js"></script>
+<!--        <script src="js/main.js"></script>-->
     </body>
 </html>
