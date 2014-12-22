@@ -80,6 +80,7 @@
                         if(admin){
                             $("#setting-tabs-heads").append("<li class='tab'><a href='#adminSettings'>Admin</a></li>");
                             $("#setting-tabs-heads").append("<li class='tab'><a href='#login-info'>Info</a></li>");
+                            $("#settings-tabs").append("<li id='login-info' class='tab-content panel white'><div class='panel'><p class='flow-text'>Initial password for new users is 'seamonkey'. Make sure users change password upon initial login.</p></div></li>");
                         }
                     </script>
                 </ul>
@@ -216,14 +217,7 @@
                                 </fieldset>
                             </form>
                         </div>
-                    </li>  
-                    <li id="login-info" class="tab-content panel white">
-                        <div class="panel">
-                            <p class="flow-text">
-                                Initial password for new users is "seamonkey". Make sure users change password upon initial login.
-                            </p>
-                        </div>
-                    </li>                                    
+                    </li>                                      
                 </ul>
                 <a href="#" class="waves-effect btn modal-close">Close</a>
             </div>
