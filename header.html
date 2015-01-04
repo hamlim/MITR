@@ -67,7 +67,8 @@
                     <li><a href="javascript:;" id="username">Username</i></a></li>
                     <li><a href="javascript:;" onclick="popupsettings();">Settings</a></li>
                     <li><a href="javascript:;" onclick="logout();">Logout</a></li>
-                </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                </ul>
+                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
             </div>
         </nav>
         <!-- Settings Modal -->
@@ -241,7 +242,6 @@
             }
             //init of materialize.js features
             $( document ).ready(function() {
-                $(".button-collapse").sideNav();
                 $('.button-collapse').sideNav({menuWidth: 240, activationWidth: 70});
                 $(".dropdown-button").dropdown();
                 $('ul.tabs').tabs();
