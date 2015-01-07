@@ -12,24 +12,22 @@ function addAction(cardid, user, action, extrainfo){
             "olddata": null,
             "actionID": 1
     },
-    */
-    console.log("In addAction function...");
-    console.log(carddata);
-    
+    */    
     var newact = {};
     newact["username"] = user.username;
     newact["actiontype"] = action;
     newact["olddata"] = null;
     if(action == "Moved the card"){
+        //to do find the column name from extrainfo
         var obj = {};
-        obj.data = extrainfo;
+        obj.data = "";
         newact["newdata"] = obj;
     } else if(action == "Edited the card"){
-        newact["newdata"] = null;
+        newact["newdata"] = "";
         //FUTURE: see edits
     } else if(action == "Made the card"){
         //made the card
-        newact["newdata"] = null; //can't set it equal to the card data because it becomes circular
+        newact["newdata"] = ""; //can't set it equal to the card data because it becomes circular
     } else {
         //commented on the card
         var obj = {};
@@ -54,14 +52,13 @@ function addAction(cardid, user, action, extrainfo){
             newact["actionID"] = aid+1;
             newact["timestamp"] = tstamp;
             carddata[n]["activities"].push(newact);
+            carddata[n]["info"].cardcolorcode = "Action"; //update the card color code because there was activity
         }
     }
-    console.log(newact);
     var carddatastring = JSON.stringify(carddata);
     localStorage.removeItem("cards");
     localStorage.setItem("cards", carddatastring);
     localStorage.setItem("cardsbackup", carddatastring);
-    
     //now we push the updated stuff to the server
     if(carddata != undefined || carddata != null){
         var uploadactions = new XMLHttpRequest;
@@ -72,9 +69,4 @@ function addAction(cardid, user, action, extrainfo){
     else{
         console.log("helper undefined");
     }
-    
-    
-    
-    console.log(carddata);
-    console.log("Done with Add Action function call.");
 }

@@ -5,12 +5,10 @@ function popupformatcard() {
     //creation of the card
     //adding the card to the local storage
     //then adding the card to the server cards.json file
-    
     //carddata is all cards
     //columndata is all columns
     //cccs is the array of card color codes
     //colors is the array of column color codes
-    
     //first we create vars content and form
     //content is the header of the modal essentially (Make Format Card)
     //form is the actual form content stuff
@@ -20,11 +18,7 @@ function popupformatcard() {
         // card description
         //
     //pre-form content
-    
     loaddata();
-    
-    console.log(cards);
-    console.log(columnsa);
     if(carddata == undefined || carddata == null){
         if(cards != undefined || cards != null){
             var carddata = cards;
@@ -39,7 +33,6 @@ function popupformatcard() {
             columndata = [];
         }
     }
-    console.log(columndata);
     var content = "<h1>Edit Card Format: </h1>";
     //form content
     //
@@ -47,37 +40,8 @@ function popupformatcard() {
     // all stfs 
     // all ltfs
     // all dates
-    // priority
-    // color code
-    // columnID
     //---------------------------------------------
-    //title
-    
-    var ftitle = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizetitle'><label for='title'>Card Title:</label><div class='vex-custom-input-wrapper'><input name='title' type='text' value='EXAMPLE' disabled/></div></div></div><br/>";
-    //---------------------------------------------
-    //priority
-    var fpri = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizepriority'><label for='priority'>Card Priority:</label><div class='vex-custom-input-wrapper'><input name='priority' type='number' min=1 value='1'/></div></div></div><br/>";
-    //---------------------------------------------
-    //color codes
-    var fcolor = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedropdown'><label for='colorcode'>Card Colorcode:</label>";
-    var optionstring = "<div class='vex-custom-input-wrapper'><select name='colorcode'  class='colorselect disabled' id='card-color-select'>";
-    for(j=0; j<cccs.length; j++){
-        optionstring += "<option>"+cccs[j].name+"</option>";
-    }
-    optionstring += "</select>";
-    fcolor += optionstring + "</div></div></div><br/>";
-    //---------------------------------------------
-    //columnID
-    var fcolid = "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizedropdown'><label for='columnid'>Card Column:</label>";
-    var coloptstring = "<div class='vex-custom-input-wrapper'><select name='columnid'  class='colorselect disabled' id='column-name-select'>";
-    for(q=0; q<columndata.length; q++){
-        coloptstring += "<option>" + columndata[q].columnname + "</option>";
-    }
-    fcolid += coloptstring + "</select></div></div></div><br/>";
-    //---------------------------------------------
-    
     //here we begin to repeat objs
-    
     //stfs
     var fstf = "<div class='stf-edit-content'><h3>Short text fields</h3><p>Fill only the forms that you will need, leave the rest empty!</p>";
     for(y=0; y<10; y++){
@@ -100,13 +64,13 @@ function popupformatcard() {
     }
     fdate += "</div><br/>";
     // now compile all parts
-    var form = ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid;
+    var form = fstf + fltf + fdate;
     vex.dialog.open({
         message: content,
         input: form,
         callback: function(data) {
             if (data === false) {
-                return console.log('Cancelled');
+                return ;
             } else {
                 console.log(data);
                 //data is all the vars that were changed
@@ -119,7 +83,6 @@ function popupformatcard() {
                     colorcode -> change to input, then check if the color code is in cccs or not, if so change
                     
                 */
-                //data.title = title
                 //the card format is being made/edited
                 var cardformat = {};
                 //--------------------------------------------------
@@ -127,23 +90,16 @@ function popupformatcard() {
                 //--------------------------------------------------
                 var info = {};
                 //title
-                //title = EXAMPLE
                 info.cardname = "EXAMPLE";
-                
                 //color code
-                info.cardcolorcode = data.colorcode;
-                
+                info.cardcolorcode = "Red";
                 //columnID
                 info.columnID = -1; //make sure it never gets rendered
-                
                 //priority
                 info.cardpriority = -1; //make sure it never gets rendered
-                
                 //cardID
                 info.cardID = -1; //make sure it never gets rendered
-                
                 cardformat["info"] = info;
-                
                 //--------------------------------------------------
                 //ltf-fields
                 //--------------------------------------------------
@@ -158,9 +114,7 @@ function popupformatcard() {
                         ltfs.push(ltf);
                     }
                 }
-                
                 cardformat["ltf-fields"] = ltfs;
-
                 //--------------------------------------------------
                 //stf fields
                 //--------------------------------------------------
@@ -174,9 +128,7 @@ function popupformatcard() {
                         stfs.push(stf);
                     }
                 }
-                
                 cardformat["stf-fields"] = stfs;
-
                 //--------------------------------------------------
                 //date fields
                 //--------------------------------------------------
@@ -192,9 +144,7 @@ function popupformatcard() {
                         dates.push(date);
                     }
                 }       
-                
                 cardformat["date-fields"] = dates;
-                
                 //initilaize activities
                 var action = {};
                 var actions = [];
@@ -206,28 +156,20 @@ function popupformatcard() {
                 action.actionID = -1;
                 action.parent_actionID = null;
                 actions.push(action);
-                
                 cardformat["activities"] = actions;
-                
                 //now we overwrite the stuff
                 //make sure to overwrite existing example card instead of providing two or more example cards
-                console.log(carddata.length);
                 if(carddata.length != 0){
-                    console.log("Why am I here?");
                     for(i=0; i<carddata.length; i++){
-                        if(carddata[i]["info"].cardID == -1){
+                        if(carddata[i].info.cardID == -1){
                             carddata[i] = cardformat;
                         }
                     }
+                    carddata.push(cardformat);
                 } else {
-                    console.log("else statement: ");
-                    console.log(cardformat);
                     carddata.push(cardformat);
                 }
-                console.log(carddata);
-                var cardstring = JSON.stringify(carddata);
-                console.log(cardstring);
-                
+                var cardstring = JSON.stringify(carddata);                
                 //now upload the cardstring
                 if(carddata != undefined || carddata != null){
                     var upload = new XMLHttpRequest;
@@ -235,7 +177,6 @@ function popupformatcard() {
                     upload.setRequestHeader("Content-Type", "application/json");
                     upload.send(cardstring);
                 }
-                //done
                 
             }
         }

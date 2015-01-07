@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="theme-color" content="#2ECC71">
         <title>Login</title>
-        <meta name="description" content="Carpenter Point Login">
+        <meta name="description" content="Pace Login">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!--links to stylesheets-->
@@ -16,9 +16,9 @@
         <script src="js/materialize.js" type="text/javascript"></script>
         <script src="uikit-2.10.0/js/uikit.min.js" type="text/javascript"></script>
     </head>
-    <body class="row loginPage"> <!-- Class removed: loginPage -->
+    <body class="row loginPage">
         <form class="col s8 offset-s2 card-panel indigo center" id="loginform">
-            <h4>Login to Carpenter Point:</h4>
+            <h4>Login to Pace:</h4>
             <div class="row">
                 <div class="input-field col s8 offset-s2">
                     <label for="email">Email: </label>
@@ -32,53 +32,39 @@
                 </div>
             </div>
             <div class="row center">
-                <button type="button" id="submit" class="btn waves-effect waves-light">Login <i class="mdi-content-send right"></i></button>
+                <button type="button" id="submit" class="btn waves-effect waves-light">Login<i class="mdi-content-send right"></i></button>
             </div>
         </form>
         <!-- ALT code begin -->
         <script type="text/javascript">
-  
             //SUBMIT FORM UPON HITTING ENTER KEY
             $('#loginform').keydown(function() {
               if (event.keyCode == 13) {
                 // As ASCII code for ENTER key is "13"
                 $("#submit").click();
-                //$('#loginform').submit(); // Submit form code
               }
             });
-
             $("#submit").click(function() {
                 var useremail = $("#email").val();
-    //            console.log("Hi: ");
-    //            console.log(useremail);
                 var password = $("#pass").val();
-    //            console.log("Hi again!");
                 var currentuser;
-                console.log("submit clicked");
-    //            console.log(password);
-    //            console.log(useremail);
                 //initialize the card request
                 var userrequest = new XMLHttpRequest;
-                var file = "./data/users.json";
+                var file = "./dat/users.json";
                 console.log("Making request to "+file);
                 userrequest.open("GET", file, false);
                 //handle the request for the card data
                 userrequest.onreadystatechange = function() {
                     if (userrequest.readyState == 4) {
                         //now we have all the users in the system
-                        //refer to formatting.js for formats of JSON docs
                         var res = userrequest.responseText;
                         currentuser = checkuser(res, useremail, password);
-
                     }
                 }
                 userrequest.send();
-                //make the request
                 //function to handle the data and check for login.html
                 function checkuser(data, email, pass){
                     var users = JSON.parse(data);
-    //                console.log("List of users");
-                    console.log(users);
                     for(i=0; i<users.length; i++){
                         if( users[i]["useremail"] == email && users[i]["password"] == pass){
                             return users[i];
@@ -86,22 +72,18 @@
                     }
                     return "ERROR";
                 }
-    //            currentuser = checkuser(datum, useremail, password);
-
                 //currentuser is either the array representing the user
                 //    or  currentuser is a string representing the error
                 if ( currentuser != "ERROR" && currentuser != ""){
-                    //ok the user is logged in
                     var userstring = JSON.stringify(currentuser);
                     localStorage.setItem("currentuser", userstring);
                     localStorage.setItem("loggedin", "true");
-                    window.location.href = "./app.php";
+                    window.location.href = "./app.html";
                 } else {
-                    alert("User email not in the database!");
+                    alert("User email or password is incorrect!");
                     window.location.href = "./login.html";
                 }
             });
         </script>
-        <!-- ALT code end -->
     </body>
 </html>

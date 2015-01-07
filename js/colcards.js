@@ -9,14 +9,13 @@ function loaddata(){
             checkcontent(columnsa, res);
         }
     }
-    var colfile = "./data/columns.json";
+    var colfile = "./dat/columns.json";
     colrequest.open("GET", colfile, false);
     colrequest.send();
 
     function checkcontent(columnsa, data){
         localStorage.setItem("columns", data);
         var column = JSON.parse(data);
-        console.log(column);
         columnsa = column;
     }
 
@@ -27,14 +26,13 @@ function loaddata(){
             checkcardcontent(cards, res);
         }
     }
-    var cardfile = "./data/cards.json";
+    var cardfile = "./dat/cards.json";
     cardrequest.open("GET", cardfile, false);
     cardrequest.send();
 
     function checkcardcontent(cards, data){
         localStorage.setItem("cards", data);
         var card = JSON.parse(data);
-        console.log(card);
         cards = card;
     }
 }

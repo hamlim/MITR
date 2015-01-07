@@ -6,15 +6,11 @@ function popupaddcard(){
     //initialize the newcard obj
     var newcard = {};
     //count the newID for the new card
-//    var newid = 0;
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].cardID == -1){
-            console.log(carddata[i]);
             example = carddata[i];
         }
-//        newid + 1;
     }
-//    newid = newid + 1;//newID is set
     //now for the ltf, stf, date info
     var dates = [];
     if(example == undefined){
@@ -39,18 +35,8 @@ function popupaddcard(){
         for(o = 0; o<columndata.length; o++){
             colnames.push(columndata[o].columnname);
         }
-
-
         //pre-form content
         var content = "<h1>Add Card: </h1>";
-        //form content
-        // all stfs 
-        // all ltfs
-        // all dates
-        // priority
-        // color code
-        // columnID
-        //
         var fbegin = "<form class='uk-form'>";
         var fend = "</form>";
         //---------------------------------------------
@@ -88,7 +74,7 @@ function popupaddcard(){
         //all ltfs
         var fltf = "<div class='ltf-edit-content'>";
         for(y=0; y<ltfs.length; y++){
-            fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizeltf'><label for='ltf'>"+ltfs[y]+":</label><div class='vex-custom-field-wrapper'><textarea name='ltf' rows='4' placeholder='' value=''/></textarea></div></div></div><br/>";   
+            fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizeltf'><label for='ltf'>"+ltfs[y]+":</label><div class='vex-custom-field-wrapper'><textarea name='ltf' rows='4' maxlength='500'/></textarea></div></div></div><br/>";   
         }
         fltf += "</div><br/>";
         //---------------------------------------------
@@ -99,7 +85,6 @@ function popupaddcard(){
         }
         fdate += "</div><br/>";
         // now compile all parts
-        //var form = fbegin + ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid + fend;
         var form = ftitle + fstf + fltf + fdate + fpri + fcolor + fcolid;
         vex.dialog.open({
             escapeButtonCloses: false,
@@ -112,15 +97,6 @@ function popupaddcard(){
                 } else {
                     console.log(data);
                     //data is all the vars that were changed
-                    /*
-                        date is an array -> need to check if the values changed
-                        ltf is an array -> need to check if the values changed/if the values are null ("") then don't overwrite
-                        stf is an array -> need to check is the values are changed
-                        priority is a string -> need to change it to an int
-                        column -> change to input, then check if the input is a real column, if not don't move
-                        colorcode -> change to input, then check if the color code is in cccs or not, if so change
-
-                    */
                     //data.title = title
                     //newcard is the card obj
                     //--------------------------------------------------
@@ -130,10 +106,8 @@ function popupaddcard(){
                     //title
                     //title = EXAMPLE
                     info.cardname = data.title;
-
                     //color code
                     info.cardcolorcode = data.colorcode;
-
                     //columnID
                     var coluid;
                     for(k=0; k<columndata.length; k++){
@@ -142,15 +116,11 @@ function popupaddcard(){
                         }
                     }
                     info.columnID = coluid; //make sure it never gets rendered
-
                     //priority
                     info.cardpriority = parseInt(data.priority); //make sure it never gets rendered
-
                     //cardID
                     info.cardID = carddata.length - 1;
-
                     newcard["info"] = info;
-
                     //--------------------------------------------------
                     //ltf-fields
                     //--------------------------------------------------
@@ -170,9 +140,7 @@ function popupaddcard(){
                         ltf.fielddata = data.ltf[e];
                         ltfs.push(ltf);
                     }
-
                     newcard["ltf-fields"] = ltfs;
-
                     //--------------------------------------------------
                     //stf fields
                     //--------------------------------------------------
@@ -191,9 +159,7 @@ function popupaddcard(){
                         stf.fielddata = data.stf[r];
                         stfs.push(stf);
                     }
-
                     newcard["stf-fields"] = stfs;
-
                     //--------------------------------------------------
                     //date fields
                     //--------------------------------------------------
@@ -214,37 +180,24 @@ function popupaddcard(){
                         var unix = moment(dat).format("x");
                         date.fielddata = unix;
                         dates.push(date);
-                    }       
-
+                    }
                     newcard["date-fields"] = dates;
-
                     //get the currentusername
                     var uname = JSON.parse(localStorage.getItem("currentuser"));
-
-                    console.log(newcard);
                     carddata.push(newcard);
+                    //call add action
+                    addAction(info.cardID, uname, "Made the card", "");
                     //carddata is correct with all the right colors
-                    
                     var carddatastringstuff = JSON.stringify(carddata);
-//                    console.log(carddatastringstuff);
                     localStorage.removeItem("cards");
                     localStorage.setItem("cards", carddatastringstuff);
-
                     //now upload the new cards to the server
                     if(carddata != undefined || carddata != null){
                         var up = new XMLHttpRequest;
                         up.open("POST", "./ascf.php", true);
                         up.setRequestHeader("Content-Type", "application/json");
                         up.send(carddatastringstuff);
-                    }   
-                    
-                    
-                    
-                    console.log(carddata);
-                    console.log("Going into addAction!");
-                    addAction(info.cardID, uname, "Made the card", "");
-//                    location.reload();
-
+                    }
                 }
             }
         });

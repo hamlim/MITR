@@ -2,7 +2,6 @@
 //----------------------------------
 // General Settings
 //----------------------------------
-
 $("#general-settings-btn").click(function(){
     //the general settings button is clicked
     var usernameelem = document.getElementById('username-input');
@@ -25,15 +24,15 @@ $("#general-settings-btn").click(function(){
             if(newpassconf != null || newpassconf != undefined){
                 if(userobj["password"] == oldpass){
                     if(newpass.length == 0 && newpassconf.length == 0){
-                        alert("No password entered!");
+                        toast("No password entered!", 1000);
                     } else if(newpass == newpassconf && oldpass == userobj["password"]){
                         userobj["password"] = newpass;
                     } else {
-                        alert("New passwords do not match!");
+                        toast("New passwords do not match!", 1000);
                     }
                 } 
                 else {
-                    alert("Please enter the same password in Confirm Password field!");
+                    toast("Please enter the same password in Confirm Password field!", 1000);
                 }
             }
         }
@@ -64,7 +63,7 @@ $("#general-settings-btn").click(function(){
             alus = updateusers(res);
         }
     }
-    getalluserstoup.open("GET", "./data/users.json", false);
+    getalluserstoup.open("GET", "./dat/users.json", false);
     getalluserstoup.send();
     function updateusers(data){
         var resjson = JSON.parse(data);
@@ -84,15 +83,11 @@ $("#general-settings-btn").click(function(){
     setuserup.send(aluserstring);
     
     //alert
-    alert("Settings changed.");
+    toast("Settings changed.", 1000);
     oldpass = "";
     newpass = "";
     newpassconf = "";
 });
-
-
-
-
 //----------------------------------
 //  Admin Settings
 //----------------------------------
@@ -117,7 +112,6 @@ $("#admin-add-user").click(function(){
     } else {
         newuser["isAdmin"] = 0;
     }
-    console.log(newuser);
     //get all users
     var gau = new XMLHttpRequest;
     var gau_data;
@@ -127,27 +121,24 @@ $("#admin-add-user").click(function(){
             gau_data = gauusers(res);
         }
     }
-    gau.open("GET", "./data/users.json", false);
+    gau.open("GET", "./dat/users.json", false);
     gau.send();
     function gauusers(data){
         var resdata = JSON.parse(data);
         var allusers;
         allusers = resdata; //set updated users to alus var
-//        console.log(allusers);
         return allusers;
     }
     //gau_data = all users
-//    console.log(gau_data);
     newuser["userID"] = gau_data.length;
     gau_data.push(newuser);
-    console.log(gau_data);
     //now we send gau_data to the server -> asu.php
     var upload = new XMLHttpRequest; //make a new request to update the content of users.txt
     upload.open("POST", "./asu.php", true);
     upload.setRequestHeader("Content-Type", "application/json");
     var gau_string = JSON.stringify(gau_data); //turn the JSON into a string
     upload.send(gau_string);
-    alert("User added!");
+    toast("User added!", 1000);
 });
 //remove user funtionality
 $("#admin-remove-user").click(function() {
@@ -166,7 +157,7 @@ $("#admin-remove-user").click(function() {
                 gau_data = gauusers(res);
             }
         }
-        gau.open("GET", "./data/users.json", false);
+        gau.open("GET", "./dat/users.json", false);
         gau.send();
         function gauusers(data){
             var resdata = JSON.parse(data);
@@ -197,7 +188,6 @@ $("#admin-add-column").click(function() {
     var columnorderelem = document.getElementById("admin-add-column-order");
     var columnname = columnnameelem.value;
     var columnorder = columnorderelem.value;
-    //console.log(columnorder);
     //add column to list of columns based on the order
     //note keeping column order as an extensible feature
     //columndata = JSON of columns
@@ -217,7 +207,7 @@ $("#admin-add-column").click(function() {
                 checkcontent(columnsa, res);
             }
         }
-        var colfile = "./data/columns.json";
+        var colfile = "./dat/columns.json";
         colrequest.open("GET", colfile, false);
         colrequest.send();
 
@@ -225,7 +215,6 @@ $("#admin-add-column").click(function() {
             localStorage.setItem("columns", data);
             var column = JSON.parse(data);
             columnsa = column;
-            console.log(columnsa);
         }
         if(columnsa != undefined){
             columndata = columnsa;
@@ -234,7 +223,6 @@ $("#admin-add-column").click(function() {
         }
     } 
     for(i = 0; i<columndata.length ; i++){
-        console.log(columndata[i]["columnorder"]);
         if(columndata[i]["columnorder"] >= columnorder){
             columndata[i]["columnorder"] = parseInt(columndata[i]["columnorder"]) + 1;        
         }
@@ -243,27 +231,12 @@ $("#admin-add-column").click(function() {
         }
     }
     colid = columndata.length + 1;//max + 1;
-//    var colorder;
-//    var counter = 0;
-//    if(columndata == undefined || columndata == null || columndata.length == 0){
-//        counter = 0;
-//    } else {
-//        for(j=0; j<columndata.length; j++){
-//            if(counter<columndata[j]["columnorder"]){
-//                counter = columndata[j]["columnorder"];
-//            }
-//        }
-//    }
-//    colorder = counter + 1;
     var newcol = {};
     newcol["columnname"] = columnname;
     newcol["columnID"] = colid;
     newcol["columnorder"] = parseInt(columnorder);
     
-//    localStorage.removeItem("columns");
-//    console.log(columndata);
     columndata.push(newcol);
-//    console.log(columndata);
     var colstring = JSON.stringify(columndata);
     localStorage.setItem("columns", colstring);
     //now push new data to the server
@@ -273,17 +246,14 @@ $("#admin-add-column").click(function() {
     upl.send(colstring);
     //done
     columndata = columnsa;
-    alert("Added column: " + columnname);
+    toast("Added column: " + columnname, 1000);
     columns(start, end, count+1);
     location.reload();
-//    location.reload();
 });
 //remove column functionality
 $("#admin-remove-column").click(function() {
     var columnnameelem = document.getElementById("admin-remove-column-name");
-//    var columnorderelem = document.getElementById("admin-add-column-order");
     var columnname = columnnameelem.value;
-//    var columnorder = columnorderelem.value;
     //add column to list of columns based on the order
     //note keeping column order as an extensible feature
     //columndata = JSON of columns
@@ -294,14 +264,12 @@ $("#admin-remove-column").click(function() {
             colid = columndata[i].columnID;
         }
     }
-    
     var archiveID;
     for(v=0; v<columndata.length; v++){
         if(columndata[v]["columnname"] == "Archive"){
             archiveID = columndata[v]["columnID"];
         }
     }
-    console.log(archiveID);
     var hascolumns = false;
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].columnID == colid){
@@ -321,7 +289,6 @@ $("#admin-remove-column").click(function() {
                             rest.push(columndata[i]);
                         }
                     }
-                    console.log(rest);
                     for(k=0; k<rest.length; k++){
                         if(rest[k].columnID != k+1){
                             rest[k].columnID = k+1;
@@ -341,8 +308,7 @@ $("#admin-remove-column").click(function() {
                     upl.send(colstring);
                     //done
                     columndata = rest;
-                    alert("Removed column: " + columnname);
-            //        location.reload();
+                    toast("Removed column: " + columnname, 1000);
                 }
             }
         });
@@ -352,7 +318,6 @@ $("#admin-remove-column").click(function() {
                 rest.push(columndata[i]);
             }
         }
-        console.log(rest);
         for(k=0; k<rest.length; k++){
             if(rest[k].columnID != k+1){
                 rest[k].columnID = k+1;
@@ -372,7 +337,7 @@ $("#admin-remove-column").click(function() {
         upl.send(colstring);
         //done
         columndata = rest;
-        alert("Removed column: " + columnname);
+        toast("Removed column: " + columnname, 1000);
         location.reload();
     }
 });

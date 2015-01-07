@@ -41,14 +41,12 @@ function popupeditcard(cardID){
     for(i=0; i<carddata.length; i++){
         if(carddata[i]["info"].cardID == cardID){
             cad = carddata[i];
-            console.log(cad);
             n = cad["info"].cardname;
             c = cad["info"].cardcolorcode;
             p = cad["info"].cardpriority;
             cid = cad["info"].columnID;
         }
     }
-//    console.log(cad);
     var colnames = [];
     var currentcolname;
     for(o = 0; o<columndata.length; o++){
@@ -58,8 +56,6 @@ function popupeditcard(cardID){
             currentcolname = columndata[o].columnname;
         }
     }
-//    console.log("columns");
-//    console.log(colnames);
     //colnames is the other columns
     //currentcolname is the current column the card is in
     //cccs is the cardcolorcodes
@@ -74,15 +70,9 @@ function popupeditcard(cardID){
     }
     //ncccs = all other colors
     //ccs = current colorcode
-    /*
-        Example form:
-        "<div class=\"vex-custom-field-wrapper\">\n    <label for=\"date\">Date</label>\n    <div class=\"vex-custom-input-wrapper\">\n        <input name=\"date\" type=\"date\" value=\"" + todayDateString + "\" />\n    </div>\n</div>\n<div class=\"vex-custom-field-wrapper\">\n    <label for=\"color\">Color</label>\n    <div class=\"vex-custom-input-wrapper\">\n        <input name=\"color\" type=\"color\" value=\"#ff00cc\" />\n    </div>\n</div>"
-    */
     //pre-form content
     var content = "<h1>Edit Card: "+n+ " </h1>";
     //form content
-    //
-    // Title of the card: <div class='uk-form-row uk-panel-primary'><label for='title'>Card Title:</label><input name='title' type='text' value=' + n + '/></div>
     // all stfs 
     // all ltfs
     // all dates
@@ -127,7 +117,7 @@ function popupeditcard(cardID){
     //all ltfs
     var fltf = "<div class='ltf-edit-content'>";
     for(y=0; y<cad["ltf-fields"].length; y++){
-        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizeltf'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><textarea name='ltf' rows='4' placeholder='"+cad["ltf-fields"][y].fielddata +"' value='"+cad["ltf-fields"][y].fielddata+"'/></textarea></div></div></div><br/>";   
+        fltf += "<div class='vex-custom-field-wrapper'><div class='uk-form-row uk-panel-primary customizeltf'><label for='ltf'>"+cad["ltf-fields"][y].fieldname+":</label><div class='vex-custom-field-wrapper'><textarea name='ltf' rows='4' maxlength='500'>"+ cad["ltf-fields"][y].fielddata +"</textarea></div></div></div><br/>";   
     }
     fltf += "</div><br/>";
     //---------------------------------------------
@@ -150,9 +140,8 @@ function popupeditcard(cardID){
         input: form,
         callback: function(data) {
             if (data === false) {
-                return console.log('Cancelled');
+                return ;
             } else {
-                console.log(data);
                 //data is all the vars that were changed
                 /*
                     date is an array -> need to check if the values changed
@@ -161,7 +150,6 @@ function popupeditcard(cardID){
                     priority is a string -> need to change it to an int
                     column -> change to input, then check if the input is a real column, if not don't move
                     colorcode -> change to input, then check if the color code is in cccs or not, if so change
-                    
                 */
                 //data.title = title
                 for(q=0; q<carddata.length; q++){
@@ -170,8 +158,7 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         //title
                         //--------------------------------------------------
-                        if(data.title != carddata[q]["info"].cardname){
-                            //cardname has changed
+                        if(data.title != carddata[q]["info"].cardname && data.title != ""){
                             carddata[q]["info"].cardname = data.title;
                         }
                         //--------------------------------------------------
@@ -203,11 +190,15 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         if(typeof data.ltf === 'string' || data.ltf instanceof String){
                             //vex is returning only one string, because only one field was edited
-                            console.log("only one ltf field changed");
                             if(data.ltf.length != 0){
                                 //only one ltf was changed
-                                console.log("Only one ltf was changed");
-                                
+                                if(carddata[q]["ltf-fields"].length == 1){
+                                    var obj = {};
+                                    obj.fieldtype = "ltf";
+                                    obj.fieldata = data.ltf;
+                                    obj.fieldname = carddata[q]["ltf-fields"][0].fieldname;
+                                    carddata[q]["ltf-fields"][0] = obj;
+                                }
                             }
                         } else {
                             for(e=0; e<data.ltf.length; e++){
@@ -226,11 +217,15 @@ function popupeditcard(cardID){
                         //--------------------------------------------------
                         if(typeof data.stf === 'string' || data.stf instanceof String){
                             //only one string was changed
-                            console.log("only one stf field changed");
                             if(data.stf.length != 0){
                                 //only one stf was changed
-                                console.log("Only one stf was changed");
-                                
+                                if(carddata[q]["stf-fields"].length == 1){
+                                    var obj = {};
+                                    obj.fieldtype = "stf";
+                                    obj.fieldata = data.stf;
+                                    obj.fieldname = carddata[q]["stf-fields"][0].fieldname;
+                                    carddata[q]["stf-fields"][0] = obj;
+                                }
                             }
                         } else {
                             for(r=0; r<data.stf.length; r++){
@@ -247,18 +242,23 @@ function popupeditcard(cardID){
                         //date changes
                         //--------------------------------------------------
                         if(typeof data.date === 'string' || data.date instanceof String){
-                            console.log("only one date field changed");
                             if(data.date.length != 0){
                                 //only one date was changed
-                                console.log("Only one date was changed");
+                                if(carddata[q]["date-fields"].length == 1){
+                                    var obj = {};
+                                    var date = moment(data.date);
+                                    var unix = moment(date).format("x");
+                                    obj.fieldtype = "date";
+                                    obj.fieldata = unix;
+                                    obj.fieldname = carddata[q]["date-fields"][0].fieldname;
+                                    carddata[q]["date-fields"][0] = obj;
+                                }
                             }
                         } else {
                             for(t=0; t<data.date.length; t++){
                                 //parse date format
                                 var date = moment(data.date[t]);
                                 var unix = moment(date).format("x");
-                                console.log(data.date);
-                                console.log(carddata[q]);
                                 if(unix != carddata[q]["date-fields"][t].fielddata){
                                     var obj = {};
                                     obj.fielddata = unix;
@@ -271,15 +271,11 @@ function popupeditcard(cardID){
                         
                     }
                 }
-                
                 //now we overwrite the stuff
-                console.log(carddata);
                 var cardstring = JSON.stringify(carddata);
                 localStorage.removeItem("cards");
                 localStorage.setItem("cards", cardstring);
-                
                 var currentuser = JSON.parse(localStorage.getItem("currentuser"));
-                
                 //now upload the cardstring
                 if(carddata != null || carddata != undefined){
                     var upload = new XMLHttpRequest;
@@ -287,9 +283,6 @@ function popupeditcard(cardID){
                     upload.setRequestHeader("Content-Type", "application/json");
                     upload.send(cardstring);
                 }
-                //done
-                console.log(carddata);
-                console.log("Handing off to addAction...");
                 addAction(cardID, currentuser, "Edited the card", "");
             }
         }

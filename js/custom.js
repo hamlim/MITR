@@ -38,24 +38,17 @@ var grey = new Object();
 grey.first = "#212121";
 grey.last = "#fafafa";
 grey.name = "Grey";
-
 //array of all background colors
 var colors = [purple, blue, teal, green, yellow, red, maroon, grey];
 
-
-
-
-
 //helper function to create the shades for column backgrounf
 function ColorLuminance(hex, lum) {
-
 	// validate hex string
 	hex = String(hex).replace(/[^0-9a-f]/gi, '');
 	if (hex.length < 6) {
 		hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
 	}
 	//lum = lum || 0;
-
 	// convert to decimal and change luminosity
 	var rgb = "#", c, i;
 	for (i = 0; i < 3; i++) {
@@ -63,14 +56,11 @@ function ColorLuminance(hex, lum) {
 		c = Math.round(Math.min(Math.max(0, c + lum[i]), 255)).toString(16);
 		rgb += ("00"+c).substr(c.length);
 	}
-
 	return rgb;
 }
 
-
 ////Set color gradient and background color for all the columns
-function columns(c1, c2, colnum){
-        
+function columns(c1, c2, colnum){ 
     var color1 = c1;
     var color2 = c2;
     var red = parseInt(color2.substr(1,2), 16) - parseInt(color1.substr(1,2), 16);
@@ -80,7 +70,6 @@ function columns(c1, c2, colnum){
     blue = Math.round(blue/colnum);
     green = Math.round(green/colnum);
     var diff = [red,green,blue];
-
     if(columndata != undefined || columndata != null){
         for(x = 1; x <= colnum; x++){
             diff = [red*(x-1), green*(x-1), blue*(x-1) ];
@@ -89,8 +78,6 @@ function columns(c1, c2, colnum){
                 document.getElementById(hold).style.backgroundColor = ColorLuminance(color1,diff);
             }
         }
-    } else {
-        //no columns yet
     }
 }
 function changeColumn(card){
@@ -113,10 +100,6 @@ function changeColumn(card){
     uploadchanges.send(cardsstring);
     //changes uploaded to the server
 }
-
-
-
-
 $(document).ready(function(){
 	$("li.tab").click(function(){ //switch between admin and account setting content
 		$(".uk-tab li").removeClass('uk-active');
@@ -148,14 +131,10 @@ $(document).ready(function(){
 			}
 		});
 	});
-
-
-
 	//open the settings modal
 	$("div.settingsModal").click(function(){
 		$(this).addClass('uk-open');
 		$("html").css("margin-left", "0");
-		//document.getElementById('settingsModal').style.display = block;
 	});
 });
 //change the color of the colorbox div upon change
@@ -176,16 +155,11 @@ $('#thumbs').delegate('img', 'click', function() {
     var $this = $(this);
     // Clear formatting
     $('#thumbs img').removeClass('border-highlight');
-
     // Highlight with coloured border
     $this.addClass('border-highlight');
-    
     // Changes the value of the form field "animal" to the file name shown in the image.
     $('[name="animal"]').val( $this.attr('src').substring($this.attr('src').lastIndexOf('/')+1) );
 });
-
-
-
 
 /*-----------------------------------------------------------------*/
 /*DRAG AND DROP*/
@@ -280,17 +254,15 @@ $.fn.sortable = function(options) {
 	});
 };
 })(jQuery);
-
-		$(function() {
-			$('.sortable').sortable();
-			$('.handles').sortable({
-				handle: 'span'
-			});
-			$('.connected').sortable({
-				connectWith: '.connected'
-			});
-			$('.exclude').sortable({
-				items: ':not(.disabled)'
-			});
-		});
-
+$(function() {
+    $('.sortable').sortable();
+    $('.handles').sortable({
+        handle: 'span'
+    });
+    $('.connected').sortable({
+        connectWith: '.connected'
+    });
+    $('.exclude').sortable({
+        items: ':not(.disabled)'
+    });
+});

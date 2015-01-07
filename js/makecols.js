@@ -2,11 +2,8 @@
 makecols.js
 Functions/uses: Render columns and cards on the page
 Only to be run on page load/reload
-
 */
-
 //columndata = JSON of columns
-
 //first sort the columns by their order
 var colu = columndata.sort(function(a,b){return (a.columnorder - b.columnorder);});
 //var car = carddata.sort(function(a, b){return (a["info"].cardpriority - b["info"].cardpriority);});
@@ -19,59 +16,18 @@ for(i=0; i<columndata.length; i++){
 //testing
 //grab the column body element (holds all columns in it)
 var colbody = document.getElementById("columnslist");
-
-//parlor trick code, not actually meant to work
-//var h2s = colbody.getElementsByTagName("h2");
-//
-//for(i=0; i<columnnames.length; i++){
-//    h2s[i].innerHTML = columnnames[i];
-//}
-//end parlor trick code
-
-//this is the format of each column in the colbody element
-//<!--new column-->
-//            <li class = "column" id = "COLUMNORDER">
-//                <h2>Heading</h2>
-//                <ul class="cardlist connected list">
-//                   <li class="card">
-//                        <div class="cardheader">
-//                            <p class="cardpriority">PRIORITY<span class="cardtitle">CARDNAME<a href="#editCardModal" data-uk-modal><i class="uk-icon-pencil-square-o"></i></a></span></p>
-//                        </div>
-//                    </li>
-//                    <li class="card">
-//                        <div class="cardheader">
-//                            <p class="cardpriority">PRIORITY<span class="cardtitle">CARDNAME<a href ="#editCardModal" data-uk-modal><i class = "uk-icon-pencil-square-o"></i></a></span></p>
-//                        </div>
-//                    </li>
-//                    <li class="card">
-//                        <div class="cardheader">
-//                            <p class = "cardpriority">PRIORITY<span class = "cardtitle">CARDNAME<a href ="#editCardModal" data-uk-modal><i class = "uk-icon-pencil-square-o"></i></a></span></p>
-//                        </div>
-//                    </li>
-//                    <li class = "card">
-//                        <div class = "cardheader">
-//                            <p class = "cardpriority">PRIORITY<span class = "cardtitle">CARDNAME<a href ="#editCardModal" data-uk-modal><i class = "uk-icon-pencil-square-o"></i></a></span></p>
-//                        </div>
-//                    </li>
-//                </ul>
-//            </li>
-
 //now we make the html content from the column lists
 //we also need the cards
 //colu is the array of order-sorted columns
 //
-console.log(carddata);
 if(carddata == undefined || carddata == null){
     var carddata = {};
 }
-//console.log(carddata);
-
 var alldata = [];
 for(i=0; i<colu.length; i++){ //iterate through columns
     var cards = [];
     for(j=0; j<carddata.length; j++){ //iterate through cards
         if(carddata[j]["info"]["columnID"] == colu[i]["columnID"]){
-//            console.log(carddata[j]);
             //the card belongs in the column
             //we need to format the card properly
             var id = carddata[j]["info"]["cardID"];
@@ -139,15 +95,11 @@ for(i=0; i<colu.length; i++){ //iterate through columns
                 materialname: "lime"
             }
             var cccs = [darkblue, green, grey, lightblue, pink, purple, red, indigo];
-//            console.log(cccs);
             for(x=0; x<cccs.length; x++){
                 if(cccs[x].name == color){
-//                    console.log(cccs[x]);
                     var cardtext = "<li class='' data-cbreeze-cardid='"+id+"'><div class='row'><div class='col s12'><div class=''><div class='card "+cccs[x].materialname+"'><div class='card-content white-text'><div class='center col s12'><span class='card-title'><div class='col s2'>"+pri+"</div><div class='col s8'>"+na+"</div><div class='col s2'><a href='#' class='btn-flat edit-card-icon' onclick='popupeditcard("+id+")'><i class='mdi-editor-border-color'></i></a></div></span></div><p class='fix-spacing'>"+na+"</p></div><div class='card-action center card-links'><a href='#card"+id+"' onclick='popupmodal("+id+");'>Card Information</a><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></div></div></div></div></div></li>";
-                    //var cardtext = "<li class='card' data-cbreeze-cardid='"+id+"'><div class='cardheader'><a href='#editCardModal' id='edit-card-icon' onclick='popupeditcard("+id+")' ><i class='uk-icon-pencil-square-o'></i></a><p class='cardpriority' style='background-color:" + cccs[x].hex + " '>"+pri+"<span class='cardtitle'>"+na+"</span></p></div><a href='#card"+id+"' onclick='popupmodal("+id+");'><div class='cardprvcontent'></div>Card Information</a><br/><a href='#actions' data-cbreeze-card-ID-"+id+" onclick='popupaction("+id+");'>Activites</a></li>";
                 }
             }
-//            console.log(cardtext);
             cards.push(cardtext);
         }
     }
@@ -159,10 +111,5 @@ for(i=0; i<colu.length; i++){ //iterate through columns
     var column = columnstart + string + "</ul></li>"
     alldata.push(column);
 }
-
-//var content;
-//for(i=0; i<alldata.length; i++){
-//    content += alldata[i];
-//}
 //colbody.innerHTML += content;
 colbody.innerHTML += alldata.join();

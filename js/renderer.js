@@ -66,12 +66,6 @@ function popupmodal(cardID){ //card info
                 overlayClosesOnClick: false,
                 css: {'word-wrap' : 'break-word'},
                 content: zccontent,
-                afterOpen: function($vexContent) {
-//                                return $vexContent.append($el);
-                },
-                afterClose: function() {
-//                    return console.log('Card Closed');
-                }
             });
         }
     }
@@ -91,8 +85,6 @@ function popupaction(cardID){ //card activities
                 cardactivities += "<li id='card-activity'>"+zoomcard["activities"][l].username+" "+ zoomcard["activities"][l].actiontype;
                 if(!(zoomcard["activities"][l].actiontype == "Edited this card") && !(zoomcard["activities"][l].actiontype == "Made this card") && !(zoomcard["activities"][l].actiontype == "Moved this card") && zoomcard["activities"][l].newdata != null){
                     cardactivities += " with: <p>"+zoomcard["activities"][l].newdata.data+"</p> at "+datet+"</li>";
-                    console.log("In Renderer.js");
-                    console.log(zoomcard["activities"][l].newdata);
                 }
                 if(zoomcard["activities"][l].actiontype == "Moved this card"){
                     var meh = zoomcard["activities"][l].newdata;
@@ -121,12 +113,6 @@ function popupaction(cardID){ //card activities
                 escapeButtonCloses: false,
                 overlayClosesOnClick: false,
                 content: actioncontent,
-                afterOpen: function($vexContent) {
-//                                return $vexContent.append($el);
-                },
-                afterClose: function() {
-//                    return console.log('Card Closed');
-                }
             });
         }
     } 
@@ -137,7 +123,6 @@ function commenting(cardID) { //handling comments
         overlayClosesOnClick: false,
         message: 'Add comment:',
         callback: function(value) {
-            //generate the timestamp when the action was made:
             var currentuser = JSON.parse(localStorage.getItem("currentuser"));
             addAction(cardID, currentuser, "Commented", value);
         }
